@@ -1,0 +1,41 @@
+{
+  "files": {
+    "static/js/0.0db8eae6.chunk.js": "/static/js/0.0db8eae6.chunk.js",
+    "main.css": "/static/css/main.a069fb17.chunk.css",
+    "main.js": "/static/js/main.74c8368a.chunk.js",
+    "runtime-main.js": "/static/js/runtime-main.c16d1c08.js",
+    "static/js/3.40ad7aaa.chunk.js": "/static/js/3.40ad7aaa.chunk.js",
+    "static/js/4.de1e33fe.chunk.js": "/static/js/4.de1e33fe.chunk.js",
+    "static/js/5.bc9b5b62.chunk.js": "/static/js/5.bc9b5b62.chunk.js",
+    "static/js/6.f8d6749d.chunk.js": "/static/js/6.f8d6749d.chunk.js",
+    "static/js/7.4f7892a6.chunk.js": "/static/js/7.4f7892a6.chunk.js",
+    "static/js/8.bb480cd9.chunk.js": "/static/js/8.bb480cd9.chunk.js",
+    "static/js/9.ba465f57.chunk.js": "/static/js/9.ba465f57.chunk.js",
+    "static/js/10.33a8d4cf.chunk.js": "/static/js/10.33a8d4cf.chunk.js",
+    "static/js/11.f1258b57.chunk.js": "/static/js/11.f1258b57.chunk.js",
+    "index.html": "/index.html",
+    "precache-manifest.5b82307664896811e46e94fb4f24219d.js": "/precache-manifest.5b82307664896811e46e94fb4f24219d.js",
+    "service-worker.js": "/service-worker.js",
+    "static/js/3.40ad7aaa.chunk.js.LICENSE.txt": "/static/js/3.40ad7aaa.chunk.js.LICENSE.txt",
+    "static/js/5.bc9b5b62.chunk.js.LICENSE.txt": "/static/js/5.bc9b5b62.chunk.js.LICENSE.txt",
+    "static/js/6.f8d6749d.chunk.js.LICENSE.txt": "/static/js/6.f8d6749d.chunk.js.LICENSE.txt",
+    "static/js/7.4f7892a6.chunk.js.LICENSE.txt": "/static/js/7.4f7892a6.chunk.js.LICENSE.txt",
+    "static/js/8.bb480cd9.chunk.js.LICENSE.txt": "/static/js/8.bb480cd9.chunk.js.LICENSE.txt",
+    "static/media/Cup.svg": "/static/media/Cup.bf09f230.svg",
+    "static/media/Luas.svg": "/static/media/Luas.cdd2335d.svg",
+    "static/media/icon-view.svg": "/static/media/icon-view.6062483f.svg",
+    "static/media/logo.png": "/static/media/logo.25dd74d3.png",
+    "static/media/lua-icon.svg": "/static/media/lua-icon.182bdf75.svg",
+    "static/media/luas-icon.svg": "/static/media/luas-icon.0fde3b98.svg",
+    "static/media/luaswap.png": "/static/media/luaswap.6a37e68c.png",
+    "static/media/metamask-fox.svg": "/static/media/metamask-fox.c06f3a3e.svg",
+    "static/media/pro-tip-icon.svg": "/static/media/pro-tip-icon.7dff606f.svg",
+    "static/media/wallet-connect.svg": "/static/media/wallet-connect.37f2bc6e.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c16d1c08.js",
+    "static/js/3.40ad7aaa.chunk.js",
+    "static/css/main.a069fb17.chunk.css",
+    "static/js/main.74c8368a.chunk.js"
+  ]
+}
