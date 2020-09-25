@@ -16,13 +16,13 @@ import LuaLogo from '../../assets/img/logo.png'
 const Home: React.FC = () => {
   var block = useBlock()
   const launchBlock = START_REWARD_AT_BLOCK
-  const [atDate, setDate] = useState<any>()
-  useEffect(() => {
-    if (block > 0) {
-      var d: any = (launchBlock - block) * 13000 + new Date().getTime()
-      setDate(new Date(d))
-    }
-  }, [block > 0])
+  const [atDate, setDate] = useState<any>(new Date(1601280584295))
+  // useEffect(() => {
+  //   if (block > 0) {
+  //     var d: any = (launchBlock - block) * 13000 + new Date().getTime()
+  //     setDate(new Date(d))
+  //   }
+  // }, [block > 0])
   return (
     <Page>
       <Spacer size="lg" />

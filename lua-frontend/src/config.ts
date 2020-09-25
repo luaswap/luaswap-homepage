@@ -1,4 +1,4 @@
 export default {
-  rpc: 'https://rpc.devnet.tomochain.com',
-  chainId: 99
+  rpc: 'https://mainnet.eth.aragon.network/',
+  chainId: 1
 }

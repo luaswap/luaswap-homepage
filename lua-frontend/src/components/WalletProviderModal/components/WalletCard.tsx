@@ -18,7 +18,7 @@ const WalletCard: React.FC<WalletCardProps> = ({ icon, onConnect, title }) => (
       <CardIcon>{icon}</CardIcon>
       <CardTitle text={title} />
       <Spacer />
-      <Button onClick={onConnect} text="Connect" />
+      <Button disabled={title === 'WalletConnect'} onClick={onConnect} text="Connect" />
     </CardContent>
   </Card>
 )

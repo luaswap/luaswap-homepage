@@ -8,9 +8,9 @@ const Nav: React.FC = () => {
       <StyledLink exact activeClassName="active" to="/">
         Home
       </StyledLink>
-      <StyledLink exact activeClassName="active" to="/swap">
+      {/* <StyledLink exact activeClassName="active" to="/swap">
         Swap
-      </StyledLink>
+      </StyledLink> */}
     </StyledNav>
   )
 }

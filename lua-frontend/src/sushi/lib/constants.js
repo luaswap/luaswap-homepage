@@ -1,7 +1,7 @@
 import BigNumber from 'bignumber.js/bignumber'
 
 export const SUBTRACT_GAS_LIMIT = 100000
-export const START_REWARD_AT_BLOCK = 426609 // TODO
+export const START_REWARD_AT_BLOCK = 10950600 // TODO
 
 const ONE_MINUTE_IN_SECONDS = new BigNumber(60)
 const ONE_HOUR_IN_SECONDS = ONE_MINUTE_IN_SECONDS.times(60)
@@ -42,11 +42,11 @@ export const addressMap = {
 // TODO: change the address & set LP pool
 export const contractAddresses = {
   sushi: {
-    1: '0x588e36883c677124720AF3C9147661fc4daBAD41',
+    1: '0xB1f66997A5760428D3a87D68b90BfE0aE64121cC',
     99: '0x9FB56E17EF76Eb21d89d2Ec73058245844e70E3d',
   },
   masterChef: {
-    1: '0x713b6C264F4EFD39723c0e1FF1e4ea063048fA6F',
+    1: '0xb67D7a6644d9E191Cac4DA2B88D6817351C7fF62',
     99: '0xA49D353dd804f516bcd500D1Dd6eE72675CF498d',
   },
   weth: {
@@ -87,12 +87,12 @@ export const supportedPools = [
     name: 'TOMOE - ETH',
     symbol: 'TOMOE-ETH UNI-V2 LP',
     symbolShort: 'TOMOE-ETH',
-    description: `Deposit TOMOE-ETH UNI-V2 LP to Earn x2 LUA`,
+    description: `Deposit TOMOE-ETH UNI-V2 LP to Earn LUA`,
     tokenSymbol: 'UNI',
     icon: 'https://wallet.tomochain.com/public/imgs/tomoiconwhite.png',
     icon2: 'https://s2.coinmarketcap.com/static/img/coins/128x128/1027.png',
-    isHot: true,
-    isNew: false
+    isHot: false,
+    isNew: true
   },
   {
     pid: 0,
@@ -107,12 +107,12 @@ export const supportedPools = [
     name: 'TOMOE - USDT',
     symbol: 'TOMOE-USDT UNI-V2 LP',
     symbolShort: 'TOMOE-USDT',
-    description: `Deposit TOMOE-USDT UNI-V2 LP to Earn x2 LUA`,
+    description: `Deposit TOMOE-USDT UNI-V2 LP to Earn LUA`,
     tokenSymbol: 'UNI',
     icon: 'https://wallet.tomochain.com/public/imgs/tomoiconwhite.png',
     icon2: 'https://s2.coinmarketcap.com/static/img/coins/128x128/825.png',
-    isHot: true,
-    isNew: false
+    isHot: false,
+    isNew: true
   }, 
   {
     pid: 1,
@@ -127,7 +127,7 @@ export const supportedPools = [
     name: 'TOMOE - USDC',
     symbol: 'TOMOE-USDC UNI-V2 LP',
     symbolShort: 'TOMOE-USDC',
-    description: `Deposit TOMOE-USDC UNI-V2 LP to Earn x2 LUA`,
+    description: `Deposit TOMOE-USDC UNI-V2 LP to Earn LUA`,
     tokenSymbol: 'UNI',
     icon: 'https://wallet.tomochain.com/public/imgs/tomoiconwhite.png',
     icon2: 'https://s2.coinmarketcap.com/static/img/coins/128x128/3408.png',
