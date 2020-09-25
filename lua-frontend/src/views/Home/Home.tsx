@@ -42,6 +42,8 @@ const Home: React.FC = () => {
         <Spacer size="lg" />
       </>
       }
+      <div style={{color: '#fa4c4c'}}>This project is in beta. Use at your own risk.</div>
+      <Spacer size="lg" />
       <Container size = "lg">
         <div style={{
           border: '1px solid #2C3030'
