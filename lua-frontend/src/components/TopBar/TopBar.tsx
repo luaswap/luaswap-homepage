@@ -16,7 +16,7 @@ const TopBar: React.FC<TopBarProps> = ({ onPresentMobileMenu }) => {
     <StyledTopBar>
       <Container size="lg">
         <StyledTopBarInner>
-          <div style={{display: 'flex', alignItems: 'center'}}>
+          <div style={{display: 'flex', alignItems: 'center', height: 65}}>
             <StyledLogoWrapper>
               <Logo />
             </StyledLogoWrapper>
