@@ -54,7 +54,7 @@ const Home: React.FC = () => {
         }}
       >
         <StyledHeading>SELECT YOUR FIELDS</StyledHeading>
-        <StyledParagraph>Earn LUA tokens by staking UNI LP V2 token</StyledParagraph>
+        <StyledParagraph>Earn LUA tokens by staking UNI-V2 LP token</StyledParagraph>
         <Spacer size="lg" />
 
         <StyledInfo>
