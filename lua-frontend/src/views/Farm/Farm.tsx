@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import { useWallet } from 'use-wallet'
 import { provider } from 'web3-core'
+import Button from '../../components/Button'
+import Container from '../../components/Container'
 import PageHeader from '../../components/PageHeader'
 import Spacer from '../../components/Spacer'
 import useFarm from '../../hooks/useFarm'
@@ -28,7 +30,11 @@ const Farm: React.FC = () => {
     icon,
     icon2,
     description,
-    symbolShort
+    symbolShort,
+    protocal,
+    iconProtocal,
+    pairLink,
+    addLiquidityLink
   } = useFarm(farmId) || {
     pid: 0,
     lpToken: '',
@@ -38,6 +44,11 @@ const Farm: React.FC = () => {
     earnToken: '',
     name: '',
     icon: '',
+    symbol: '',
+    protocal: '',
+    iconProtocal: '',
+    pairLink: '',
+    addLiquidityLink: ''
   }
 
   useEffect(() => {
@@ -51,16 +62,6 @@ const Farm: React.FC = () => {
   const lpContract = useMemo(() => {
     return getContract(ethereum as provider, lpTokenAddress)
   }, [ethereum, lpTokenAddress])
-
-  const { onRedeem } = useRedeem(getMasterChefContract(sushi))
-
-  const lpTokenName = useMemo(() => {
-    return lpToken.toUpperCase()
-  }, [lpToken])
-
-  const earnTokenName = useMemo(() => {
-    return earnToken.toUpperCase()
-  }, [earnToken])
 
   return (
     <>
@@ -94,9 +95,29 @@ const Farm: React.FC = () => {
         </StyledCardsWrapper>
         <Spacer size="lg" />
         <StyledInfo>
-          ⭐️ Every time you stake and unstake LP tokens, the contract will
+          ⭐️ Every time you stake and unstake LP tokens, the contract will<br/>
           automatically harvest LUA rewards for you!
         </StyledInfo>
+        <Spacer size="lg" />
+        <StyledCardsWrapper>
+          <div>
+            <div style={{color: '#ffffff', fontWeight: 'bold', fontSize: 14, marginBottom: 10}}>
+              MAYBE YOU DON'T KNOW
+            </div>
+            <StyledInfoLP>
+              <img src={iconProtocal} height="70" style={{marginTop: 20}} />
+              <div style={{width: 'calc(100% - 70px', color: '#ffffff', fontSize: 16, marginLeft: 20, marginRight: 20}}>
+                
+                <div>Add liquidity to <a style={{color: '#f6b944', textDecoration: 'none'}} href={pairLink} target="__blank"><b>{symbolShort} pair</b></a> on {protocal} to get <span style={{color: '#f6b944'}}>{lpToken}</span> tokens. Then deposit those LP tokens on LuaSwap to receive rewards from September 27th</div>
+                <Spacer size="sm" />
+                <a style={{color: '#f6b944'}} target="__blank" href={addLiquidityLink}>
+                  <b>Add Liquidity on {protocal}</b>
+                </a>
+              </div>
+            </StyledInfoLP>
+          </div>
+        </StyledCardsWrapper>
+
         <Spacer size="lg" />
       </StyledFarm>
     </>
@@ -152,6 +173,13 @@ const StyledHeading = styled.h2`
   text-transform: uppercase;
   text-align: center;
   margin-bottom: 20px;
+`
+
+const StyledInfoLP = styled.div`
+  display: flex;
+  padding: 15px 10px;
+  background: #00ff5d0f;
+  border-radius: 12px;
 `
 
 export default Farm

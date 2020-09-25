@@ -48,6 +48,10 @@ export const getFarms = (sushi) => {
           isNew,
           lpAddress,
           lpContract,
+          protocal,
+          iconProtocal,
+          pairLink,
+          addLiquidityLink,
         }) => ({
           pid,
           id: symbol,
@@ -66,7 +70,11 @@ export const getFarms = (sushi) => {
           earnTokenAddress: sushi.contracts.sushi.options.address,
           icon,
           icon2,
-          description
+          description,
+          protocal,
+          iconProtocal,
+          pairLink,
+          addLiquidityLink,
         }),
       )
     : []

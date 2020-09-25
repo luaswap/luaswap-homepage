@@ -20,6 +20,7 @@ const FarmsContainer: React.FC = () => {
   const { path } = useRouteMatch()
   const { account } = useWallet()
   const [onPresentWalletProviderModal] = useModal(<WalletProviderModal />)
+  
   return (
     <Page>
       {!!account ? (

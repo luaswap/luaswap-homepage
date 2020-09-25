@@ -16,13 +16,13 @@ import LuaLogo from '../../assets/img/logo.png'
 const Home: React.FC = () => {
   var block = useBlock()
   const launchBlock = START_REWARD_AT_BLOCK
-  const [atDate, setDate] = useState<any>(new Date(1601280584295))
-  // useEffect(() => {
-  //   if (block > 0) {
-  //     var d: any = (launchBlock - block) * 13000 + new Date().getTime()
-  //     setDate(new Date(d))
-  //   }
-  // }, [block > 0])
+  const [atDate, setDate] = useState<any>()
+  useEffect(() => {
+    if (block > 0) {
+      var d: any = (launchBlock - block) * 13000 + new Date().getTime()
+      setDate(new Date(d))
+    }
+  }, [block > 0])
   return (
     <Page>
       <Spacer size="lg" />
@@ -31,6 +31,10 @@ const Home: React.FC = () => {
       {block < launchBlock && atDate && <>
         <Spacer size="lg" />
         <CustomCountDown date={atDate}/>
+        <Spacer size="md" />
+        <div>
+          <ReadMore href="https://medium.com/luaswap/introducing-luaswap-org-7e6ff38beefc" target="__blank"> 👉&nbsp;&nbsp;Read The Announcement&nbsp;&nbsp;👈</ReadMore>
+        </div>
         <Spacer size="lg" />
       </>
       }
@@ -39,6 +43,10 @@ const Home: React.FC = () => {
         <Container>
           <Balances />
         </Container>
+        <Spacer size="md" />
+        <div>
+          <ReadMore href="https://medium.com/luaswap/introducing-luaswap-org-7e6ff38beefc" target="__blank"> 👉&nbsp;&nbsp;Read The Announcement&nbsp;&nbsp;👈</ReadMore>
+        </div>
         <Spacer size="lg" />
       </>
       }
@@ -60,7 +68,10 @@ const Home: React.FC = () => {
         <Spacer size="lg" />
 
         <StyledInfo>
-          <img src={Icon_Tip} alt="Pro Tip"/><b>Pro Tip</b>: Stake any pool in this week to earn <span style= {{marginRight:10,marginLeft:10,lineHeight:1,fontSize: 20, fontWeight: 'bold'}}>x128 LUA</span> reward
+          <img src={Icon_Tip} alt="Pro Tip"/>
+          <div>
+            <b>Pro Tip</b>: Stake to any pool and earn <b>128x LUA</b> rewards after <br/>the Harvest Festival begins on September 27th
+          </div>
         </StyledInfo>
         <Spacer size="lg" />
         <FarmCards />
@@ -77,12 +88,13 @@ const StyledInfo = styled.h3`
   padding: 0;
   text-align: center;
   display: flex;
+  align-items: start;
   justify-content: center;
   > img{
     width: 20px;
     margin-right: 3px;
   }
-  > b {
+  b {
     color: ${(props) => props.theme.color.primary.main};
   }
 `
@@ -95,6 +107,19 @@ const StyledHeading = styled.h2`
 const StyledParagraph = styled.p`
   color: ${(props) => props.theme.color.grey[100]};
   text-align: center;
+  margin-top: 10px;
+`
+
+const ReadMore = styled.a`
+  text-decoration: none;
+  font-weight: bold;
+  color: #ffffff;
+  display: inline-block;
+  padding: 5px 20px;
+  border-radius: 5px;
+  border: 1px solid #00ff8970;
+  background: #00ff890d;
+  font-size: 14px;
   margin-top: 10px;
 `
 

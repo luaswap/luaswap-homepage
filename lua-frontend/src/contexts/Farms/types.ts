@@ -17,6 +17,10 @@ export interface Farm {
   isNew: boolean
   id: string
   tokenSymbol: string
+  protocal: string
+  iconProtocal: string
+  pairLink: string
+  addLiquidityLink: string
 }
 
 export interface FarmsContext {

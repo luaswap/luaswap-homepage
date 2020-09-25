@@ -92,7 +92,11 @@ export const supportedPools = [
     icon: 'https://wallet.tomochain.com/public/imgs/tomoiconwhite.png',
     icon2: 'https://s2.coinmarketcap.com/static/img/coins/128x128/1027.png',
     isHot: false,
-    isNew: true
+    isNew: true,
+    protocal: 'UniSwap',
+    iconProtocal: 'https://uniswap.info/static/media/logo_white.edb44e56.svg',
+    pairLink: 'https://uniswap.info/pair/0x5c89674c4ad1ccd10a29bcc9aabc303cd5f2da1d',
+    addLiquidityLink: 'https://app.uniswap.org/#/add/0x05d3606d5c81eb9b7b18530995ec9b29da05faba/ETH'
   },
   {
     pid: 1,
@@ -112,7 +116,11 @@ export const supportedPools = [
     icon: 'https://wallet.tomochain.com/public/imgs/tomoiconwhite.png',
     icon2: 'https://s2.coinmarketcap.com/static/img/coins/128x128/825.png',
     isHot: false,
-    isNew: true
+    isNew: true,
+    protocal: 'UniSwap',
+    iconProtocal: 'https://uniswap.info/static/media/logo_white.edb44e56.svg',
+    pairLink: 'https://uniswap.info/pair/0xcad93baf5cc5ebfe7f8a485828f0c0ecd2d0e9b8',
+    addLiquidityLink: 'https://app.uniswap.org/#/add/0x05d3606d5c81eb9b7b18530995ec9b29da05faba/0xdac17f958d2ee523a2206206994597c13d831ec7'
   }, 
   {
     pid: 2,
@@ -132,6 +140,10 @@ export const supportedPools = [
     icon: 'https://wallet.tomochain.com/public/imgs/tomoiconwhite.png',
     icon2: 'https://s2.coinmarketcap.com/static/img/coins/128x128/3408.png',
     isHot: false,
-    isNew: true
+    isNew: true,
+    protocal: 'UniSwap',
+    iconProtocal: 'https://uniswap.info/static/media/logo_white.edb44e56.svg',
+    pairLink: 'https://uniswap.info/pair/0xf3279a15f5361285100474db389f7d78848bb8d1',
+    addLiquidityLink: 'https://app.uniswap.org/#/add/0x05d3606d5c81eb9b7b18530995ec9b29da05faba/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48'
   }
 ]

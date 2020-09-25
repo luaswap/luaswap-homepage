@@ -2,16 +2,14 @@ import { useCallback, useEffect, useState } from 'react'
 import Web3 from 'web3'
 import { provider } from 'web3-core'
 import { useWallet } from 'use-wallet'
+import config from '../config'
 // import debounce from 'debounce'
 
 const useBlock = () => {
   const [block, setBlock] = useState(0)
-  const { ethereum }: { ethereum: provider } = useWallet()
-
   useEffect(() => {
     // const setBlockDebounced = debounce(setBlock, 300)
-    if (!ethereum) return
-    const web3 = new Web3(ethereum)
+    const web3 = new Web3(config.rpc)
 
     // const subscription = new Web3(ethereum).eth.subscribe(
     //   'newBlockHeaders',
@@ -30,7 +28,7 @@ const useBlock = () => {
     }, 1000)
 
     return () => clearInterval(interval)
-  }, [ethereum])
+  }, [])
 
   return block
 }
