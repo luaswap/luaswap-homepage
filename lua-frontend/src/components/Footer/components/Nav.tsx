@@ -16,6 +16,12 @@ const Nav: React.FC = () => {
       <StyledLink target="_blank" href="https://twitter.com/LuaSwap">
         Twitter
       </StyledLink>
+      <StyledLink target="_blank" href="https://t.me/LuaSwap">
+        Telegram
+      </StyledLink>
+      <StyledLink target="_blank" href="https://medium.com/luaswap">
+        Medium
+      </StyledLink>
     </StyledNav>
   )
 }

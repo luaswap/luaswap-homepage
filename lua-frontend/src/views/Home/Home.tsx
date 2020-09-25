@@ -54,11 +54,11 @@ const Home: React.FC = () => {
         }}
       >
         <StyledHeading>SELECT YOUR FIELDS</StyledHeading>
-        <StyledParagraph>Earn LUA tokens by staking LuaSwap V2 LP Token</StyledParagraph>
+        <StyledParagraph>Earn LUA tokens by staking UNI LP V2 token</StyledParagraph>
         <Spacer size="lg" />
 
         <StyledInfo>
-          <img src={Icon_Tip} alt="Pro Tip"/><b>Pro Tip</b>: Stake any pool in this week to earn x128 LUA reward
+          <img src={Icon_Tip} alt="Pro Tip"/><b>Pro Tip</b>: Stake any pool in this week to earn <span style= {{marginRight:10,marginLeft:10,lineHeight:1,fontSize: 20, fontWeight: 'bold'}}>x128 LUA</span> reward
         </StyledInfo>
         <Spacer size="lg" />
         <FarmCards />

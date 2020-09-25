@@ -12,7 +12,7 @@ export const red = {
 }
 
 export const grey = {
-  100: '#7A7F7F', // #f7f4f2 use text color
+  100: '#bdbdbd', // #7A7F7F use text color
   200: '#313535', // #f0e9e7 // Background color for item
   300: '#2C3030', // #e2d6cf Border
   400: '#4F4937',

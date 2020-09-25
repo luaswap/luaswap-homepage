@@ -47,6 +47,11 @@ const StyleCustomTimer = styled.div`
             font-size: 20px;
         }
     }
+    @media (max-width: 767px) {
+        > span{
+            margin-right: 0
+        }
+    }
 `
 const CustomCountDown:React.FC<CustomCountDownProp> = (date) => {
     return(
