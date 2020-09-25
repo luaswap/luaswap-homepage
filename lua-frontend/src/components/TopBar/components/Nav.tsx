@@ -5,12 +5,12 @@ import styled from 'styled-components'
 const Nav: React.FC = () => {
   return (
     <StyledNav>
-      {/* <StyledLink exact activeClassName="active" to="/">
+      <StyledLink exact activeClassName="active" to="/">
         Home
-      </StyledLink> */}
-      {/* <StyledLink exact activeClassName="active" to="/swap">
+      </StyledLink>
+      <StyledLink exact activeClassName="active" to="/swap">
         Swap
-      </StyledLink> */}
+      </StyledLink>
     </StyledNav>
   )
 }
@@ -50,6 +50,9 @@ const StyledLink = styled(NavLink)`
   @media (max-width: 400px) {
     padding-left: ${(props) => props.theme.spacing[2]}px;
     padding-right: ${(props) => props.theme.spacing[2]}px;
+  }
+  @media (max-width: 767px) {
+    display: none;
   }
 `
 
