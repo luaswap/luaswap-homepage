@@ -54,7 +54,7 @@ const Apy: React.FC<ApyProps> = ({ pid, lpTokenAddress, symbolShort }) => {
                 <StyledContent>~%</StyledContent>
             </StyledBox>
             <StyledBox>
-                <StyledLabel>Stake total LP Token</StyledLabel>
+                <StyledLabel>Total Staked LP Token</StyledLabel>
                 <StyledContent>{totalStake  ? getBalanceNumber(totalStake) : '~'} {symbolShort}</StyledContent>
                 {/* <StyledEquility>≈ 200.000 USD</StyledEquility> */}
             </StyledBox>
