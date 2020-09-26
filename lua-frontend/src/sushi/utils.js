@@ -99,8 +99,6 @@ export const getTotalLPWethValue = async (
   tokenContract,
   pid,
 ) => {
-  // TODO
-  return null;
   // Get balance of the token address
   const tokenAmountWholeLP = await tokenContract.methods
     .balanceOf(lpContract.options.address)

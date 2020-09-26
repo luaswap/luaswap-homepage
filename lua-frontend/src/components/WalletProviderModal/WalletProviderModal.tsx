@@ -20,13 +20,17 @@ const WalletProviderModal: React.FC<ModalProps> = ({ onDismiss }) => {
   useEffect(() => {
     if (account) {
       onDismiss()
-      localStorage.useWalletConnectStatus = 'connected'
+      if (localStorage.useWalletConnectType && localStorage.useWalletConnectType === 'injected') {
+        localStorage.useWalletConnectStatus = 'connected'
+      }
     }
   }, [account, onDismiss])
 
   function tryConnect(type: any) {
-    localStorage.useWalletConnectType = type
-    localStorage.useWalletConnectStatus = 'pending'
+    if (type == 'injected') {
+      localStorage.useWalletConnectType = type
+      localStorage.useWalletConnectStatus = 'pending'
+    }
     connect(type)
   }
 
