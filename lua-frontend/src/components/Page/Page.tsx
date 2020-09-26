@@ -9,7 +9,15 @@ const Page: React.FC = ({ children }) => (
   </StyledPage>
 )
 
-const StyledPage = styled.div``
+const StyledPage = styled.div`
+    padding-left: 15px;
+    padding-right: 15px;
+    *, *:before, *:after {
+        -moz-box-sizing: border-box; 
+        -webkit-box-sizing: border-box; 
+        box-sizing: border-box;
+    }
+`
 
 const StyledMain = styled.div`
   align-items: center;

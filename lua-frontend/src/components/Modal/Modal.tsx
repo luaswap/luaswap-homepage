@@ -36,7 +36,8 @@ const StyledResponsiveWrapper = styled.div`
     top: 100%;
     right: 0;
     left: 0;
-    max-height: calc(100% - ${(props) => props.theme.spacing[4]}px);
+    height: 100%;
+    // max-height: calc(100% - ${(props) => props.theme.spacing[4]}px);
     animation: ${mobileKeyframes} 0.3s forwards ease-out;
   }
 `
@@ -49,7 +50,7 @@ const StyledModal = styled.div`
   flex-direction: column;
   position: relative;
   width: 100%;
-  min-height: 0;
+  height: 100%;
 `
 
 const StyledModalContent = styled.div``

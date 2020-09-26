@@ -39,7 +39,11 @@ const StyleCustomTimer = styled.div`
     background-color: ${(props) => props.theme.color.grey[200]};
     margin-top: ${(props) => props.theme.spacing[3]}px;
     border-radius: 12px;
-    > span{        
+    @media (max-width: 767px) {
+        font-size: 22px;
+        padding: 10px;
+    }
+    > span{
         padding: 10px;
         margin-right: 20px;
         font-weight: bold;
@@ -49,13 +53,16 @@ const StyleCustomTimer = styled.div`
     }
     @media (max-width: 767px) {
         > span{
-            margin-right: 0
+            margin-right: 0;
+            >.text{
+                font-size: 16px;
+            }
         }
     }
 `
 const CustomCountDown:React.FC<CustomCountDownProp> = (date) => {
     return(
-        <StyleCountDownWrap>            
+        <StyleCountDownWrap>
             <Countdown date={date.date} renderer={renderer} />
         </StyleCountDownWrap>
     )
@@ -67,6 +74,9 @@ const StyleCountDownWrap = styled.div`
 const StyleHeading = styled.h1`
     text-align: center;
     color: ${(props) => props.theme.color.primary.main};
+    @media (max-width: 767px) {
+        font-size: 22px;
+    }
 `
 
 export default CustomCountDown
