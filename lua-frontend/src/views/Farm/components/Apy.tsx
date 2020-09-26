@@ -49,16 +49,16 @@ const Apy: React.FC<ApyProps> = ({ pid, lpTokenAddress, symbolShort }) => {
 
     return (
         <StyledApy>
-            <StyledBox>
+            <StyledBox className="col-2">
                 <StyledLabel>APY</StyledLabel>
                 <StyledContent>~%</StyledContent>
             </StyledBox>
-            <StyledBox>
+            <StyledBox className="col-8">
                 <StyledLabel>Total Staked LP Token</StyledLabel>
                 <StyledContent>{totalStake  ? getBalanceNumber(totalStake) : '~'} {symbolShort}</StyledContent>
                 {/* <StyledEquility>≈ 200.000 USD</StyledEquility> */}
             </StyledBox>
-            <StyledBox>
+            <StyledBox className="col-2">
                 <StyledLabel>Reward per block</StyledLabel>
                 <StyledContent>{newReward ? getBalanceNumber(newReward).toString() : '~'} LUA</StyledContent>
                 {/* <StyledEquility>≈ 100 USD</StyledEquility> */}
@@ -73,14 +73,19 @@ const StyledApy = styled.div`
     padding: ${(props) => props.theme.spacing[3]}px;
     border: 2px solid ${(props) => props.theme.color.grey[200]};
     border-radius: 12px;
-    @media (max-width: 768px) {
-        width: 80%;
+    @media (max-width: 767px) {
+        width: 100%;
         margin: 0 auto;
         text-align: center;
     }
 `
 const StyledBox = styled.div`
-
+    &.col-2 {
+        width: 20%;
+    }
+    &.col-8 {
+        width: 60%;
+    }
 `
 const StyledLabel = styled.span`
     color: ${(props) => props.theme.color.primary.main};
@@ -93,12 +98,18 @@ const StyledContent = styled.span`
     font-weight: bold;
     display: block;
     padding: 10px 0;
+    @media (max-width: 767px) {
+        font-size: 14px;
+    }
 `
 
 const StyledEquility = styled.span`
     color: ${(props) => props.theme.color.grey[100]};
     font-size: 14px;
     display: block;
+    @media (max-width: 767px) {
+        font-size: 13px;
+    }
 `
 
 export default Apy

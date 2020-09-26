@@ -68,7 +68,7 @@ const Farm: React.FC = () => {
       <PageHeader
         icon={
           <div style={{display: 'flex'}}>
-            <img src={icon} height="100" />&nbsp;<img src={icon2} height="100" />
+            <img src={icon} height="80" />&nbsp;<img src={icon2} height="80" />
           </div>
         }
         subtitle={description}
@@ -78,7 +78,7 @@ const Farm: React.FC = () => {
         <StyledApyWrap>
           <Apy pid={pid} lpTokenAddress={lpTokenAddress} symbolShort={symbolShort}/>
         </StyledApyWrap>
-        <Spacer size="lg"/>
+        <Spacer size="md"/>
         <StyledHeading>Your staking</StyledHeading>
         <StyledCardsWrapper>
           <StyledCardWrapper>
@@ -107,7 +107,6 @@ const Farm: React.FC = () => {
             <StyledInfoLP>
               <img src={iconProtocal} height="70" style={{marginTop: 20}} />
               <div style={{width: 'calc(100% - 70px', color: '#ffffff', fontSize: 16, marginLeft: 20, marginRight: 20}}>
-                
                 <div>Add liquidity to <a style={{color: '#f6b944', textDecoration: 'none'}} href={pairLink} target="__blank"><b>{symbolShort} pair</b></a> on {protocal} to get <span style={{color: '#f6b944'}}>{lpToken}</span> tokens. Then deposit those LP tokens on LuaSwap to receive rewards from September 27th</div>
                 <Spacer size="sm" />
                 <a style={{color: '#f6b944'}} target="__blank" href={addLiquidityLink}>
@@ -118,7 +117,7 @@ const Farm: React.FC = () => {
           </div>
         </StyledCardsWrapper>
 
-        <Spacer size="lg" />
+        <Spacer size="md" />
       </StyledFarm>
     </>
   )
@@ -165,6 +164,12 @@ const StyledInfo = styled.h3`
   margin: 0;
   padding: 0;
   text-align: center;
+  @media (max-width: 767px) {
+    text-align: left;
+    br {
+        display: none;
+    }
+  }
 `
 
 const StyledHeading = styled.h2`

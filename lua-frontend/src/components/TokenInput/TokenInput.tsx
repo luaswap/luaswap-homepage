@@ -19,24 +19,28 @@ const TokenInput: React.FC<TokenInputProps> = ({
 }) => {
   return (
     <StyledTokenInput>
-      <StyleBox>
-        <StyleLabel>Amount</StyleLabel>
-        <StyledMaxText>{max.toLocaleString()} {symbol}</StyledMaxText>
-      </StyleBox>
-      <Input
-        endAdornment={(
-          <StyledTokenAdornmentWrapper>
-            <StyledTokenSymbol>{symbol}</StyledTokenSymbol>
-            <StyledSpacer />
-            <div>
-              <Button size="sm" text="Max" onClick={onSelectMax} />
-            </div>
-          </StyledTokenAdornmentWrapper>
-        )}
-        onChange={onChange}
-        placeholder="0"
-        value={value}
-      />
+        <Box>
+            <StyleBox>
+                <StyleLabel>Amount</StyleLabel>
+                <StyledMaxText>{max.toLocaleString()} {symbol}</StyledMaxText>
+            </StyleBox>
+            <BoxInput>
+                <Input
+                    endAdornment={(
+                    <StyledTokenAdornmentWrapper>
+                        <StyledTokenSymbol>{symbol}</StyledTokenSymbol>
+                        <StyledSpacer />
+                        <div>
+                        <Button size="sm" text="Max" onClick={onSelectMax} />
+                        </div>
+                    </StyledTokenAdornmentWrapper>
+                    )}
+                    onChange={onChange}
+                    placeholder="0"
+                    value={value}
+                />
+            </BoxInput>
+        </Box>
     </StyledTokenInput>
   )
 }
@@ -56,13 +60,16 @@ const StyleBox = styled.div`
 const StyleLabel = styled.div`
   color: ${props => props.theme.color.grey[100]};
   font-weight: bold;
+  width: 40%;
 `
 const StyledTokenInput = styled.div`
-  background-color: ${props => props.theme.color.grey[500]};
-  border-radius: 12px;
-  padding: ${props => props.theme.spacing[2]}px;
+  padding: 24px;
 `
-
+const Box = styled.div`
+    background-color: ${props => props.theme.color.grey[500]};
+    border-radius: 12px;
+    padding: 10px 0;
+`
 const StyledSpacer = styled.div`
   width: ${props => props.theme.spacing[3]}px;
 `
@@ -70,6 +77,7 @@ const StyledSpacer = styled.div`
 const StyledTokenAdornmentWrapper = styled.div`
   align-items: center;
   display: flex;
+  width: 60%;
 `
 
 const StyledMaxText = styled.div`
@@ -79,12 +87,20 @@ const StyledMaxText = styled.div`
   font-size: 14px;
   font-weight: 700;
   height: 44px;
-  justify-content: flex-end;
+  width: 60%;
 `
 
 const StyledTokenSymbol = styled.span`
   color: ${props => props.theme.color.grey[100]};
   font-weight: 700;
 `
+
+const BoxInput = styled.div`
+  input {
+      width: 40%;
+  }
+`
+
+
 
 export default TokenInput

@@ -284,6 +284,11 @@ const Heading3 = styled.div`
 const Box = styled.div`
     background: #2C3030;
     border-radius: 16px;
+    *, *:before, *:after {
+        -moz-box-sizing: border-box; 
+        -webkit-box-sizing: border-box; 
+        box-sizing: border-box;
+    }
     &.mt-3 {
         margin-top: 20px;
     }
@@ -357,7 +362,7 @@ const TextMedium = styled.div`
         font-size: 13px;
         margin-left: 5px;
     }
-    a {
+    .st-link {
         color: #FABC45;
         text-decoration: none;
         font-size: 13px;
