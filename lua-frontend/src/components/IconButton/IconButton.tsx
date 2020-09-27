@@ -51,6 +51,8 @@ const StyledButton = styled.button<StyledButtonProps>`
     padding: 10px 10px 10px 8px;
     border: 1px solid ${(props) => props.theme.color.grey[100]};
     border-radius: 12px;
+    height: 46px;
+    width: 46px;
   }
 `
 
