@@ -70,7 +70,7 @@ const Home: React.FC = () => {
             <StyledInfo>
                 <img src={Icon_Tip} alt="Pro Tip"/>
                 <div>
-                <b>Pro Tip</b>: Stake to any pool and earn <b>128x LUA</b> rewards after <br/>the Harvest Festival begins on September 27th
+                <b>Pro Tip</b>: Stake to any pool and earn <b>128x LUA</b> rewards after <br/>the Harvest Festival begins on September 28th
                 </div>
             </StyledInfo>
             <Spacer size="lg" />
