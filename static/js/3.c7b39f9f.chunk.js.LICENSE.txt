@@ -18,11 +18,6 @@ object-assign
  * @license  MIT
  */
 
-/*!
- * v2.1.4-104-gc868b3a
- * 
- */
-
 /*! https://mths.be/punycode v1.4.1 by @mathias */
 
 /*! safe-buffer. MIT License. Feross Aboukhadijeh <https://feross.org/opensource> */
