@@ -22,7 +22,7 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
         <>
             <StyleHeading>Harvest Festival Is Coming</StyleHeading>
             <StyleCustomTimer>
-                <span>{days} <span className="text">Days</span></span>
+                {days > 0 && <><span>{days} <span className="text">Days</span></span></>}
                 <span>{hours} <span className="text">Hours</span></span>
                 <span>{minutes} <span className="text">Min</span></span>
                 <span>{seconds} <span className="text">Sec</span></span>

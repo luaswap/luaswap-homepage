@@ -8,6 +8,7 @@ export interface Farm {
   lpTokenAddress: string
   lpContract: Contract
   tokenAddress: string
+  token2Address: string
   earnToken: string
   earnTokenAddress: string
   icon: string
@@ -17,6 +18,7 @@ export interface Farm {
   isNew: boolean
   id: string
   tokenSymbol: string
+  token2Symbol: string
   protocal: string
   iconProtocal: string
   pairLink: string

@@ -9,18 +9,22 @@ import { getContract } from '../../../utils/erc20'
 import { provider } from 'web3-core'
 import { getBalanceNumber } from '../../../utils/formatBalance'
 import useBlock from '../../../hooks/useBlock'
+import useStakedValue from '../../../hooks/useStakedValue'
 
 interface ApyProps {
     pid: number
     lpTokenAddress: string
     symbolShort: string
+    tokenSymbol: string
+    token2Symbol: string
 }
 
-const Apy: React.FC<ApyProps> = ({ pid, lpTokenAddress, symbolShort }) => {
+const Apy: React.FC<ApyProps> = ({ pid, lpTokenAddress, symbolShort, tokenSymbol, token2Symbol }) => {
     const sushi = useSushi()
     const { ethereum } = useWallet()
     
     const block = useBlock()
+    const stakedValue = useStakedValue(pid)
     const lpContract = useMemo(() => {
       return getContract(ethereum as provider, lpTokenAddress)
     }, [ethereum, lpTokenAddress])
@@ -49,16 +53,19 @@ const Apy: React.FC<ApyProps> = ({ pid, lpTokenAddress, symbolShort }) => {
 
     return (
         <StyledApy>
-            <StyledBox className="col-2">
+            {/* <StyledBox className="col-2">
                 <StyledLabel>APY</StyledLabel>
                 <StyledContent>~%</StyledContent>
-            </StyledBox>
+            </StyledBox> */}
             <StyledBox className="col-8">
                 <StyledLabel>Total Staked LP Token</StyledLabel>
-                <StyledContent>{totalStake  ? getBalanceNumber(totalStake) : '~'} {symbolShort}</StyledContent>
-                {/* <StyledEquility>≈ 200.000 USD</StyledEquility> */}
+                <StyledContent>
+                    {stakedValue && stakedValue.tokenAmount ? Math.round(stakedValue.tokenAmount.toNumber()).toLocaleString(): '~'} <span style={{fontSize: 10}}>{tokenSymbol}</span>
+                    &nbsp; + &nbsp;
+                    {stakedValue && stakedValue.token2Amount ? Math.round(stakedValue.token2Amount.toNumber()).toLocaleString(): '~'} <span style={{fontSize: 10}}>{token2Symbol}</span></StyledContent>
+                <StyledEquility>{totalStake  ? getBalanceNumber(totalStake) : '~'} <span style={{fontSize: 10}}>{symbolShort} LP</span></StyledEquility>
             </StyledBox>
-            <StyledBox className="col-2">
+            <StyledBox className="col-4">
                 <StyledLabel>Reward per block</StyledLabel>
                 <StyledContent>{newReward ? getBalanceNumber(newReward).toString() : '~'} LUA</StyledContent>
                 {/* <StyledEquility>≈ 100 USD</StyledEquility> */}
@@ -82,6 +89,9 @@ const StyledApy = styled.div`
 const StyledBox = styled.div`
     &.col-2 {
         width: 20%;
+    }
+    &.col-4 {
+        width: 40%;
     }
     &.col-8 {
         width: 60%;

@@ -25,6 +25,8 @@ const Farm: React.FC = () => {
     lpToken,
     lpTokenAddress,
     tokenAddress,
+    tokenSymbol,
+    token2Symbol,
     earnToken,
     name,
     icon,
@@ -40,6 +42,8 @@ const Farm: React.FC = () => {
     lpToken: '',
     lpTokenAddress: '',
     symbolShort: '',
+    tokenSymbol: '',
+    token2Symbol: '',
     tokenAddress: '',
     earnToken: '',
     name: '',
@@ -76,7 +80,12 @@ const Farm: React.FC = () => {
       />
       <StyledFarm>
         <StyledApyWrap>
-          <Apy pid={pid} lpTokenAddress={lpTokenAddress} symbolShort={symbolShort}/>
+          <Apy 
+            pid={pid} 
+            lpTokenAddress={lpTokenAddress} 
+            symbolShort={symbolShort}
+            tokenSymbol={tokenSymbol}
+            token2Symbol={token2Symbol}/>
         </StyledApyWrap>
         <Spacer size="md"/>
         <StyledHeading>Your staking</StyledHeading>

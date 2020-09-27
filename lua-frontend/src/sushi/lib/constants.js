@@ -84,11 +84,15 @@ export const supportedPools = [
       1: '0x05d3606d5c81eb9b7b18530995ec9b29da05faba',
       99: '0xB0eA5876c466b5C4c981F269398695E019B64669',
     },
+    token2Addresses: {
+      1: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2'
+    },
     name: 'TOMOE - ETH',
     symbol: 'TOMOE-ETH UNI-V2 LP',
     symbolShort: 'TOMOE-ETH',
     description: `Deposit TOMOE-ETH UNI-V2 LP Earn LUA`,
-    tokenSymbol: 'UNI',
+    tokenSymbol: 'TOMOE',
+    token2Symbol: 'ETH',
     icon: 'https://wallet.tomochain.com/public/imgs/tomoiconwhite.png',
     icon2: 'https://s2.coinmarketcap.com/static/img/coins/128x128/1027.png',
     isHot: false,
@@ -108,11 +112,15 @@ export const supportedPools = [
       1: '0x05d3606d5c81eb9b7b18530995ec9b29da05faba',
       99: '0xE6b5763A79b663b24b53Ac82a109f0B9528Ae0Ae',
     },
+    token2Addresses: {
+      1: '0xdac17f958d2ee523a2206206994597c13d831ec7'
+    },
     name: 'TOMOE - USDT',
     symbol: 'TOMOE-USDT UNI-V2 LP',
     symbolShort: 'TOMOE-USDT',
     description: `Deposit TOMOE-USDT UNI-V2 LP Earn LUA`,
-    tokenSymbol: 'UNI',
+    tokenSymbol: 'TOMOE',
+    token2Symbol: 'USDT',
     icon: 'https://wallet.tomochain.com/public/imgs/tomoiconwhite.png',
     icon2: 'https://s2.coinmarketcap.com/static/img/coins/128x128/825.png',
     isHot: false,
@@ -132,11 +140,16 @@ export const supportedPools = [
       1: '0x05d3606d5c81eb9b7b18530995ec9b29da05faba',
       99: '0x2Cbe528B7C3d9ead86c0e93D63316EA328e04ba0',
     },
+
+    token2Addresses: {
+      1: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48'
+    },
     name: 'TOMOE - USDC',
     symbol: 'TOMOE-USDC UNI-V2 LP',
     symbolShort: 'TOMOE-USDC',
     description: `Deposit TOMOE-USDC UNI-V2 LP Earn LUA`,
-    tokenSymbol: 'UNI',
+    tokenSymbol: 'TOMOE',
+    token2Symbol: 'USDC',
     icon: 'https://wallet.tomochain.com/public/imgs/tomoiconwhite.png',
     icon2: 'https://s2.coinmarketcap.com/static/img/coins/128x128/3408.png',
     isHot: false,

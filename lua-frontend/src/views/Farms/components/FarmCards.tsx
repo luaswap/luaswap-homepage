@@ -19,8 +19,13 @@ import { getEarned, getMasterChefContract, getNewRewardPerBlock } from '../../..
 import { bnToDec } from '../../../utils'
 import { getBalanceNumber } from '../../../utils/formatBalance'
 
-interface FarmWithStakedValue extends Farm, StakedValue {
-  apy: BigNumber
+interface FarmWithStakedValue extends Farm {
+  apy: BigNumber,
+  tokenAmount: BigNumber
+  wethAmount: BigNumber
+  totalWethValue: BigNumber
+  tokenPriceInWeth: BigNumber
+  poolWeight: BigNumber
 }
 
 const FarmCards: React.FC = () => {
@@ -44,9 +49,13 @@ const FarmCards: React.FC = () => {
 
   const rows = farms.reduce<FarmWithStakedValue[][]>(
     (farmRows, farm, i) => {
-      const farmWithStakedValue = {
+      const farmWithStakedValue : FarmWithStakedValue = {
         ...farm,
-        ...stakedValue[i],
+        tokenAmount: (stakedValue[i] || {}).tokenAmount || new BigNumber(0),
+        wethAmount: (stakedValue[i] || {}).wethAmount || new BigNumber(0),
+        totalWethValue: (stakedValue[i] || {}).totalWethValue || new BigNumber(0),
+        tokenPriceInWeth: (stakedValue[i] || {}).tokenPriceInWeth || new BigNumber(0),
+        poolWeight: (stakedValue[i] || {}).poolWeight || new BigNumber(0),
         apy: stakedValue[i]
           ? sushiPrice
               .times(SUSHI_PER_BLOCK)

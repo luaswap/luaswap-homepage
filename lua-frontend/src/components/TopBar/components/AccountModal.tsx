@@ -139,7 +139,7 @@ const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
                                                         {e.name}
                                                     </TextMedium>
                                                     <TextMin>
-                                                        {parseFloat(getBalanceNumber(e.tokenAmount).toFixed(4)).toLocaleString()} {e.symbolShort}
+                                                        {parseFloat(getBalanceNumber(e.tokenAmount).toFixed(10)).toLocaleString()} {e.symbolShort}
                                                     </TextMin>
                                                 </div>
                                             </BoxFlex>
