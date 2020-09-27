@@ -23,7 +23,7 @@ import WithdrawModal from './WithdrawModal'
 import Lua from '../../../assets/img/lua-icon.svg'
 import Luas from '../../../assets/img/Luas.svg'
 interface StakeProps {
-  lpContract: Contract
+  lpContract: any
   pid: number
   tokenName: string
 }

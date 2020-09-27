@@ -28,14 +28,14 @@ import useLockBalance from '../../../hooks/useLockBalance'
 import useUnlock from '../../../hooks/useUnlock'
 
 const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
-  const { account, reset } = useWallet()
+  const { account, deactivate } = useWallet()
 
   const handleSignOutClick = useCallback(() => {
     onDismiss!()
+    deactivate()
     localStorage.useWalletConnectStatus = 'disconnected'
     localStorage.useWalletConnectType = ''
-    reset()
-  }, [onDismiss, reset])
+  }, [onDismiss])
 
   const sushi = useSushi()
   const sushiBalance = useTokenBalance(getSushiAddress(sushi))

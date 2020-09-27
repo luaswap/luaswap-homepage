@@ -19,8 +19,8 @@
     "react-scripts": "3.4.1",
     "styled-components": "^5.1.1",
     "typescript": "^3.9.7",
-    "use-wallet": "^0.8.0",
-    "web3": "^1.2.11"
+    "use-wallet": "0.7.1",
+    "web3": "1.2.6"
   },
   "scripts": {
     "start": "react-scripts start",
