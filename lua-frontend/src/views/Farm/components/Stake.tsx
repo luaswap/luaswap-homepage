@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js'
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Contract } from 'web3-eth-contract'
 import Button from '../../../components/Button'
@@ -17,11 +17,14 @@ import useStake from '../../../hooks/useStake'
 import useStakedBalance from '../../../hooks/useStakedBalance'
 import useTokenBalance from '../../../hooks/useTokenBalance'
 import useUnstake from '../../../hooks/useUnstake'
-import { getBalanceNumber } from '../../../utils/formatBalance'
+import { getBalanceNumber, getFullDisplayBalance } from '../../../utils/formatBalance'
 import DepositModal from './DepositModal'
 import WithdrawModal from './WithdrawModal'
 import Lua from '../../../assets/img/lua-icon.svg'
 import Luas from '../../../assets/img/Luas.svg'
+import { getLPTokenStaked } from '../../../sushi/utils'
+import useSushi from '../../../hooks/useSushi'
+import useBlock from '../../../hooks/useBlock'
 interface StakeProps {
   lpContract: any
   pid: number
@@ -36,6 +39,20 @@ const Stake: React.FC<StakeProps> = ({ lpContract, pid, tokenName }) => {
 
   const tokenBalance = useTokenBalance(lpContract.options.address)
   const stakedBalance = useStakedBalance(pid)
+
+  const [totalStake, setTotalStake] = useState<BigNumber>()
+  const sushi = useSushi()
+  const block = useBlock()
+
+  useEffect(() => {
+      async function fetchData() {
+          const data = await getLPTokenStaked(sushi, lpContract)
+          setTotalStake(data)
+      }
+      if (sushi && lpContract) {
+          fetchData()
+      }
+  }, [sushi, setTotalStake, lpContract, block])
 
   const { onStake } = useStake(pid)
   const { onUnstake } = useUnstake(pid)
@@ -76,10 +93,17 @@ const Stake: React.FC<StakeProps> = ({ lpContract, pid, tokenName }) => {
           <StyledCardHeader>
             <CardIcon><img src={Luas} alt="LUA Reward"/></CardIcon>
             <StyledValue>
-              <Value value={getBalanceNumber(stakedBalance)} />
+              <ValueStyled>{getFullDisplayBalance(stakedBalance)}</ValueStyled>
               <Label text={`${tokenName} Tokens Staked`} />
             </StyledValue>
           </StyledCardHeader>
+          {totalStake && stakedBalance &&
+            <div style={{marginTop: 10}}>
+              <span style={{color: '#4caf50'}}>Your share: <span style={{fontSize: 18}}>
+                {parseFloat(stakedBalance.div(totalStake).times(100).toFixed(5))}%
+              </span></span>
+            </div>
+          }
           <StyledCardActions>
             {!allowance.toNumber() ? (
               <Button
@@ -129,6 +153,13 @@ const StyledValue = styled.div`
   span{
     color: ${(props) => props.theme.color.white};
   }  
+`
+
+const ValueStyled = styled.div`
+  font-family: 'Nunito Sans', sans-serif;
+  color: #ffffff;
+  font-size: 32px;
+  font-weight: 700;
 `
 const StyledCardActions = styled.div`
   display: flex;
