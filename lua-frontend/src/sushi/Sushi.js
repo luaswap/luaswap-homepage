@@ -9,7 +9,6 @@ import { contractAddresses } from './lib/constants'
 export class Sushi {
   constructor(provider, networkId, testing, options) {
     var realProvider
-
     if (typeof provider === 'string') {
       if (provider.includes('wss')) {
         realProvider = new Web3.providers.WebsocketProvider(

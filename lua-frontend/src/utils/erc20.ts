@@ -4,9 +4,10 @@ import { Contract } from 'web3-eth-contract'
 // @ts-ignore 
 import { AbiItem } from 'web3-utils'
 import ERC20ABI from '../constants/abi/ERC20.json'
+import config from '../config'
 
 export const getContract = (provider: any, address: string) => {
-  const web3 = new Web3(provider as any)
+  const web3 = new Web3(provider as any || config.rpc)
   const contract = new web3.eth.Contract(
     (ERC20ABI.abi as unknown) as AbiItem,
     address,

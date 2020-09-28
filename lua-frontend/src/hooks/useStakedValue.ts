@@ -23,15 +23,14 @@ export interface StakedValue {
   pid: string
 }
 
-const useAllStakedValue = (pid: number) => {
+const useStakedValue = (pid: number) => {
   const [balance, setBalance] = useState<StakedValue>()
-  const { account }: { account: string; ethereum: provider } = useWallet()
   const sushi = useSushi()
   const farms = getFarms(sushi)
   const masterChefContract = getMasterChefContract(sushi)
   const block = useBlock()
 
-  const fetchAllStakedValue = useCallback(async () => {
+  const fetchStakedValue = useCallback(async () => {
     const balances: Array<StakedValue> = await Promise.all(
       farms.filter((e: any) => e.pid == pid).map(
         ({
@@ -54,17 +53,16 @@ const useAllStakedValue = (pid: number) => {
           ),
       ),
     )
-
     setBalance(balances[0])
-  }, [account, masterChefContract, sushi])
+  }, [masterChefContract, sushi])
 
   useEffect(() => {
-    if (account && masterChefContract && sushi) {
-      fetchAllStakedValue()
+    if (masterChefContract && sushi) {
+      fetchStakedValue()
     }
-  }, [account, block, masterChefContract, setBalance, sushi])
+  }, [block, masterChefContract, setBalance, sushi])
 
   return balance
 }
 
-export default useAllStakedValue
+export default useStakedValue

@@ -18,42 +18,55 @@ import FarmCards from './FarmCards'
 
 const FarmsContainer: React.FC = () => {
   const { path } = useRouteMatch()
-  const { account } = useWallet()
-  const [onPresentWalletProviderModal] = useModal(<WalletProviderModal />)
+  // const { account } = useWallet()
+  // const [onPresentWalletProviderModal] = useModal(<WalletProviderModal />)
   
-  return (
-    <Page>
-      {!!account ? (
-        <>
-          <Route exact path={path}>
-            <PageHeader
-              icon={<img src={Luas} height="120" />}
-              subtitle="Earn LUA tokens by staking LuaSwap SPL Tokens."
-              title="Select Your Favorite Dishes"
-            />
-            <FarmCards />
-          </Route>
-          <Route path={`${path}/:farmId`}>
-            <Farm />
-          </Route>
-        </>
-      ) : (
-        <div
-          style={{
-            alignItems: 'center',
-            display: 'flex',
-            flex: 1,
-            justifyContent: 'center',
-          }}
-        >
-          <Button variant="secondary"
-            onClick={onPresentWalletProviderModal}
-            text="🔓 Unlock Wallet To Continue"
-          />
-        </div>
-      )}
-    </Page>
-  )
+  return <>
+    <Route exact path={path}>
+      <PageHeader
+        icon={<img src={Luas} height="120" />}
+        subtitle="Earn LUA tokens by staking LuaSwap SPL Tokens."
+        title="Select Your Favorite Dishes"
+      />
+      <FarmCards />
+    </Route>
+    <Route path={`${path}/:farmId`}>
+      <Farm />
+    </Route>
+  </>
+  // return (
+  //   <Page>
+  //     {!!account ? (
+  //       <>
+  //         <Route exact path={path}>
+  //           <PageHeader
+  //             icon={<img src={Luas} height="120" />}
+  //             subtitle="Earn LUA tokens by staking LuaSwap SPL Tokens."
+  //             title="Select Your Favorite Dishes"
+  //           />
+  //           <FarmCards />
+  //         </Route>
+  //         <Route path={`${path}/:farmId`}>
+  //           <Farm />
+  //         </Route>
+  //       </>
+  //     ) : (
+  //       <div
+  //         style={{
+  //           alignItems: 'center',
+  //           display: 'flex',
+  //           flex: 1,
+  //           justifyContent: 'center',
+  //         }}
+  //       >
+  //         <Button variant="secondary"
+  //           onClick={onPresentWalletProviderModal}
+  //           text="🔓 Unlock Wallet To Continue"
+  //         />
+  //       </div>
+  //     )}
+  //   </Page>
+  // )
 }
 
 export default FarmsContainer

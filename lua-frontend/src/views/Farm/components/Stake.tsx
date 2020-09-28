@@ -182,6 +182,9 @@ const StyledCardContentInner = styled.div`
 `
 const StyleButtonWrap = styled.div`
   position: relative;
+
+  border: 1px solid ${(props) => props.theme.color.grey[100]};
+  border-radius: 12px;
   > .tooltip-unstake{
     position: absolute;
     font-size: 14px;

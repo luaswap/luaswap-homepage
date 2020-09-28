@@ -7,7 +7,9 @@ import Button from '../../components/Button'
 import Container from '../../components/Container'
 import PageHeader from '../../components/PageHeader'
 import Spacer from '../../components/Spacer'
+import WalletProviderModal from '../../components/WalletProviderModal'
 import useFarm from '../../hooks/useFarm'
+import useModal from '../../hooks/useModal'
 import useRedeem from '../../hooks/useRedeem'
 import useSushi from '../../hooks/useSushi'
 import { BigNumber } from '../../sushi'
@@ -61,7 +63,8 @@ const Farm: React.FC = () => {
 
   const sushi = useSushi()
 
-  const { ethereum } = useWallet()
+  const { ethereum, account } = useWallet()
+  const [onPresentWalletProviderModal] = useModal(<WalletProviderModal />)
 
   const lpContract = useMemo(() => {
     return getContract(ethereum as provider, lpTokenAddress)
@@ -89,19 +92,36 @@ const Farm: React.FC = () => {
         </StyledApyWrap>
         <Spacer size="md"/>
         <StyledHeading>Your staking</StyledHeading>
-        <StyledCardsWrapper>
-          <StyledCardWrapper>
-            <Harvest pid={pid} />
-          </StyledCardWrapper>
-          <Spacer />
-          <StyledCardWrapper>
-            <Stake
-              lpContract={lpContract}
-              pid={pid}
-              tokenName={lpToken.toUpperCase()}
-            />
-          </StyledCardWrapper>
-        </StyledCardsWrapper>
+        {account &&
+          <StyledCardsWrapper>
+            <StyledCardWrapper>
+              <Harvest pid={pid} />
+            </StyledCardWrapper>
+            <Spacer />
+            <StyledCardWrapper>
+              <Stake
+                lpContract={lpContract}
+                pid={pid}
+                tokenName={lpToken.toUpperCase()}
+              />
+            </StyledCardWrapper>
+          </StyledCardsWrapper>
+        }
+        {!account && <StyledCardsWrapper>
+            <div
+              style={{
+                alignItems: 'center',
+                display: 'flex',
+                flex: 1,
+                justifyContent: 'center',
+              }}
+            >
+              <Button variant="secondary"
+                onClick={onPresentWalletProviderModal}
+                text="🔓 Unlock Wallet To Continue"
+              />
+            </div>
+        </StyledCardsWrapper>}
         <Spacer size="lg" />
         <StyledInfo>
           ⭐️ Every time you stake and unstake LP tokens, the contract will<br/>
