@@ -93,13 +93,13 @@ const Stake: React.FC<StakeProps> = ({ lpContract, pid, tokenName }) => {
           <StyledCardHeader>
             <CardIcon><img src={Luas} alt="LUA Reward"/></CardIcon>
             <StyledValue>
-              <ValueStyled>{getFullDisplayBalance(stakedBalance)}</ValueStyled>
+              <ValueStyled>{getBalanceNumber(stakedBalance).toFixed(8)}</ValueStyled>
               <Label text={`${tokenName} Tokens Staked`} />
             </StyledValue>
           </StyledCardHeader>
           {totalStake && stakedBalance &&
             <div style={{marginTop: 10}}>
-              <span style={{color: '#4caf50'}}>Your share: <span style={{fontSize: 18}}>
+              <span style={{color: '#4caf50'}}>Share of Pool: <span style={{fontSize: 18}}>
                 {parseFloat(stakedBalance.div(totalStake).times(100).toFixed(5))}%
               </span></span>
             </div>
