@@ -1,5 +1,7 @@
 import BigNumber from 'bignumber.js'
 import { ethers } from 'ethers'
+import axios from 'axios'
+import config from '../config'
 
 BigNumber.config({
   EXPONENTIAL_AT: 1000,
@@ -141,7 +143,8 @@ export const getLPValue = async (
     usdValue = totalToken2Value
   } 
   else if (token2Contract._address.toLowerCase() == wethAddress) {
-    usdValue = totalToken2Value.times(370)
+    var { data } = await axios.get(`${config.api}/api/tokens/price/ETH`)
+    usdValue = totalToken2Value.times(data.usdPrice)
   }
   
   return {

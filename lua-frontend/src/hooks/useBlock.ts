@@ -3,6 +3,7 @@ import Web3 from 'web3'
 import { provider } from 'web3-core'
 import { useWallet } from 'use-wallet'
 import config from '../config'
+import axios from 'axios'
 // import debounce from 'debounce'
 
 const web3 = new Web3(config.rpc)
@@ -17,7 +18,8 @@ const useBlock = () => {
   const [block, setBlock] = useState(CACHE.value)
   const getBlock = useCallback(async () => {
     if (CACHE.time + CACHE.old <= new Date().getTime()) {
-      const latestBlockNumber = await web3.eth.getBlockNumber()
+      var { data } = await axios.get(`${config.api}/api/luaswap/core/blockNumber`)
+      var latestBlockNumber = data.number
       if (block !== latestBlockNumber) {
         CACHE.time = new Date().getTime()
         CACHE.value = block;
