@@ -9,7 +9,7 @@ import useBlock from './useBlock'
 
 
 const useTokenBalance = (tokenAddress: string) => {
-  const [balance, setBalance] = useState(0)
+  const [balance, setBalance] = useState(new BigNumber(0))
   const {
     account,
     ethereum,
