@@ -72,6 +72,32 @@ UNI-V2 LP Address on mainnet for reference
 
 export const supportedPools = [
   {
+    pid: 3,
+    lpAddresses: {
+      1: '0x25a17a5a907941aaf6d6d1c7aae9c9cc3a38680c',
+    },
+    tokenAddresses: {
+      1: '0xb1f66997a5760428d3a87d68b90bfe0ae64121cc',
+    },
+    token2Addresses: {
+      1: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48'
+    },
+    name: 'LUA - USDC',
+    symbol: 'LUA-USDC UNI-V2 LP',
+    symbolShort: 'LUA-USDC',
+    description: `Deposit LUA-USDC UNI-V2 LP Earn 2xLUA`,
+    tokenSymbol: 'LUA',
+    token2Symbol: 'USDC',
+    icon: 'https://luaswap.org/favicon.png',
+    icon2: 'https://s2.coinmarketcap.com/static/img/coins/128x128/3408.png',
+    isHot: true,
+    isNew: false,
+    protocal: 'UniSwap',
+    iconProtocal: 'https://uniswap.info/static/media/logo_white.edb44e56.svg',
+    pairLink: 'https://uniswap.info/pair/0x25a17a5a907941aaf6d6d1c7aae9c9cc3a38680c',
+    addLiquidityLink: 'https://app.uniswap.org/#/add/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc'
+  },
+  {
     pid: 0,
     lpAddresses: {
       1: '0x5c89674c4ad1ccd10a29bcc9aabc303cd5f2da1d',
