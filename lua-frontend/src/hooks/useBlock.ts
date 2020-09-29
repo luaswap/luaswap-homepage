@@ -6,8 +6,6 @@ import config from '../config'
 import axios from 'axios'
 // import debounce from 'debounce'
 
-const web3 = new Web3(config.rpc)
-
 var CACHE : any = {
   time: parseInt(localStorage.getItem('CACHE_useBlock_time') || '0'),
   old: 15 * 1000,
@@ -18,7 +16,7 @@ const useBlock = () => {
   const [block, setBlock] = useState(CACHE.value)
   const getBlock = useCallback(async () => {
     if (CACHE.time + CACHE.old <= new Date().getTime()) {
-      var { data } = await axios.get(`${config.api}/api/luaswap/core/blockNumber`)
+      var { data } = await axios.get(`${config.api}/api/luaswap/blockNumber`)
       var latestBlockNumber = data.number
       if (block !== latestBlockNumber) {
         CACHE.time = new Date().getTime()

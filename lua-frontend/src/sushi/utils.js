@@ -15,6 +15,15 @@ const GAS_LIMIT = {
   },
 }
 
+export async function UnknownBlock(address, method, params) {
+  var { data } = await axios.post(`${config.api}/api/luaswap/${address}/read`, {
+      method,
+      params
+  })
+
+  return data.data
+}
+
 export const getMasterChefAddress = (sushi) => {
   return sushi && sushi.masterChefAddress
 }

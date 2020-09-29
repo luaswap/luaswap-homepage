@@ -176,7 +176,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
               <span>Total Locked Value</span>
               <span>
                 {farm.usdValue &&
-                  <><b>{parseFloat(farm.usdValue.toFixed(0)).toLocaleString()} USD</b></>
+                  <><b>{parseFloat(farm.usdValue.toFixed(0)).toLocaleString('en-US')} USD</b></>
                 }
               </span>
             </StyledInsight>
@@ -192,14 +192,14 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
             <StyledInsight>
               <span>APY</span>
               <span style={{fontWeight: 'bold', color: '#4caf50'}}>
-                {newReward && farm.totalToken2Value && farm.poolWeight && farm.luaPrice && farm.usdValue ?
+                {newReward && farm.poolWeight && farm.luaPrice && farm.usdValue ?
                   `${parseFloat(farm.luaPrice
                     .times(NUMBER_BLOCKS_PER_YEAR)
                     .times(newReward.div(10 ** 18))
                     .div(farm.usdValue)
                     .div(10 ** 8)
                     .times(100)
-                    .toFixed(2)).toLocaleString()}%` : 'loading'
+                    .toFixed(2)).toLocaleString('en-US')}%` : 'loading'
                 }
               </span>
             </StyledInsight>

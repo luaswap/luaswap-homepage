@@ -12,6 +12,8 @@ import {
 } from '../sushi/utils'
 import useSushi from './useSushi'
 import useBlock from './useBlock'
+import axios from 'axios'
+import config from '../config'
 
 export interface StakedValue {
   tokenAmount: BigNumber
@@ -25,7 +27,7 @@ export interface StakedValue {
 
 var CACHE : {time: any, old: any, value: any} = {
   time: 0,
-  old: 2 * 60 * 1000,
+  old: 0,
   value: []
 }
 
@@ -35,31 +37,33 @@ const useAllStakedValue = () => {
   const sushi = useSushi()
   const farms = getFarms(sushi)
   const masterChefContract = getMasterChefContract(sushi)
-  const block = 0//useBlock()
+  const block = useBlock()
 
   const fetchAllStakedValue = useCallback(async () => {
-    const balances: Array<StakedValue> = await Promise.all(
-      farms.map(
-        ({
-          pid,
-          lpContract,
-          tokenContract,
-          token2Contract
-        }: {
-          pid: number
-          lpContract: Contract
-          tokenContract: Contract
-          token2Contract: Contract
-        }) =>
-          getLPValue(
-            masterChefContract,
-            lpContract,
-            tokenContract,
-            token2Contract,
-            pid,
-          ),
-      ),
-    )
+    // const balances: Array<StakedValue> = await Promise.all(
+    //   farms.map(
+    //     ({
+    //       pid,
+    //       lpContract,
+    //       tokenContract,
+    //       token2Contract
+    //     }: {
+    //       pid: number
+    //       lpContract: Contract
+    //       tokenContract: Contract
+    //       token2Contract: Contract
+    //     }) =>
+    //       getLPValue(
+    //         masterChefContract,
+    //         lpContract,
+    //         tokenContract,
+    //         token2Contract,
+    //         pid,
+    //       ),
+    //   ),
+    // )
+
+    const { data: balances } = await axios.get(`${config.api}/api/luaswap/pools`)
 
     CACHE.time = new Date().getTime()
     CACHE.value = balances;

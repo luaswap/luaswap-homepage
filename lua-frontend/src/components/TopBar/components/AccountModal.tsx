@@ -75,7 +75,7 @@ const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
                                                 Balance <img src={IconView} alt="View"/>
                                             </TextMin>
                                             <TextMedium>
-                                                <strong>{parseFloat(getBalanceNumber(sushiBalance).toFixed(4)).toLocaleString()}</strong>
+                                                <strong>{parseFloat(getBalanceNumber(sushiBalance).toFixed(4)).toLocaleString('en-US')}</strong>
                                                 <span>LUA</span>
                                             </TextMedium>
                                             {/* <TextMin2>
@@ -93,8 +93,8 @@ const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
                                             }
                                             {lockAmount.isGreaterThan(0) &&
                                                 <TextMedium>
-                                                    <strong>{parseFloat(getBalanceNumber(canUnlock).toFixed(4)).toLocaleString()}</strong>
-                                                    <span>/{parseFloat(getBalanceNumber(lockAmount).toFixed(4)).toLocaleString()}</span>
+                                                    <strong>{parseFloat(getBalanceNumber(canUnlock).toFixed(4)).toLocaleString('en-US')}</strong>
+                                                    <span>/{parseFloat(getBalanceNumber(lockAmount).toFixed(4)).toLocaleString('en-US')}</span>
                                                     <ReleaseButton
                                                         // disabled={!canUnlock.isGreaterThan(0) || pendingTx}
                                                         disabled={pendingTx}
@@ -139,13 +139,13 @@ const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
                                                         {e.name}
                                                     </TextMedium>
                                                     <TextMin>
-                                                        {parseFloat(getBalanceNumber(e.tokenAmount).toFixed(10)).toLocaleString()} {e.symbolShort}
+                                                        {parseFloat(getBalanceNumber(e.tokenAmount).toFixed(10)).toLocaleString('en-US')} {e.symbolShort}
                                                     </TextMin>
                                                 </div>
                                             </BoxFlex>
                                         </Col>
                                         <Col className="col-4 text-green align-center justify-right">
-                                            + {parseFloat(getBalanceNumber(e.pendingReward).toFixed(4)).toLocaleString()} LUA
+                                            + {parseFloat(getBalanceNumber(e.pendingReward).toFixed(4)).toLocaleString('en-US')} LUA
                                         </Col>
                                     </RowHighLight>
                                 </BoxItem>

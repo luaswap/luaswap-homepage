@@ -22,7 +22,7 @@ const TokenInput: React.FC<TokenInputProps> = ({
         <Box>
             <StyleBox>
                 <StyleLabel>Amount</StyleLabel>
-                <StyledMaxText>{max.toLocaleString()} {symbol}</StyledMaxText>
+                <StyledMaxText>{max.toLocaleString('en-US')} {symbol}</StyledMaxText>
             </StyleBox>
             <BoxInput>
                 <Input

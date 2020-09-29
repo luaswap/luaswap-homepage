@@ -12,6 +12,8 @@ import {
 } from '../sushi/utils'
 import useSushi from './useSushi'
 import useBlock from './useBlock'
+import axios from 'axios'
+import config from '../config'
 
 export interface StakedValue {
   tokenAmount: BigNumber
@@ -28,39 +30,40 @@ const useStakedValue = (pid: number) => {
   const sushi = useSushi()
   const farms = getFarms(sushi)
   const masterChefContract = getMasterChefContract(sushi)
-  // const block = useBlock()
+  const block = useBlock()
 
   const fetchStakedValue = useCallback(async () => {
-    const balances: Array<StakedValue> = await Promise.all(
-      farms.filter((e: any) => e.pid == pid).map(
-        ({
-          pid,
-          lpContract,
-          tokenContract,
-          token2Contract
-        }: {
-          pid: number
-          lpContract: Contract
-          tokenContract: Contract
-          token2Contract: Contract
-        }) =>
-          getLPValue(
-            masterChefContract,
-            lpContract,
-            tokenContract,
-            token2Contract,
-            pid,
-          ),
-      ),
-    )
-    setBalance(balances[0])
-  }, [masterChefContract, sushi])
+    // const balances: Array<StakedValue> = await Promise.all(
+    //   farms.filter((e: any) => e.pid == pid).map(
+    //     ({
+    //       pid,
+    //       lpContract,
+    //       tokenContract,
+    //       token2Contract
+    //     }: {
+    //       pid: number
+    //       lpContract: Contract
+    //       tokenContract: Contract
+    //       token2Contract: Contract
+    //     }) =>
+    //       getLPValue(
+    //         masterChefContract,
+    //         lpContract,
+    //         tokenContract,
+    //         token2Contract,
+    //         pid,
+    //       ),
+    //   ),
+    // )
+    const { data: balances } = await axios.get(`${config.api}/api/luaswap/pools/${pid}`)
+    setBalance(balances)
+  }, [masterChefContract, block, sushi])
 
   useEffect(() => {
     if (masterChefContract && sushi) {
       fetchStakedValue()
     }
-  }, [masterChefContract, setBalance, sushi])
+  }, [masterChefContract, block, setBalance, sushi])
 
   return balance
 }

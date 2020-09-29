@@ -58,15 +58,15 @@ const Apy: React.FC<ApyProps> = ({ pid, lpTokenAddress, symbolShort, tokenSymbol
                     .div(stakedValue.usdValue)
                     .div(10 ** 8)
                     .times(100)
-                    .toFixed(2)).toLocaleString()}%` : 'loading'
+                    .toFixed(2)).toLocaleString('en-US')}%` : 'loading'
                 }</StyledContent>
             </StyledBox>
             <StyledBox className="col-7">
                 <StyledLabel>Total Staked LP Token</StyledLabel>
                 <StyledContent>
-                    {stakedValue && stakedValue.tokenAmount ? Math.round(stakedValue.tokenAmount.toNumber()).toLocaleString(): '~'} <span style={{fontSize: 10}}>{tokenSymbol}</span>
+                    {stakedValue && stakedValue.tokenAmount ? (stakedValue.tokenAmount as any).toLocaleString('en-US'): '~'} <span style={{fontSize: 10}}>{tokenSymbol}</span>
                     &nbsp; + &nbsp;
-                    {stakedValue && stakedValue.token2Amount ? Math.round(stakedValue.token2Amount.toNumber()).toLocaleString(): '~'} <span style={{fontSize: 10}}>{token2Symbol}</span></StyledContent>
+                    {stakedValue && stakedValue.token2Amount ? (stakedValue.token2Amount as any).toLocaleString('en-US'): '~'} <span style={{fontSize: 10}}>{token2Symbol}</span></StyledContent>
                 <StyledEquility>{totalStake  ? getBalanceNumber(totalStake) : '~'} <span style={{fontSize: 10}}>{symbolShort} LP</span></StyledEquility>
             </StyledBox>
             <StyledBox className="col-2">

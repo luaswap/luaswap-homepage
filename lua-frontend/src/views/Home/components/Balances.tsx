@@ -116,7 +116,7 @@ const Balances = memo(() => {
           Total Supply
           <FootnoteValue>
             {/* {newReward ? `${getBalanceNumber(newReward)} LUA` : 'Loading...'} */}
-            {totalSupply ? `${parseFloat(getBalanceNumber(totalSupply).toFixed(2)).toLocaleString()} LUA` : '~'}
+            {totalSupply ? `${parseFloat(getBalanceNumber(totalSupply).toFixed(2)).toLocaleString('en-US')} LUA` : '~'}
           </FootnoteValue>
         </Footnote>
       </Card>
