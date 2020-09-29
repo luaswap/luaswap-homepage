@@ -12,9 +12,9 @@ var CACHE : any = {}
 
 const useNewReward = (pid1 = 0) => {
   CACHE[pid1] = CACHE[pid1] || {
-    time: parseInt(localStorage.getItem((`CACHE_useNewReward${pid1}_time`) || '0')),
+    time: 0,
     old: 10 * 60 * 1000,
-    value: new BigNumber(localStorage.getItem(`CACHE_useNewReward${pid1}_value`) || '0')
+    value: new BigNumber(0)
   }
   const sushi = useSushi()
   const [newReward, setNewRewad] = useState<BigNumber>(CACHE[pid1].value)
