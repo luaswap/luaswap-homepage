@@ -5,7 +5,7 @@ import { useWallet } from 'use-wallet'
 import config from '../config'
 // import debounce from 'debounce'
 
-const web3 = new Web3('https://mainnet.infura.io/v3/588a6747988443e18df8680e9b69f9c1')
+const web3 = new Web3(config.rpc)
 
 var CACHE : any = {
   time: parseInt(localStorage.getItem('CACHE_useBlock_time') || '0'),
