@@ -107,15 +107,16 @@ const Balances = memo(() => {
             <div style={{ flex: 1 }}>
               <Label text="LUA Circulating Supply" />
               <Value
-                value={circulatingSupply ? getBalanceNumber(circulatingSupply) : 'Locked'}
+                value={circulatingSupply ? getBalanceNumber(circulatingSupply) : '~'}
               />
             </div>
           </StyledBalance>
         </CardContent>
         <Footnote>
-          New rewards per block
+          Total Supply
           <FootnoteValue>
-            {newReward ? `${getBalanceNumber(newReward)} LUA` : 'Loading...'}
+            {/* {newReward ? `${getBalanceNumber(newReward)} LUA` : 'Loading...'} */}
+            {totalSupply ? `${parseFloat(getBalanceNumber(totalSupply).toFixed(2)).toLocaleString()} LUA` : '~'}
           </FootnoteValue>
         </Footnote>
       </Card>
