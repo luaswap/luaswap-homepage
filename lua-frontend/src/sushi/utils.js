@@ -182,7 +182,12 @@ export const getSushiSupply = async (sushi) => {
 }
 
 export const getLuaCirculatingSupply = async (sushi) => {
-  return new BigNumber(await sushi.contracts.sushi.methods.circulatingSupply().call())
+  var chef = getMasterChefContract(sushi)
+  var a = new BigNumber(await sushi.contracts.sushi.methods.circulatingSupply().call())
+  var b = new BigNumber(await sushi.contracts.sushi.methods.balanceOf(
+    chef._address
+  ).call())
+  return a.minus(b)
 }
 
 export const getNewRewardPerBlock = async (sushi, pid1 = 0) => {
