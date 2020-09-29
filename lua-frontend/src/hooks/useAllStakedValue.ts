@@ -25,7 +25,7 @@ export interface StakedValue {
 
 var CACHE : {time: number, old: number, value: any} = {
   time: 0,
-  old: 60 * 60 * 1000,
+  old: 10 * 60 * 1000,
   value: []
 }
 

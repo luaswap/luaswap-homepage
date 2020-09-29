@@ -10,7 +10,7 @@ import BigNumber from 'bignumber.js'
 
 var CACHE = {
   time: 0,
-  old: 60 * 60 * 1000,
+  old: 2 * 60 * 1000,
   value: new BigNumber(0)
 }
 
