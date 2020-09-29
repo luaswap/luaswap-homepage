@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import BigNumber from 'bignumber.js'
 
-import { getLuaPrice} from '../sushi/utils'
 import useSushi from './useSushi'
 import axios from 'axios'
 import config from '../config'

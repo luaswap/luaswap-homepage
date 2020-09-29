@@ -15,10 +15,11 @@ const GAS_LIMIT = {
   },
 }
 
-export async function UnknownBlock(address, method, params) {
-  var { data } = await axios.post(`${config.api}/api/luaswap/${address}/read`, {
+export async function UnknownBlock(address, method, params, cache) {
+  var { data } = await axios.post(`${config.api}/api/luaswap/read/${address}`, {
       method,
-      params
+      params,
+      cache
   })
 
   return data.data
@@ -172,11 +173,9 @@ export const getLPTokenStaked = async (
   lpContract,
 ) => {
   var chef = getMasterChefContract(sushi)
-  const balance = await lpContract.methods
-    .balanceOf(chef.options.address)
-    .call()
-
-  return new BigNumber(balance)
+  return new BigNumber(
+    await UnknownBlock(lpContract._address, 'balanceOf(address):(uint256)', [chef.options.address], true)
+  )
 }
 
 export const approve = async (lpContract, masterChefContract, account) => {
@@ -185,26 +184,29 @@ export const approve = async (lpContract, masterChefContract, account) => {
     .send({ from: account })
 }
 
-export const getLuaPrice = async (sushi) => {
-  return new BigNumber(2.5 * 10 ** 7)
-}
-
 export const getSushiSupply = async (sushi) => {
-  return new BigNumber(await sushi.contracts.sushi.methods.totalSupply().call())
+  return new BigNumber(
+    await UnknownBlock(sushi.contracts.sushi._address, 'totalSupply():(uint256)', [], true)
+  )
 }
 
 export const getLuaCirculatingSupply = async (sushi) => {
   var chef = getMasterChefContract(sushi)
-  var a = new BigNumber(await sushi.contracts.sushi.methods.circulatingSupply().call())
-  var b = new BigNumber(await sushi.contracts.sushi.methods.balanceOf(
-    chef._address
-  ).call())
+  var a = new BigNumber(
+    await UnknownBlock(sushi.contracts.sushi._address, 'circulatingSupply():(uint256)', [], true)
+  )
+
+  var b = new BigNumber(
+    await UnknownBlock(sushi.contracts.sushi._address, 'balanceOf(address):(uint256)', [chef._address], true)
+  )
   return a.minus(b)
 }
 
 export const getNewRewardPerBlock = async (sushi, pid1 = 0) => {
   var chef = getMasterChefContract(sushi)
-  return new BigNumber(await chef.methods.getNewRewardPerBlock(pid1).call())
+  return new BigNumber(
+    await UnknownBlock(chef._address, 'getNewRewardPerBlock(uint256):(uint256)', [pid1], true)
+  )
 }
 
 export const stake = async (masterChefContract, pid, amount, account) => {
