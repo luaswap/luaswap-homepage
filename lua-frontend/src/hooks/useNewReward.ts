@@ -27,7 +27,7 @@ const useNewReward = (pid1 = 0) => {
       setNewRewad(v)
     }
     if (sushi 
-      && CACHE[pid].time + CACHE[pid].old <= new Date().getTime()) {
+      && CACHE[pid1].time + CACHE[pid1].old <= new Date().getTime()) {
       fetchData()
     }
   }, [sushi, setNewRewad])
