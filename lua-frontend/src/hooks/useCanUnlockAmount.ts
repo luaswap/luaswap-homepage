@@ -15,7 +15,7 @@ const useCanUnlockAmount = () => {
     ethereum,
   }: { account: string; ethereum: provider } = useWallet()
   const sushi = useSushi()
-  const block = useBlock()
+  const block = 0//useBlock()
 
   const fetchBalance = useCallback(async () => {
     const balance = await getCanUnlockLua(sushi, account)

@@ -28,7 +28,7 @@ const useStakedValue = (pid: number) => {
   const sushi = useSushi()
   const farms = getFarms(sushi)
   const masterChefContract = getMasterChefContract(sushi)
-  const block = useBlock()
+  // const block = useBlock()
 
   const fetchStakedValue = useCallback(async () => {
     const balances: Array<StakedValue> = await Promise.all(
@@ -60,7 +60,7 @@ const useStakedValue = (pid: number) => {
     if (masterChefContract && sushi) {
       fetchStakedValue()
     }
-  }, [block, masterChefContract, setBalance, sushi])
+  }, [masterChefContract, setBalance, sushi])
 
   return balance
 }

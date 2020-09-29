@@ -2,7 +2,7 @@ import BigNumber from 'bignumber.js/bignumber'
 
 export const SUBTRACT_GAS_LIMIT = 100000
 export const START_REWARD_AT_BLOCK = 10950600 // TODO
-export const NUMBER_BLOCKS_PER_YEAR = 2336000
+export const NUMBER_BLOCKS_PER_YEAR = 2425000
 
 const ONE_MINUTE_IN_SECONDS = new BigNumber(60)
 const ONE_HOUR_IN_SECONDS = ONE_MINUTE_IN_SECONDS.times(60)

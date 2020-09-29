@@ -12,6 +12,7 @@ import useBlock from '../../../hooks/useBlock'
 import useStakedValue from '../../../hooks/useStakedValue'
 import { NUMBER_BLOCKS_PER_YEAR } from '../../../sushi/lib/constants'
 import useLuaPrice from '../../../hooks/useLuaPrice'
+import useNewReward from '../../../hooks/useNewReward'
 
 interface ApyProps {
     pid: number
@@ -32,17 +33,8 @@ const Apy: React.FC<ApyProps> = ({ pid, lpTokenAddress, symbolShort, tokenSymbol
       return getContract(ethereum as provider, lpTokenAddress)
     }, [ethereum, lpTokenAddress])
 
-    const [newReward, setNewRewad] = useState<BigNumber>()
-    useEffect(() => {
-        async function fetchData() {
-            const data = await getNewRewardPerBlock(sushi, pid + 1)
-            setNewRewad(data)
-        }
-        if (sushi) {
-            fetchData()
-        }
-    }, [sushi, setNewRewad])
-
+    const newReward = useNewReward(pid)
+    
     const [totalStake, setTotalStake] = useState<BigNumber>()
     useEffect(() => {
         async function fetchData() {
@@ -63,9 +55,9 @@ const Apy: React.FC<ApyProps> = ({ pid, lpTokenAddress, symbolShort, tokenSymbol
                   `${luaPrice
                     .times(NUMBER_BLOCKS_PER_YEAR)
                     .times(newReward.div(10 ** 18))
-                    .times(stakedValue.poolWeight)
                     .div(stakedValue.usdValue)
                     .div(10 ** 8)
+                    .times(100)
                     .toFixed(2)}%` : 'loading'
                 }</StyledContent>
             </StyledBox>

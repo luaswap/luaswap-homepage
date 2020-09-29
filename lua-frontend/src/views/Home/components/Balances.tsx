@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js'
-import React, { useEffect, useState } from 'react'
+import React, { memo, useEffect, useState } from 'react'
 import CountUp from 'react-countup'
 import styled from 'styled-components'
 import { useWallet } from 'use-wallet'
@@ -17,6 +17,9 @@ import { getNewRewardPerBlock, getSushiAddress, getSushiSupply } from '../../../
 import { getBalanceNumber } from '../../../utils/formatBalance'
 import Lua from '../../../assets/img/lua-icon.svg'
 import Luas from '../../../assets/img/luas-icon.svg'
+import useNewReward from '../../../hooks/useNewReward'
+import useLuaTotalSupply from '../../../hooks/useLuaTotalSupply'
+import useLuaCirculatingSupply from '../../../hooks/useLuaCirculatingSupply'
 
 const PendingRewards: React.FC = () => {
   const [start, setStart] = useState(0)
@@ -60,32 +63,14 @@ const PendingRewards: React.FC = () => {
   )
 }
 
-const Balances: React.FC = () => {
-  const [totalSupply, setTotalSupply] = useState<BigNumber>()
-  const [newReward, setNewRewad] = useState<BigNumber>()
+const Balances = memo(() => {
+  const newReward = useNewReward()
+  const totalSupply = useLuaTotalSupply()
+  const circulatingSupply = useLuaCirculatingSupply()
   const sushi = useSushi()
   const sushiBalance = useTokenBalance(getSushiAddress(sushi))
   const { account, ethereum }: { account: any; ethereum: any } = useWallet()
-  useEffect(() => {
-    async function fetchTotalSupply() {
-      const supply = await getSushiSupply(sushi)
-      setTotalSupply(supply)
-    }
-    if (sushi) {
-      fetchTotalSupply()
-    }
-  }, [sushi, setTotalSupply])
-
-  useEffect(() => {
-    async function fetchData() {
-      const supply = await getNewRewardPerBlock(sushi)
-      setNewRewad(supply)
-    }
-    if (sushi) {
-      fetchData()
-    }
-  }, [sushi, setNewRewad])
-
+  
   return (
     <StyledWrapper>
       <Card>
@@ -120,9 +105,9 @@ const Balances: React.FC = () => {
             <img src={Luas} alt="Total LUA Supply"/>
             <Spacer />
             <div style={{ flex: 1 }}>
-              <Label text="Total LUA Supply" />
+              <Label text="LUA Circulating Supply" />
               <Value
-                value={totalSupply ? getBalanceNumber(totalSupply) : 'Locked'}
+                value={circulatingSupply ? getBalanceNumber(circulatingSupply) : 'Locked'}
               />
             </div>
           </StyledBalance>
@@ -136,7 +121,7 @@ const Balances: React.FC = () => {
       </Card>
     </StyledWrapper>
   )
-}
+})
 
 const Footnote = styled.div`
   font-size: 14px;

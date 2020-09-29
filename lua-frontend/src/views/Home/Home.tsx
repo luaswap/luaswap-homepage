@@ -5,24 +5,17 @@ import Container from '../../components/Container'
 import Page from '../../components/Page'
 // import PageHeader from '../../components/PageHeader'
 import Spacer from '../../components/Spacer'
-import FarmCards from '../Farms/components/FarmCards'
 import Balances from './components/Balances'
 import CustomCountDown from './components/CustomCountDown'
 import Icon_Tip from '../../assets/img/pro-tip-icon.svg'
-import useBlock from '../../hooks/useBlock'
 import { START_REWARD_AT_BLOCK } from '../../sushi/lib/constants'
 import LuaLogo from '../../assets/img/logo.png'
+import FarmCards from '../Farms/components/FarmCards'
 
 const Home: React.FC = () => {
-  var block = useBlock()
+  var block = 99999999999
   const launchBlock = START_REWARD_AT_BLOCK
   const [atDate, setDate] = useState<any>()
-  useEffect(() => {
-    if (block > 0) {
-      var d: any = (launchBlock - block) * 13000 + new Date().getTime()
-      setDate(new Date(d))
-    }
-  }, [block > 0])
   return (
     <Page>
         <SpacerRes>

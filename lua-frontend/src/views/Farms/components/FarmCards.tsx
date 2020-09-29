@@ -196,9 +196,9 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
                   `${farm.luaPrice
                     .times(NUMBER_BLOCKS_PER_YEAR)
                     .times(newReward.div(10 ** 18))
-                    .times(farm.poolWeight)
                     .div(farm.usdValue)
                     .div(10 ** 8)
+                    .times(100)
                     .toFixed(2)}%` : 'loading'
                 }
               </span>

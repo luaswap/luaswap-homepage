@@ -23,12 +23,19 @@ export interface StakedValue {
   pid: string
 }
 
+var CACHE : {time: number, old: number, value: any} = {
+  time: 0,
+  old: 60 * 60 * 1000,
+  value: []
+}
+
+
 const useAllStakedValue = () => {
-  const [balances, setBalance] = useState([] as Array<StakedValue>)
+  const [balances, setBalance] = useState(CACHE.value as Array<StakedValue>)
   const sushi = useSushi()
   const farms = getFarms(sushi)
   const masterChefContract = getMasterChefContract(sushi)
-  const block = useBlock()
+  const block = 0//useBlock()
 
   const fetchAllStakedValue = useCallback(async () => {
     const balances: Array<StakedValue> = await Promise.all(
@@ -54,11 +61,15 @@ const useAllStakedValue = () => {
       ),
     )
 
+    CACHE.time = new Date().getTime()
+    CACHE.value = balances;
+
     setBalance(balances)
   }, [masterChefContract, sushi])
 
   useEffect(() => {
-    if (masterChefContract && sushi) {
+    if (masterChefContract && sushi
+      && CACHE.time + CACHE.old <= new Date().getTime()) {
       fetchAllStakedValue()
     }
   }, [block, masterChefContract, setBalance, sushi])
