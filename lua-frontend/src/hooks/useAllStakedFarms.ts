@@ -7,9 +7,8 @@ import { Contract } from 'web3-eth-contract'
 
 import {
   getMasterChefContract,
-  getWethContract,
   getFarms,
-  getTotalLPWethValue, getStaked, getEarned
+  getStaked, getEarned
 } from '../sushi/utils'
 import useSushi from './useSushi'
 import useBlock from './useBlock'

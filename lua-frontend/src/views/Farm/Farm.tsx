@@ -21,7 +21,7 @@ import Harvest from './components/Harvest'
 import Stake from './components/Stake'
 
 const Farm: React.FC = () => {
-  const { farmId } = useParams()
+  const { farmId } = (useParams() as any)
   const {
     pid,
     lpToken,

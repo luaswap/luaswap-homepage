@@ -10,7 +10,6 @@ import Spacer from '../../../components/Spacer'
 import Value from '../../../components/Value'
 import SushiIcon from '../../../components/SushiIcon'
 import useAllEarnings from '../../../hooks/useAllEarnings'
-import useAllStakedValue from '../../../hooks/useAllStakedValue'
 import useFarms from '../../../hooks/useFarms'
 import useTokenBalance from '../../../hooks/useTokenBalance'
 import useSushi from '../../../hooks/useSushi'
@@ -31,16 +30,6 @@ const PendingRewards: React.FC = () => {
       .div(new BigNumber(10).pow(18))
       .toNumber()
   }
-
-  // const [farms] = useFarms()
-  // const allStakedValue = useAllStakedValue()
-
-  // if (allStakedValue && allStakedValue.length) {
-  //   const sumWeth = farms.reduce(
-  //     (c, { id }, i) => c + (allStakedValue[i].totalWethValue.toNumber() || 0),
-  //     0,
-  //   )
-  // }
 
   useEffect(() => {
     setStart(end)

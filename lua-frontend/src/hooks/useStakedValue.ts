@@ -7,7 +7,6 @@ import { Contract } from 'web3-eth-contract'
 
 import {
   getMasterChefContract,
-  getWethContract,
   getFarms,
   getLPValue,
 } from '../sushi/utils'
@@ -20,6 +19,7 @@ export interface StakedValue {
   totalToken2Value: BigNumber
   tokenPriceInToken2: BigNumber
   poolWeight: BigNumber
+  usdValue: BigNumber
   pid: string
 }
 

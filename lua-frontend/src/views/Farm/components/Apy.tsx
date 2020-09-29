@@ -10,6 +10,8 @@ import { provider } from 'web3-core'
 import { getBalanceNumber } from '../../../utils/formatBalance'
 import useBlock from '../../../hooks/useBlock'
 import useStakedValue from '../../../hooks/useStakedValue'
+import { NUMBER_BLOCKS_PER_YEAR } from '../../../sushi/lib/constants'
+import useLuaPrice from '../../../hooks/useLuaPrice'
 
 interface ApyProps {
     pid: number
@@ -23,8 +25,9 @@ const Apy: React.FC<ApyProps> = ({ pid, lpTokenAddress, symbolShort, tokenSymbol
     const sushi = useSushi()
     const { ethereum } = useWallet()
     
-    const block = useBlock()
+    // const block = useBlock()
     const stakedValue = useStakedValue(pid)
+    const luaPrice = useLuaPrice()
     const lpContract = useMemo(() => {
       return getContract(ethereum as provider, lpTokenAddress)
     }, [ethereum, lpTokenAddress])
@@ -38,7 +41,7 @@ const Apy: React.FC<ApyProps> = ({ pid, lpTokenAddress, symbolShort, tokenSymbol
         if (sushi) {
             fetchData()
         }
-    }, [sushi, setNewRewad, block])
+    }, [sushi, setNewRewad])
 
     const [totalStake, setTotalStake] = useState<BigNumber>()
     useEffect(() => {
@@ -49,14 +52,23 @@ const Apy: React.FC<ApyProps> = ({ pid, lpTokenAddress, symbolShort, tokenSymbol
         if (sushi && lpContract) {
             fetchData()
         }
-    }, [sushi, setTotalStake, lpContract, block])
-
+    }, [sushi, setTotalStake, lpContract])
+    
     return (
         <StyledApy>
-            {/* <StyledBox className="col-2">
+            <StyledBox className="col-2">
                 <StyledLabel>APY</StyledLabel>
-                <StyledContent>~%</StyledContent>
-            </StyledBox> */}
+                <StyledContent>{
+                newReward && stakedValue && luaPrice && stakedValue.usdValue && stakedValue.totalToken2Value && stakedValue.poolWeight ?
+                  `${luaPrice
+                    .times(NUMBER_BLOCKS_PER_YEAR)
+                    .times(newReward.div(10 ** 18))
+                    .times(stakedValue.poolWeight)
+                    .div(stakedValue.usdValue)
+                    .div(10 ** 8)
+                    .toFixed(2)}%` : 'loading'
+                }</StyledContent>
+            </StyledBox>
             <StyledBox className="col-8">
                 <StyledLabel>Total Staked LP Token</StyledLabel>
                 <StyledContent>
@@ -67,8 +79,8 @@ const Apy: React.FC<ApyProps> = ({ pid, lpTokenAddress, symbolShort, tokenSymbol
             </StyledBox>
             <StyledBox className="col-4">
                 <StyledLabel>Reward per block</StyledLabel>
-                <StyledContent>{newReward ? getBalanceNumber(newReward).toString() : '~'} LUA</StyledContent>
-                {/* <StyledEquility>≈ 100 USD</StyledEquility> */}
+                <StyledContent>{newReward ? getBalanceNumber(newReward).toFixed(2) : '~'} LUA</StyledContent>
+                <StyledEquility>≈ {stakedValue && newReward && luaPrice && luaPrice.times(newReward).div(10 ** 18).div(10 ** 8).toFixed(4)} USD</StyledEquility>
             </StyledBox>
         </StyledApy>
     )

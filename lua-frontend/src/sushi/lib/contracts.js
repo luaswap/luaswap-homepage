@@ -3,7 +3,7 @@ import ERC20Abi from './abi/erc20.json'
 import MasterChefAbi from './abi/masterchef.json'
 import SushiAbi from './abi/sushi.json'
 import UNIV2PairAbi from './abi/uni_v2_lp.json'
-import WETHAbi from './abi/weth.json'
+
 import {
   contractAddresses,
   SUBTRACT_GAS_LIMIT,
@@ -23,7 +23,6 @@ export class Contracts {
 
     this.sushi = new this.web3.eth.Contract(SushiAbi)
     this.masterChef = new this.web3.eth.Contract(MasterChefAbi)
-    this.weth = new this.web3.eth.Contract(WETHAbi)
 
     this.pools = supportedPools.map((pool) =>
       Object.assign(pool, {
@@ -49,7 +48,6 @@ export class Contracts {
 
     setProvider(this.sushi, contractAddresses.sushi[networkId])
     setProvider(this.masterChef, contractAddresses.masterChef[networkId])
-    setProvider(this.weth, contractAddresses.weth[networkId])
 
     this.pools.forEach(
       ({ lpContract, lpAddress, tokenContract, token2Contract, token2Address, tokenAddress }) => {

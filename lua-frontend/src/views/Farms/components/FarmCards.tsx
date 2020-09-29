@@ -14,18 +14,21 @@ import useAllStakedValue, {
   StakedValue,
 } from '../../../hooks/useAllStakedValue'
 import useFarms from '../../../hooks/useFarms'
+import useLuaPrice from '../../../hooks/useLuaPrice'
 import useSushi from '../../../hooks/useSushi'
+import { NUMBER_BLOCKS_PER_YEAR } from '../../../sushi/lib/constants'
 import { getEarned, getMasterChefContract, getNewRewardPerBlock } from '../../../sushi/utils'
 import { bnToDec } from '../../../utils'
 import { getBalanceNumber } from '../../../utils/formatBalance'
 
 interface FarmWithStakedValue extends Farm {
-  apy: BigNumber,
   tokenAmount: BigNumber
-  wethAmount: BigNumber
-  totalWethValue: BigNumber
-  tokenPriceInWeth: BigNumber
+  token2Amount: BigNumber
+  totalToken2Value: BigNumber
+  tokenPriceInToken2: BigNumber
+  usdValue: BigNumber
   poolWeight: BigNumber
+  luaPrice: BigNumber
 }
 
 const FarmCards: React.FC = () => {
@@ -34,35 +37,22 @@ const FarmCards: React.FC = () => {
   const stakedValue = useAllStakedValue()
 
   const sushiIndex = farms.findIndex(
-    ({ tokenSymbol }) => tokenSymbol === 'SUSHI',
+    ({ tokenSymbol }) => tokenSymbol === 'LUA',
   )
 
-  // const sushiPrice =
-  //   sushiIndex >= 0 && stakedValue[sushiIndex]
-  //     ? stakedValue[sushiIndex].tokenPriceInWeth
-  //     : new BigNumber(0)
-
-  const sushiPrice = new BigNumber(1);
-
-  const BLOCKS_PER_YEAR = new BigNumber(2336000)
-  const SUSHI_PER_BLOCK = new BigNumber(1000)
+  const luaPrice = useLuaPrice()
 
   const rows = farms.reduce<FarmWithStakedValue[][]>(
     (farmRows, farm, i) => {
       const farmWithStakedValue : FarmWithStakedValue = {
         ...farm,
         tokenAmount: (stakedValue[i] || {}).tokenAmount || new BigNumber(0),
-        wethAmount: (stakedValue[i] || {}).wethAmount || new BigNumber(0),
-        totalWethValue: (stakedValue[i] || {}).totalWethValue || new BigNumber(0),
-        tokenPriceInWeth: (stakedValue[i] || {}).tokenPriceInWeth || new BigNumber(0),
+        token2Amount: (stakedValue[i] || {}).token2Amount || new BigNumber(0),
+        totalToken2Value: (stakedValue[i] || {}).totalToken2Value || new BigNumber(0),
+        tokenPriceInToken2: (stakedValue[i] || {}).tokenPriceInToken2 || new BigNumber(0),
         poolWeight: (stakedValue[i] || {}).poolWeight || new BigNumber(0),
-        apy: stakedValue[i]
-          ? sushiPrice
-              .times(SUSHI_PER_BLOCK)
-              .times(BLOCKS_PER_YEAR)
-              .times(stakedValue[i].poolWeight)
-              .div(stakedValue[i].totalWethValue)
-          : null,
+        usdValue: (stakedValue[i] || {}).usdValue || new BigNumber(0),
+        luaPrice
       }
       const newFarmRows = [...farmRows]
       if (newFarmRows[newFarmRows.length - 1].length === 3) {
@@ -167,8 +157,6 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
             <StyledTitle>{farm.name}</StyledTitle>
             <StyledDetails>
               <StyledDetail>{farm.description}</StyledDetail>
-              {/* <StyledDetail>Deposit {farm.lpToken.toUpperCase()}</StyledDetail>
-              <StyledDetail>Earn {farm.earnToken.toUpperCase()}</StyledDetail> */}
             </StyledDetails>
             <Spacer />
             <Button
@@ -183,27 +171,38 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
                 />
               )}
             </Button>
+            <br/>
             <StyledInsight>
-              <span>REWARD</span>
+              <span>Total Lock Value</span>
+              <span>
+                {farm.usdValue &&
+                  <><b>{parseFloat(farm.usdValue.toFixed(0)).toLocaleString()} USD</b></>
+                }
+              </span>
+            </StyledInsight>
+            <StyledInsight>
+              <span>Reward</span>
               <span>
                 {newReward &&
-                  <><b>{getBalanceNumber(newReward)} LUA</b> / block</>
+                  <><b>{getBalanceNumber(newReward).toFixed(2)} LUA</b> / block</>
                 }
                 {!newReward && "loading..."}
               </span>
             </StyledInsight>
-            {/* <StyledInsight>
+            <StyledInsight>
               <span>APY</span>
               <span>
-                {farm.apy
-                  ? `${farm.apy
-                      .times(new BigNumber(100))
-                      .toNumber()
-                      .toLocaleString('en-US')
-                      .slice(0, -1)}%`
-                  : 'Loading ...'}
+                {newReward && farm.totalToken2Value && farm.poolWeight && farm.luaPrice && farm.usdValue ?
+                  `${farm.luaPrice
+                    .times(NUMBER_BLOCKS_PER_YEAR)
+                    .times(newReward.div(10 ** 18))
+                    .times(farm.poolWeight)
+                    .div(farm.usdValue)
+                    .div(10 ** 8)
+                    .toFixed(2)}%` : 'loading'
+                }
               </span>
-            </StyledInsight> */}
+            </StyledInsight>
           </StyledContent>
         </CardContent>
       </Card>
@@ -348,14 +347,12 @@ const StyledInsight = styled.div`
   box-sizing: border-box;
   border-radius: 8px;
   background: transparent;
-  color: #7A7F7F;
+  color: #9E9E9E;
   width: 100%;
-  margin-top: 12px;
-  line-height: 32px;
+  line-height: 25px;
   font-size: 13px;
   border: 0px solid #e6dcd5;
   text-align: center;
-  padding: 0 12px;
 `
 
 export default FarmCards

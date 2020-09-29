@@ -19,9 +19,6 @@ export const getMasterChefAddress = (sushi) => {
 export const getSushiAddress = (sushi) => {
   return sushi && sushi.sushiAddress
 }
-export const getWethContract = (sushi) => {
-  return sushi && sushi.contracts && sushi.contracts.weth
-}
 
 export const getMasterChefContract = (sushi) => {
   return sushi && sushi.contracts && sushi.contracts.masterChef
@@ -72,7 +69,7 @@ export const getFarms = (sushi) => {
           isHot,
           isNew,
           tokenContract,
-          earnToken: 'sushi',
+          earnToken: 'lua',
           earnTokenAddress: sushi.contracts.sushi.options.address,
           icon,
           icon2,
@@ -98,50 +95,6 @@ export const getEarned = async (masterChefContract, pid, account) => {
   return masterChefContract.methods.pendingReward(pid, account).call()
 }
 
-export const getTotalLPWethValue = async (
-  masterChefContract,
-  wethContract,
-  lpContract,
-  tokenContract,
-  pid,
-) => {
-  // Get balance of the token address
-  const tokenAmountWholeLP = await tokenContract.methods
-    .balanceOf(lpContract.options.address)
-    .call()
-  const tokenDecimals = await tokenContract.methods.decimals().call()
-  // Get the share of lpContract that masterChefContract owns
-  const balance = await lpContract.methods
-    .balanceOf(masterChefContract.options.address)
-    .call()
-  // Convert that into the portion of total lpContract = p1
-  const totalSupply = await lpContract.methods.totalSupply().call()
-  // Get total weth value for the lpContract = w1
-  const lpContractWeth = await wethContract.methods
-    .balanceOf(lpContract.options.address)
-    .call()
-  // Return p1 * w1 * 2
-  const portionLp = new BigNumber(balance).div(new BigNumber(totalSupply))
-  const lpWethWorth = new BigNumber(lpContractWeth)
-  const totalLpWethValue = portionLp.times(lpWethWorth).times(new BigNumber(2))
-  // Calculate
-  const tokenAmount = new BigNumber(tokenAmountWholeLP)
-    .times(portionLp)
-    .div(new BigNumber(10).pow(tokenDecimals))
-
-  const wethAmount = new BigNumber(lpContractWeth)
-    .times(portionLp)
-    .div(new BigNumber(10).pow(18))
-  return {
-    pid,
-    tokenAmount,
-    wethAmount,
-    totalWethValue: totalLpWethValue.div(new BigNumber(10).pow(18)),
-    tokenPriceInWeth: wethAmount.div(tokenAmount),
-    poolWeight: await getPoolWeight(masterChefContract, pid),
-  }
-}
-
 export const getLPValue = async (
   masterChefContract,
   lpContract,
@@ -149,6 +102,9 @@ export const getLPValue = async (
   token2Contract,
   pid,
 ) => {
+  var usdtAddress = '0xdac17f958d2ee523a2206206994597c13d831ec7'
+  var usdcAddress = '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48'
+  var wethAddress = '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2'
   // Get balance of the token address
   const tokenAmountWholeLP = await tokenContract.methods
     .balanceOf(lpContract.options.address)
@@ -160,30 +116,41 @@ export const getLPValue = async (
     .call()
   // Convert that into the portion of total lpContract = p1
   const totalSupply = await lpContract.methods.totalSupply().call()
-  // Get total weth value for the lpContract = w1
-  const lpContractWeth = await token2Contract.methods
+  // Get total token2 value for the lpContract = w1
+  const lpContractToken2 = await token2Contract.methods
     .balanceOf(lpContract.options.address)
     .call()
 
   const token2Decimals = await token2Contract.methods.decimals().call()
   // Return p1 * w1 * 2
   const portionLp = new BigNumber(balance).div(new BigNumber(totalSupply))
-  const lpWethWorth = new BigNumber(lpContractWeth)
-  const totalLpWethValue = portionLp.times(lpWethWorth).times(new BigNumber(2))
+  const totalLpToken2Value = portionLp.times(lpContractToken2).times(new BigNumber(2))
   // Calculate
   const tokenAmount = new BigNumber(tokenAmountWholeLP)
     .times(portionLp)
     .div(new BigNumber(10).pow(tokenDecimals))
 
-  const token2Amount = new BigNumber(lpContractWeth)
+  const token2Amount = new BigNumber(lpContractToken2)
     .times(portionLp)
     .div(new BigNumber(10).pow(token2Decimals))
+
+  var usdValue = 0;
+  var totalToken2Value = totalLpToken2Value.div(new BigNumber(10).pow(token2Decimals))
+  if (token2Contract._address.toLowerCase() == usdtAddress 
+    || token2Contract._address.toLowerCase() == usdcAddress) {
+    usdValue = totalToken2Value
+  } 
+  else if (token2Contract._address.toLowerCase() == wethAddress) {
+    usdValue = totalToken2Value.times(370)
+  }
+  
   return {
     pid,
     tokenAmount,
     token2Amount,
-    totalToken2Value: totalLpWethValue.div(new BigNumber(10).pow(token2Decimals)),
+    totalToken2Value,
     tokenPriceInToken2: token2Amount.div(tokenAmount),
+    usdValue,
     poolWeight: await getPoolWeight(masterChefContract, pid),
   }
 }
@@ -204,6 +171,10 @@ export const approve = async (lpContract, masterChefContract, account) => {
   return lpContract.methods
     .approve(masterChefContract.options.address, ethers.constants.MaxUint256)
     .send({ from: account })
+}
+
+export const getLuaPrice = async (sushi) => {
+  return new BigNumber(2 * 10 ** 7)
 }
 
 export const getSushiSupply = async (sushi) => {

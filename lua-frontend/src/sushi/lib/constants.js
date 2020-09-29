@@ -2,6 +2,7 @@ import BigNumber from 'bignumber.js/bignumber'
 
 export const SUBTRACT_GAS_LIMIT = 100000
 export const START_REWARD_AT_BLOCK = 10950600 // TODO
+export const NUMBER_BLOCKS_PER_YEAR = 2336000
 
 const ONE_MINUTE_IN_SECONDS = new BigNumber(60)
 const ONE_HOUR_IN_SECONDS = ONE_MINUTE_IN_SECONDS.times(60)
@@ -48,11 +49,7 @@ export const contractAddresses = {
   masterChef: {
     1: '0xb67D7a6644d9E191Cac4DA2B88D6817351C7fF62',
     99: '0xA49D353dd804f516bcd500D1Dd6eE72675CF498d',
-  },
-  weth: {
-    1: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
-    99: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
-  },
+  }
 }
 
 /*
