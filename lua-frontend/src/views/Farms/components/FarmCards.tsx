@@ -191,15 +191,15 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
             </StyledInsight>
             <StyledInsight>
               <span>APY</span>
-              <span>
+              <span style={{fontWeight: 'bold', color: '#4caf50'}}>
                 {newReward && farm.totalToken2Value && farm.poolWeight && farm.luaPrice && farm.usdValue ?
-                  `${farm.luaPrice
+                  `${parseFloat(farm.luaPrice
                     .times(NUMBER_BLOCKS_PER_YEAR)
                     .times(newReward.div(10 ** 18))
                     .div(farm.usdValue)
                     .div(10 ** 8)
                     .times(100)
-                    .toFixed(2)}%` : 'loading'
+                    .toFixed(2)).toLocaleString()}%` : 'loading'
                 }
               </span>
             </StyledInsight>
