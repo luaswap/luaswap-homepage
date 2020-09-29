@@ -174,7 +174,7 @@ export const approve = async (lpContract, masterChefContract, account) => {
 }
 
 export const getLuaPrice = async (sushi) => {
-  return new BigNumber(2 * 10 ** 7)
+  return new BigNumber(2.5 * 10 ** 7)
 }
 
 export const getSushiSupply = async (sushi) => {
