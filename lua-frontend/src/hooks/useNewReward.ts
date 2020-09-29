@@ -10,20 +10,20 @@ import BigNumber from 'bignumber.js'
 
 var CACHE : any = {}
 
-const useNewReward = (pid = 0) => {
-  CACHE[pid] = CACHE[pid] || {
+const useNewReward = (pid1 = 0) => {
+  CACHE[pid1] = CACHE[pid1] || {
     time: 0,
     old: 60 * 60 * 1000,
     value: new BigNumber(0)
   }
   const sushi = useSushi()
-  const [newReward, setNewRewad] = useState<BigNumber>(CACHE[pid].value)
+  const [newReward, setNewRewad] = useState<BigNumber>(CACHE[pid1].value)
   
   useEffect(() => {
     async function fetchData() {
-      const v = await getNewRewardPerBlock(sushi, pid)
-      CACHE[pid].time = new Date().getTime()
-      CACHE[pid].value = v;
+      const v = await getNewRewardPerBlock(sushi, pid1)
+      CACHE[pid1].time = new Date().getTime()
+      CACHE[pid1].value = v;
       setNewRewad(v)
     }
     if (sushi 

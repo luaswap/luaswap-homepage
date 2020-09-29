@@ -57,14 +57,16 @@ const DepositModal: React.FC<DepositModalProps> = ({
             disabled={pendingTx}
             text={pendingTx ? 'Pending Confirmation' : 'Confirm'}
             onClick={async () => {
-              setPendingTx(true)
-              var tx : any = await onConfirm(val)
-              setPendingTx(false)
-              if (tx) {
-                setSuccessTx(true)
-              }
-              else {
-                onDismiss()
+              if (val) {
+                setPendingTx(true)
+                var tx : any = await onConfirm(val)
+                setPendingTx(false)
+                if (tx) {
+                  setSuccessTx(true)
+                }
+                else {
+                  onDismiss()
+                }
               }
             }}
           />

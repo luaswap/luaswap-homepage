@@ -173,7 +173,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
             </Button>
             <br/>
             <StyledInsight>
-              <span>Total Lock Value</span>
+              <span>Total Locked Value</span>
               <span>
                 {farm.usdValue &&
                   <><b>{parseFloat(farm.usdValue.toFixed(0)).toLocaleString()} USD</b></>

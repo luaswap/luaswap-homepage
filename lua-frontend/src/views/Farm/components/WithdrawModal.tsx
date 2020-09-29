@@ -54,10 +54,12 @@ const WithdrawModal: React.FC<WithdrawModalProps> = ({
           disabled={pendingTx}
           text={pendingTx ? 'Pending Confirmation' : 'Confirm'}
           onClick={async () => {
-            setPendingTx(true)
-            await onConfirm(val)
-            setPendingTx(false)
-            onDismiss()
+            if (val) {
+              setPendingTx(true)
+              await onConfirm(val)
+              setPendingTx(false)
+              onDismiss()
+            }
           }}
         />
       </ModalActions>
