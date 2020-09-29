@@ -23,9 +23,9 @@ export interface StakedValue {
   pid: string
 }
 
-var CACHE : {time: number, old: number, value: any} = {
+var CACHE : {time: any, old: any, value: any} = {
   time: 0,
-  old: 10 * 60 * 1000,
+  old: 2 * 60 * 1000,
   value: []
 }
 
