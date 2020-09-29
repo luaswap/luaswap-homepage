@@ -48,7 +48,7 @@ const Apy: React.FC<ApyProps> = ({ pid, lpTokenAddress, symbolShort, tokenSymbol
     
     return (
         <StyledApy>
-            <StyledBox className="col-2">
+            <StyledBox className="col-3">
                 <StyledLabel>APY</StyledLabel>
                 <StyledContent>{
                 newReward && stakedValue && luaPrice && stakedValue.usdValue && stakedValue.totalToken2Value && stakedValue.poolWeight ?
@@ -61,7 +61,7 @@ const Apy: React.FC<ApyProps> = ({ pid, lpTokenAddress, symbolShort, tokenSymbol
                     .toFixed(2)}%` : 'loading'
                 }</StyledContent>
             </StyledBox>
-            <StyledBox className="col-8">
+            <StyledBox className="col-7">
                 <StyledLabel>Total Staked LP Token</StyledLabel>
                 <StyledContent>
                     {stakedValue && stakedValue.tokenAmount ? Math.round(stakedValue.tokenAmount.toNumber()).toLocaleString(): '~'} <span style={{fontSize: 10}}>{tokenSymbol}</span>
