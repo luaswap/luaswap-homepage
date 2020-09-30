@@ -8,6 +8,9 @@ const Nav: React.FC = () => {
       <StyledLink exact activeClassName="active" to="/">
         Home
       </StyledLink>
+      <StyledAbsoluteLink href="https://snapshot.luaswap.org/#/luaswap" target="_blank">
+        Proposals
+      </StyledAbsoluteLink>
       {/* <StyledLink exact activeClassName="active" to="/swap">
         Swap
       </StyledLink> */}
@@ -63,7 +66,7 @@ const StyledAbsoluteLink = styled.a`
   padding-right: ${(props) => props.theme.spacing[3]}px;
   text-decoration: none;
   &:hover {
-    color: ${(props) => props.theme.color.grey[500]};
+    color: #ffffff;
   }
   &.active {
     color: ${(props) => props.theme.color.primary.main};
