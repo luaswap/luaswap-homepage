@@ -11,6 +11,9 @@ import Icon_Tip from '../../assets/img/pro-tip-icon.svg'
 import { START_REWARD_AT_BLOCK } from '../../sushi/lib/constants'
 import LuaLogo from '../../assets/img/logo.png'
 import FarmCards from '../Farms/components/FarmCards'
+import TotalLockValue from './components/TotalLockValue'
+
+
 
 const Home: React.FC = () => {
   var block = 99999999999
@@ -24,27 +27,31 @@ const Home: React.FC = () => {
                 <img className="d-md-none" src={LuaLogo} height="150" style={{ marginTop: -4 }} />
             </StyledLogo>
         </SpacerRes>
-        {block < launchBlock && atDate && <>
-        <Spacer size="sm" />
-        <CustomCountDown date={atDate}/>
-        <Spacer size="md" />
-        <div>
-            <ReadMore href="https://medium.com/luaswap/introducing-luaswap-org-7e6ff38beefc" target="__blank"> 👉&nbsp;&nbsp;Read The Announcement&nbsp;&nbsp;👈</ReadMore>
-        </div>
         <Spacer size="lg" />
-        </>
+        <div style={{fontWeight: 'bold', fontSize: 22, color: '#ffffff'}}>
+            LuaSwap Currently Has <span style={{color: '#4caf50', fontSize: 30}}>$<TotalLockValue /></span> Total Locked Value
+        </div>
+        {block < launchBlock && atDate && <>
+            <Spacer size="sm" />
+            <CustomCountDown date={atDate}/>
+            <Spacer size="md" />
+            <div>
+                <ReadMore href="https://medium.com/luaswap/introducing-luaswap-org-7e6ff38beefc" target="__blank"> 👉&nbsp;&nbsp;Read The Announcement&nbsp;&nbsp;👈</ReadMore>
+            </div>
+            <Spacer size="lg" />
+            </>
         }
         {block >= launchBlock && <>
-        <Spacer size="lg" />
-        <Container>
-            <Balances />
-        </Container>
-        <Spacer size="md" />
-        <div>
-            <ReadMore href="https://medium.com/luaswap/introducing-luaswap-org-7e6ff38beefc" target="__blank"> 👉&nbsp;&nbsp;Read The Announcement&nbsp;&nbsp;👈</ReadMore>
-        </div>
-        <Spacer size="lg" />
-        </>
+            <Spacer size="lg" />
+            <Container>
+                <Balances />
+            </Container>
+            <Spacer size="md" />
+            <div>
+                <ReadMore href="https://medium.com/luaswap/introducing-luaswap-org-7e6ff38beefc" target="__blank"> 👉&nbsp;&nbsp;Read The Announcement&nbsp;&nbsp;👈</ReadMore>
+            </div>
+            <Spacer size="lg" />
+            </>
         }
         <div style={{color: '#fa4c4c'}}>This project is in beta. Use at your own risk.</div>
         <Spacer size="lg" />
