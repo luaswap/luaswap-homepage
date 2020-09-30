@@ -96,8 +96,7 @@ const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
                                                     <strong>{parseFloat(getBalanceNumber(canUnlock).toFixed(4)).toLocaleString('en-US')}</strong>
                                                     <span>/{parseFloat(getBalanceNumber(lockAmount).toFixed(4)).toLocaleString('en-US')}</span>
                                                     <ReleaseButton
-                                                        // disabled={!canUnlock.isGreaterThan(0) || pendingTx}
-                                                        disabled={pendingTx}
+                                                        disabled={!canUnlock.isGreaterThan(0) || pendingTx}
                                                         onClick={async () => {
                                                             setPendingTx(true)
                                                             await onUnlock()
