@@ -29,7 +29,7 @@ const Home: React.FC = () => {
         </SpacerRes>
         <Spacer size="lg" />
         <div style={{fontWeight: 'bold', fontSize: 22, color: '#ffffff'}}>
-            LuaSwap Currently Has <span style={{color: '#4caf50', fontSize: 30}}>$<TotalLockValue /></span> Total Locked Value
+            LuaSwap Currently Has <span style={{color: '#4caf50', fontSize: 30}}>$<TotalLockValue /></span> of Total Locked Value
         </div>
         {block < launchBlock && atDate && <>
             <Spacer size="sm" />
