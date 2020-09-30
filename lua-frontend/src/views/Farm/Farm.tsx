@@ -154,7 +154,7 @@ const Farm: React.FC = () => {
 
 const StyledApyWrap = styled.div`
   width: 600px;
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     width: 100%;
   }
 `
@@ -162,15 +162,15 @@ const StyledFarm = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
-  @media (max-width: 768px) {
-    width: 100%;
+  @media (max-width: 767px) {
+    padding 0 15px;
   }
 `
 
 const StyledCardsWrapper = styled.div`
   display: flex;
   width: 600px;
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     width: 100%;
     flex-flow: column nowrap;
     align-items: center;
@@ -181,7 +181,7 @@ const StyledCardWrapper = styled.div`
   display: flex;
   flex: 1;
   flex-direction: column;
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     width: 80%;
   }
 `

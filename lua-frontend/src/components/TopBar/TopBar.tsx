@@ -34,7 +34,7 @@ const TopBar: React.FC<TopBarProps> = ({ onPresentMobileMenu }) => {
 const StyledLogoWrapper = styled.div`
   width: 260px;
   padding: 10px 0;
-  @media (max-width: 400px) {
+  @media (max-width: 767px) {
     width: auto;
   }
 `
@@ -55,7 +55,7 @@ const StyledNavWrapper = styled.div`
   display: flex;
   flex: 1;
   justify-content: center;
-  @media (max-width: 400px) {
+  @media (max-width: 767px) {
     display: none;
   }
 `
@@ -65,7 +65,7 @@ const StyledAccountButtonWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
 //   width: 156px;
-  @media (max-width: 400px) {
+  @media (max-width: 767px) {
     justify-content: center;
     width: auto;
   }
@@ -78,7 +78,7 @@ const StyledMenuButton = styled.button`
   outline: 0;
   padding: 0;
   display: none;
-  @media (max-width: 400px) {
+  @media (max-width: 767px) {
     align-items: center;
     display: flex;
     height: 44px;

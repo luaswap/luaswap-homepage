@@ -352,9 +352,7 @@ const TextMedium = styled.div`
     font-weight: 600;
     font-size: 16px;
     color: #FFFFFF;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    word-break: break-word;
     strong {
         font-size: 20px;
     }
