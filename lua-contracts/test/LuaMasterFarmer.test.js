@@ -245,20 +245,8 @@ contract('LuaMasterFarmer', ([alice, bob, carol, dev, minter]) => {
             // bonus amount = 200
             // no bonus amount =  236
             assert.equal((await this.chef.pendingReward(0, bob)).valueOf(), "0")
-            assert.equal((await this.lua.lockOf(bob)).valueOf(), "149")
-            assert.equal((await this.lua.balanceOf(bob)).valueOf(), "287")
-            assert.equal((await this.lua.totalBalanceOf(bob)).valueOf(), "436")
-
-            await this.chef.deposit(0, '30', { from: alice }) // 252
-            assert.equal((await this.chef.pendingReward(0, alice)).valueOf(), "0")
-            assert.equal((await this.chef.pendingReward(0, bob)).valueOf(), "7")
-
-            await time.advanceBlockTo('263')
-            assert.equal((await this.chef.pendingReward(0, alice)).valueOf(), "55")
-            assert.equal((await this.chef.pendingReward(0, bob)).valueOf(), "62")
-
-            await this.chef.updatePool(0) // 264
-            assert.equal((await this.lua.totalSupply()).valueOf(), "42944")
+            assert.equal((await this.lua.lockOf(bob)).valueOf(), "327")
+            assert.equal((await this.lua.balanceOf(bob)).valueOf(), "109")
         })
         
 
@@ -316,143 +304,36 @@ contract('LuaMasterFarmer', ([alice, bob, carol, dev, minter]) => {
             assert.equal((await this.chef.pendingReward(0, carol)).valueOf(), '75')
             await this.chef.claimReward(0, { from: carol }) // 388
             assert.equal((await this.lua.totalBalanceOf(carol)).valueOf(), '80')
-            assert.equal((await this.lua.balanceOf(carol)).valueOf(), '50')
-            assert.equal((await this.lua.lockOf(carol)).valueOf(), '30')
-
-            console.log((await this.chef.pendingReward(0, bob)).valueOf())
-            await this.chef.claimReward(0, { from: bob }) // 389
-            assert.equal((await this.lua.totalBalanceOf(bob)).valueOf(), '38205')
-            assert.equal((await this.lua.balanceOf(bob)).valueOf(), '9585')
-
-            assert.equal((await this.lua.totalBalanceOf(dev)).valueOf(), '2549')
+            assert.equal((await this.lua.balanceOf(carol)).valueOf(), '20')
+            assert.equal((await this.lua.lockOf(carol)).valueOf(), '60')
         })
 
-        // it('should not distribute LUAs if no one deposit', async () => {
-        //     // 100 per block farming rate starting at block 200 with bonus until block 1000
-        //     this.chef = await LuaMasterFarmer.new(this.lua.address, dev, '100', '200', '800', { from: alice })
-        //     await this.lua.transferOwnership(this.chef.address, { from: alice })
-        //     await this.chef.add('100', this.lp.address, true)
-        //     await this.lp.approve(this.chef.address, '1000', { from: bob })
-        //     await time.advanceBlockTo('199')
-        //     assert.equal((await this.lua.totalSupply()).valueOf(), '0')
-        //     await time.advanceBlockTo('204')
-        //     assert.equal((await this.lua.totalSupply()).valueOf(), '0')
-        //     await time.advanceBlockTo('209')
-        //     await this.chef.updatePool(0) // block 210
-        //     assert.equal((await this.lua.totalSupply()).valueOf(), '0')
-        //     assert.equal((await this.lua.balanceOf(bob)).valueOf(), '0')
-        //     assert.equal((await this.lua.balanceOf(dev)).valueOf(), '0')
-        //     await this.chef.deposit(0, '10', { from: bob }) // block 211
-        //     assert.equal((await this.lp.balanceOf(this.chef.address)).valueOf(), '10')
-        //     assert.equal((await this.lua.totalSupply()).valueOf(), '0')
-        //     assert.equal((await this.lua.balanceOf(bob)).valueOf(), '0')
-        //     assert.equal((await this.lua.balanceOf(dev)).valueOf(), '0')
-        //     assert.equal((await this.lp.balanceOf(bob)).valueOf(), '990')
-        //     assert.equal((await this.chef.getBlock()).valueOf(), "211")
-        //     await time.advanceBlockTo('219')
-        //     assert.equal((await this.chef.getBlock()).valueOf(), "219")
-        //     await this.chef.withdraw(0, '10', { from: bob }) // block 220
-        //     assert.equal((await this.chef.getBlock()).valueOf(), "220")
-        //     assert.equal((await this.lua.totalSupply()).valueOf(), '9000')
-        //     assert.equal((await this.lua.balanceOf(bob)).valueOf(), '8100')
-        //     assert.equal((await this.lua.balanceOf(dev)).valueOf(), '900')
-        //     assert.equal((await this.lp.balanceOf(bob)).valueOf(), '1000')
-        //     assert.equal((await this.lp.balanceOf(this.chef.address)).valueOf(), '0')
-        //     await this.chef.updatePool(0)
-        //     assert.equal((await this.lua.totalSupply()).valueOf(), '9000')
-        //     assert.equal((await this.lua.balanceOf(bob)).valueOf(), '8100')
-        //     assert.equal((await this.lua.balanceOf(dev)).valueOf(), '900')
-        //     assert.equal((await this.lp.balanceOf(bob)).valueOf(), '1000')
-        // })
+        it('should not distribute LUAs if no one deposit', async () => {
+            // 100 per block farming rate starting at block 200 with bonus until block 1000
+            this.chef = await LuaMasterFarmer.new(this.lua.address, dev, '100', '500', '10', { from: alice })
+            await this.lua.transferOwnership(this.chef.address, { from: alice })
+            await this.chef.add('100', this.lp.address, true)
+            await this.lp.approve(this.chef.address, '1000', { from: bob })
+            await time.advanceBlockTo('510')
+            assert.equal((await this.lua.totalSupply()).valueOf(), '0')
+            await time.advanceBlockTo('520')
+            assert.equal((await this.lua.totalSupply()).valueOf(), '0')
+            await time.advanceBlockTo('530')
+            await this.chef.updatePool(0) // block 531
+            assert.equal((await this.lua.totalSupply()).valueOf(), '0')
+            assert.equal((await this.lua.balanceOf(bob)).valueOf(), '0')
+            assert.equal((await this.lua.balanceOf(dev)).valueOf(), '0')
+            await this.chef.deposit(0, '10', { from: bob }) // block 532
+            assert.equal((await this.lp.balanceOf(this.chef.address)).valueOf(), '10')
+            assert.equal((await this.lua.totalSupply()).valueOf(), '0')
+            assert.equal((await this.lua.balanceOf(bob)).valueOf(), '0')
+            assert.equal((await this.lua.balanceOf(dev)).valueOf(), '0')
+            assert.equal((await this.lp.balanceOf(bob)).valueOf(), '990')
 
-        // it('should distribute LUAs properly for each staker', async () => {
-        //     // 100 per block farming rate starting at block 300 with bonus until block 1000
-        //     this.chef = await LuaMasterFarmer.new(this.lua.address, dev, '100', '300', '700', { from: alice })
-        //     await this.lua.transferOwnership(this.chef.address, { from: alice })
-        //     await this.chef.add('100', this.lp.address, true)
-        //     await this.lp.approve(this.chef.address, '1000', { from: alice })
-        //     await this.lp.approve(this.chef.address, '1000', { from: bob })
-        //     await this.lp.approve(this.chef.address, '1000', { from: carol })
-        //     // Alice deposits 10 LPs at block 310
-        //     await time.advanceBlockTo('309')
-        //     await this.chef.deposit(0, '10', { from: alice })
-        //     // Bob deposits 20 LPs at block 314
-        //     await time.advanceBlockTo('313')
-        //     await this.chef.deposit(0, '20', { from: bob })
-        //     // Carol deposits 30 LPs at block 318
-        //     await time.advanceBlockTo('317')
-        //     await this.chef.deposit(0, '30', { from: carol })
-        //     // Alice deposits 10 more LPs at block 320. At this point:
-        //     //   Alice should have: 4*900 + 4*1/3*900 + 2*1/6*900 = 5100
-        //     //   LuaMasterFarmer should have the remaining: 9000 - 5100 = 4900
-        //     await time.advanceBlockTo('319')
-        //     await this.chef.deposit(0, '10', { from: alice })
-        //     assert.equal((await this.lua.totalSupply()).valueOf(), '10000')
-        //     assert.equal((await this.lua.balanceOf(alice)).valueOf(), '5100')
-        //     assert.equal((await this.lua.balanceOf(bob)).valueOf(), '0')
-        //     assert.equal((await this.lua.balanceOf(carol)).valueOf(), '0')
-        //     assert.equal((await this.lua.balanceOf(this.chef.address)).valueOf(), '3900')
-        //     assert.equal((await this.lua.balanceOf(dev)).valueOf(), '1000')
-        //     // Bob withdraws 5 LPs at block 330. At this point:
-        //     //   Bob should have: 4*2/3*900 + 2*2/6*900 + 10*2/7*900 = 5571
-        //     await time.advanceBlockTo('329')
-        //     await this.chef.withdraw(0, '5', { from: bob })
-        //     assert.equal((await this.lua.totalSupply()).valueOf(), '20000')
-        //     assert.equal((await this.lua.balanceOf(alice)).valueOf(), '5100')
-        //     assert.equal((await this.lua.balanceOf(bob)).valueOf(), '5571')
-        //     assert.equal((await this.lua.balanceOf(carol)).valueOf(), '0')
-        //     assert.equal((await this.lua.balanceOf(this.chef.address)).valueOf(), '7329')
-        //     assert.equal((await this.lua.balanceOf(dev)).valueOf(), '2000')
-        //     // Alice withdraws 20 LPs at block 340.
-        //     // Bob withdraws 15 LPs at block 350.
-        //     // Carol withdraws 30 LPs at block 360.
-        //     await time.advanceBlockTo('339')
-        //     await this.chef.withdraw(0, '20', { from: alice })
-        //     await time.advanceBlockTo('349')
-        //     await this.chef.withdraw(0, '15', { from: bob })
-        //     await time.advanceBlockTo('359')
-        //     await this.chef.withdraw(0, '30', { from: carol })
-        //     assert.equal((await this.lua.totalSupply()).valueOf(), '50000')
-        //     assert.equal((await this.lua.balanceOf(dev)).valueOf(), '5000')
-        //     // Alice should have: 5100 + 10*2/7*900 + 10*2/6.5*900 = 10440
-        //     assert.equal((await this.lua.balanceOf(alice)).valueOf(), '10440')
-        //     // Bob should have: 5571 + 10*1.5/6.5 * 900 + 10*1.5/4.5*900 = 10647
-        //     assert.equal((await this.lua.balanceOf(bob)).valueOf(), '10648')
-        //     // Carol should have: 2*3/6*900 + 10*3/7*900 + 10*3/6.5*900 + 10*3/4.5*900 + 10*900 = 23910
-        //     assert.equal((await this.lua.balanceOf(carol)).valueOf(), '23910')
-        //     // All of them should have 1000 LPs back.
-        //     assert.equal((await this.lp.balanceOf(alice)).valueOf(), '1000')
-        //     assert.equal((await this.lp.balanceOf(bob)).valueOf(), '1000')
-        //     assert.equal((await this.lp.balanceOf(carol)).valueOf(), '1000')
-        // })
-
-        // it('should give proper LUAs allocation to each pool', async () => {
-        //     // 100 per block farming rate starting at block 400 with bonus until block 1000
-        //     this.chef = await LuaMasterFarmer.new(this.lua.address, dev, '100', '400', '600', { from: alice })
-        //     await this.lua.transferOwnership(this.chef.address, { from: alice })
-        //     await this.lp.approve(this.chef.address, '1000', { from: alice })
-        //     await this.lp2.approve(this.chef.address, '1000', { from: bob })
-        //     // Add first LP to the pool with allocation 1
-        //     await this.chef.add('10', this.lp.address, true)
-        //     // Alice deposits 10 LPs at block 410
-        //     await time.advanceBlockTo('409')
-        //     await this.chef.deposit(0, '10', { from: alice }) // block 410
-        //     // Add LP2 to the pool with allocation 2 at block 420
-        //     await time.advanceBlockTo('419')
-        //     await this.chef.add('20', this.lp2.address, true) // block 420
-        //     // Alice should have 10*900 pending reward
-        //     assert.equal((await this.chef.pendingReward(0, alice)).valueOf(), '9000')
-        //     // Bob deposits 10 LP2s at block 425
-        //     await time.advanceBlockTo('424')
-        //     await this.chef.deposit(1, '5', { from: bob }) // block 425
-        //     // Alice should have 9000 + 5*1/3*900 = 10500 pending reward
-        //     assert.equal((await this.chef.pendingReward(0, alice)).valueOf(), '10500')
-        //     await time.advanceBlockTo('430')
-        //     // At block 430. Bob should get 5*2/3*900 = 3333. Alice should get ~1666 more.
-        //     assert.equal((await this.chef.pendingReward(0, alice)).valueOf(), '12000')
-        //     assert.equal((await this.chef.pendingReward(1, bob)).valueOf(), '3000')
-        // })
-
+            await this.chef.claimReward(0, { from: bob })
+            assert.equal((await this.lua.balanceOf(bob)).valueOf(), '800')
+            assert.equal((await this.lua.balanceOf(dev)).valueOf(), '80')
+        })
         // it('should stop giving bonus LUAs after the bonus period ends', async () => {
         //     // 100 per block farming rate starting at block 500 with bonus until block 600
         //     this.chef = await LuaMasterFarmer.new(this.lua.address, dev, '100', '500', '50', { from: alice })

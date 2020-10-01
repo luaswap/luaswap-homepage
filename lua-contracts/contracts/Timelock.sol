@@ -193,7 +193,7 @@ contract Timelock {
     event QueueTransaction(bytes32 indexed txHash, address indexed target, uint value, string signature, bytes data, uint eta);
 
     uint public constant GRACE_PERIOD = 14 days;
-    uint public constant MINIMUM_DELAY = 2 days;
+    uint public constant MINIMUM_DELAY = 1 days;
     uint public constant MAXIMUM_DELAY = 30 days;
 
     address public admin;
@@ -293,7 +293,7 @@ contract Timelock {
         return returnData;
     }
 
-    function getBlockTimestamp() internal view returns (uint) {
+    function getBlockTimestamp() public view returns (uint) {
         // solium-disable-next-line security/no-block-members
         return block.timestamp;
     }
