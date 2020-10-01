@@ -27,8 +27,11 @@ const Harvest: React.FC<HarvestProps> = ({ pid }) => {
           <StyledCardHeader>
             <CardIcon><img src={Lua} alt="LUA Reward"/></CardIcon>
             <StyledValue>
-              <Value value={getBalanceNumber(earnings)}/>
               <Label text="LUA Reward" />
+              <br/>
+              <Value value={getBalanceNumber(earnings)}/>
+              <br/>
+              <Label text="You will receive 25% of reward immediately, 75% of reward will be lock in 1 year" />
             </StyledValue>
           </StyledCardHeader>
           <StyledCardActions>

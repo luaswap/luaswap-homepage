@@ -16,7 +16,7 @@ const GAS_LIMIT = {
 }
 
 export async function UnknownBlock(address, method, params, cache) {
-  var { data } = await axios.post(`${config.api}/api/luaswap/read/${address}`, {
+  var { data } = await axios.post(`${config.api}/read/${address}`, {
       method,
       params,
       cache
@@ -153,7 +153,7 @@ export const getLPValue = async (
     usdValue = totalToken2Value
   } 
   else if (token2Contract._address.toLowerCase() == wethAddress) {
-    var { data } = await axios.get(`${config.api}/api/tokens/price/ETH`)
+    var { data } = await axios.get(`${config.api}/price/ETH`)
     usdValue = totalToken2Value.times(data.usdPrice)
   }
   

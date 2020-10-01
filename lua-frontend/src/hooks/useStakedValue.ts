@@ -55,7 +55,7 @@ const useStakedValue = (pid: number) => {
     //       ),
     //   ),
     // )
-    const { data: balances } = await axios.get(`${config.api}/api/luaswap/pools/${pid}`)
+    const { data: balances } = await axios.get(`${config.api}/pools/${pid}`)
     setBalance(balances)
   }, [masterChefContract, block, sushi])
 

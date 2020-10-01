@@ -25,13 +25,16 @@ import Luas from '../../../assets/img/Luas.svg'
 import { getLPTokenStaked } from '../../../sushi/utils'
 import useSushi from '../../../hooks/useSushi'
 import useBlock from '../../../hooks/useBlock'
+import useStakedValue from '../../../hooks/useStakedValue'
 interface StakeProps {
   lpContract: any
   pid: number
   tokenName: string
+  tokenSymbol: string
+  token2Symbol: string
 }
 
-const Stake: React.FC<StakeProps> = ({ lpContract, pid, tokenName }) => {
+const Stake: React.FC<StakeProps> = ({ lpContract, pid, tokenName, tokenSymbol, token2Symbol }) => {
   const [requestedApproval, setRequestedApproval] = useState(false)
 
   const allowance = useAllowance(lpContract)
@@ -43,7 +46,8 @@ const Stake: React.FC<StakeProps> = ({ lpContract, pid, tokenName }) => {
   const [totalStake, setTotalStake] = useState<BigNumber>()
   const sushi = useSushi()
   const block = useBlock()
-
+  const stakedValue = useStakedValue(pid)
+  
   useEffect(() => {
       async function fetchData() {
           const data = await getLPTokenStaked(sushi, lpContract)
@@ -86,6 +90,22 @@ const Stake: React.FC<StakeProps> = ({ lpContract, pid, tokenName }) => {
     }
   }, [onApprove, setRequestedApproval])
 
+  var shareOfPool = 0
+
+  if (totalStake && stakedBalance) {
+    shareOfPool = stakedBalance.div(totalStake).toNumber()
+  }
+
+  var totalToken = 0
+  var totalToken2 = 0
+
+  if (stakedValue && stakedValue.tokenAmount && stakedValue.token2Amount && shareOfPool) {
+    totalToken = (stakedValue.tokenAmount as any) * shareOfPool 
+    totalToken = parseFloat(totalToken.toFixed(2))
+    totalToken2 = (stakedValue.token2Amount as any) * shareOfPool
+    totalToken2 = parseFloat(totalToken2.toFixed(2))
+  }
+
   return (
     <Card>
       <CardContent>
@@ -93,14 +113,20 @@ const Stake: React.FC<StakeProps> = ({ lpContract, pid, tokenName }) => {
           <StyledCardHeader>
             <CardIcon><img src={Luas} alt="LUA Reward"/></CardIcon>
             <StyledValue>
+              <Label text={`Tokens Staked`} />
+              <br/>
               <ValueStyled>{getBalanceNumber(stakedBalance).toFixed(8)}</ValueStyled>
-              <Label text={`${tokenName} Tokens Staked`} />
+              <br/>
+              <StyledContent>
+                <div>{totalToken.toLocaleString('en-US')}<span style={{fontSize: 10}}> {tokenSymbol}</span></div>
+                <div>{totalToken2.toLocaleString('en-US')}<span style={{fontSize: 10}}> {token2Symbol}</span></div>
+              </StyledContent>
             </StyledValue>
           </StyledCardHeader>
           {totalStake && stakedBalance &&
             <div style={{marginTop: 10}}>
               <span style={{color: '#4caf50'}}>Share of Pool: <span style={{fontSize: 18}}>
-                {parseFloat(stakedBalance.div(totalStake).times(100).toFixed(5))}%
+                {(shareOfPool * 100).toFixed(5)}%
               </span></span>
             </div>
           }
@@ -213,6 +239,14 @@ const StyleButtonWrap = styled.div`
       display: block;
     }
   }
+`
+const StyledContent = styled.span`
+    color: ${(props) => props.theme.color.white};
+    font-weight: bold;
+    display: block;
+    @media (max-width: 767px) {
+        font-size: 14px;
+    }
 `
 
 export default Stake

@@ -16,7 +16,7 @@ const useBlock = () => {
   const [block, setBlock] = useState(CACHE.value)
   const getBlock = useCallback(async () => {
     if (CACHE.time + CACHE.old <= new Date().getTime()) {
-      var { data } = await axios.get(`${config.api}/api/luaswap/blockNumber`)
+      var { data } = await axios.get(`${config.api}/blockNumber`)
       var latestBlockNumber = data.number
       if (block !== latestBlockNumber) {
         CACHE.time = new Date().getTime()

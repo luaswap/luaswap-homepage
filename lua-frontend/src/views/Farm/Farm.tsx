@@ -103,6 +103,8 @@ const Farm: React.FC = () => {
                 lpContract={lpContract}
                 pid={pid}
                 tokenName={lpToken.toUpperCase()}
+                tokenSymbol={tokenSymbol}
+                token2Symbol={token2Symbol}
               />
             </StyledCardWrapper>
           </StyledCardsWrapper>

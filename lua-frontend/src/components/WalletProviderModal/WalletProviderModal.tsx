@@ -18,10 +18,6 @@ const WalletProviderModal: React.FC<ModalProps> = ({ onDismiss }) => {
   const { account, activate: connect } = useWallet()
 
   useEffect(() => {
-    localStorage.removeItem('walletconnect')
-  }, [])
-
-  useEffect(() => {
     if (account) {
       onDismiss()
       if (localStorage.useWalletConnectType && localStorage.useWalletConnectType === 'injected') {

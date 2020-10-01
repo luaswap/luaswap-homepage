@@ -63,7 +63,7 @@ const useAllStakedValue = () => {
     //   ),
     // )
 
-    const { data: balances } = await axios.get(`${config.api}/api/luaswap/pools`)
+    const { data: balances } = await axios.get(`${config.api}/pools`)
 
     CACHE.time = new Date().getTime()
     CACHE.value = balances;

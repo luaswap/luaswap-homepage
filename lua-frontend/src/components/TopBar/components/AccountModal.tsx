@@ -35,6 +35,7 @@ const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
     deactivate()
     localStorage.useWalletConnectStatus = 'disconnected'
     localStorage.useWalletConnectType = ''
+    localStorage.removeItem('walletconnect')
   }, [onDismiss])
 
   const sushi = useSushi()
