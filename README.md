@@ -14,7 +14,12 @@ Feel free to read the code. More details coming soon.
 
 - LuaToken - https://etherscan.io/address/0xB1f66997A5760428D3a87D68b90BfE0aE64121cC
 - LuaMasterFarmer - https://etherscan.io/address/0xb67d7a6644d9e191cac4da2b88d6817351c7ff62
+- TimeLock - https://etherscan.io/address/0xdc127cca2f0f059af6a414ec6da19a92a6b3812c
 
 ## Audit
 
 - [TomoChain Core Team and The Arcadia Group](https://raw.githubusercontent.com/tomochain/luaswap/master/lua-contracts/audit/Audit_of_LUASWAP_Contracts.pdf)
+
+
+## TimeLock.QueueTransaction
+- Test TimeLock before transfer Master's Owner to TimeLock: https://etherscan.io/tx/0x9103e339bf4b36c4453934f0b0f17b8806d02f0b1c1932d47f38daf26a4702b8
