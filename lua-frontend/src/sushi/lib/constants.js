@@ -246,34 +246,6 @@ export const supportedPools = [
     },
 
     token2Addresses: {
-      1: '0xbd6467a31899590474ce1e84f70594c53d628e46'
-    },
-    name: 'LUA - KAI',
-    symbol: 'LUA-KAI UNI-V2 LP',
-    symbolShort: 'LUA-KAI',
-    description: `Deposit LUA-KAI UNI-V2 LP Earn LUA`,
-    tokenSymbol: 'LUA',
-    token2Symbol: 'KAI',
-    icon: 'https://luaswap.org/favicon.png',
-    icon2: 'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xBD6467a31899590474cE1e84F70594c53D628e46/logo.png',
-    isHot: false,
-    isNew: true,
-    protocal: 'UniSwap',
-    iconProtocal: 'https://uniswap.info/static/media/logo_white.edb44e56.svg',
-    pairLink: 'https://uniswap.info/pair/0xfe1ead71b27e8389d819ee0a420080d90a60132c',
-    addLiquidityLink: 'https://app.uniswap.org/#/add/0x6b3595068778dd592e39a122f4f5a5cf09c90fe2/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc'
-  },
-
-  {
-    pid: -1,
-    lpAddresses: {
-      1: '0x0000000000000000000000000000000000000000',
-    },
-    tokenAddresses: {
-      1: '0x05d3606d5c81eb9b7b18530995ec9b29da05faba',
-    },
-
-    token2Addresses: {
       1: '0x6b3595068778dd592e39a122f4f5a5cf09c90fe2'
     },
     name: 'LUA - SUSHI',
@@ -287,8 +259,8 @@ export const supportedPools = [
     isHot: false,
     isNew: true,
     protocal: 'UniSwap',
-    // iconProtocal: 'https://uniswap.info/static/media/logo_white.edb44e56.svg',
-    // pairLink: 'https://uniswap.info/pair/0xf3279a15f5361285100474db389f7d78848bb8d1',
-    // addLiquidityLink: 'https://app.uniswap.org/#/add/0x05d3606d5c81eb9b7b18530995ec9b29da05faba/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48'
+    iconProtocal: 'https://uniswap.info/static/media/logo_white.edb44e56.svg',
+    pairLink: 'https://uniswap.info/pair/0xfe1ead71b27e8389d819ee0a420080d90a60132c',
+    addLiquidityLink: 'https://app.uniswap.org/#/add/0x6b3595068778dd592e39a122f4f5a5cf09c90fe2/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc'
   },
 ]
