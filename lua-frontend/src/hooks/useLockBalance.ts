@@ -15,7 +15,7 @@ const useLockBalance = () => {
     ethereum,
   }: { account: string; ethereum: provider } = useWallet()
   const sushi = useSushi()
-  const block = 0//useBlock()
+  const block = useBlock()
 
   const fetchBalance = useCallback(async () => {
     const balance = await getLockOf(sushi, account)

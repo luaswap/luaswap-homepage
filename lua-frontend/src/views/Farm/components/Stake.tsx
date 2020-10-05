@@ -1,15 +1,12 @@
 import BigNumber from 'bignumber.js'
 import React, { useCallback, useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { Contract } from 'web3-eth-contract'
 import Button from '../../../components/Button'
 import Card from '../../../components/Card'
 import CardContent from '../../../components/CardContent'
-import CardIcon from '../../../components/CardIcon'
 import IconButton from '../../../components/IconButton'
 import { AddIcon } from '../../../components/icons'
 import Label from '../../../components/Label'
-import Value from '../../../components/Value'
 import useAllowance from '../../../hooks/useAllowance'
 import useApprove from '../../../hooks/useApprove'
 import useModal from '../../../hooks/useModal'
@@ -20,12 +17,12 @@ import useUnstake from '../../../hooks/useUnstake'
 import { getBalanceNumber, getFullDisplayBalance } from '../../../utils/formatBalance'
 import DepositModal from './DepositModal'
 import WithdrawModal from './WithdrawModal'
-import Lua from '../../../assets/img/lua-icon.svg'
-import Luas from '../../../assets/img/Luas.svg'
 import { getLPTokenStaked } from '../../../sushi/utils'
 import useSushi from '../../../hooks/useSushi'
 import useBlock from '../../../hooks/useBlock'
 import useStakedValue from '../../../hooks/useStakedValue'
+import usePoolActive from '../../../hooks/usePoolActive'
+
 interface StakeProps {
   lpContract: any
   pid: number
@@ -42,6 +39,7 @@ const Stake: React.FC<StakeProps> = ({ lpContract, pid, tokenName, tokenSymbol, 
 
   const tokenBalance = useTokenBalance(lpContract.options.address)
   const stakedBalance = useStakedBalance(pid)
+  const poolActive = usePoolActive(pid)
 
   const [totalStake, setTotalStake] = useState<BigNumber>()
   const sushi = useSushi()
@@ -131,7 +129,7 @@ const Stake: React.FC<StakeProps> = ({ lpContract, pid, tokenName, tokenSymbol, 
             </div>
           }
           <StyledCardActions>
-            {!allowance.toNumber() ? (
+            {allowance.toNumber() ? (
               <Button
                 disabled={requestedApproval}
                 onClick={handleApprove}
@@ -139,13 +137,9 @@ const Stake: React.FC<StakeProps> = ({ lpContract, pid, tokenName, tokenSymbol, 
               />
             ) : (
               <>
-                {/* <Button
-                  disabled={stakedBalance.eq(new BigNumber(0))}
-                  text="Unstake"
-                  onClick={onPresentWithdraw}
-                /> */}
                 <Button
-                  text="Stake"
+                  disabled={!poolActive}
+                  text={poolActive ? 'Stake' : 'Unactivated'}
                   onClick={onPresentDeposit}
                 />
                 <StyledActionSpacer />
@@ -157,9 +151,6 @@ const Stake: React.FC<StakeProps> = ({ lpContract, pid, tokenName, tokenSymbol, 
                     <AddIcon />
                   </IconButton>
                 </StyleButtonWrap>
-                {/* <IconButton onClick={onPresentDeposit}>
-                  <AddIcon />
-                </IconButton> */}
               </>
             )}
           </StyledCardActions>

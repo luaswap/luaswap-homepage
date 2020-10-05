@@ -16,7 +16,7 @@ import useAllStakedValue, {
 import useFarms from '../../../hooks/useFarms'
 import useLuaPrice from '../../../hooks/useLuaPrice'
 import useSushi from '../../../hooks/useSushi'
-import { NUMBER_BLOCKS_PER_YEAR } from '../../../sushi/lib/constants'
+import { NUMBER_BLOCKS_PER_YEAR, START_NEW_POOL_AT } from '../../../sushi/lib/constants'
 import { getEarned, getMasterChefContract, getNewRewardPerBlock } from '../../../sushi/utils'
 import { bnToDec } from '../../../utils'
 import { getBalanceNumber } from '../../../utils/formatBalance'
@@ -33,12 +33,7 @@ interface FarmWithStakedValue extends Farm {
 
 const FarmCards: React.FC = () => {
   const [farms] = useFarms()
-  const { account } = useWallet()
   const stakedValue = useAllStakedValue()
-
-  const sushiIndex = farms.findIndex(
-    ({ tokenSymbol }) => tokenSymbol === 'LUA',
-  )
 
   const luaPrice = useLuaPrice()
 
@@ -92,7 +87,7 @@ interface FarmCardProps {
 }
 
 const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
-  const [startTime, setStartTime] = useState(0)
+  const [startTime, setStartTime] = useState(farm.pid >= 0 ? 0 : START_NEW_POOL_AT)
   const [harvestable, setHarvestable] = useState(0)
 
   const { account } = useWallet()
@@ -105,15 +100,16 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
       const supply = await getNewRewardPerBlock(sushi, farm.pid + 1)
       setNewRewad(supply)
     }
-    if (sushi) {
+    if (sushi && farm.pid >= 0) {
       fetchData()
     }
   }, [sushi, setNewRewad])
 
   const renderer = (countdownProps: CountdownRenderProps) => {
-    const { hours, minutes, seconds } = countdownProps
+    var { days, hours, minutes, seconds } = countdownProps
     const paddedSeconds = seconds < 10 ? `0${seconds}` : seconds
     const paddedMinutes = minutes < 10 ? `0${minutes}` : minutes
+    hours = days * 24 + hours
     const paddedHours = hours < 10 ? `0${hours}` : hours
     return (
       <span style={{ width: '100%' }}>
@@ -132,12 +128,12 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
       )
       setHarvestable(bnToDec(earned))
     }
-    if (sushi && account) {
+    if (sushi && account && farm.pid >= 0) {
       fetchEarned()
     }
   }, [sushi, lpTokenAddress, account, setHarvestable])
 
-  const poolActive = true // startTime * 1000 - Date.now() <= 0
+  const poolActive = startTime * 1000 - Date.now() <= 0
 
   return (
     <StyledCardWrapper>
@@ -186,7 +182,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
                 {newReward &&
                   <><b>{getBalanceNumber(newReward).toFixed(2)} LUA</b> / block</>
                 }
-                {!newReward && "loading..."}
+                {!newReward && "~"}
               </span>
             </StyledInsight>
             <StyledInsight>
@@ -199,7 +195,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
                     .div(farm.usdValue)
                     .div(10 ** 8)
                     .times(100)
-                    .toFixed(2)).toLocaleString('en-US')}%` : 'loading'
+                    .toFixed(2)).toLocaleString('en-US')}%` : '~'
                 }
               </span>
             </StyledInsight>
