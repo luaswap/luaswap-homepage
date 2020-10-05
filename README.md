@@ -22,4 +22,12 @@ Feel free to read the code. More details coming soon.
 
 
 ## TimeLock.QueueTransaction
-- Test TimeLock before transfer Master's Owner to TimeLock: [TimeLock TxHash: 0x2e0b28ce9449167943f898de74421f05103df3ce0eb93670bd207c33c750aece](https://etherscan.io/tx/0x9103e339bf4b36c4453934f0b0f17b8806d02f0b1c1932d47f38daf26a4702b8)
+- [Test TimeLock before transfer Master's Owner to TimeLock](https://etherscan.io/tx/0x9103e339bf4b36c4453934f0b0f17b8806d02f0b1c1932d47f38daf26a4702b8)
+
+- [Add new pool LUA-TOMOE](https://etherscan.io/tx/0x31adbd9b5111ce92e89114f083e52928a80c010bf6b09808ffa03f5ea4f4b847)
+
+- [Add new pool LUA-FRONT](https://etherscan.io/tx/0x7ec8dce7eb3dbb1db57b874f2f2b1c7906a30e59423ddc4ff8389c699760ef12)
+
+
+- [Add new pool LUA-SUSHI](https://etherscan.io/tx/0x12f7aaaffa2b3a328c1d4d228638682f5e75e82b4f6934126612bd77c0690550)
+
