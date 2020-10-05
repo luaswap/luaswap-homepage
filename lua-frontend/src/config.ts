@@ -1,7 +1,9 @@
 export default {
   rpc: process.env.NODE_ENV === 'production' ? 
     'https://wallet.tomochain.com/api/luaswap/rpc' :
-    'http://localhost:8020/rpc', //'https://main-rpc.linkpool.io/',
+    'https://wallet.tomochain.com/api/luaswap/rpc',
   chainId: 1,
-  api: 'https://wallet.tomochain.com/api/luaswap'
+  api: process.env.NODE_ENV === 'production' ? 
+  'https://wallet.tomochain.com/api/luaswap' :
+  'https://wallet.tomochain.com/api/luaswap'
 }

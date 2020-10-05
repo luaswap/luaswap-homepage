@@ -25,13 +25,14 @@ const Harvest: React.FC<HarvestProps> = ({ pid }) => {
       <CardContent>
         <StyledCardContentInner>
           <StyledCardHeader>
-            <CardIcon><img src={Lua} alt="LUA Reward"/></CardIcon>
+            {/* <CardIcon><img src={Lua} alt="LUA Reward"/></CardIcon> */}
             <StyledValue>
               <Label text="LUA Reward" />
               <br/>
               <Value value={getBalanceNumber(earnings)}/>
               <br/>
-              <Label text="You will receive 25% of reward immediately, 75% of reward will be lock in 1 year" />
+              <Label text="25% of earned LUA is unlocked immediately." />
+              <Label text="75% is  locked for 16 weeks, then unlocked linearly every block over 1 year, starting Week 17" />
             </StyledValue>
           </StyledCardHeader>
           <StyledCardActions>
