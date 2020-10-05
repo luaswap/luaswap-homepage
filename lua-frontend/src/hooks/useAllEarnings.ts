@@ -18,10 +18,11 @@ const useAllEarnings = () => {
 
   const fetchAllBalances = useCallback(async () => {
     const balances: Array<BigNumber> = await Promise.all(
-      farms.map(({ pid }: { pid: number }) =>
+      farms.filter((e: any) => e.pid != -1).map(({ pid }: { pid: number }) =>
         getEarned(masterChefContract, pid, account),
       ),
     )
+    console.log(balances)
     setBalance(balances)
   }, [account, masterChefContract, sushi])
 

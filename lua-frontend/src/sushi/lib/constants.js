@@ -4,7 +4,7 @@ export const SUBTRACT_GAS_LIMIT = 100000
 export const START_REWARD_AT_BLOCK = 10950600 // TODO
 export const NUMBER_BLOCKS_PER_YEAR = 2425000
 
-export const START_NEW_POOL_AT = 1601982000
+export const START_NEW_POOL_AT = 1601983000
 
 const ONE_MINUTE_IN_SECONDS = new BigNumber(60)
 const ONE_HOUR_IN_SECONDS = ONE_MINUTE_IN_SECONDS.times(60)
@@ -183,7 +183,7 @@ export const supportedPools = [
   {
     pid: -1,
     lpAddresses: {
-      1: '0x0000000000000000000000000000000000000000',
+      1: '0x9ccc3e17ae1d1438bacde4d906cdc56bb6937e46',
     },
     tokenAddresses: {
       1: '0x05d3606d5c81eb9b7b18530995ec9b29da05faba',
@@ -203,15 +203,15 @@ export const supportedPools = [
     isHot: false,
     isNew: true,
     protocal: 'UniSwap',
-    // iconProtocal: 'https://uniswap.info/static/media/logo_white.edb44e56.svg',
-    // pairLink: 'https://uniswap.info/pair/0xf3279a15f5361285100474db389f7d78848bb8d1',
-    // addLiquidityLink: 'https://app.uniswap.org/#/add/0x05d3606d5c81eb9b7b18530995ec9b29da05faba/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48'
+    iconProtocal: 'https://uniswap.info/static/media/logo_white.edb44e56.svg',
+    pairLink: 'https://uniswap.info/pair/0x9ccc3e17ae1d1438bacde4d906cdc56bb6937e46',
+    addLiquidityLink: 'https://app.uniswap.org/#/add/0x05d3606d5c81eb9b7b18530995ec9b29da05faba/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc'
   },
   
   {
     pid: -1,
     lpAddresses: {
-      1: '0x0000000000000000000000000000000000000000',
+      1: '0x5c47016e8a4a3c6a7c46a765f81dce205d00393e',
     },
     tokenAddresses: {
       1: '0x05d3606d5c81eb9b7b18530995ec9b29da05faba',
@@ -231,15 +231,15 @@ export const supportedPools = [
     isHot: false,
     isNew: true,
     protocal: 'UniSwap',
-    // iconProtocal: 'https://uniswap.info/static/media/logo_white.edb44e56.svg',
-    // pairLink: 'https://uniswap.info/pair/0xf3279a15f5361285100474db389f7d78848bb8d1',
-    // addLiquidityLink: 'https://app.uniswap.org/#/add/0x05d3606d5c81eb9b7b18530995ec9b29da05faba/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48'
+    iconProtocal: 'https://uniswap.info/static/media/logo_white.edb44e56.svg',
+    pairLink: 'https://uniswap.info/pair/0x5c47016e8a4a3c6a7c46a765f81dce205d00393e',
+    addLiquidityLink: 'https://app.uniswap.org/#/add/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc/0xf8c3527cc04340b208c854e985240c02f7b7793f'
   },
 
   {
     pid: -1,
     lpAddresses: {
-      1: '0x0000000000000000000000000000000000000000',
+      1: '0xfe1ead71b27e8389d819ee0a420080d90a60132c',
     },
     tokenAddresses: {
       1: '0x05d3606d5c81eb9b7b18530995ec9b29da05faba',
@@ -259,9 +259,9 @@ export const supportedPools = [
     isHot: false,
     isNew: true,
     protocal: 'UniSwap',
-    // iconProtocal: 'https://uniswap.info/static/media/logo_white.edb44e56.svg',
-    // pairLink: 'https://uniswap.info/pair/0xf3279a15f5361285100474db389f7d78848bb8d1',
-    // addLiquidityLink: 'https://app.uniswap.org/#/add/0x05d3606d5c81eb9b7b18530995ec9b29da05faba/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48'
+    iconProtocal: 'https://uniswap.info/static/media/logo_white.edb44e56.svg',
+    pairLink: 'https://uniswap.info/pair/0xfe1ead71b27e8389d819ee0a420080d90a60132c',
+    addLiquidityLink: 'https://app.uniswap.org/#/add/0x6b3595068778dd592e39a122f4f5a5cf09c90fe2/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc'
   },
 
   {
