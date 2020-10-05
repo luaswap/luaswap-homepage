@@ -49,6 +49,7 @@ const Home: React.FC = () => {
             <Spacer size="md" />
             <div>
                 <ReadMore href="https://medium.com/luaswap/introducing-luaswap-org-7e6ff38beefc" target="__blank"> 👉&nbsp;&nbsp;Read The Announcement&nbsp;&nbsp;👈</ReadMore>
+                <div style={{color: 'rgb(255,255,255,0.6)', textAlign: 'center', marginTop: 5}}>Do not complain if you don't</div>
             </div>
             <Spacer size="lg" />
             </>
