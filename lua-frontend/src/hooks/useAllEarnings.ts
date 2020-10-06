@@ -22,7 +22,6 @@ const useAllEarnings = () => {
         getEarned(masterChefContract, pid, account),
       ),
     )
-    console.log(balances)
     setBalance(balances)
   }, [account, masterChefContract, sushi])
 

@@ -181,7 +181,7 @@ export const supportedPools = [
 
 
   {
-    pid: -1,
+    pid: 4,
     lpAddresses: {
       1: '0x9ccc3e17ae1d1438bacde4d906cdc56bb6937e46',
     },
@@ -209,7 +209,7 @@ export const supportedPools = [
   },
   
   {
-    pid: -1,
+    pid: 5,
     lpAddresses: {
       1: '0x5c47016e8a4a3c6a7c46a765f81dce205d00393e',
     },
@@ -237,7 +237,7 @@ export const supportedPools = [
   },
 
   {
-    pid: -1,
+    pid: 6,
     lpAddresses: {
       1: '0xfe1ead71b27e8389d819ee0a420080d90a60132c',
     },
