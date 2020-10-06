@@ -138,8 +138,7 @@ const Stake: React.FC<StakeProps> = ({ lpContract, pid, tokenName, tokenSymbol, 
             ) : (
               <>
                 <Button
-                  disabled={!poolActive}
-                  text={poolActive ? 'Stake' : 'Unactivated'}
+                  text={'Stake'}
                   onClick={onPresentDeposit}
                 />
                 <StyledActionSpacer />
