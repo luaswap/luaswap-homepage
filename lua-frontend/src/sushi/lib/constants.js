@@ -186,11 +186,11 @@ export const supportedPools = [
       1: '0x9ccc3e17ae1d1438bacde4d906cdc56bb6937e46',
     },
     tokenAddresses: {
-      1: '0x05d3606d5c81eb9b7b18530995ec9b29da05faba',
+      1: '0xb1f66997a5760428d3a87d68b90bfe0ae64121cc',
     },
 
     token2Addresses: {
-      1: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48'
+      1: '0x05d3606d5c81eb9b7b18530995ec9b29da05faba'
     },
     name: 'LUA - TOMOE',
     symbol: 'LUA-TOMOE UNI-V2 LP',
@@ -214,7 +214,7 @@ export const supportedPools = [
       1: '0x5c47016e8a4a3c6a7c46a765f81dce205d00393e',
     },
     tokenAddresses: {
-      1: '0x05d3606d5c81eb9b7b18530995ec9b29da05faba',
+      1: '0xb1f66997a5760428d3a87d68b90bfe0ae64121cc',
     },
 
     token2Addresses: {
@@ -242,7 +242,7 @@ export const supportedPools = [
       1: '0xfe1ead71b27e8389d819ee0a420080d90a60132c',
     },
     tokenAddresses: {
-      1: '0x05d3606d5c81eb9b7b18530995ec9b29da05faba',
+      1: '0xb1f66997a5760428d3a87d68b90bfe0ae64121cc',
     },
 
     token2Addresses: {
