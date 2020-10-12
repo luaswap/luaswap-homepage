@@ -330,7 +330,7 @@ export const supportedPools = [
     },
 
     token2Addresses: {
-      1: '0x50d1c9771902476076ecfc8b2a83ad6b9355a4c9'
+      1: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2'
     },
     name: 'LUA - ETH',
     symbol: 'LUA-ETH UNI-V2 LP',
@@ -358,7 +358,7 @@ export const supportedPools = [
     },
 
     token2Addresses: {
-      1: '0x50d1c9771902476076ecfc8b2a83ad6b9355a4c9'
+      1: '0xd9ec3ff1f8be459bb9369b4e79e9ebcf7141c093'
     },
     name: 'LUA - KAI',
     symbol: 'LUA-KAI UNI-V2 LP',
@@ -386,7 +386,7 @@ export const supportedPools = [
     },
 
     token2Addresses: {
-      1: '0x50d1c9771902476076ecfc8b2a83ad6b9355a4c9'
+      1: '0x2baecdf43734f22fd5c152db08e3c27233f0c7d2'
     },
     name: 'LUA - OM',
     symbol: 'LUA-OM UNI-V2 LP',
