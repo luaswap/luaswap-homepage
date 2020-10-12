@@ -12,6 +12,8 @@ import {
 } from '../sushi/utils'
 import useSushi from './useSushi'
 import useBlock from './useBlock'
+import config from '../config'
+import axios from 'axios'
 
 export interface StakedFarm {
   tokenAmount: BigNumber
@@ -36,23 +38,30 @@ const useAllStakedFarms = () => {
   const fetchData = useCallback(async () => {
     const data: Array<StakedFarm> = await Promise.all(
       farms.map(({ pid, name, symbol, symbolShort, icon, icon2, id }: any) => new Promise(async (resolve) => {
-        var v = {
-          id,
-          pid: pid,
-          name: name,
-          icon,
-          icon2,
-          symbol: symbol,
-          symbolShort: symbolShort,
-          tokenAmount: await getStaked(masterChefContract, pid, account),
-          pendingReward: new BigNumber(await getEarned(masterChefContract, pid, account))
+        
+        var { data } = await axios.get(`${config.api}/poolActive/${pid}`)
+        if (data.active) {
+          var v = {
+            id,
+            pid: pid,
+            name: name,
+            icon,
+            icon2,
+            symbol: symbol,
+            symbolShort: symbolShort,
+            tokenAmount: await getStaked(masterChefContract, pid, account),
+            pendingReward: new BigNumber(await getEarned(masterChefContract, pid, account))
+          }
+          resolve(v)
         }
-        resolve(v)
-      })
-      ),
+        else {
+          resolve(false)
+        }
+
+      }))
     )
 
-    setStakedFarms(data.filter(e => e.tokenAmount.isGreaterThan(0)))
+    setStakedFarms(data.filter(e => e && e.tokenAmount.isGreaterThan(0)))
   }, [account, masterChefContract, sushi])
 
   useEffect(() => {
