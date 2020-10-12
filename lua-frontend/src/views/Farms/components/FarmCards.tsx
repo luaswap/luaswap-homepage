@@ -15,6 +15,7 @@ import useAllStakedValue, {
 } from '../../../hooks/useAllStakedValue'
 import useFarms from '../../../hooks/useFarms'
 import useLuaPrice from '../../../hooks/useLuaPrice'
+import usePoolActive from '../../../hooks/usePoolActive'
 import useSushi from '../../../hooks/useSushi'
 import { NUMBER_BLOCKS_PER_YEAR, START_NEW_POOL_AT } from '../../../sushi/lib/constants'
 import { getEarned, getMasterChefContract, getNewRewardPerBlock } from '../../../sushi/utils'
@@ -87,11 +88,8 @@ interface FarmCardProps {
 }
 
 const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
-  const [startTime, setStartTime] = useState(farm.pid >= 0 ? 0 : START_NEW_POOL_AT)
-  const [harvestable, setHarvestable] = useState(0)
-
-  const { account } = useWallet()
-  const { lpTokenAddress } = farm
+  const poolActive = usePoolActive(farm.pid)
+  
   const sushi = useSushi()
 
   const [newReward, setNewRewad] = useState<BigNumber>()
@@ -100,10 +98,10 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
       const supply = await getNewRewardPerBlock(sushi, farm.pid + 1)
       setNewRewad(supply)
     }
-    if (sushi && farm.pid >= 0) {
+    if (sushi && poolActive) {
       fetchData()
     }
-  }, [sushi, setNewRewad])
+  }, [sushi, setNewRewad, poolActive])
 
   const renderer = (countdownProps: CountdownRenderProps) => {
     var { days, hours, minutes, seconds } = countdownProps
@@ -118,22 +116,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
     )
   }
 
-  useEffect(() => {
-    async function fetchEarned() {
-      if (sushi) return
-      const earned = await getEarned(
-        getMasterChefContract(sushi),
-        lpTokenAddress,
-        account,
-      )
-      setHarvestable(bnToDec(earned))
-    }
-    if (sushi && account && farm.pid >= 0) {
-      fetchEarned()
-    }
-  }, [sushi, lpTokenAddress, account, setHarvestable])
-
-  const poolActive = startTime * 1000 - Date.now() <= 0
+  const startTime = START_NEW_POOL_AT
 
   return (
     <StyledCardWrapper>
