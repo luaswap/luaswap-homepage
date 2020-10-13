@@ -7,7 +7,7 @@ import axios from 'axios'
 // import debounce from 'debounce'
 
 const usePoolActive = (pid: number) => {
-  const [active, setActive] = useState(false)
+  const [active, setActive] = useState(true)
   const getData = useCallback(async () => {
     var { data } = await axios.get(`${config.api}/poolActive/${pid}`)
     setActive(data.active)

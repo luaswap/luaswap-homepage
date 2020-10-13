@@ -71,7 +71,7 @@ const Home: React.FC = () => {
             <StyledInfo>
                 <img src={Icon_Tip} alt="Pro Tip"/>
                 <div>
-                <b>Pro Tip</b>: Stake to any pool and earn <b>128x LUA</b> rewards until October 13
+                <b>Pro Tip</b>: Stake to any pool and earn <b>64x LUA</b> rewards until October 13
                 </div>
             </StyledInfo>
             <Spacer size="lg" />
