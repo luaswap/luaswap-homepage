@@ -203,10 +203,24 @@ export const getLuaCirculatingSupply = async (sushi) => {
 }
 
 export const getNewRewardPerBlock = async (sushi, pid1 = 0) => {
-  var chef = getMasterChefContract(sushi)
-  return new BigNumber(
-    await UnknownBlock(chef._address, 'getNewRewardPerBlock(uint256):(uint256)', [pid1], true)
-  )
+  if (pid1 === 0) {
+    var chef = getMasterChefContract(sushi)
+    return new BigNumber(
+      await UnknownBlock(chef._address, 'getNewRewardPerBlock(uint256):(uint256)', [pid1], true)
+    )
+  }
+  else {
+    var { data } = await axios.get(`${config.api}/poolActive/${pid - 1}`)
+    if (data.active) {
+      var chef = getMasterChefContract(sushi)
+      return new BigNumber(
+        await UnknownBlock(chef._address, 'getNewRewardPerBlock(uint256):(uint256)', [pid1], true)
+      )
+    }
+    else {
+      resolve(new BigNumber("0"))
+    }
+  }
 }
 
 export const stake = async (masterChefContract, pid, amount, account) => {
