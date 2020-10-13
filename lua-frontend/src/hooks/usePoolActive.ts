@@ -8,14 +8,14 @@ import axios from 'axios'
 
 const usePoolActive = (pid: number) => {
   const [active, setActive] = useState(true)
-  const getData = useCallback(async () => {
-    var { data } = await axios.get(`${config.api}/poolActive/${pid}`)
-    setActive(data.active)
-  }, [])
+  // const getData = useCallback(async () => {
+  //   var { data } = await axios.get(`${config.api}/poolActive/${pid}`)
+  //   setActive(data.active)
+  // }, [])
 
-  useEffect(() => {
-    getData()
-  }, [])
+  // useEffect(() => {
+  //   getData()
+  // }, [])
 
   return active
 }

@@ -37,7 +37,7 @@ const useAllStakedValue = () => {
   const sushi = useSushi()
   const farms = getFarms(sushi)
   const masterChefContract = getMasterChefContract(sushi)
-  const block = useBlock()
+  const block = 0//useBlock()
 
   const fetchAllStakedValue = useCallback(async () => {
     // const balances: Array<StakedValue> = await Promise.all(

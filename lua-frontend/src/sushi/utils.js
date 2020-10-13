@@ -210,7 +210,10 @@ export const getNewRewardPerBlock = async (sushi, pid1 = 0) => {
     )
   }
   else {
-    var { data } = await axios.get(`${config.api}/poolActive/${pid1 - 1}`)
+    // var { data } = await axios.get(`${config.api}/poolActive/${pid1 - 1}`)
+    var data = {
+      active: true
+    }
     if (data.active) {
       var chef = getMasterChefContract(sushi)
       return new BigNumber(

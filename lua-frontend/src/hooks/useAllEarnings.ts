@@ -18,7 +18,7 @@ const useAllEarnings = () => {
   const sushi = useSushi()
   const farms = getFarms(sushi)
   const masterChefContract = getMasterChefContract(sushi)
-  const block = useBlock()
+  const block = 0//useBlock()
 
   const fetchAllBalances = useCallback(async () => {
     // const balances: Array<BigNumber> = await Promise.all(
@@ -30,7 +30,10 @@ const useAllEarnings = () => {
 
     const data: Array<BigNumber> = await Promise.all(
       farms.map(({ pid }: any) => new Promise(async (resolve) => {
-        var { data } = await axios.get(`${config.api}/poolActive/${pid}`)
+        // var { data } = await axios.get(`${config.api}/poolActive/${pid}`)
+        var data = {
+          active: true
+        }
         if (data.active) {
           resolve(await getEarned(masterChefContract, pid, account))
         }
