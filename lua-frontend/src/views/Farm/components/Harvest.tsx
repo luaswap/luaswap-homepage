@@ -32,7 +32,7 @@ const Harvest: React.FC<HarvestProps> = ({ pid }) => {
               <Value value={getBalanceNumber(earnings)}/>
               <br/>
               <div style={{fontSize: 13, color: 'rgb(255,152,0,0.7)'}}>During the first 8 weeks since launch, <b>25% of your earned LUA</b> is available to <b>unlock immediately</b></div>
-              <div style={{marginTop: 10, fontSize: 13, color: 'rgb(255,152,0,0.7)'}}>Beginning January 18, 2020, the remaining <b>75% will be unlocked</b> linearly every block <b>over 1 year</b>.</div>
+              <div style={{marginTop: 10, fontSize: 13, color: 'rgb(255,152,0,0.7)'}}>Beginning January 18, 2021, the remaining <b>75% will be unlocked</b> linearly every block <b>over 1 year</b>.</div>
             </StyledValue>
           </StyledCardHeader>
           <StyledCardActions>
