@@ -26,7 +26,7 @@ contract Migrator {
     function migrate(IUniswapV2Pair orig) public returns (IUniswapV2Pair) {
         require(msg.sender == chef, "not from master chef");
         require(block.number >= notBeforeBlock, "too early to migrate");
-        require(orig.factory() == oldFactory, "not from old factory");
+        require(orig.factory() == oldFactory, "not from old factory"); // it check orig is old pair from Uniswap
         address token0 = orig.token0();
         address token1 = orig.token1();
         IUniswapV2Pair pair = IUniswapV2Pair(factory.getPair(token0, token1));
