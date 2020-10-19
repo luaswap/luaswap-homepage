@@ -11,7 +11,7 @@ import UniswapV2Pair from '../build/UniswapV2Pair.json'
 
 chai.use(solidity)
 
-const TEST_ADDRESSES: [string, string] = [
+const TEST_ADDRESSES = [
   '0x1000000000000000000000000000000000000000',
   '0x2000000000000000000000000000000000000000'
 ]
@@ -25,7 +25,7 @@ describe('UniswapV2Factory', () => {
   const [wallet, other] = provider.getWallets()
   const loadFixture = createFixtureLoader(provider, [wallet, other])
 
-  let factory: Contract
+  let factory
   beforeEach(async () => {
     const fixture = await loadFixture(factoryFixture)
     factory = fixture.factory
@@ -37,7 +37,7 @@ describe('UniswapV2Factory', () => {
     expect(await factory.allPairsLength()).to.eq(0)
   })
 
-  async function createPair(tokens: [string, string]) {
+  async function createPair(tokens) {
     const bytecode = `0x${UniswapV2Pair.evm.bytecode.object}`
     const create2Address = getCreate2Address(factory.address, tokens, bytecode)
     await expect(factory.createPair(...tokens))
@@ -62,7 +62,7 @@ describe('UniswapV2Factory', () => {
   })
 
   it('createPair:reverse', async () => {
-    await createPair(TEST_ADDRESSES.slice().reverse() as [string, string])
+    await createPair(TEST_ADDRESSES.slice().reverse())
   })
 
   it('createPair:gas', async () => {

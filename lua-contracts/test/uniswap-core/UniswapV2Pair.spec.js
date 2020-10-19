@@ -24,10 +24,10 @@ describe('UniswapV2Pair', () => {
   const [wallet, other] = provider.getWallets()
   const loadFixture = createFixtureLoader(provider, [wallet])
 
-  let factory: Contract
-  let token0: Contract
-  let token1: Contract
-  let pair: Contract
+  let factory
+  let token0
+  let token1
+  let pair
   beforeEach(async () => {
     const fixture = await loadFixture(pairFixture)
     factory = fixture.factory
@@ -62,12 +62,12 @@ describe('UniswapV2Pair', () => {
     expect(reserves[1]).to.eq(token1Amount)
   })
 
-  async function addLiquidity(token0Amount: BigNumber, token1Amount: BigNumber) {
+  async function addLiquidity(token0Amount, token1Amount) {
     await token0.transfer(pair.address, token0Amount)
     await token1.transfer(pair.address, token1Amount)
     await pair.mint(wallet.address, overrides)
   }
-  const swapTestCases: BigNumber[][] = [
+  const swapTestCases = [
     [1, 5, 10, '1662497915624478906'],
     [1, 10, 5, '453305446940074565'],
 
@@ -90,7 +90,7 @@ describe('UniswapV2Pair', () => {
     })
   })
 
-  const optimisticTestCases: BigNumber[][] = [
+  const optimisticTestCases = [
     ['997000000000000000', 5, 10, 1], // given amountIn, amountOut = floor(amountIn * .997)
     ['997000000000000000', 10, 5, 1],
     ['997000000000000000', 5, 5, 1],

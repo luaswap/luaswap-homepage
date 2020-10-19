@@ -1,14 +1,8 @@
 import { Contract } from 'ethers'
 import { Web3Provider } from 'ethers/providers'
-import {
-  BigNumber,
-  bigNumberify,
-  getAddress,
-  keccak256,
-  defaultAbiCoder,
-  toUtf8Bytes,
-  solidityPack
-} from 'ethers/utils'
+import { BigNumber, bigNumberify, keccak256, defaultAbiCoder, toUtf8Bytes, solidityPack } from 'ethers/utils'
+
+export const MINIMUM_LIQUIDITY = bigNumberify(10).pow(3)
 
 const PERMIT_TYPEHASH = keccak256(
   toUtf8Bytes('Permit(address owner,address spender,uint256 value,uint256 nonce,uint256 deadline)')
@@ -31,22 +25,6 @@ function getDomainSeparator(name: string, tokenAddress: string) {
       ]
     )
   )
-}
-
-export function getCreate2Address(
-  factoryAddress: string,
-  [tokenA, tokenB]: [string, string],
-  bytecode: string
-): string {
-  const [token0, token1] = tokenA < tokenB ? [tokenA, tokenB] : [tokenB, tokenA]
-  const create2Inputs = [
-    '0xff',
-    factoryAddress,
-    keccak256(solidityPack(['address', 'address'], [token0, token1])),
-    keccak256(bytecode)
-  ]
-  const sanitizedInputs = `0x${create2Inputs.map(i => i.slice(2)).join('')}`
-  return getAddress(`0x${keccak256(sanitizedInputs).slice(-40)}`)
 }
 
 export async function getApprovalDigest(

@@ -22,7 +22,7 @@ describe('UniswapV2ERC20', () => {
   })
   const [wallet, other] = provider.getWallets()
 
-  let token: Contract
+  let token
   beforeEach(async () => {
     token = await deployContract(wallet, ERC20, [TOTAL_SUPPLY])
   })

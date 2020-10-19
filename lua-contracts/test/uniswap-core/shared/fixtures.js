@@ -8,26 +8,26 @@ import ERC20 from '../../build/ERC20.json'
 import UniswapV2Factory from '../../build/UniswapV2Factory.json'
 import UniswapV2Pair from '../../build/UniswapV2Pair.json'
 
-interface FactoryFixture {
-  factory: Contract
-}
+// interface FactoryFixture {
+//   factory: Contract
+// }
 
 const overrides = {
   gasLimit: 9999999
 }
 
-export async function factoryFixture(_: Web3Provider, [wallet]: Wallet[]): Promise<FactoryFixture> {
+export async function factoryFixture(_, [wallet]) {
   const factory = await deployContract(wallet, UniswapV2Factory, [wallet.address], overrides)
   return { factory }
 }
 
-interface PairFixture extends FactoryFixture {
-  token0: Contract
-  token1: Contract
-  pair: Contract
-}
+// interface PairFixture extends FactoryFixture {
+//   token0: Contract
+//   token1: Contract
+//   pair: Contract
+// }
 
-export async function pairFixture(provider: Web3Provider, [wallet]: Wallet[]): Promise<PairFixture> {
+export async function pairFixture(provider, [wallet]) {
   const { factory } = await factoryFixture(provider, [wallet])
 
   const tokenA = await deployContract(wallet, ERC20, [expandTo18Decimals(10000)], overrides)
