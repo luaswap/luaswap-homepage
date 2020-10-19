@@ -5,7 +5,12 @@ import './UniswapV2Pair.sol';
 
 contract UniswapV2Factory is IUniswapV2Factory {
     address public override feeTo;
-    address public override feeToSetter;
+    address public override withdrawFeeTo;
+    
+    uint public override swapFee = 3; // 0.3% = 3/1000
+    uint public override withdrawFee = 1; // 0.1% = 1/1000
+
+    address public override feeSetter;
     address public override migrator;
 
     mapping(address => mapping(address => address)) public override getPair;
@@ -13,8 +18,8 @@ contract UniswapV2Factory is IUniswapV2Factory {
 
     event PairCreated(address indexed token0, address indexed token1, address pair, uint);
 
-    constructor(address _feeToSetter) public {
-        feeToSetter = _feeToSetter;
+    constructor(address _feeSetter) public {
+        feeSetter = _feeSetter;
     }
 
     function allPairsLength() external override view returns (uint) {
@@ -43,18 +48,29 @@ contract UniswapV2Factory is IUniswapV2Factory {
     }
 
     function setFeeTo(address _feeTo) external override {
-        require(msg.sender == feeToSetter, 'UniswapV2: FORBIDDEN');
+        require(msg.sender == feeSetter, 'UniswapV2: FORBIDDEN');
         feeTo = _feeTo;
     }
 
+    function setWithdrawFeeTo(address _withdrawFeeTo) external override {
+        require(msg.sender == feeSetter, 'UniswapV2: FORBIDDEN');
+        withdrawFeeTo = _withdrawFeeTo;
+    }
+
     function setMigrator(address _migrator) external override {
-        require(msg.sender == feeToSetter, 'UniswapV2: FORBIDDEN');
+        require(msg.sender == feeSetter, 'UniswapV2: FORBIDDEN');
         migrator = _migrator;
     }
 
-    function setFeeToSetter(address _feeToSetter) external override {
-        require(msg.sender == feeToSetter, 'UniswapV2: FORBIDDEN');
-        feeToSetter = _feeToSetter;
+    function setFeeSetter(address _feeSetter) external override {
+        require(msg.sender == feeSetter, 'UniswapV2: FORBIDDEN');
+        feeSetter = _feeSetter;
     }
 
+    function setSwapFee(uint _swapFee) external override {
+        require(msg.sender == feeSetter, 'UniswapV2: FORBIDDEN');
+        require(1 <= _swapFee, "UniswapV2: invalid swap fee"); // 0.1% = 1/1000
+        require(6 >= _swapFee, "UniswapV2: invalid swap fee"); // 0.6% = 6/1000
+        swapFee = _swapFee;
+    }
 }
