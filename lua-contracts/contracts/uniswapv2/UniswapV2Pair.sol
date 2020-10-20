@@ -111,6 +111,18 @@ contract UniswapV2Pair is UniswapV2ERC20 {
         }
     }
 
+    function _chargeWithdrawFee(uint liquidity) private returns (uint returnLiquidity) {
+        address withdrawFeeTo = IUniswapV2Factory(factory).withdrawFeeTo();
+        uint withdrawFee = IUniswapV2Factory(factory).withdrawFee();
+        if (withdrawFeeTo != address(0)) {
+            uint fee = liquidity.mul(withdrawFee).div(1000);
+            returnLiquidity = liquidity.sub(fee);
+        }
+        else {
+            returnLiquidity = liquidity;
+        }
+    }
+
     // this low-level function should be called from a contract which performs important safety checks
     function mint(address to) external lock returns (uint liquidity) {
         (uint112 _reserve0, uint112 _reserve1,) = getReserves(); // gas savings
@@ -150,6 +162,7 @@ contract UniswapV2Pair is UniswapV2ERC20 {
         uint balance0 = IERC20(_token0).balanceOf(address(this));
         uint balance1 = IERC20(_token1).balanceOf(address(this));
         uint liquidity = balanceOf[address(this)];
+        liquidity = _chargeWithdrawFee(liquidity);
 
         bool feeOn = _mintFee(_reserve0, _reserve1);
         uint _totalSupply = totalSupply; // gas savings, must be defined here since totalSupply can update in _mintFee
