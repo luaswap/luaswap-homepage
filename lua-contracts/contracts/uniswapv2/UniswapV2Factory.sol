@@ -7,7 +7,7 @@ contract UniswapV2Factory is IUniswapV2Factory {
     address public override feeTo;
     address public override withdrawFeeTo;
     
-    uint public override swapFee = 3; // 0.3% = 3/1000
+    uint public override swapFee = 4; // 0.4% = 4/1000
     uint public override withdrawFee = 1; // 0.1% = 1/1000
 
     address public override feeSetter;
