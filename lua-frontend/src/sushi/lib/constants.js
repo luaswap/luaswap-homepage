@@ -4,7 +4,7 @@ export const SUBTRACT_GAS_LIMIT = 100000
 export const START_REWARD_AT_BLOCK = 10950600 // TODO
 export const NUMBER_BLOCKS_PER_YEAR = 2425000
 
-export const START_NEW_POOL_AT = 1602565208
+export const START_NEW_POOL_AT = 1603454400
 
 const ONE_MINUTE_IN_SECONDS = new BigNumber(60)
 const ONE_HOUR_IN_SECONDS = ONE_MINUTE_IN_SECONDS.times(60)
@@ -402,5 +402,93 @@ export const supportedPools = [
     iconProtocal: 'https://uniswap.info/static/media/logo_white.edb44e56.svg',
     pairLink: 'https://info.uniswap.org/pair/0x9ccb79d6523152aee4dc2be5822fdbafd0d63211',
     addLiquidityLink: 'https://app.uniswap.org/#/add/0x2baecdf43734f22fd5c152db08e3c27233f0c7d2/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc'
+  },
+
+
+  {
+    startAt: 1603454400,
+    pid: 12,
+    lpAddresses: {
+      1: '0x3041cbd36888becc7bbcbc0045e3b1f144466f5f',
+    },
+    tokenAddresses: {
+      1: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
+    },
+
+    token2Addresses: {
+      1: '0xdac17f958d2ee523a2206206994597c13d831ec7'
+    },
+    name: 'USDC - USDT',
+    symbol: 'USDC-USDT UNI-V2 LP',
+    symbolShort: 'USDC-USDT',
+    description: `Deposit LUA-USDT UNI-V2 LP Earn LUA`,
+    tokenSymbol: 'USDC',
+    token2Symbol: 'USDT',
+    icon: 'https://s2.coinmarketcap.com/static/img/coins/128x128/3408.png',
+    icon2: 'https://s2.coinmarketcap.com/static/img/coins/128x128/825.png',
+    isHot: false,
+    isNew: true,
+    protocal: 'UniSwap',
+    iconProtocal: 'https://uniswap.info/static/media/logo_white.edb44e56.svg',
+    pairLink: 'https://info.uniswap.org/pair/0x3041cbd36888becc7bbcbc0045e3b1f144466f5f',
+    addLiquidityLink: 'https://app.uniswap.org/#/add/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48/0xdac17f958d2ee523a2206206994597c13d831ec7'
+  },
+
+  {
+    startAt: 1603454400,
+    pid: 13,
+    lpAddresses: {
+      1: '0x3041cbd36888becc7bbcbc0045e3b1f144466f5f',
+    },
+    tokenAddresses: {
+      1: '0x2260fac5e5542a773aa44fbcfedf7c193bc2c599',
+    },
+
+    token2Addresses: {
+      1: '0xdac17f958d2ee523a2206206994597c13d831ec7'
+    },
+    name: 'WBTC - USDT',
+    symbol: 'WBTC-USDT UNI-V2 LP',
+    symbolShort: 'WBTC-USDT',
+    description: `Deposit LUA-USDT UNI-V2 LP Earn LUA`,
+    tokenSymbol: 'WBTC',
+    token2Symbol: 'USDT',
+    icon: 'https://s2.coinmarketcap.com/static/img/coins/128x128/1.png',
+    icon2: 'https://s2.coinmarketcap.com/static/img/coins/128x128/825.png',
+    isHot: false,
+    isNew: true,
+    protocal: 'UniSwap',
+    iconProtocal: 'https://uniswap.info/static/media/logo_white.edb44e56.svg',
+    pairLink: 'https://info.uniswap.org/pair/0x004375dff511095cc5a197a54140a24efef3a416',
+    addLiquidityLink: 'https://app.uniswap.org/#/add/0x2260fac5e5542a773aa44fbcfedf7c193bc2c599/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48'
+  },
+
+  {
+    startAt: 1603454400,
+    pid: 14,
+    lpAddresses: {
+      1: '0xcc76dfae500422d30c2c77be2a8764dcff3735ba',
+    },
+    tokenAddresses: {
+      1: '0x1f9840a85d5af5bf1d1762f925bdaddc4201f984',
+    },
+
+    token2Addresses: {
+      1: '0xb1f66997a5760428d3a87d68b90bfe0ae64121cc'
+    },
+    name: 'UNI - LUA',
+    symbol: 'UNI-LUA UNI-V2 LP',
+    symbolShort: 'UNI-LUA',
+    description: `Deposit LUA-LUA UNI-V2 LP Earn LUA`,
+    tokenSymbol: 'UNI',
+    token2Symbol: 'LUA',
+    icon: 'https://s2.coinmarketcap.com/static/img/coins/128x128/3408.png',
+    icon2: 'https://s2.coinmarketcap.com/static/img/coins/128x128/825.png',
+    isHot: false,
+    isNew: true,
+    protocal: 'UniSwap',
+    iconProtocal: 'https://uniswap.info/static/media/logo_white.edb44e56.svg',
+    pairLink: 'https://info.uniswap.org/pair/0xcc76dfae500422d30c2c77be2a8764dcff3735ba',
+    addLiquidityLink: 'https://app.uniswap.org/#/add/0x1f9840a85d5af5bf1d1762f925bdaddc4201f984/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc'
   },
 ]

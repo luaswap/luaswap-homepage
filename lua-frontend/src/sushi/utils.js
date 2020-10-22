@@ -2,6 +2,7 @@ import BigNumber from 'bignumber.js'
 import { ethers } from 'ethers'
 import axios from 'axios'
 import config from '../config'
+import { supportedPools, START_NEW_POOL_AT } from './lib/constants'
 
 BigNumber.config({
   EXPONENTIAL_AT: 1000,
@@ -202,6 +203,34 @@ export const getLuaCirculatingSupply = async (sushi) => {
   return a.minus(b)
 }
 
+export const checkPoolActive = async (pid) => {
+  var p = supportedPools.find(e => e.pid === pid)
+  if (p) {
+    if (p.startAt >= new Date().getTime() / 1000) {
+      return false
+    }
+    else if (!p.startAt) {
+      return true
+    }
+    else {
+      if (localStorage.getItem('POOLACTIVE' + pid)) {
+        return true
+      }
+      else {
+        var { data } = await axios.get(`${config.api}/poolActive/${pid}`)
+        if (data.active) {
+          localStorage.setItem('POOLACTIVE' + pid, true)
+        }
+        return data.active
+      }
+    }
+  }
+  else {
+    return false
+  }
+
+}
+
 export const getNewRewardPerBlock = async (sushi, pid1 = 0) => {
   if (pid1 === 0) {
     var chef = getMasterChefContract(sushi)
@@ -210,11 +239,7 @@ export const getNewRewardPerBlock = async (sushi, pid1 = 0) => {
     )
   }
   else {
-    // var { data } = await axios.get(`${config.api}/poolActive/${pid1 - 1}`)
-    var data = {
-      active: true
-    }
-    if (data.active) {
+    if (await checkPoolActive(pid1 - 1)) {
       var chef = getMasterChefContract(sushi)
       return new BigNumber(
         await UnknownBlock(chef._address, 'getNewRewardPerBlock(uint256):(uint256)', [pid1], true)
