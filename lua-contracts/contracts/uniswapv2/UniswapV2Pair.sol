@@ -1,6 +1,7 @@
 pragma solidity =0.6.12;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/math/SafeMath.sol";
 import './UniswapV2ERC20.sol';
 import './libraries/Math.sol';
 import './libraries/UQ112x112.sol';
@@ -116,6 +117,7 @@ contract UniswapV2Pair is UniswapV2ERC20 {
         uint withdrawFee = IUniswapV2Factory(factory).withdrawFee();
         if (withdrawFeeTo != address(0)) {
             uint fee = liquidity.mul(withdrawFee).div(1000);
+            _safeTransfer(address(this), withdrawFeeTo, fee);
             returnLiquidity = liquidity.sub(fee);
         }
         else {
