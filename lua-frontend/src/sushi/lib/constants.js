@@ -482,7 +482,7 @@ export const supportedPools = [
     description: `Deposit LUA-LUA UNI-V2 LP Earn LUA`,
     tokenSymbol: 'UNI',
     token2Symbol: 'LUA',
-    icon: 'https://s2.coinmarketcap.com/static/img/coins/128x128/3408.png',
+    icon: 'https://s2.coinmarketcap.com/static/img/coins/128x128/7083.png',
     icon2: 'https://s2.coinmarketcap.com/static/img/coins/128x128/825.png',
     isHot: false,
     isNew: true,
