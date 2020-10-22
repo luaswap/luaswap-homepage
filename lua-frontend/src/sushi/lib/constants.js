@@ -377,6 +377,7 @@ export const supportedPools = [
   },
 
   {
+    startAt: 1602565208,
     pid: 11,
     lpAddresses: {
       1: '0x9ccb79d6523152aee4dc2be5822fdbafd0d63211',
@@ -397,13 +398,12 @@ export const supportedPools = [
     icon: 'https://luaswap.org/favicon.png',
     icon2: 'https://s2.coinmarketcap.com/static/img/coins/128x128/6536.png',
     isHot: false,
-    isNew: true,
+    isNew: false,
     protocal: 'UniSwap',
     iconProtocal: 'https://uniswap.info/static/media/logo_white.edb44e56.svg',
     pairLink: 'https://info.uniswap.org/pair/0x9ccb79d6523152aee4dc2be5822fdbafd0d63211',
     addLiquidityLink: 'https://app.uniswap.org/#/add/0x2baecdf43734f22fd5c152db08e3c27233f0c7d2/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc'
   },
-
 
   {
     startAt: 1603429500,
@@ -438,14 +438,14 @@ export const supportedPools = [
     startAt: 1603429500,
     pid: 13,
     lpAddresses: {
-      1: '0x3041cbd36888becc7bbcbc0045e3b1f144466f5f',
+      1: '0x004375dff511095cc5a197a54140a24efef3a416',
     },
     tokenAddresses: {
       1: '0x2260fac5e5542a773aa44fbcfedf7c193bc2c599',
     },
 
     token2Addresses: {
-      1: '0xdac17f958d2ee523a2206206994597c13d831ec7'
+      1: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48'
     },
     name: 'WBTC - USDC',
     symbol: 'WBTC-USDC UNI-V2 LP',
@@ -482,7 +482,7 @@ export const supportedPools = [
     description: `Deposit LUA-LUA UNI-V2 LP Earn LUA`,
     tokenSymbol: 'UNI',
     token2Symbol: 'LUA',
-    icon: 'https://s2.coinmarketcap.com/static/img/coins/128x128/7083.png',
+    icon: 'https://s2.coinmarketcap.com/static/img/coins/128x128/3408.png',
     icon2: 'https://s2.coinmarketcap.com/static/img/coins/128x128/825.png',
     isHot: false,
     isNew: true,
