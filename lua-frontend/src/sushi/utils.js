@@ -213,13 +213,13 @@ export const checkPoolActive = async (pid) => {
       return true
     }
     else {
-      if (localStorage.getItem('POOLACTIVE' + pid)) {
+      if (localStorage.getItem('POOLACTIVE' + pid + '-' + p.startAt)) {
         return true
       }
       else {
         var { data } = await axios.get(`${config.api}/poolActive/${pid}`)
         if (data.active) {
-          localStorage.setItem('POOLACTIVE' + pid, true)
+          localStorage.setItem('POOLACTIVE' + pid + '-' + p.startAt, true)
         }
         return data.active
       }
