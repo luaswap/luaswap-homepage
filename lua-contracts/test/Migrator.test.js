@@ -6,7 +6,7 @@ const UniswapV2Pair = artifacts.require('UniswapV2Pair');
 const UniswapV2Factory = artifacts.require('UniswapV2Factory');
 const Migrator = artifacts.require('Migrator');
 
-contract('Migrator', ([alice, bob, dev, minter]) => {
+contract('Migrator', ([alice, bob, dev, minter, fee]) => {
     beforeEach(async () => {
         this.factoryOld = await UniswapV2Factory.new(alice, { from: alice });
         this.factoryNew = await UniswapV2Factory.new(alice, { from: alice });
@@ -138,7 +138,16 @@ contract('Migrator', ([alice, bob, dev, minter]) => {
         assert.equal((await this.token.balanceOf(bob)).valueOf(), '9999000');
         assert.equal((await this.weth.balanceOf(bob)).valueOf(), '9999000');
 
-        await this.factoryNew.setWithdrawFeeTo(minter)
+        await this.factoryNew.setWithdrawFeeTo(fee)
+
+        await this.lpNew.transfer(this.lpNew.address, '9999000', { from: bob });
+        await this.lpNew.burn(bob);
+
+        assert.equal((await this.lpNew.balanceOf(bob)).valueOf(), '0');
+        assert.equal((await this.lpNew.balanceOf(fee)).valueOf(), '9999');
+
+        assert.equal((await this.token.balanceOf(bob)).valueOf(), '19988001');
+        assert.equal((await this.weth.balanceOf(bob)).valueOf(), '19988001');
     });
 
     it('should allow first minting from public only after migrator is gone', async () => {

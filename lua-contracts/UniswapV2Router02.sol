@@ -80,7 +80,6 @@ interface IERC20 {
 
 // File: @openzeppelin/contracts/math/SafeMath.sol
 
-// SPDX-License-Identifier: MIT
 
 pragma solidity ^0.6.0;
 
@@ -403,8 +402,6 @@ library UniswapV2Library {
 }
 
 // File: contracts/uniswapv2/libraries/TransferHelper.sol
-
-// SPDX-License-Identifier: GPL-3.0-or-later
 
 pragma solidity >=0.6.0;
 
