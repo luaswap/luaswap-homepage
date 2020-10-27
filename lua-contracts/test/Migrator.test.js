@@ -95,7 +95,7 @@ contract('Migrator', ([alice, bob, dev, minter]) => {
         assert.equal((await this.weth.balanceOf(bob)).valueOf(), '10003999');
     });
 
-    it('should do the migration successfully', async () => {
+    it('deposited in to new pair before migrate', async () => {
         // add liquidity factory 1
         await this.token.transfer(this.lpOld.address, '10000000', { from: minter });
         await this.weth.transfer(this.lpOld.address, '10000000', { from: minter });
@@ -137,6 +137,8 @@ contract('Migrator', ([alice, bob, dev, minter]) => {
 
         assert.equal((await this.token.balanceOf(bob)).valueOf(), '9999000');
         assert.equal((await this.weth.balanceOf(bob)).valueOf(), '9999000');
+
+        await this.factoryNew.setWithdrawFeeTo(minter)
     });
 
     it('should allow first minting from public only after migrator is gone', async () => {
