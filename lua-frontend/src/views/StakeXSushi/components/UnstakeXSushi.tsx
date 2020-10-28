@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components'
 import Button from '../../../components/Button'
 import Card from '../../../components/Card'
@@ -6,35 +6,52 @@ import CardContent from '../../../components/CardContent'
 import CardIcon from '../../../components/CardIcon'
 import Label from '../../../components/Label'
 import Value from '../../../components/Value'
-import useEarnings from '../../../hooks/useEarnings'
 import useReward from '../../../hooks/useReward'
-import { getBalanceNumber } from '../../../utils/formatBalance'
-import Lua from '../../../assets/img/lua-icon.svg'
+import {getBalanceNumber} from '../../../utils/formatBalance'
+import useTokenBalance from "../../../hooks/useTokenBalance";
+import {Contract} from "web3-eth-contract";
+import useModal from "../../../hooks/useModal";
+import WithdrawModal from "./WithdrawModal";
+import useLeave from "../../../hooks/useLeave";
+
 interface HarvestProps {
-  pid: number
+  lpContract: Contract
 }
 
-const Harvest: React.FC<HarvestProps> = ({ pid }) => {
-  const earnings = useEarnings(pid)
+const UnstakeXSushi: React.FC<HarvestProps> = ({lpContract}) => {
+
+  const xSushiBalance = useTokenBalance(lpContract.options.address)
   const [pendingTx, setPendingTx] = useState(false)
-  const { onReward } = useReward(pid)
+
+  const {onLeave} = useLeave()
+
+  const tokenName = "xLUA"
+
+  const [onPresentLeave] = useModal(
+    <WithdrawModal
+      max={xSushiBalance}
+      onConfirm={onLeave}
+      tokenName={tokenName}
+    />,
+  )
 
   return (
     <Card>
       <CardContent>
         <StyledCardContentInner>
           <StyledCardHeader>
-            <CardIcon><img src={Lua} alt="LuaSwap"/></CardIcon>
-            <Value value={getBalanceNumber(earnings)} />
-            <Label text="LUA Reward" />
+            <Label text={`YOUR xLUA`}/>
+            <br/>
+            <Value value={getBalanceNumber(xSushiBalance)}/>
+            <Label text="xLUA (LuaSafe) Available"/>
           </StyledCardHeader>
           <StyledCardActions>
             <Button
-              disabled={!earnings.toNumber() || pendingTx}
-              text={pendingTx ? 'Collecting LUA' : 'Harvest'}
+              disabled={!xSushiBalance.toNumber() || pendingTx}
+              text={pendingTx ? 'pending Withdraw' : 'Withdraw'}
               onClick={async () => {
                 setPendingTx(true)
-                await onReward()
+                await onPresentLeave()
                 setPendingTx(false)
               }}
             />
@@ -56,6 +73,12 @@ const StyledCardActions = styled.div`
   margin-top: ${(props) => props.theme.spacing[6]}px;
   width: 100%;
 `
+
+const StyledSpacer = styled.div`
+  height: ${(props) => props.theme.spacing[4]}px;
+  width: ${(props) => props.theme.spacing[4]}px;
+`
+
 const StyledCardContentInner = styled.div`
   align-items: center;
   display: flex;
@@ -64,4 +87,4 @@ const StyledCardContentInner = styled.div`
   justify-content: space-between;
 `
 
-export default Harvest
+export default UnstakeXSushi
