@@ -40,14 +40,15 @@ const UnstakeXSushi: React.FC<HarvestProps> = ({lpContract}) => {
       <CardContent>
         <StyledCardContentInner>
           <StyledCardHeader>
-            <CardIcon>🍣</CardIcon>
+            <Label text={`YOUR xLUA`}/>
+            <br/>
             <Value value={getBalanceNumber(xSushiBalance)}/>
-            <Label text="xLUA (LuaSave) Available"/>
+            <Label text="xLUA (LuaSafe) Available"/>
           </StyledCardHeader>
           <StyledCardActions>
             <Button
               disabled={!xSushiBalance.toNumber() || pendingTx}
-              text={pendingTx ? 'Converting to LUA' : 'Convert to LUA'}
+              text={pendingTx ? 'pending Withdraw' : 'Withdraw'}
               onClick={async () => {
                 setPendingTx(true)
                 await onPresentLeave()

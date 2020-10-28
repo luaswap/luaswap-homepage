@@ -1,9 +1,7 @@
 import React from 'react'
 import {Route, Switch, useRouteMatch} from 'react-router-dom'
 import {useWallet} from 'use-wallet'
-
-import chef from '../../assets/img/chef.png'
-
+import chef from '../../assets/img/logo.png'
 import Button from '../../components/Button'
 import Page from '../../components/Page'
 import PageHeader from '../../components/PageHeader'
@@ -23,9 +21,8 @@ const Staking: React.FC = () => {
           <>
             <Route exact path={path}>
               <PageHeader
-                icon={<img src={chef} height="120"/>}
+                icon={<img src={chef} height="115" /> }              
                 subtitle="Welcome to the LuaSave, stake Lua to earn Lua."
-                title="Irasshaimase!"
               />
             </Route>
             <StakeXSushi/>

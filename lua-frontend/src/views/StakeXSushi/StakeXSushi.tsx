@@ -42,7 +42,6 @@ const StakeXSushi: React.FC = () => {
 
 
   const lpContract = useMemo(() => {
-    debugger
     return getContract(ethereum as provider, tokenAddress)
   }, [ethereum, tokenAddress])
 
@@ -67,7 +66,7 @@ const StakeXSushi: React.FC = () => {
             <StyledInfo>
               ℹ️️ You will earn a portion of the swaps fees based on the amount
               of xLua held relative the weight of the staking. xLua can be minted
-              by staking Lua. To redeem Lua staked plus swap fees convert xSushi
+              by staking Lua. To redeem Lua staked plus swap fees convert xLua
               back to Lua. {totalSupply ? `There are currently ${getBalanceNumber(totalSupply)} xLUA in the whole pool.` : '' }
             </StyledInfo>
           </StyledCardWrapper>

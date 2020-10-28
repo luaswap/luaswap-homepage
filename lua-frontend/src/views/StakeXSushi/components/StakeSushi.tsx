@@ -57,7 +57,8 @@ const StakeSushi: React.FC<StakeProps> = ({}) => {
       <CardContent>
         <StyledCardContentInner>
           <StyledCardHeader>
-            <CardIcon>👨🏻‍🍳</CardIcon>
+            <Label text={`YOUR LUA`}/>
+            <br/>
             <Value value={getBalanceNumber(tokenBalance)}/>
             <Label text={`LUA Tokens Available`}/>
           </StyledCardHeader>
@@ -72,10 +73,9 @@ const StakeSushi: React.FC<StakeProps> = ({}) => {
               <>
                 <Button
                   disabled={tokenBalance.eq(new BigNumber(0))}
-                  text="Convert to xLUA"
+                  text="Stake"
                   onClick={onPresentDeposit}
                 />
-                <StyledActionSpacer/>
               </>
             )}
           </StyledCardActions>

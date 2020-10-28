@@ -8,6 +8,8 @@ BigNumber.config({
   DECIMAL_PLACES: 80,
 })
 
+const MaxUint256 = '999999999900000000000000000000000000000'
+
 const GAS_LIMIT = {
   STAKING: {
     DEFAULT: 200000,
@@ -38,7 +40,9 @@ export const getMasterChefContract = (sushi) => {
 export const getSushiContract = (sushi) => {
   return sushi && sushi.contracts && sushi.contracts.sushi
 }
-
+export const getXSushiStakingContract = (sushi) => {
+  return sushi && sushi.contracts && sushi.contracts.xSushiStaking
+}
 export const getFarms = (sushi) => {
   return sushi
     ? sushi.contracts.pools.map(
@@ -180,8 +184,14 @@ export const getLPTokenStaked = async (
 
 export const approve = async (lpContract, masterChefContract, account) => {
   return lpContract.methods
-    .approve(masterChefContract.options.address, ethers.constants.MaxUint256)
+    .approve(masterChefContract.options.address, MaxUint256)
     .send({ from: account })
+}
+
+export const approveAddress = async (lpContract, address, account) => {
+  return lpContract.methods
+      .approve(address, MaxUint256)
+      .send({ from: account })
 }
 
 export const getSushiSupply = async (sushi) => {
@@ -293,6 +303,9 @@ export const getCanUnlockLua = async (sushi, account) => {
   return new BigNumber(await lua.methods.canUnlockAmount(account).call())
 }
 
+export const getXSushiSupply = async (sushi) => {
+  return new BigNumber(await sushi.contracts.xSushiStaking.methods.totalSupply().call())
+}
 
 export const getLockOf = async (sushi, account) => {
   var lua = getSushiContract(sushi)
@@ -309,4 +322,28 @@ export const unlock = async (sushi, account) => {
       console.log(tx)
       return tx.transactionHash
     })
+}
+export const enter = async (contract, amount, account) => {
+  debugger
+  return contract.methods
+      .enter(
+          new BigNumber(amount).times(new BigNumber(10).pow(18)).toString(),
+      )
+      .send({ from: account })
+      .on('transactionHash', (tx) => {
+        console.log(tx)
+        return tx.transactionHash
+      })
+}
+
+export const leave = async (contract, amount, account) => {
+  return contract.methods
+      .leave(
+          new BigNumber(amount).times(new BigNumber(10).pow(18)).toString(),
+      )
+      .send({ from: account })
+      .on('transactionHash', (tx) => {
+        console.log(tx)
+        return tx.transactionHash
+      })
 }

@@ -14,7 +14,6 @@ const useApproveStaking = () => {
   const sushi = useSushi()
   const lpContract = getSushiContract(sushi)
   const contract = getXSushiStakingContract(sushi)
-
   const handleApprove = useCallback(async () => {
     try {
       const tx = await approve(lpContract, contract, account)
