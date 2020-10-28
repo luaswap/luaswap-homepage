@@ -43,7 +43,7 @@ contract LuaSafe is ERC20("LuaSafe", "xLUA") {
         _burn(msg.sender, _share);
         lua.transfer(msg.sender, what.sub(fee));
     }
-    function _getWithdrawFee(uint liquidity) private returns (uint withdrawFee) {
+    function _getWithdrawFee(uint liquidity) private view returns (uint withdrawFee) {
         withdrawFee = liquidity.mul(FEE).div(1000);
     }
 }
