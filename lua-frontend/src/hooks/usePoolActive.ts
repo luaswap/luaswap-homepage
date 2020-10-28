@@ -4,18 +4,18 @@ import { provider } from 'web3-core'
 import { useWallet } from 'use-wallet'
 import config from '../config'
 import axios from 'axios'
+import { checkPoolActive } from '../sushi/utils'
 // import debounce from 'debounce'
 
 const usePoolActive = (pid: number) => {
   const [active, setActive] = useState(true)
-  // const getData = useCallback(async () => {
-  //   var { data } = await axios.get(`${config.api}/poolActive/${pid}`)
-  //   setActive(data.active)
-  // }, [])
+  const getData = useCallback(async () => {
+    setActive(await checkPoolActive(pid))
+  }, [])
 
-  // useEffect(() => {
-  //   getData()
-  // }, [])
+  useEffect(() => {
+    getData()
+  }, [])
 
   return active
 }

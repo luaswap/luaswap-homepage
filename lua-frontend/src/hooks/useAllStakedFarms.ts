@@ -8,7 +8,7 @@ import { Contract } from 'web3-eth-contract'
 import {
   getMasterChefContract,
   getFarms,
-  getStaked, getEarned
+  getStaked, getEarned, checkPoolActive
 } from '../sushi/utils'
 import useSushi from './useSushi'
 import useBlock from './useBlock'
@@ -39,11 +39,7 @@ const useAllStakedFarms = () => {
     const data: Array<StakedFarm> = await Promise.all(
       farms.map(({ pid, name, symbol, symbolShort, icon, icon2, id }: any) => new Promise(async (resolve) => {
         
-        // var { data } = await axios.get(`${config.api}/poolActive/${pid}`)
-        var data = {
-          active: true
-        }
-        if (data.active) {
+        if (await checkPoolActive(pid)) {
           var v = {
             id,
             pid: pid,

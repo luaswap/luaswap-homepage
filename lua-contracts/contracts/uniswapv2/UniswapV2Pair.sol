@@ -94,6 +94,7 @@ contract UniswapV2Pair is UniswapV2ERC20 {
     // if fee is on, mint liquidity equivalent to 1/6th of the growth in sqrt(k)
     function _mintFee(uint112 _reserve0, uint112 _reserve1) private returns (bool feeOn) {
         address feeTo = IUniswapV2Factory(factory).feeTo();
+        uint fee = IUniswapV2Factory(factory).swapFee();
         feeOn = feeTo != address(0);
         uint _kLast = kLast; // gas savings
         if (feeOn) {
@@ -102,7 +103,7 @@ contract UniswapV2Pair is UniswapV2ERC20 {
                 uint rootKLast = Math.sqrt(_kLast);
                 if (rootK > rootKLast) {
                     uint numerator = totalSupply.mul(rootK.sub(rootKLast));
-                    uint denominator = rootK.mul(5).add(rootKLast);
+                    uint denominator = rootK.mul(fee * 2 - 1).add(rootKLast);
                     uint liquidity = numerator / denominator;
                     if (liquidity > 0) _mint(feeTo, liquidity);
                 }
@@ -164,7 +165,11 @@ contract UniswapV2Pair is UniswapV2ERC20 {
         uint balance0 = IERC20(_token0).balanceOf(address(this));
         uint balance1 = IERC20(_token1).balanceOf(address(this));
         uint liquidity = balanceOf[address(this)];
-        liquidity = _chargeWithdrawFee(liquidity);
+        
+        address migrator = IUniswapV2Factory(factory).migrator();
+        if (msg.sender != migrator) {
+            liquidity = _chargeWithdrawFee(liquidity);
+        }
 
         bool feeOn = _mintFee(_reserve0, _reserve1);
         uint _totalSupply = totalSupply; // gas savings, must be defined here since totalSupply can update in _mintFee
@@ -207,7 +212,7 @@ contract UniswapV2Pair is UniswapV2ERC20 {
         uint fee = IUniswapV2Factory(factory).swapFee();
         uint balance0Adjusted = balance0.mul(1000).sub(amount0In.mul(fee));
         uint balance1Adjusted = balance1.mul(1000).sub(amount1In.mul(fee));
-        require(balance0Adjusted.mul(balance1Adjusted) >= uint(_reserve0).mul(_reserve1).mul(1000 ** fee), 'UniswapV2: K');
+        require(balance0Adjusted.mul(balance1Adjusted) >= uint(_reserve0).mul(_reserve1).mul(1000**2), 'UniswapV2: K');
         }
 
         _update(balance0, balance1, _reserve0, _reserve1);

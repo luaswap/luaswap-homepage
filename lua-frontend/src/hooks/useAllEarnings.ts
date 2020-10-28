@@ -4,7 +4,7 @@ import { provider } from 'web3-core'
 import BigNumber from 'bignumber.js'
 import { useWallet } from 'use-wallet'
 
-import { getEarned, getMasterChefContract, getFarms } from '../sushi/utils'
+import { getEarned, getMasterChefContract, getFarms, checkPoolActive } from '../sushi/utils'
 import useSushi from './useSushi'
 import useBlock from './useBlock'
 
@@ -30,11 +30,7 @@ const useAllEarnings = () => {
 
     const data: Array<BigNumber> = await Promise.all(
       farms.map(({ pid }: any) => new Promise(async (resolve) => {
-        // var { data } = await axios.get(`${config.api}/poolActive/${pid}`)
-        var data = {
-          active: true
-        }
-        if (data.active) {
+        if (await checkPoolActive(pid)) {
           resolve(await getEarned(masterChefContract, pid, account))
         }
         else {

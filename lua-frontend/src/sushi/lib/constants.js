@@ -4,7 +4,7 @@ export const SUBTRACT_GAS_LIMIT = 100000
 export const START_REWARD_AT_BLOCK = 10950600 // TODO
 export const NUMBER_BLOCKS_PER_YEAR = 2425000
 
-export const START_NEW_POOL_AT = 1602565208
+export const START_NEW_POOL_AT = 1603519000
 
 const ONE_MINUTE_IN_SECONDS = new BigNumber(60)
 const ONE_HOUR_IN_SECONDS = ONE_MINUTE_IN_SECONDS.times(60)
@@ -87,7 +87,7 @@ export const supportedPools = [
     name: 'LUA - USDC',
     symbol: 'LUA-USDC UNI-V2 LP',
     symbolShort: 'LUA-USDC',
-    description: `Deposit LUA-USDC UNI-V2 LP Earn 2xLUA`,
+    description: `Deposit LUA-USDC UNI-V2 LP Earn 5xLUA`,
     tokenSymbol: 'LUA',
     token2Symbol: 'USDC',
     icon: 'https://luaswap.org/favicon.png',
@@ -285,7 +285,7 @@ export const supportedPools = [
     icon: 'https://luaswap.org/favicon.png',
     icon2: 'https://s2.coinmarketcap.com/static/img/coins/128x128/6187.png',
     isHot: false,
-    isNew: true,
+    isNew: false,
     protocal: 'UniSwap',
     iconProtocal: 'https://uniswap.info/static/media/logo_white.edb44e56.svg',
     pairLink: 'https://uniswap.info/pair/0x694ad474ef16a8eefb5cc3119f9956aeef28c987',
@@ -313,7 +313,7 @@ export const supportedPools = [
     icon: 'https://luaswap.org/favicon.png',
     icon2: 'https://s2.coinmarketcap.com/static/img/coins/128x128/4195.png',
     isHot: false,
-    isNew: true,
+    isNew: false,
     protocal: 'UniSwap',
     iconProtocal: 'https://uniswap.info/static/media/logo_white.edb44e56.svg',
     pairLink: 'https://info.uniswap.org/pair/0xf0ec5e8ea37911dec8e8e9bc940e9dba2de60706',
@@ -341,7 +341,7 @@ export const supportedPools = [
     icon: 'https://luaswap.org/favicon.png',
     icon2: 'https://s2.coinmarketcap.com/static/img/coins/128x128/1027.png',
     isHot: false,
-    isNew: true,
+    isNew: false,
     protocal: 'UniSwap',
     iconProtocal: 'https://uniswap.info/static/media/logo_white.edb44e56.svg',
     pairLink: 'https://info.uniswap.org/pair/0xc5d3c66133a6264b0f2e712b8e10ef96efb93eb2',
@@ -369,7 +369,7 @@ export const supportedPools = [
     icon: 'https://luaswap.org/favicon.png',
     icon2: 'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xD9Ec3ff1f8be459Bb9369b4E79e9Ebcf7141C093/logo.png',
     isHot: false,
-    isNew: true,
+    isNew: false,
     protocal: 'UniSwap',
     iconProtocal: 'https://uniswap.info/static/media/logo_white.edb44e56.svg',
     pairLink: 'https://info.uniswap.org/pair/0x9af4fb969bb16038d7618df8adbdb2e7133b0f66',
@@ -377,6 +377,7 @@ export const supportedPools = [
   },
 
   {
+    startAt: 1602565208,
     pid: 11,
     lpAddresses: {
       1: '0x9ccb79d6523152aee4dc2be5822fdbafd0d63211',
@@ -397,10 +398,97 @@ export const supportedPools = [
     icon: 'https://luaswap.org/favicon.png',
     icon2: 'https://s2.coinmarketcap.com/static/img/coins/128x128/6536.png',
     isHot: false,
-    isNew: true,
+    isNew: false,
     protocal: 'UniSwap',
     iconProtocal: 'https://uniswap.info/static/media/logo_white.edb44e56.svg',
     pairLink: 'https://info.uniswap.org/pair/0x9ccb79d6523152aee4dc2be5822fdbafd0d63211',
     addLiquidityLink: 'https://app.uniswap.org/#/add/0x2baecdf43734f22fd5c152db08e3c27233f0c7d2/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc'
+  },
+
+  {
+    startAt: 1603429500,
+    pid: 12,
+    lpAddresses: {
+      1: '0x3041cbd36888becc7bbcbc0045e3b1f144466f5f',
+    },
+    tokenAddresses: {
+      1: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
+    },
+
+    token2Addresses: {
+      1: '0xdac17f958d2ee523a2206206994597c13d831ec7'
+    },
+    name: 'USDC - USDT',
+    symbol: 'USDC-USDT UNI-V2 LP',
+    symbolShort: 'USDC-USDT',
+    description: `Deposit USDC-USDT UNI-V2 LP Earn LUA`,
+    tokenSymbol: 'USDC',
+    token2Symbol: 'USDT',
+    icon: 'https://s2.coinmarketcap.com/static/img/coins/128x128/3408.png',
+    icon2: 'https://s2.coinmarketcap.com/static/img/coins/128x128/825.png',
+    isHot: false,
+    isNew: true,
+    protocal: 'UniSwap',
+    iconProtocal: 'https://uniswap.info/static/media/logo_white.edb44e56.svg',
+    pairLink: 'https://info.uniswap.org/pair/0x3041cbd36888becc7bbcbc0045e3b1f144466f5f',
+    addLiquidityLink: 'https://app.uniswap.org/#/add/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48/0xdac17f958d2ee523a2206206994597c13d831ec7'
+  },
+
+  {
+    startAt: 1603429500,
+    pid: 13,
+    lpAddresses: {
+      1: '0x004375dff511095cc5a197a54140a24efef3a416',
+    },
+    tokenAddresses: {
+      1: '0x2260fac5e5542a773aa44fbcfedf7c193bc2c599',
+    },
+
+    token2Addresses: {
+      1: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48'
+    },
+    name: 'WBTC - USDC',
+    symbol: 'WBTC-USDC UNI-V2 LP',
+    symbolShort: 'WBTC-USDC',
+    description: `Deposit WBTC-USDC UNI-V2 LP Earn LUA`,
+    tokenSymbol: 'WBTC',
+    token2Symbol: 'USDC',
+    icon: 'https://s2.coinmarketcap.com/static/img/coins/128x128/1.png',
+    icon2: 'https://s2.coinmarketcap.com/static/img/coins/128x128/3408.png',
+    isHot: false,
+    isNew: true,
+    protocal: 'UniSwap',
+    iconProtocal: 'https://uniswap.info/static/media/logo_white.edb44e56.svg',
+    pairLink: 'https://info.uniswap.org/pair/0x004375dff511095cc5a197a54140a24efef3a416',
+    addLiquidityLink: 'https://app.uniswap.org/#/add/0x2260fac5e5542a773aa44fbcfedf7c193bc2c599/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48'
+  },
+
+  {
+    startAt: 1603519000,
+    pid: 14,
+    lpAddresses: {
+      1: '0xcc76dfae500422d30c2c77be2a8764dcff3735ba',
+    },
+    tokenAddresses: {
+      1: '0x1f9840a85d5af5bf1d1762f925bdaddc4201f984',
+    },
+
+    token2Addresses: {
+      1: '0xb1f66997a5760428d3a87d68b90bfe0ae64121cc'
+    },
+    name: 'UNI - LUA',
+    symbol: 'UNI-LUA UNI-V2 LP',
+    symbolShort: 'UNI-LUA',
+    description: `Deposit UNI-LUA UNI-V2 LP Earn LUA`,
+    tokenSymbol: 'UNI',
+    token2Symbol: 'LUA',
+    icon: 'https://s2.coinmarketcap.com/static/img/coins/128x128/7083.png',
+    icon2: 'https://luaswap.org/favicon.png',
+    isHot: false,
+    isNew: true,
+    protocal: 'UniSwap',
+    iconProtocal: 'https://uniswap.info/static/media/logo_white.edb44e56.svg',
+    pairLink: 'https://info.uniswap.org/pair/0xcc76dfae500422d30c2c77be2a8764dcff3735ba',
+    addLiquidityLink: 'https://app.uniswap.org/#/add/0x1f9840a85d5af5bf1d1762f925bdaddc4201f984/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc'
   },
 ]
