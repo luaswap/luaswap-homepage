@@ -11,11 +11,12 @@ import useModal from '../../../hooks/useModal'
 import useTokenBalance from '../../../hooks/useTokenBalance'
 import {getBalanceNumber} from '../../../utils/formatBalance'
 import DepositModal from './DepositModal'
-import {contractAddresses} from '../../../sushi/lib/constants'
 import useEnter from "../../../hooks/useEnter";
 import useLeave from "../../../hooks/useLeave";
 import useAllowanceStaking from "../../../hooks/useAllowanceStaking";
 import useApproveStaking from "../../../hooks/useApproveStaking";
+import useSushi from '../../../hooks/useSushi'
+import { getSushiAddress } from '../../../sushi/utils'
 
 interface StakeProps {
 }
@@ -26,8 +27,8 @@ const StakeSushi: React.FC<StakeProps> = ({}) => {
 
   const allowance = useAllowanceStaking()
   const {onApprove} = useApproveStaking()
-
-  const tokenBalance = useTokenBalance(contractAddresses.sushi[3])
+  const sushi = useSushi()
+  const tokenBalance = useTokenBalance(getSushiAddress(sushi))
   const {onEnter} = useEnter()
   const {onLeave} = useLeave()
 

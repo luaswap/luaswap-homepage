@@ -48,9 +48,15 @@ export const contractAddresses = {
     1: '0xB1f66997A5760428D3a87D68b90BfE0aE64121cC',
     99: '0x9FB56E17EF76Eb21d89d2Ec73058245844e70E3d',
   },
+  xSushi: {
+    1: '0x9abf23f4e439d695a7fd341a1b25873c50cfa52e'
+  },
   masterChef: {
     1: '0xb67D7a6644d9E191Cac4DA2B88D6817351C7fF62',
     99: '0xA49D353dd804f516bcd500D1Dd6eE72675CF498d',
+  },
+  weth: {
+    1: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2'
   }
 }
 

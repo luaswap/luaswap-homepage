@@ -15,12 +15,12 @@ import WithdrawModal from "./WithdrawModal";
 import useLeave from "../../../hooks/useLeave";
 
 interface HarvestProps {
-  lpContract: Contract
+  xSushiAddress: string
 }
 
-const UnstakeXSushi: React.FC<HarvestProps> = ({lpContract}) => {
+const UnstakeXSushi: React.FC<HarvestProps> = ({xSushiAddress}) => {
 
-  const xSushiBalance = useTokenBalance(lpContract.options.address)
+  const xSushiBalance = useTokenBalance(xSushiAddress)
   const [pendingTx, setPendingTx] = useState(false)
 
   const {onLeave} = useLeave()
