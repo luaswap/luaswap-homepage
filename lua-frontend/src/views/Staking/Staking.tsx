@@ -22,7 +22,7 @@ const Staking: React.FC = () => {
             <Route exact path={path}>
               <PageHeader
                 icon={<img src={chef} height="115" /> }              
-                subtitle="Welcome to the LuaSave, stake Lua to earn Lua."
+                subtitle="Welcome to the LuaSafe, stake LUA to earn LUA."
               />
             </Route>
             <StakeXSushi/>
