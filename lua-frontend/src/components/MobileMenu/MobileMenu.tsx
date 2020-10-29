@@ -21,17 +21,17 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ onDismiss, visible }) => {
           <StyledAbsoluteLink href="https://app.luaswap.org/#/swap" target="_blank">
             Swap
           </StyledAbsoluteLink>
-          <StyledLink
+          <StyledLink2
             exact
             activeClassName="active"
             to="/staking"
             onClick={onDismiss}
           >
             Staking
-          </StyledLink>
-          <StyledAbsoluteLink href="https://snapshot.luaswap.org/#/luaswap" target="_blank">
+          </StyledLink2>
+          {/* <StyledAbsoluteLink href="https://snapshot.luaswap.org/#/luaswap" target="_blank">
             Proposals
-          </StyledAbsoluteLink>
+          </StyledAbsoluteLink> */}
         </StyledMobileMenu>
       </StyledMobileMenuWrapper>
     )
@@ -99,6 +99,24 @@ const StyledMobileMenu = styled.div`
 `
 
 const StyledLink = styled(NavLink)`
+  box-sizing: border-box;
+  color: ${(props) => props.theme.color.grey[100]};
+  font-size: 24px;
+  font-weight: 700;
+  padding: ${(props) => props.theme.spacing[3]}px
+    ${(props) => props.theme.spacing[4]}px;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+  &:hover {
+    color: ${(props) => props.theme.color.grey[500]};
+  }
+  &.active {
+    color: ${(props) => props.theme.color.primary.main};
+  }
+`
+
+const StyledLink2 = styled(NavLink)`
   box-sizing: border-box;
   color: ${(props) => props.theme.color.grey[100]};
   font-size: 24px;

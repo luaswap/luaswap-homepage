@@ -64,7 +64,7 @@ const Home: React.FC = () => {
         </Container>
         <Box className="mt-4">
             <StyledHeading>SELECT YOUR FIELDS</StyledHeading>
-            <StyledParagraph>Earn LUA tokens by staking UNI-V2 LP token</StyledParagraph>
+            <StyledParagraph>Earn LUA tokens by staking LUA-V1 LP token</StyledParagraph>
             <SpacerRes>
                 <Spacer size="sm" />
             </SpacerRes>
