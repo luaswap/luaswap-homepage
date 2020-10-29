@@ -138,7 +138,7 @@ const Farm: React.FC = () => {
             <StyledInfoLP>
               <img src={iconProtocal} height="50" style={{marginTop: 5}} />
               <div style={{width: 'calc(100% - 70px', color: '#ffffff', fontSize: 16, marginLeft: 20, marginRight: 20}}>
-                <div>Add liquidity to <a style={{color: '#f6b944', textDecoration: 'none'}} href={pairLink} target="__blank"><b>{symbolShort} pair</b></a> on {protocal} to get <span style={{color: '#f6b944'}}>{lpToken}</span> tokens. Then deposit those LP tokens on LuaSwap to receive rewards from September 28th</div>
+                <div>Add liquidity to <a style={{color: '#f6b944', textDecoration: 'none'}} href={pairLink} target="__blank"><b>{symbolShort} pair</b></a> on {protocal} to get <span style={{color: '#f6b944'}}>{lpToken}</span> tokens. Then deposit those LP tokens on LuaSwap to receive rewards</div>
                 <Spacer size="sm" />
                 <a style={{color: '#f6b944'}} target="__blank" href={addLiquidityLink}>
                   <b>Add Liquidity on {protocal}</b>
