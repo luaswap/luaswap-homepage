@@ -67,7 +67,7 @@ const App: React.FC = () => {
             <div style={{fontSize: 30, marginTop: 30, marginBottom: 15}}>
               The team is working on LuaSwap upgraded version!
             </div>
-            <div style={{marginBottom: 15, color: '#58ce5d'}}>Your asset is safe in our smart contract and will remain the same after the upgrade</div>
+            <div style={{marginBottom: 15, color: '#58ce5d'}}>Your asset is safe in our <a href="https://etherscan.io/address/0xb67d7a6644d9e191cac4da2b88d6817351c7ff62">smart contract</a> and will remain the same after the upgrade</div>
             <div style={{opacity: 0.7}}>For more information: <a style={{color: '#ffffff'}} href="https://twitter.com/LuaSwap">Twitter</a></div>
           </div>
         </div>
