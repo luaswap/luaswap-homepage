@@ -8,12 +8,15 @@ const Nav: React.FC = () => {
       <StyledLink exact activeClassName="active" to="/">
         Home
       </StyledLink>
+      <StyledAbsoluteLink href="https://app.luaswap.org/#/swap" target="_blank">
+        Swap
+      </StyledAbsoluteLink>
+      <StyledLink exact activeClassName="active" to="/Staking">
+        LuaSafe
+      </StyledLink>
       <StyledAbsoluteLink href="https://snapshot.luaswap.org/#/luaswap" target="_blank">
         Proposals
       </StyledAbsoluteLink>
-      { <StyledLink exact activeClassName="active" to="/Staking">
-        LuaSafe
-      </StyledLink> }
     </StyledNav>
   )
 }
@@ -60,7 +63,7 @@ const StyledLink = styled(NavLink)`
 `
 
 const StyledAbsoluteLink = styled.a`
-  color: ${(props) => props.theme.color.grey[100]};
+  color: ${(props) => props.theme.color.white};
   font-weight: 700;
   padding-left: ${(props) => props.theme.spacing[3]}px;
   padding-right: ${(props) => props.theme.spacing[3]}px;

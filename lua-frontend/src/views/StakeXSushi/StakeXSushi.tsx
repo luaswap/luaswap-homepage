@@ -8,21 +8,15 @@ import {getContract} from '../../utils/erc20'
 import UnstakeXSushi from './components/UnstakeXSushi'
 import StakeSushi from "./components/StakeSushi";
 
-import {contractAddresses} from '../../sushi/lib/constants'
-import {getXSushiSupply} from "../../sushi/utils";
+import {getXLuaAddress, getXSushiSupply} from "../../sushi/utils";
 import BigNumber from "bignumber.js";
 import {getBalanceNumber} from "../../utils/formatBalance";
 
 const StakeXSushi: React.FC = () => {
-  const {
-    tokenAddress,
-  } = {
-    tokenAddress: contractAddresses.xSushi[1],
-  }
+  const sushi = useSushi()
+  const tokenAddress = getXLuaAddress(sushi)
 
   const [totalSupply, setTotalSupply] = useState<BigNumber>()
-
-  const sushi = useSushi()
   const {ethereum} = useWallet()
 
   useEffect(() => {
@@ -39,19 +33,13 @@ const StakeXSushi: React.FC = () => {
     }
   }, [sushi, setTotalSupply])
 
-
-
-  const lpContract = useMemo(() => {
-    return getContract(ethereum as provider, tokenAddress)
-  }, [ethereum, tokenAddress])
-
   return (
     <>
       <StyledFarm>
         <StyledCardsWrapper>
           <StyledCardWrapper>
             <UnstakeXSushi
-              lpContract={lpContract}
+              xSushiAddress={tokenAddress}
             />
           </StyledCardWrapper>
           <Spacer/>
