@@ -8,12 +8,15 @@ const Nav: React.FC = () => {
       <StyledLink exact activeClassName="active" to="/">
         Home
       </StyledLink>
-      <StyledAbsoluteLink href="https://snapshot.luaswap.org/#/luaswap" target="_blank">
-        Proposals
+      <StyledAbsoluteLink href="https://app.luaswap.org/#/swap" target="_blank">
+        Swap
       </StyledAbsoluteLink>
       <StyledLink exact activeClassName="active" to="/Staking">
         LuaSafe
       </StyledLink>
+      <StyledAbsoluteLink href="https://snapshot.luaswap.org/#/luaswap" target="_blank">
+        Proposals
+      </StyledAbsoluteLink>
     </StyledNav>
   )
 }
