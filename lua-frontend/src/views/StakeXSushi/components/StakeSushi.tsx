@@ -80,6 +80,9 @@ const StakeSushi: React.FC<StakeProps> = ({}) => {
               </>
             )}
           </StyledCardActions>
+          <StyledInsight>
+              <span><br/></span>
+            </StyledInsight>
         </StyledCardContentInner>
       </CardContent>
     </Card>
@@ -110,5 +113,17 @@ const StyledCardContentInner = styled.div`
   flex-direction: column;
   justify-content: space-between;
 `
-
+const StyledInsight = styled.div`
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  border-radius: 8px;
+  background: transparent;
+  color: #9E9E9E;
+  width: 100%;
+  line-height: 25px;
+  font-size: 13px;
+  border: 0px solid #e6dcd5;
+  text-align: center;
+`
 export default StakeSushi

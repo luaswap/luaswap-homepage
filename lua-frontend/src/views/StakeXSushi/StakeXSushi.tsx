@@ -52,10 +52,7 @@ const StakeXSushi: React.FC = () => {
         <StyledCardsWrapper>
           <StyledCardWrapper>
             <StyledInfo>
-              ℹ️️ You will earn a portion of the swaps fees based on the amount
-              of xLua held relative the weight of the staking. xLua can be minted
-              by staking Lua. To redeem Lua staked plus swap fees convert xLua
-              back to Lua. {totalSupply ? `There are currently ${getBalanceNumber(totalSupply)} xLUA in the whole pool.` : '' }
+              ℹ️️ You will earn a portion of the swap fees based on the amount of xLUA held relative the weight of the staking. xLUA can be minted by staking LUA. To redeem LUA staked plus swap fees, convert xLUA back to LUA. {totalSupply ? `There are currently ${getBalanceNumber(totalSupply)} xLUA in the whole pool.` : '' }
             </StyledInfo>
           </StyledCardWrapper>
         </StyledCardsWrapper>

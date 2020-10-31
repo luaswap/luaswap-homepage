@@ -17,29 +17,44 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ onDismiss, visible }) => {
           <StyledLink exact activeClassName="active" to="/" onClick={onDismiss}>
             Home
           </StyledLink>
-          <StyledLink
-            exact
-            activeClassName="active"
-            to="/farms"
-            onClick={onDismiss}
-          >
-            Farms
-          </StyledLink>
-          <StyledLink
+
+          <StyledAbsoluteLink href="https://app.luaswap.org/#/swap" target="_blank">
+            Swap
+          </StyledAbsoluteLink>
+          <StyledLink2
             exact
             activeClassName="active"
             to="/staking"
             onClick={onDismiss}
           >
             Staking
-          </StyledLink>
+          </StyledLink2>
+          {/* <StyledAbsoluteLink href="https://snapshot.luaswap.org/#/luaswap" target="_blank">
+            Proposals
+          </StyledAbsoluteLink> */}
         </StyledMobileMenu>
       </StyledMobileMenuWrapper>
     )
   }
   return null
 }
-
+const StyledAbsoluteLink = styled.a`
+  color: ${(props) => props.theme.color.white};
+  font-weight: 700;
+  padding-left: ${(props) => props.theme.spacing[3]}px;
+  padding-right: ${(props) => props.theme.spacing[3]}px;
+  text-decoration: none;
+  &:hover {
+    color: #ffffff;
+  }
+  &.active {
+    color: ${(props) => props.theme.color.primary.main};
+  }
+  @media (max-width: 767px) {
+    padding-left: ${(props) => props.theme.spacing[2]}px;
+    padding-right: ${(props) => props.theme.spacing[2]}px;
+  }
+`
 const StyledBackdrop = styled.div`
   background-color: ${(props) => props.theme.color.grey[600]}aa;
   position: absolute;
@@ -84,6 +99,24 @@ const StyledMobileMenu = styled.div`
 `
 
 const StyledLink = styled(NavLink)`
+  box-sizing: border-box;
+  color: ${(props) => props.theme.color.grey[100]};
+  font-size: 24px;
+  font-weight: 700;
+  padding: ${(props) => props.theme.spacing[3]}px
+    ${(props) => props.theme.spacing[4]}px;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+  &:hover {
+    color: ${(props) => props.theme.color.grey[500]};
+  }
+  &.active {
+    color: ${(props) => props.theme.color.primary.main};
+  }
+`
+
+const StyledLink2 = styled(NavLink)`
   box-sizing: border-box;
   color: ${(props) => props.theme.color.grey[100]};
   font-size: 24px;

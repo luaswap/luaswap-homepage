@@ -15,19 +15,8 @@ Feel free to read the code. More details coming soon.
 - LuaToken - https://etherscan.io/address/0xB1f66997A5760428D3a87D68b90BfE0aE64121cC
 - LuaMasterFarmer - https://etherscan.io/address/0xb67d7a6644d9e191cac4da2b88d6817351c7ff62
 - TimeLock - https://etherscan.io/address/0xdc127cca2f0f059af6a414ec6da19a92a6b3812c
-
-## Audit
-
-- [TomoChain Core Team and The Arcadia Group](https://raw.githubusercontent.com/tomochain/luaswap/master/lua-contracts/audit/Audit_of_LUASWAP_Contracts.pdf)
-
-
-## TimeLock.QueueTransaction
-- [Test TimeLock before transfer Master's Owner to TimeLock](https://etherscan.io/tx/0x9103e339bf4b36c4453934f0b0f17b8806d02f0b1c1932d47f38daf26a4702b8)
-
-- [Add new pool LUA-TOMOE](https://etherscan.io/tx/0x31adbd9b5111ce92e89114f083e52928a80c010bf6b09808ffa03f5ea4f4b847)
-
-- [Add new pool LUA-FRONT](https://etherscan.io/tx/0x7ec8dce7eb3dbb1db57b874f2f2b1c7906a30e59423ddc4ff8389c699760ef12)
-
-
-- [Add new pool LUA-SUSHI](https://etherscan.io/tx/0x12f7aaaffa2b3a328c1d4d228638682f5e75e82b4f6934126612bd77c0690550)
-
+- UniSwapV2Factory - https://etherscan.io/address/0x0388c1e0f210abae597b7de712b9510c6c36c857
+- UniswapV2Router02 - https://etherscan.io/address/0x1d5C6F1607A171Ad52EFB270121331b3039dD83e
+- Migrator - https://etherscan.io/address/0x0eA7dc413C6209112101b6Ef99a27F9Ed56B4A4b
+- LuaSafe - https://etherscan.io/address/0x9abf23f4e439d695a7fd341a1b25873c50cfa52e
+- LuaMaker - https://etherscan.io/address/0xf591a2e7170863986ed3f73f086bb945f911f5a1
