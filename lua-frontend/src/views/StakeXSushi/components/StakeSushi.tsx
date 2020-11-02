@@ -63,6 +63,7 @@ const StakeSushi: React.FC<StakeProps> = ({}) => {
             <Value value={getBalanceNumber(tokenBalance)}/>
             <Label text={`LUA Tokens Available`}/>
           </StyledCardHeader>
+          
           <StyledCardActions>
             {!allowance.toNumber() ? (
               <Button
@@ -81,7 +82,7 @@ const StakeSushi: React.FC<StakeProps> = ({}) => {
             )}
           </StyledCardActions>
           <StyledInsight>
-              <span><br/></span>
+              <span><br/><br/></span>
             </StyledInsight>
         </StyledCardContentInner>
       </CardContent>
