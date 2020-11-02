@@ -10,6 +10,7 @@ import useReward from '../../../hooks/useReward'
 import {getBalanceNumber} from '../../../utils/formatBalance'
 import useTokenBalance from "../../../hooks/useTokenBalance";
 import useTotalShare from "../../../hooks/useTotalShares";
+import useTokenBalanceOf from '../../../hooks/useTokenBalanceOf'
 import {Contract} from "web3-eth-contract";
 import useModal from "../../../hooks/useModal";
 import WithdrawModal from "./WithdrawModal";
@@ -19,34 +20,42 @@ import { getXSushiSupply, getSushiAddress} from "../../../sushi/utils";
 import useSushi from '../../../hooks/useSushi'
 
 interface HarvestProps {
-  xSushiAddress: string
+  xLuaTokenAddress: string
 }
 
-const UnstakeXSushi: React.FC<HarvestProps> = ({xSushiAddress}) => {
+const UnstakeXSushi: React.FC<HarvestProps> = ({xLuaTokenAddress}) => {
   const sushi = useSushi()
-  const xSushiBalance = useTokenBalance(xSushiAddress)
-  const totalLuaStaked = useTotalShare(getSushiAddress(sushi), xSushiAddress)
-  const [totalSupply, setTotalSupply] = useState<BigNumber>()
+  const myXLua = useTokenBalance(xLuaTokenAddress)
+  const totalLuaInSafe = useTotalShare(getSushiAddress(sushi), xLuaTokenAddress)
+  const [totalSupplyXLua, setTotalSupplyXLua] = useState<BigNumber>()
   const [pendingTx, setPendingTx] = useState(false)
+  const trackingAPYBalanceXLua = useTokenBalanceOf(xLuaTokenAddress,'0xdEad000000000000000000000000000000000000');
 
   useEffect(() => {
-    async function fetchTotalSupply() {
+    async function fetchTotalSupplyXLua() {
       const supply = await getXSushiSupply(sushi)
-      setTotalSupply(supply)
+      setTotalSupplyXLua(supply)
     }
     if (sushi) {
-      fetchTotalSupply()
+      fetchTotalSupplyXLua()
     }
-  }, [sushi, setTotalSupply])
+  }, [sushi, setTotalSupplyXLua])
 
-  const reward = new BigNumber (xSushiBalance).multipliedBy(totalLuaStaked).dividedBy(totalSupply).minus(xSushiBalance)
+  const xLuaToLua = myXLua.multipliedBy(totalLuaInSafe).dividedBy(totalSupplyXLua)
+  const trackingReward = trackingAPYBalanceXLua.multipliedBy(totalLuaInSafe).dividedBy(totalSupplyXLua).minus(10 * 10 ** 18)
 
   const {onLeave} = useLeave()
   const tokenName = "xLUA"
+  debugger
+  var oneDay = 1000 * 60 * 60 * 24; // hours*minutes*seconds*milliseconds
+  var initStakeAt = new Date("2020-10-29 00:00:00.00");
+  var toDay =   new Date();       // Today
+  const differenceMs = Math.abs(toDay.getTime() - initStakeAt.getTime());
+  var totalStakedDay = Math.round(differenceMs / oneDay);
 
   const [onPresentLeave] = useModal(
     <WithdrawModal
-      max={xSushiBalance}
+      max={myXLua}
       onConfirm={onLeave}
       tokenName={tokenName}
     />,
@@ -59,12 +68,13 @@ const UnstakeXSushi: React.FC<HarvestProps> = ({xSushiAddress}) => {
           <StyledCardHeader>
             <Label text={`YOUR xLUA`}/>
             <br/>
-            <Value value={getBalanceNumber(xSushiBalance)}/>
-            <Label text="xLUA (LuaSafe) Available"/>
+            <Value value={getBalanceNumber(myXLua)}/>
+            <Label text={`~ ${xLuaToLua.div(10 ** 18).toFixed(2)} LUA`}/>
           </StyledCardHeader>
+          
           <StyledCardActions>
             <Button
-              disabled={!xSushiBalance.toNumber() || pendingTx}
+              disabled={!myXLua.toNumber() || pendingTx}
               text={pendingTx ? 'pending Withdraw' : 'Withdraw'}
               onClick={async () => {
                 setPendingTx(true)
@@ -73,15 +83,22 @@ const UnstakeXSushi: React.FC<HarvestProps> = ({xSushiAddress}) => {
               }}
             />
           </StyledCardActions>
+          <br/>
           <StyledInsight>
-              <span>Reward</span>
-              <span>
-                {reward &&
-                  <><b>{parseFloat(getBalanceNumber(new BigNumber(reward)).toFixed(6)).toLocaleString('en-US')} LUA</b></>
+              <span>APY</span>
+              <br/>
+              <span style={{fontWeight: 'bold', color: '#4caf50'}}>
+                {trackingReward ?
+                  `${parseFloat(
+                    trackingReward
+                    .div(totalStakedDay)
+                    .div(10 * 10 ** 18)
+                    .times(100)
+                    .times(365)
+                    .toFixed(2)).toLocaleString('en-US')}%` : '~'
                 }
-                {!reward && "~"}
               </span>
-            </StyledInsight>
+          </StyledInsight>
         </StyledCardContentInner>
       </CardContent>
     </Card>
