@@ -39,7 +39,7 @@ const StakeXSushi: React.FC = () => {
         <StyledCardsWrapper>
           <StyledCardWrapper>
             <UnstakeXSushi
-              xSushiAddress={tokenAddress}
+              xLuaTokenAddress={tokenAddress}
             />
           </StyledCardWrapper>
           <Spacer/>
