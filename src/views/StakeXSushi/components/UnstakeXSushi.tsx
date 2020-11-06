@@ -46,9 +46,8 @@ const UnstakeXSushi: React.FC<HarvestProps> = ({xLuaTokenAddress}) => {
 
   const {onLeave} = useLeave()
   const tokenName = "xLUA"
-  debugger
   var oneDay = 1000 * 60 * 60 * 24; // hours*minutes*seconds*milliseconds
-  var initStakeAt = new Date("2020-10-29 00:00:00.00");
+  var initStakeAt =  new Date(1603904400000);
   var toDay =   new Date();       // Today
   const differenceMs = Math.abs(toDay.getTime() - initStakeAt.getTime());
   var totalStakedDay = Math.round(differenceMs / oneDay);
