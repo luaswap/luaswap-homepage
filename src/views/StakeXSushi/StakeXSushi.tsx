@@ -67,7 +67,12 @@ const StakeXSushi: React.FC = () => {
         </Container>
       <Box className="mt-4">
       <StyledHeading>SELECT PAIR TO CONVERT</StyledHeading>
-      <StyledParagraph>Earn LUA tokens from swap fee by LuaMaker</StyledParagraph>
+      <StyledInfoWrapper>
+          <StyledInfo>
+              ℹ️️ We will trigger distribution once a week on Monday, generally around noon Singapore time (GMT+8) or sooner if the fees collected reaches a certain significant amount. Users do not need to pay any gas fee for the distribution.
+              Anyone can convert rewards by calling functions directly to the smart contract provided by LuaSafe front end to allow any user to trigger the distribution. Users need to pay the gas fee for that process if you choose to do it by yourself.
+          </StyledInfo>
+      </StyledInfoWrapper>
       <SpacerRes>
           <Spacer size="sm" />
       </SpacerRes>
@@ -119,6 +124,18 @@ const StyledParagraph = styled.p`
 const StyledCardsWrapper = styled.div`
   display: flex;
   width: 600px;
+  text-align: center;
+  @media (max-width: 768px) {
+    width: 100%;
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+`
+
+const StyledInfoWrapper = styled.div`
+  display: flex;
+  width: 900px;
+  text-align: center;
   @media (max-width: 768px) {
     width: 100%;
     flex-flow: column nowrap;
@@ -130,6 +147,7 @@ const StyledCardWrapper = styled.div`
   display: flex;
   flex: 1;
   flex-direction: column;
+  text-align: center;
   @media (max-width: 768px) {
     width: 80%;
   }
