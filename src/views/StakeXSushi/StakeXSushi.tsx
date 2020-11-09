@@ -68,10 +68,17 @@ const StakeXSushi: React.FC = () => {
       <Box className="mt-4">
       <StyledHeading>SELECT PAIR TO CONVERT</StyledHeading>
       <StyledInfoWrapper>
-          <StyledInfo>
+          <StyledNote>
               ℹ️️ We will trigger distribution once a week on Monday, generally around noon Singapore time (GMT+8) or sooner if the fees collected reaches a certain significant amount. Users do not need to pay any gas fee for the distribution.
+          </StyledNote>
+      </StyledInfoWrapper>
+      <SpacerRes>
+          <Spacer size="sm" />
+      </SpacerRes>
+      <StyledInfoWrapper>
+          <StyledNote>
               Anyone can convert rewards by calling functions directly to the smart contract provided by LuaSafe front end to allow any user to trigger the distribution. Users need to pay the gas fee for that process if you choose to do it by yourself.
-          </StyledInfo>
+          </StyledNote>
       </StyledInfoWrapper>
       <SpacerRes>
           <Spacer size="sm" />
@@ -161,5 +168,12 @@ const StyledInfo = styled.h3`
   padding: 0;
   text-align: center;
 `
-
+const StyledNote = styled.h3`
+color: ${(props) => props.theme.color.grey[100]};
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+`
 export default StakeXSushi
