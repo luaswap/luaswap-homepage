@@ -98,6 +98,13 @@ const UnstakeXSushi: React.FC<HarvestProps> = ({xLuaTokenAddress}) => {
                 }
               </span>
           </StyledInsight>
+          <StyledInsight>
+            <span>Withdraw fee</span>
+            <br/>
+            <span style={{fontWeight: 'bold', color: '#4caf50'}}>
+              0.5%
+            </span>
+          </StyledInsight>
         </StyledCardContentInner>
       </CardContent>
     </Card>

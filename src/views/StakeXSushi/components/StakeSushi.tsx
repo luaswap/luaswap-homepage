@@ -82,7 +82,7 @@ const StakeSushi: React.FC<StakeProps> = ({}) => {
             )}
           </StyledCardActions>
           <StyledInsight>
-              <span><br/><br/></span>
+              <span><br/><br/><br/></span>
             </StyledInsight>
         </StyledCardContentInner>
       </CardContent>
