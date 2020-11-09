@@ -4,8 +4,9 @@ import Button from '../../../components/Button'
 import Modal, { ModalProps } from '../../../components/Modal'
 import ModalActions from '../../../components/ModalActions'
 import ModalTitle from '../../../components/ModalTitle'
-import TokenInput from '../TokenInput'
+import TokenInput from '../../../components/TokenInput'
 import { getFullDisplayBalance } from '../../../utils/formatBalance'
+import ModalSuccess from '../../../components/ModalSuccess'
 
 interface WithdrawModalProps extends ModalProps {
   max: BigNumber
@@ -53,10 +54,12 @@ const WithdrawModal: React.FC<WithdrawModalProps> = ({
           disabled={pendingTx}
           text={pendingTx ? 'Pending Confirmation' : 'Confirm'}
           onClick={async () => {
-            setPendingTx(true)
-            await onConfirm(val)
-            setPendingTx(false)
-            onDismiss()
+            if (val && parseFloat(val) > 0) {
+              setPendingTx(true)
+              await onConfirm(val)
+              setPendingTx(false)
+              onDismiss()
+            }
           }}
         />
       </ModalActions>

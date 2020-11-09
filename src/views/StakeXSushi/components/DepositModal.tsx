@@ -4,7 +4,7 @@ import Button from '../../../components/Button'
 import Modal, { ModalProps } from '../../../components/Modal'
 import ModalActions from '../../../components/ModalActions'
 import ModalTitle from '../../../components/ModalTitle'
-import TokenInput from '../../../components/TokenInput'
+import TokenInput from '../TokenInput'
 import { getFullDisplayBalance } from '../../../utils/formatBalance'
 
 interface DepositModalProps extends ModalProps {

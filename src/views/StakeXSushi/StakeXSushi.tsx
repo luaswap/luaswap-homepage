@@ -7,10 +7,11 @@ import useSushi from '../../hooks/useSushi'
 import {getContract} from '../../utils/erc20'
 import UnstakeXSushi from './components/UnstakeXSushi'
 import StakeSushi from "./components/StakeSushi";
-
 import {getXLuaAddress, getXSushiSupply} from "../../sushi/utils";
 import BigNumber from "bignumber.js";
 import {getBalanceNumber} from "../../utils/formatBalance";
+import ConvertMakerCards from '../../components/ConvertMakerCards'
+import Container from '../../components/Container'
 
 const StakeXSushi: React.FC = () => {
   const sushi = useSushi()
@@ -56,12 +57,64 @@ const StakeXSushi: React.FC = () => {
             </StyledInfo>
           </StyledCardWrapper>
         </StyledCardsWrapper>
-        <Spacer size="lg"/>
       </StyledFarm>
+      <Spacer size="lg" />
+        <Container size = "lg">
+            <div style={{
+                border: '1px solid #2C3030'
+                }}>
+            </div>
+        </Container>
+      <Box className="mt-4">
+      <StyledHeading>SELECT PAIR TO CONVERT</StyledHeading>
+      <StyledInfoWrapper>
+          <StyledNote>
+              ℹ️️ We will trigger distribution once a week on Monday, generally around noon Singapore time (GMT+8) or sooner if the fees collected reaches a certain significant amount. Users do not need to pay any gas fee for the distribution.
+          </StyledNote>
+      </StyledInfoWrapper>
+      <SpacerRes>
+          <Spacer size="sm" />
+      </SpacerRes>
+      <StyledInfoWrapper>
+          <StyledNote>
+              Anyone can convert rewards by calling functions directly to the smart contract provided by LuaSafe front end to allow any user to trigger the distribution. Users need to pay the gas fee for that process if you choose to do it by yourself.
+          </StyledNote>
+      </StyledInfoWrapper>
+      <SpacerRes>
+          <Spacer size="sm" />
+      </SpacerRes>
+          <ConvertMakerCards />
+      </Box>
     </>
   )
 }
-
+const Box = styled.div`
+    &.mt-4 {
+        margin-top: 40px;
+        @media (max-width: 767px) {
+            margin-top: 30px;
+        }
+    }
+`
+const SpacerRes = styled.div`
+    .sc-iCoHVE {
+        @media (max-width: 1024px) {
+            display: none;
+        }
+    }
+    .d-lg-none {
+        @media (min-width: 1025px) {
+            display: none;
+        }
+    }
+`
+const StyledHeading = styled.h2`
+  color: ${(props) => props.theme.color.white};
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 0;
+  margin-top: 0;
+`
 const StyledFarm = styled.div`
   align-items: center;
   display: flex;
@@ -70,10 +123,26 @@ const StyledFarm = styled.div`
     width: 100%;
   }
 `
-
+const StyledParagraph = styled.p`
+  color: ${(props) => props.theme.color.grey[100]};
+  text-align: center;
+  margin-top: 10px;
+`
 const StyledCardsWrapper = styled.div`
   display: flex;
   width: 600px;
+  text-align: center;
+  @media (max-width: 768px) {
+    width: 100%;
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+`
+
+const StyledInfoWrapper = styled.div`
+  display: flex;
+  width: 900px;
+  text-align: center;
   @media (max-width: 768px) {
     width: 100%;
     flex-flow: column nowrap;
@@ -85,6 +154,7 @@ const StyledCardWrapper = styled.div`
   display: flex;
   flex: 1;
   flex-direction: column;
+  text-align: center;
   @media (max-width: 768px) {
     width: 80%;
   }
@@ -98,5 +168,12 @@ const StyledInfo = styled.h3`
   padding: 0;
   text-align: center;
 `
-
+const StyledNote = styled.h3`
+color: ${(props) => props.theme.color.grey[100]};
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+`
 export default StakeXSushi

@@ -26,7 +26,6 @@ const Staking: React.FC = () => {
   useEffect(() => {
     async function fetchTotalSupply() {
       const supply = await getXSushiSupply(sushi)
-      debugger
       setTotalSupply(supply)
     }
     if (sushi) {
@@ -75,6 +74,29 @@ const Staking: React.FC = () => {
     </Switch>
   )
 }
+const StyledInfo = styled.h3`
+  color: ${(props) => props.theme.color.white};
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  > img{
+    width: 20px;
+    margin-right: 3px;
+  }
+  b {
+    color: ${(props) => props.theme.color.primary.main};
+  }
+`
+const StyledParagraph = styled.p`
+  color: ${(props) => props.theme.color.grey[100]};
+  text-align: center;
+  margin-top: 10px;
+`
 const SpacerRes = styled.div`
     .sc-iCoHVE {
         @media (max-width: 1024px) {
@@ -103,5 +125,20 @@ const StyledCardHeader = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
+`
+const Box = styled.div`
+    &.mt-4 {
+        margin-top: 40px;
+        @media (max-width: 767px) {
+            margin-top: 30px;
+        }
+    }
+`
+const StyledHeading = styled.h2`
+  color: ${(props) => props.theme.color.white};
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 0;
+  margin-top: 0;
 `
 export default Staking
