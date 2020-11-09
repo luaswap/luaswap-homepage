@@ -1,7 +1,0 @@
-/node_modules/
-/build/
-.DS_Store
-deploy.js
-deploy.sh
-sushiswap-master
-zscript

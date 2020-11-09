@@ -1,22 +1,68 @@
-# LuaSwap 🌾
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Multi-chain liquidity protocol for emerging token projects with no seed investment, founder’s fees, or pre-mining
+## Available Scripts
 
-https://luaswap.org | 
-[Medium: Introducing LuaSwap.org](https://medium.com/luaswap/introducing-luaswap-org-7e6ff38beefc)
+In the project directory, you can run:
 
+### `yarn start`
 
+Runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
 
-Feel free to read the code. More details coming soon.
+### `yarn test`
 
-## Deployed Contracts / Hash
+Launches the test runner in the interactive watch mode.<br />
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-- LuaToken - https://etherscan.io/address/0xB1f66997A5760428D3a87D68b90BfE0aE64121cC
-- LuaMasterFarmer - https://etherscan.io/address/0xb67d7a6644d9e191cac4da2b88d6817351c7ff62
-- TimeLock - https://etherscan.io/address/0xdc127cca2f0f059af6a414ec6da19a92a6b3812c
-- UniSwapV2Factory - https://etherscan.io/address/0x0388c1e0f210abae597b7de712b9510c6c36c857
-- UniswapV2Router02 - https://etherscan.io/address/0x1d5C6F1607A171Ad52EFB270121331b3039dD83e
-- Migrator - https://etherscan.io/address/0x0eA7dc413C6209112101b6Ef99a27F9Ed56B4A4b
-- LuaSafe - https://etherscan.io/address/0x9abf23f4e439d695a7fd341a1b25873c50cfa52e
-- LuaMaker - https://etherscan.io/address/0xf591a2e7170863986ed3f73f086bb945f911f5a1
+### `yarn build`
+
+Builds the app for production to the `build` folder.<br />
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.<br />
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `yarn eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+
+### Analyzing the Bundle Size
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+
+### Making a Progressive Web App
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+
+### Advanced Configuration
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+
+### Deployment
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+
+### `yarn build` fails to minify
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
