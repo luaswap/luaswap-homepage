@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import {useWallet} from 'use-wallet'
 import {provider} from 'web3-core'
 import Spacer from '../../components/Spacer'
+import Separator from '../../components/Separator'
 import useSushi from '../../hooks/useSushi'
 import {getContract} from '../../utils/erc20'
 import UnstakeXSushi from './components/UnstakeXSushi'
@@ -49,16 +50,18 @@ const StakeXSushi: React.FC = () => {
             />
           </StyledCardWrapper>
         </StyledCardsWrapper>
-        <Spacer size="lg"/>
+        <Spacer size="md"/>
         <StyledCardsWrapper>
           <StyledCardWrapper>
-            <StyledInfo>
-              ℹ️️ You will earn a portion of the swap fees based on the amount of xLUA held relative the weight of the staking. xLUA can be minted by staking LUA. To redeem LUA staked plus swap fees, convert xLUA back to LUA. {totalSupply ? `There are currently ${getBalanceNumber(totalSupply)} xLUA in the whole pool.` : '' }
-            </StyledInfo>
+          <StyledInfo>
+            Users who stake LUA in LuaSafe will receive xLUA LP tokens which represent their proportion of LUA staked. Stakers will need to withdraw their xLUA LP tokens in order to receive their LUA reward.
+            {/* <br/>
+            {totalSupply ? `There are currently ${getBalanceNumber(totalSupply)} xLUA in the whole pool.` : '' } */}
+          </StyledInfo>
           </StyledCardWrapper>
         </StyledCardsWrapper>
       </StyledFarm>
-      <Spacer size="lg" />
+      <Spacer size="md" />
         <Container size = "lg">
             <div style={{
                 border: '1px solid #2C3030'
@@ -68,20 +71,20 @@ const StakeXSushi: React.FC = () => {
       <Box className="mt-4">
       <StyledHeading>SELECT PAIR TO CONVERT</StyledHeading>
       <StyledInfoWrapper>
-          <StyledNote>
-              ℹ️️ We will trigger distribution once a week on Monday, generally around noon Singapore time (GMT+8) or sooner if the fees collected reaches a certain significant amount. Users do not need to pay any gas fee for the distribution.
-          </StyledNote>
+          <StyledNoteWrapper>
+            The core team will trigger distribution every Monday, generally around noon Singapore time (GMT+8) or earlier if the pair’s collected fee reaches a certain significant amount (equivalent to at least 3,000 LUA after converted). Users do not need to pay any gas fee for the distribution unless they choose to manually trigger the distribution process themselves.
+          </StyledNoteWrapper>
       </StyledInfoWrapper>
       <SpacerRes>
           <Spacer size="sm" />
       </SpacerRes>
-      <StyledInfoWrapper>
-          <StyledNote>
-              Anyone can convert rewards by calling functions directly to the smart contract provided by LuaSafe front end to allow any user to trigger the distribution. Users need to pay the gas fee for that process if you choose to do it by yourself.
-          </StyledNote>
-      </StyledInfoWrapper>
+      {/* <StyledInfoWrapper>
+          <StyledNoteWrapper>
+            ℹ️ The core team will trigger distribution every Monday, generally around noon Singapore time (GMT+8) or earlier if the pair’s collected fee reaches a certain significant amount (equivalent to at least 3,000 LUA after converted). Users do not need to pay any gas fee for the distribution unless they choose to manually trigger the distribution process themselves.
+          </StyledNoteWrapper>
+      </StyledInfoWrapper> */}
       <SpacerRes>
-          <Spacer size="sm" />
+          <Spacer size="md" />
       </SpacerRes>
           <ConvertMakerCards />
       </Box>
@@ -130,7 +133,7 @@ const StyledParagraph = styled.p`
 `
 const StyledCardsWrapper = styled.div`
   display: flex;
-  width: 600px;
+  width: 900px;
   text-align: center;
   @media (max-width: 768px) {
     width: 100%;
@@ -168,7 +171,10 @@ const StyledInfo = styled.h3`
   padding: 0;
   text-align: center;
 `
-const StyledNote = styled.h3`
+const StyledNote = styled.div`
+margin-left: 15px;
+`
+const StyledNoteWrapper = styled.h3`
 color: ${(props) => props.theme.color.grey[100]};
   font-size: 16px;
   font-weight: 400;
