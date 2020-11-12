@@ -51,6 +51,9 @@ export const contractAddresses = {
   xSushi: {
     1: '0x9abf23f4e439d695a7fd341a1b25873c50cfa52e'
   },
+  maker: {
+    1: '0xe11a87506FE17F9Fb5EEcaB14E85Af27A7C10e19'
+  },
   masterChef: {
     1: '0xb67D7a6644d9E191Cac4DA2B88D6817351C7fF62',
     99: '0xA49D353dd804f516bcd500D1Dd6eE72675CF498d',
