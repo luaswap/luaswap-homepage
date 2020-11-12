@@ -48,6 +48,13 @@ export const getSushiContract = (sushi) => {
 export const getXSushiStakingContract = (sushi) => {
   return sushi && sushi.contracts && sushi.contracts.xSushiStaking
 }
+export const getMakerContract = (sushi) => {
+  return sushi && sushi.contracts && sushi.contracts.maker
+}
+export const getMakerAddress = (sushi) => {
+  return sushi && sushi.makerAddress
+}
+
 export const getFarms = (sushi) => {
   return sushi
     ? sushi.contracts.pools.map(
@@ -353,10 +360,22 @@ export const unlock = async (sushi, account) => {
     })
 }
 export const enter = async (contract, amount, account) => {
-  debugger
   return contract.methods
       .enter(
           new BigNumber(amount).times(new BigNumber(10).pow(18)).toString(),
+      )
+      .send({ from: account })
+      .on('transactionHash', (tx) => {
+        console.log(tx)
+        return tx.transactionHash
+      })
+}
+
+export const makerConvert = async (contract, token0, token1, account) => {
+  return contract.methods
+      .convert(
+        token0,
+        token1,
       )
       .send({ from: account })
       .on('transactionHash', (tx) => {
