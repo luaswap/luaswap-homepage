@@ -23,6 +23,7 @@ export interface Farm {
   iconProtocal: string
   pairLink: string
   addLiquidityLink: string
+  removeLiquidityLink: string
 }
 
 export interface FarmsContext {

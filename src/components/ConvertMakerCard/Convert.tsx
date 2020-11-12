@@ -38,7 +38,8 @@ const Convert: React.FC = () => {
     protocal,
     iconProtocal,
     pairLink,
-    addLiquidityLink
+    addLiquidityLink,
+    removeLiquidityLink
   } = useFarm(farmId) || {
     pid: 0,
     lpToken: '',
@@ -54,7 +55,8 @@ const Convert: React.FC = () => {
     protocal: '',
     iconProtocal: '',
     pairLink: '',
-    addLiquidityLink: ''
+    addLiquidityLink: '',
+    removeLiquidityLink: ''
   }
 
   useEffect(() => {

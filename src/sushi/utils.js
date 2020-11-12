@@ -80,6 +80,7 @@ export const getFarms = (sushi) => {
           iconProtocal,
           pairLink,
           addLiquidityLink,
+          removeLiquidityLink,
         }) => ({
           pid,
           id: symbol,
@@ -106,6 +107,7 @@ export const getFarms = (sushi) => {
           iconProtocal,
           pairLink,
           addLiquidityLink,
+          removeLiquidityLink,
         }),
       )
     : []
