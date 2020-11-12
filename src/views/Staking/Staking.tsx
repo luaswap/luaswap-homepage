@@ -43,10 +43,10 @@ const Staking: React.FC = () => {
             </StyledLogo>
         </SpacerRes>
         <StyledCardHeader>
-            <Label text={`Welcome to the LuaSafe, stake LUA to earn LUA.`}/>
+            <Label text={`Welcome to LuaSafe, stake LUA to earn LUA.`}/>
         </StyledCardHeader>
         <div style={{fontWeight: 'bold', fontSize: 22, color: '#ffffff'}}>
-            LuaSafe Currently Has <span style={{color: '#4caf50', fontSize: 30}}>{parseFloat(getBalanceNumber(new BigNumber(totalSupply)).toFixed(2)).toLocaleString('en-US')}</span> LUA Staked
+            LuaSafe Currently has <span style={{color: '#4caf50', fontSize: 30}}>{parseFloat(getBalanceNumber(new BigNumber(totalSupply)).toFixed(2)).toLocaleString('en-US')}</span> LUA Staked
         </div>
         <Spacer size="md" />
         {!!account ? (
