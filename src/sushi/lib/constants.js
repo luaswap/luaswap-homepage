@@ -63,40 +63,7 @@ export const contractAddresses = {
   }
 }
 
-/*
-LUA-V1 LP Address on mainnet for reference
-==========================================
-0  USDT 0x0d4a11d5eeaac28ec3f61d100daf4d40471f1852
-1  USDC 0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc
-2  DAI  0xa478c2975ab1ea89e8196811f51a7b7ade33eb11
-3  sUSD 0xf80758ab42c3b07da84053fd88804bcb6baa4b5c
-4  COMP 0xcffdded873554f362ac02f8fb1f02e5ada10516f
-5  LEND 0xab3f9bf1d81ddb224a2014e98b238638824bcf20
-6  SNX  0x43ae24960e5534731fc831386c07755a2dc33d47
-7  UMA  0x88d97d199b9ed37c29d846d00d443de980832a22
-8  LINK 0xa2107fa5b38d9bbd2c461d6edf11b11a50f6b974
-9  BAND 0xf421c3f2e695c2d4c0765379ccace8ade4a480d9
-10 AMPL 0xc5be99a02c6857f9eac67bbce58df5572498f40c
-11 YFI  0x2fdbadf3c4d5a8666bc06645b8358ab803996e28
-12 SUSHI 0xce84867c3c02b05dc570d0135103d3fb9cc19433
-*/
-
-// 0 '0x7885e359a085372EbCF1ed6829402f149D02c600'
-// 1 '0xbFFD9FF55685A3B6940C59DCDCc69b1737363BE0'
-// 2 '0xB10C1840f562f0ac914DA2bad3290833C75fdddF'
-// 3 '0x96258BB42779Bf300cf69c9B5bD2Ba5245CB4bc4'
-// 4 '0xE2f4cC0198150a7beA98E0a2A66fecafC30a5cD0'
-// 5 '0x97e1081c5DECB27606dbcDEA9d8E615757aB11c4'
-// 6 '0xc9a72CC23f900b381FC6355afD8ee674B1F12DF6'
-// 7 '0x26Da27Cd29D75BcD925665223B4416025450d756'
-// 8 '0x38F9307839A8E82b071EA6Fcbef029814Ed88fcb'
-// 9 '0x65FaBAF7e6c5380243E063D8559d84e589Db6438'
-// 10 '0xeAAc91B4B28b97236605B1D40178D83C273dbe80'
-// 11 '0xfa1B8F29D9505d18b22F823B82E7Da886Dfc8bdf'
-// 12 '0xB3558F47Fa914F7ec1dA1a6F52aB41eE63E81301'
-// 13 '0x66E10dEa0019dC7353D2e4106E9b84f1CFc17CBa'
-// 14 '0xb195325642431b6aA6CD3C646591e7825BB3F90c'
-
+// 0xd6be3b9780572f0215afb3e4d15751955503cebe
 export const supportedPools = [
   {
     pid: 3,
@@ -124,6 +91,34 @@ export const supportedPools = [
     pairLink: 'https://info.luaswap.org/pair/0x96258BB42779Bf300cf69c9B5bD2Ba5245CB4bc4',
     addLiquidityLink: 'https://app.luaswap.org/#/add/0xB1f66997A5760428D3a87D68b90BfE0aE64121cC/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
     removeLiquidityLink: 'https://app.luaswap.org/#/remove/0xB1f66997A5760428D3a87D68b90BfE0aE64121cC/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48'
+  },
+  {
+    pid: 4,
+    lpAddresses: {
+      1: '0xE2f4cC0198150a7beA98E0a2A66fecafC30a5cD0',
+    },
+    tokenAddresses: {
+      1: '0xb1f66997a5760428d3a87d68b90bfe0ae64121cc',
+    },
+
+    token2Addresses: {
+      1: '0x05d3606d5c81eb9b7b18530995ec9b29da05faba'
+    },
+    name: 'LUA - TOMOE',
+    symbol: 'LUA-TOMOE LUA-V1 LP',
+    symbolShort: 'LUA-TOMOE',
+    description: `Deposit LUA-TOMOE LUA-V1 LP Earn LUA`,
+    tokenSymbol: 'LUA',
+    token2Symbol: 'TOMOE',
+    icon: 'https://luaswap.org/favicon.png',
+    icon2: 'https://wallet.tomochain.com/public/imgs/tomoiconwhite.png',
+    isHot: false,
+    isNew: false,
+    protocal: 'LuaSwap',
+    iconProtocal: 'https://luaswap.org/favicon.png',
+    pairLink: 'https://info.luaswap.org/pair/0xE2f4cC0198150a7beA98E0a2A66fecafC30a5cD0',
+    addLiquidityLink: 'https://app.luaswap.org/#/add/0x05d3606d5c81eb9b7b18530995ec9b29da05faba/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc',
+    removeLiquidityLink: 'https://app.luaswap.org/#/remove/0x05d3606d5c81eb9b7b18530995ec9b29da05faba/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc'
   },
   {
     pid: 0,
@@ -210,33 +205,121 @@ export const supportedPools = [
 
 
   {
-    pid: 4,
+    pid: 9,
     lpAddresses: {
-      1: '0xE2f4cC0198150a7beA98E0a2A66fecafC30a5cD0',
+      1: '0x65FaBAF7e6c5380243E063D8559d84e589Db6438',
     },
     tokenAddresses: {
       1: '0xb1f66997a5760428d3a87d68b90bfe0ae64121cc',
     },
 
     token2Addresses: {
-      1: '0x05d3606d5c81eb9b7b18530995ec9b29da05faba'
+      1: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2'
     },
-    name: 'LUA - TOMOE',
-    symbol: 'LUA-TOMOE LUA-V1 LP',
-    symbolShort: 'LUA-TOMOE',
-    description: `Deposit LUA-TOMOE LUA-V1 LP Earn LUA`,
+    name: 'LUA - ETH',
+    symbol: 'LUA-ETH LUA-V1 LP',
+    symbolShort: 'LUA-ETH',
+    description: `Deposit LUA-ETH LUA-V1 LP Earn LUA`,
     tokenSymbol: 'LUA',
-    token2Symbol: 'TOMOE',
+    token2Symbol: 'ETH',
     icon: 'https://luaswap.org/favicon.png',
-    icon2: 'https://wallet.tomochain.com/public/imgs/tomoiconwhite.png',
+    icon2: 'https://s2.coinmarketcap.com/static/img/coins/128x128/1027.png',
     isHot: false,
     isNew: false,
     protocal: 'LuaSwap',
     iconProtocal: 'https://luaswap.org/favicon.png',
-    pairLink: 'https://info.luaswap.org/pair/0xE2f4cC0198150a7beA98E0a2A66fecafC30a5cD0',
-    addLiquidityLink: 'https://app.luaswap.org/#/add/0x05d3606d5c81eb9b7b18530995ec9b29da05faba/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc',
-    removeLiquidityLink: 'https://app.luaswap.org/#/remove/0x05d3606d5c81eb9b7b18530995ec9b29da05faba/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc'
+    pairLink: 'https://info.luaswap.org/pair/0x65FaBAF7e6c5380243E063D8559d84e589Db6438',
+    addLiquidityLink: 'https://app.luaswap.org/#/add/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc/ETH',
+    removeLiquidityLink: 'https://app.luaswap.org/#/remove/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc/ETH'
   },
+
+  {
+    pid: 12,
+    lpAddresses: {
+      1: '0xB3558F47Fa914F7ec1dA1a6F52aB41eE63E81301',
+    },
+    tokenAddresses: {
+      1: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
+    },
+
+    token2Addresses: {
+      1: '0xdac17f958d2ee523a2206206994597c13d831ec7'
+    },
+    name: 'USDC - USDT',
+    symbol: 'USDC-USDT LUA-V1 LP',
+    symbolShort: 'USDC-USDT',
+    description: `Deposit USDC-USDT LUA-V1 LP Earn LUA`,
+    tokenSymbol: 'USDC',
+    token2Symbol: 'USDT',
+    icon: 'https://s2.coinmarketcap.com/static/img/coins/128x128/3408.png',
+    icon2: 'https://s2.coinmarketcap.com/static/img/coins/128x128/825.png',
+    isHot: false,
+    isNew: true,
+    protocal: 'LuaSwap',
+    iconProtocal: 'https://luaswap.org/favicon.png',
+    pairLink: 'https://info.luaswap.org/pair/0xB3558F47Fa914F7ec1dA1a6F52aB41eE63E81301',
+    addLiquidityLink: 'https://app.luaswap.org/#/add/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48/0xdac17f958d2ee523a2206206994597c13d831ec7',
+    removeLiquidityLink: 'https://app.luaswap.org/#/remove/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48/0xdac17f958d2ee523a2206206994597c13d831ec7'
+  },
+
+  {
+    pid: 13,
+    lpAddresses: {
+      1: '0x66E10dEa0019dC7353D2e4106E9b84f1CFc17CBa',
+    },
+    tokenAddresses: {
+      1: '0x2260fac5e5542a773aa44fbcfedf7c193bc2c599',
+    },
+
+    token2Addresses: {
+      1: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48'
+    },
+    name: 'WBTC - USDC',
+    symbol: 'WBTC-USDC LUA-V1 LP',
+    symbolShort: 'WBTC-USDC',
+    description: `Deposit WBTC-USDC LUA-V1 LP Earn LUA`,
+    tokenSymbol: 'WBTC',
+    token2Symbol: 'USDC',
+    icon: 'https://s2.coinmarketcap.com/static/img/coins/128x128/1.png',
+    icon2: 'https://s2.coinmarketcap.com/static/img/coins/128x128/3408.png',
+    isHot: false,
+    isNew: true,
+    protocal: 'LuaSwap',
+    iconProtocal: 'https://luaswap.org/favicon.png',
+    pairLink: 'https://info.luaswap.org/pair/0x66E10dEa0019dC7353D2e4106E9b84f1CFc17CBa',
+    addLiquidityLink: 'https://app.luaswap.org/#/add/0x2260fac5e5542a773aa44fbcfedf7c193bc2c599/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
+    removeLiquidityLink: 'https://app.luaswap.org/#/remove/0x2260fac5e5542a773aa44fbcfedf7c193bc2c599/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48'
+  },
+
+  {
+    pid: 15,
+    lpAddresses: {
+      1: '0xd6be3b9780572f0215afb3e4d15751955503cebe',
+    },
+    tokenAddresses: {
+      1: '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2',
+    },
+
+    token2Addresses: {
+      1: '0xdac17f958d2ee523a2206206994597c13d831ec7'
+    },
+    name: 'ETH - USDT',
+    symbol: 'ETH-USDT LUA-V1 LP',
+    symbolShort: 'ETH-USDT',
+    description: `Deposit ETH-USDT LUA-V1 LP Earn LUA`,
+    tokenSymbol: 'ETH',
+    token2Symbol: 'USDT',
+    icon: 'https://s2.coinmarketcap.com/static/img/coins/128x128/1027.png',
+    icon2: 'https://s2.coinmarketcap.com/static/img/coins/128x128/825.png',
+    isHot: false,
+    isNew: true,
+    protocal: 'LuaSwap',
+    iconProtocal: 'https://luaswap.org/favicon.png',
+    pairLink: 'https://info.luaswap.org/pair/0xd6be3b9780572f0215afb3e4d15751955503cebe',
+    addLiquidityLink: 'https://app.luaswap.org/#/add/ETH/0xdac17f958d2ee523a2206206994597c13d831ec7',
+    removeLiquidityLink: 'https://app.luaswap.org/#/remove/ETH/0xdac17f958d2ee523a2206206994597c13d831ec7'
+  },
+
   
   {
     pid: 5,
@@ -355,35 +438,6 @@ export const supportedPools = [
   },
 
   {
-    pid: 9,
-    lpAddresses: {
-      1: '0x65FaBAF7e6c5380243E063D8559d84e589Db6438',
-    },
-    tokenAddresses: {
-      1: '0xb1f66997a5760428d3a87d68b90bfe0ae64121cc',
-    },
-
-    token2Addresses: {
-      1: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2'
-    },
-    name: 'LUA - ETH',
-    symbol: 'LUA-ETH LUA-V1 LP',
-    symbolShort: 'LUA-ETH',
-    description: `Deposit LUA-ETH LUA-V1 LP Earn LUA`,
-    tokenSymbol: 'LUA',
-    token2Symbol: 'ETH',
-    icon: 'https://luaswap.org/favicon.png',
-    icon2: 'https://s2.coinmarketcap.com/static/img/coins/128x128/1027.png',
-    isHot: false,
-    isNew: false,
-    protocal: 'LuaSwap',
-    iconProtocal: 'https://luaswap.org/favicon.png',
-    pairLink: 'https://info.luaswap.org/pair/0x65FaBAF7e6c5380243E063D8559d84e589Db6438',
-    addLiquidityLink: 'https://app.luaswap.org/#/add/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc/ETH',
-    removeLiquidityLink: 'https://app.luaswap.org/#/remove/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc/ETH'
-  },
-
-  {
     pid: 10,
     lpAddresses: {
       1: '0xeAAc91B4B28b97236605B1D40178D83C273dbe80',
@@ -439,64 +493,6 @@ export const supportedPools = [
     pairLink: 'https://info.luaswap.org/pair/0xfa1B8F29D9505d18b22F823B82E7Da886Dfc8bdf',
     addLiquidityLink: 'https://app.luaswap.org/#/add/0x2baecdf43734f22fd5c152db08e3c27233f0c7d2/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc',
     removeLiquidityLink: 'https://app.luaswap.org/#/remove/0x2baecdf43734f22fd5c152db08e3c27233f0c7d2/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc'
-  },
-
-  {
-    pid: 12,
-    lpAddresses: {
-      1: '0xB3558F47Fa914F7ec1dA1a6F52aB41eE63E81301',
-    },
-    tokenAddresses: {
-      1: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
-    },
-
-    token2Addresses: {
-      1: '0xdac17f958d2ee523a2206206994597c13d831ec7'
-    },
-    name: 'USDC - USDT',
-    symbol: 'USDC-USDT LUA-V1 LP',
-    symbolShort: 'USDC-USDT',
-    description: `Deposit USDC-USDT LUA-V1 LP Earn LUA`,
-    tokenSymbol: 'USDC',
-    token2Symbol: 'USDT',
-    icon: 'https://s2.coinmarketcap.com/static/img/coins/128x128/3408.png',
-    icon2: 'https://s2.coinmarketcap.com/static/img/coins/128x128/825.png',
-    isHot: false,
-    isNew: true,
-    protocal: 'LuaSwap',
-    iconProtocal: 'https://luaswap.org/favicon.png',
-    pairLink: 'https://info.luaswap.org/pair/0xB3558F47Fa914F7ec1dA1a6F52aB41eE63E81301',
-    addLiquidityLink: 'https://app.luaswap.org/#/add/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48/0xdac17f958d2ee523a2206206994597c13d831ec7',
-    removeLiquidityLink: 'https://app.luaswap.org/#/remove/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48/0xdac17f958d2ee523a2206206994597c13d831ec7'
-  },
-
-  {
-    pid: 13,
-    lpAddresses: {
-      1: '0x66E10dEa0019dC7353D2e4106E9b84f1CFc17CBa',
-    },
-    tokenAddresses: {
-      1: '0x2260fac5e5542a773aa44fbcfedf7c193bc2c599',
-    },
-
-    token2Addresses: {
-      1: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48'
-    },
-    name: 'WBTC - USDC',
-    symbol: 'WBTC-USDC LUA-V1 LP',
-    symbolShort: 'WBTC-USDC',
-    description: `Deposit WBTC-USDC LUA-V1 LP Earn LUA`,
-    tokenSymbol: 'WBTC',
-    token2Symbol: 'USDC',
-    icon: 'https://s2.coinmarketcap.com/static/img/coins/128x128/1.png',
-    icon2: 'https://s2.coinmarketcap.com/static/img/coins/128x128/3408.png',
-    isHot: false,
-    isNew: true,
-    protocal: 'LuaSwap',
-    iconProtocal: 'https://luaswap.org/favicon.png',
-    pairLink: 'https://info.luaswap.org/pair/0x66E10dEa0019dC7353D2e4106E9b84f1CFc17CBa',
-    addLiquidityLink: 'https://app.luaswap.org/#/add/0x2260fac5e5542a773aa44fbcfedf7c193bc2c599/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
-    removeLiquidityLink: 'https://app.luaswap.org/#/remove/0x2260fac5e5542a773aa44fbcfedf7c193bc2c599/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48'
   },
 
   {
