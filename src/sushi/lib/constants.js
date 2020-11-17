@@ -79,7 +79,7 @@ export const supportedPools = [
     name: 'LUA - USDC',
     symbol: 'LUA-USDC LUA-V1 LP',
     symbolShort: 'LUA-USDC',
-    description: `Deposit LUA-USDC LUA-V1 LP Earn 5xLUA`,
+    description: `Deposit LUA-USDC LUA-V1 LP Earn 3xLUA`,
     tokenSymbol: 'LUA',
     token2Symbol: 'USDC',
     icon: 'https://luaswap.org/favicon.png',

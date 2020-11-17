@@ -82,10 +82,17 @@ const Farm: React.FC = () => {
             <img src={icon} height="80" />&nbsp;<img src={icon2} height="80" />
           </div>
         }
-        subtitle={description}
+        subtitle={isHot ? '' : description}
         title={name}
       />
       <StyledFarm>
+        {isHot &&
+          <StyledInfo style={{color: '#F44336'}}>
+            👉 This pool has been eliminated from the staking field. <br/>
+            You will no longer receive rewards when staking with it
+          </StyledInfo>
+        }
+        <Spacer size="md"/>
         <StyledApyWrap>
           <Apy 
             pid={pid} 
@@ -96,13 +103,6 @@ const Farm: React.FC = () => {
         </StyledApyWrap>
         <Spacer size="md"/>
         <StyledHeading>Your staking</StyledHeading>
-        {isHot &&
-          <StyledInfo style={{color: '#F44336'}}>
-            👉 This pool has been eliminated from the staking field. <br/>
-            You will no longer receive rewards when staking with it
-          </StyledInfo>
-        }
-        <Spacer size="md"/>
         {account &&
           <StyledCardsWrapper>
             <StyledCardWrapper>
