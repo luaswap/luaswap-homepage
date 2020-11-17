@@ -4,7 +4,7 @@ export const SUBTRACT_GAS_LIMIT = 100000
 export const START_REWARD_AT_BLOCK = 10950600 // TODO
 export const NUMBER_BLOCKS_PER_YEAR = 2425000
 
-export const START_NEW_POOL_AT = 1605601313
+export const START_NEW_POOL_AT = 1605601513
 
 const ONE_MINUTE_IN_SECONDS = new BigNumber(60)
 const ONE_HOUR_IN_SECONDS = ONE_MINUTE_IN_SECONDS.times(60)
@@ -292,7 +292,7 @@ export const supportedPools = [
   },
 
   {
-    startAt: 1605601313,
+    startAt: 1605601513,
     pid: 15,
     lpAddresses: {
       1: '0xd6be3b9780572f0215afb3e4d15751955503cebe',
