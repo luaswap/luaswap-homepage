@@ -39,7 +39,8 @@ const Farm: React.FC = () => {
     iconProtocal,
     pairLink,
     addLiquidityLink,
-    removeLiquidityLink
+    removeLiquidityLink,
+    isHot,
   } = useFarm(farmId) || {
     pid: 0,
     lpToken: '',
@@ -56,7 +57,8 @@ const Farm: React.FC = () => {
     iconProtocal: '',
     pairLink: '',
     addLiquidityLink: '',
-    removeLiquidityLink: ''
+    removeLiquidityLink: '',
+    isHot: false,
   }
 
   useEffect(() => {
@@ -94,6 +96,13 @@ const Farm: React.FC = () => {
         </StyledApyWrap>
         <Spacer size="md"/>
         <StyledHeading>Your staking</StyledHeading>
+        {isHot &&
+          <StyledInfo style={{color: '#F44336'}}>
+            👉 This pool has been eliminated from the staking field. <br/>
+            You will no longer receive rewards when staking with it
+          </StyledInfo>
+        }
+        <Spacer size="md"/>
         {account &&
           <StyledCardsWrapper>
             <StyledCardWrapper>
@@ -127,10 +136,12 @@ const Farm: React.FC = () => {
             </div>
         </StyledCardsWrapper>}
         <Spacer size="lg" />
-        <StyledInfo style={{color: '#ff9800'}}>
-          👉 Every time you stake and unstake LP tokens, the contract will<br/>
-          automatically harvest LUA rewards for you!
-        </StyledInfo>
+        {!isHot &&
+          <StyledInfo style={{color: '#ff9800'}}>
+            👉 Every time you stake and unstake LP tokens, the contract will<br/>
+            automatically harvest LUA rewards for you!
+          </StyledInfo>
+        }
         <Spacer size="lg" />
         <StyledCardsWrapper>
           <div>
