@@ -40,14 +40,17 @@ const FarmCards: React.FC = () => {
 
   const rows = farms.reduce<FarmWithStakedValue[][]>(
     (farmRows, farm, i) => {
+      var sv = (stakedValue || []).find(e => {
+        return parseInt(e.pid) == farm.pid
+      })
       const farmWithStakedValue : FarmWithStakedValue = {
         ...farm,
-        tokenAmount: (stakedValue[i] || {}).tokenAmount || new BigNumber(0),
-        token2Amount: (stakedValue[i] || {}).token2Amount || new BigNumber(0),
-        totalToken2Value: (stakedValue[i] || {}).totalToken2Value || new BigNumber(0),
-        tokenPriceInToken2: (stakedValue[i] || {}).tokenPriceInToken2 || new BigNumber(0),
-        poolWeight: (stakedValue[i] || {}).poolWeight || new BigNumber(0),
-        usdValue: (stakedValue[i] || {}).usdValue || new BigNumber(0),
+        tokenAmount: (sv || {}).tokenAmount || new BigNumber(0),
+        token2Amount: (sv || {}).token2Amount || new BigNumber(0),
+        totalToken2Value: (sv || {}).totalToken2Value || new BigNumber(0),
+        tokenPriceInToken2: (sv || {}).tokenPriceInToken2 || new BigNumber(0),
+        poolWeight: (sv || {}).poolWeight || new BigNumber(0),
+        usdValue: (sv || {}).usdValue || new BigNumber(0),
         luaPrice
       }
       const newFarmRows = [...farmRows]
@@ -125,8 +128,8 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
         <CardContent>
           <StyledContent>
             <StyledTopIcon>
-              {farm.isHot && <StyledHotIcon>REMOVE</StyledHotIcon>}
-              {farm.isNew && <StyledNewIcon>NEW</StyledNewIcon>}
+              {farm.isHot && <StyledHotIcon>NO REWARD</StyledHotIcon>}
+              {farm.isNew && <StyledNewIcon>THIS WEEK</StyledNewIcon>}
             </StyledTopIcon>      
             <div style={{display: 'flex'}}>
               <CardIcon><img src={farm.icon} alt="" height="60"/></CardIcon>
@@ -284,29 +287,30 @@ const StyledTopIcon = styled.div`
 
 const StyledHotIcon = styled.div`
   position: absolute;
-  padding: 18px 40px 4px;
   background-color: gray;
-  top: -3px;
-  left: -45px;
-  font-weight: bold;
-  -webkit-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-  color: #fff;
-  font-size: 10px;
-`
-
-const StyledNewIcon = styled.div`
-  position: absolute;
-  padding: 18px 40px 4px;
-  background-color: ${(props) => props.theme.color.primary.main};
-  top: -5px;
+  padding: 8px 40px 8px;
+  top: 12px;
   left: -40px;
   font-weight: bold;
   -webkit-transform: rotate(-45deg);
   -ms-transform: rotate(-45deg);
   transform: rotate(-45deg);
   color: #fff;
+  font-size: 9px;
+`
+
+const StyledNewIcon = styled.div`
+  position: absolute;
+  padding: 8px 40px 8px;
+  top: 12px;
+  left: -40px;
+  background-color: ${(props) => props.theme.color.primary.main};
+  font-weight: bold;
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  color: #fff;
+  font-size: 9px;
 `
 
 const StyledSpacer = styled.div`
