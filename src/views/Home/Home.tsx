@@ -71,7 +71,7 @@ const Home: React.FC = () => {
             <StyledInfo>
                 <img src={Icon_Tip} alt="Pro Tip"/>
                 <div>
-				<b>Pro Tip</b>: Stake to any pool and earn <b>4x LUA</b> rewards until <a href="https://etherscan.io/block/countdown/11279600" target="_blank" style={{color: '#ffffff'}}>Nov 18</a>
+				<b>Pro Tip</b>: Stake to any pool and earn <b>2x LUA</b> rewards until <a href="https://etherscan.io/block/countdown/11326600" target="_blank" style={{color: '#ffffff'}}>Nov 25</a>
                 </div>
             </StyledInfo>
             <Spacer size="lg" />
