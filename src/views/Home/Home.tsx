@@ -71,7 +71,8 @@ const Home: React.FC = () => {
             <StyledInfo>
                 <img src={Icon_Tip} alt="Pro Tip"/>
                 <div>
-				<b>Pro Tip</b>: Stake to any pool and earn <b>2x LUA</b> rewards until <a href="https://etherscan.io/block/countdown/11326600" target="_blank" style={{color: '#ffffff'}}>Nov 25</a>
+				{/* <b>Pro Tip</b>: Stake to any pool and earn <b>2x LUA</b> rewards until <a href="https://etherscan.io/block/countdown/11326600" target="_blank" style={{color: '#ffffff'}}>Nov 25</a> */}
+                Your locked LUA which was earned during the hyperinflation period from <a href="https://etherscan.io/block/countdown/10950600" target="_blank" style={{color: '#ffffff'}}>Sep 28 2020</a> to <a href="https://etherscan.io/block/countdown/11326600" target="_blank" style={{color: '#ffffff'}}>Nov 25 2020</a><br/> will be unlocked linearly every block, starting <a href="https://etherscan.io/block/countdown/11695000" target="_blank" style={{color: '#ffffff'}}>Jan 20 2021</a>
                 </div>
             </StyledInfo>
             <Spacer size="lg" />
