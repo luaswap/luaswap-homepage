@@ -224,13 +224,42 @@ export const supportedPools = [
     token2Symbol: 'USDC',
     icon: 'https://s2.coinmarketcap.com/static/img/coins/128x128/1.png',
     icon2: 'https://s2.coinmarketcap.com/static/img/coins/128x128/3408.png',
-    isHot: false,
-    isNew: true,
+    isHot: true,
+    isNew: false,
     protocal: 'LuaSwap',
     iconProtocal: 'https://luaswap.org/favicon.png',
     pairLink: 'https://info.luaswap.org/pair/0x66E10dEa0019dC7353D2e4106E9b84f1CFc17CBa',
     addLiquidityLink: 'https://app.luaswap.org/#/add/0x2260fac5e5542a773aa44fbcfedf7c193bc2c599/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
     removeLiquidityLink: 'https://app.luaswap.org/#/remove/0x2260fac5e5542a773aa44fbcfedf7c193bc2c599/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48'
+  },
+
+  {
+    pid: 17,
+    lpAddresses: {
+      1: '0x187230ce611269b0b9fdbb62278b6c70f6ec428a',
+    },
+    tokenAddresses: {
+      1: '0x14da230d6726c50f759bc1838717f8ce6373509c',
+    },
+
+    token2Addresses: {
+      1: '0xdac17f958d2ee523a2206206994597c13d831ec7'
+    },
+    name: 'KAT - USDT',
+    symbol: 'KAT-USDT LUA-V1 LP',
+    symbolShort: 'KAT-USDT',
+    description: `Deposit KAT-USDT LUA-V1 LP Earn LUA`,
+    tokenSymbol: 'KAT',
+    token2Symbol: 'USDT',
+    icon: 'https://s2.coinmarketcap.com/static/img/coins/128x128/3634.png',
+    icon2: 'https://s2.coinmarketcap.com/static/img/coins/128x128/825.png',
+    isHot: false,
+    isNew: true,
+    protocal: 'LuaSwap',
+    iconProtocal: 'https://luaswap.org/favicon.png',
+    pairLink: 'https://info.luaswap.org/pair/0x187230ce611269b0b9fdbb62278b6c70f6ec428a',
+    addLiquidityLink: 'https://app.luaswap.org/#/add/0x14da230d6726c50f759bc1838717f8ce6373509c/0xdac17f958d2ee523a2206206994597c13d831ec7',
+    removeLiquidityLink: 'https://app.luaswap.org/#/remove/0x14da230d6726c50f759bc1838717f8ce6373509c/0xdac17f958d2ee523a2206206994597c13d831ec7'
   },
 
   {
@@ -254,8 +283,8 @@ export const supportedPools = [
     token2Symbol: 'USDT',
     icon: 'https://s2.coinmarketcap.com/static/img/coins/128x128/1027.png',
     icon2: 'https://s2.coinmarketcap.com/static/img/coins/128x128/825.png',
-    isHot: false,
-    isNew: true,
+    isHot: true,
+    isNew: false,
     protocal: 'LuaSwap',
     iconProtocal: 'https://luaswap.org/favicon.png',
     pairLink: 'https://info.luaswap.org/pair/0xd6be3b9780572f0215afb3e4d15751955503cebe',
@@ -284,8 +313,8 @@ export const supportedPools = [
     token2Symbol: 'LUA',
     icon: 'https://s2.coinmarketcap.com/static/img/coins/128x128/7083.png',
     icon2: 'https://luaswap.org/favicon.png',
-    isHot: false,
-    isNew: true,
+    isHot: true,
+    isNew: false,
     protocal: 'LuaSwap',
     iconProtocal: 'https://luaswap.org/favicon.png',
     pairLink: 'https://info.luaswap.org/pair/0xb195325642431b6aA6CD3C646591e7825BB3F90c',
@@ -344,8 +373,8 @@ export const supportedPools = [
     token2Symbol: 'USDC',
     icon: 'https://wallet.tomochain.com/public/imgs/tomoiconwhite.png',
     icon2: 'https://s2.coinmarketcap.com/static/img/coins/128x128/3408.png',
-    isHot: true,
-    isNew: false,
+    isHot: false,
+    isNew: true,
     protocal: 'LuaSwap',
     iconProtocal: 'https://luaswap.org/favicon.png',
     pairLink: 'https://info.luaswap.org/pair/0xB10C1840f562f0ac914DA2bad3290833C75fdddF',
@@ -403,8 +432,8 @@ export const supportedPools = [
     token2Symbol: 'FRONT',
     icon: 'https://luaswap.org/favicon.png',
     icon2: 'https://s2.coinmarketcap.com/static/img/coins/128x128/5893.png',
-    isHot: true,
-    isNew: false,
+    isHot: false,
+    isNew: true,
     protocal: 'LuaSwap',
     iconProtocal: 'https://luaswap.org/favicon.png',
     pairLink: 'https://info.luaswap.org/pair/0x97e1081c5DECB27606dbcDEA9d8E615757aB11c4',
@@ -557,5 +586,4 @@ export const supportedPools = [
     removeLiquidityLink: 'https://app.luaswap.org/#/remove/0x2baecdf43734f22fd5c152db08e3c27233f0c7d2/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc'
   },
 
-  
-]
+].sort((a, b) => (a.isNew ? -1 : 1) - (b.isNew ? -1 : 1) )
