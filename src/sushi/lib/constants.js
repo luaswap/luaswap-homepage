@@ -49,18 +49,18 @@ export const contractAddresses = {
     99: '0x9FB56E17EF76Eb21d89d2Ec73058245844e70E3d',
   },
   xSushi: {
-    1: '0x9abf23f4e439d695a7fd341a1b25873c50cfa52e'
+    1: '0x9abf23f4e439d695a7fd341a1b25873c50cfa52e',
   },
   maker: {
-    1: '0xe11a87506FE17F9Fb5EEcaB14E85Af27A7C10e19'
+    1: '0x0FCB3b6232a2AD0af2f0602Acd759D634743579f',
   },
   masterChef: {
     1: '0xb67D7a6644d9E191Cac4DA2B88D6817351C7fF62',
     99: '0xA49D353dd804f516bcd500D1Dd6eE72675CF498d',
   },
   weth: {
-    1: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2'
-  }
+    1: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
+  },
 }
 
 // 0xd6be3b9780572f0215afb3e4d15751955503cebe
@@ -74,7 +74,7 @@ export const supportedPools = [
       1: '0xb1f66997a5760428d3a87d68b90bfe0ae64121cc',
     },
     token2Addresses: {
-      1: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48'
+      1: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
     },
     name: 'LUA - USDC',
     symbol: 'LUA-USDC LUA-V1 LP',
@@ -88,9 +88,12 @@ export const supportedPools = [
     isNew: true,
     protocal: 'LuaSwap',
     iconProtocal: 'https://luaswap.org/favicon.png',
-    pairLink: 'https://info.luaswap.org/pair/0x96258BB42779Bf300cf69c9B5bD2Ba5245CB4bc4',
-    addLiquidityLink: 'https://app.luaswap.org/#/add/0xB1f66997A5760428D3a87D68b90BfE0aE64121cC/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
-    removeLiquidityLink: 'https://app.luaswap.org/#/remove/0xB1f66997A5760428D3a87D68b90BfE0aE64121cC/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48'
+    pairLink:
+      'https://info.luaswap.org/pair/0x96258BB42779Bf300cf69c9B5bD2Ba5245CB4bc4',
+    addLiquidityLink:
+      'https://app.luaswap.org/#/add/0xB1f66997A5760428D3a87D68b90BfE0aE64121cC/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
+    removeLiquidityLink:
+      'https://app.luaswap.org/#/remove/0xB1f66997A5760428D3a87D68b90BfE0aE64121cC/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
   },
   {
     pid: 4,
@@ -102,7 +105,7 @@ export const supportedPools = [
     },
 
     token2Addresses: {
-      1: '0x05d3606d5c81eb9b7b18530995ec9b29da05faba'
+      1: '0x05d3606d5c81eb9b7b18530995ec9b29da05faba',
     },
     name: 'LUA - TOMOE',
     symbol: 'LUA-TOMOE LUA-V1 LP',
@@ -116,9 +119,12 @@ export const supportedPools = [
     isNew: true,
     protocal: 'LuaSwap',
     iconProtocal: 'https://luaswap.org/favicon.png',
-    pairLink: 'https://info.luaswap.org/pair/0xE2f4cC0198150a7beA98E0a2A66fecafC30a5cD0',
-    addLiquidityLink: 'https://app.luaswap.org/#/add/0x05d3606d5c81eb9b7b18530995ec9b29da05faba/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc',
-    removeLiquidityLink: 'https://app.luaswap.org/#/remove/0x05d3606d5c81eb9b7b18530995ec9b29da05faba/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc'
+    pairLink:
+      'https://info.luaswap.org/pair/0xE2f4cC0198150a7beA98E0a2A66fecafC30a5cD0',
+    addLiquidityLink:
+      'https://app.luaswap.org/#/add/0x05d3606d5c81eb9b7b18530995ec9b29da05faba/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc',
+    removeLiquidityLink:
+      'https://app.luaswap.org/#/remove/0x05d3606d5c81eb9b7b18530995ec9b29da05faba/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc',
   },
   {
     pid: 0,
@@ -129,7 +135,7 @@ export const supportedPools = [
       1: '0x05d3606d5c81eb9b7b18530995ec9b29da05faba',
     },
     token2Addresses: {
-      1: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2'
+      1: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
     },
     name: 'TOMOE - ETH',
     symbol: 'TOMOE-ETH LUA-V1 LP',
@@ -143,9 +149,12 @@ export const supportedPools = [
     isNew: true,
     protocal: 'LuaSwap',
     iconProtocal: 'https://luaswap.org/favicon.png',
-    pairLink: 'https://info.luaswap.org/pair/0x7885e359a085372EbCF1ed6829402f149D02c600',
-    addLiquidityLink: 'https://app.luaswap.org/#/add/0x05d3606d5c81eb9b7b18530995ec9b29da05faba/ETH',
-    removeLiquidityLink: 'https://app.luaswap.org/#/remove/0x05d3606d5c81eb9b7b18530995ec9b29da05faba/ETH'
+    pairLink:
+      'https://info.luaswap.org/pair/0x7885e359a085372EbCF1ed6829402f149D02c600',
+    addLiquidityLink:
+      'https://app.luaswap.org/#/add/0x05d3606d5c81eb9b7b18530995ec9b29da05faba/ETH',
+    removeLiquidityLink:
+      'https://app.luaswap.org/#/remove/0x05d3606d5c81eb9b7b18530995ec9b29da05faba/ETH',
   },
   {
     pid: 1,
@@ -156,7 +165,7 @@ export const supportedPools = [
       1: '0x05d3606d5c81eb9b7b18530995ec9b29da05faba',
     },
     token2Addresses: {
-      1: '0xdac17f958d2ee523a2206206994597c13d831ec7'
+      1: '0xdac17f958d2ee523a2206206994597c13d831ec7',
     },
     name: 'TOMOE - USDT',
     symbol: 'TOMOE-USDT LUA-V1 LP',
@@ -170,10 +179,13 @@ export const supportedPools = [
     isNew: true,
     protocal: 'LuaSwap',
     iconProtocal: 'https://luaswap.org/favicon.png',
-    pairLink: 'https://info.luaswap.org/pair/0xbFFD9FF55685A3B6940C59DCDCc69b1737363BE0',
-    addLiquidityLink: 'https://app.luaswap.org/#/add/0x05d3606d5c81eb9b7b18530995ec9b29da05faba/0xdAC17F958D2ee523a2206206994597C13D831ec7',
-    removeLiquidityLink: 'https://app.luaswap.org/#/remove/0x05d3606d5c81eb9b7b18530995ec9b29da05faba/0xdAC17F958D2ee523a2206206994597C13D831ec7'
-  }, 
+    pairLink:
+      'https://info.luaswap.org/pair/0xbFFD9FF55685A3B6940C59DCDCc69b1737363BE0',
+    addLiquidityLink:
+      'https://app.luaswap.org/#/add/0x05d3606d5c81eb9b7b18530995ec9b29da05faba/0xdAC17F958D2ee523a2206206994597C13D831ec7',
+    removeLiquidityLink:
+      'https://app.luaswap.org/#/remove/0x05d3606d5c81eb9b7b18530995ec9b29da05faba/0xdAC17F958D2ee523a2206206994597C13D831ec7',
+  },
 
   {
     pid: 9,
@@ -185,7 +197,7 @@ export const supportedPools = [
     },
 
     token2Addresses: {
-      1: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2'
+      1: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
     },
     name: 'LUA - ETH',
     symbol: 'LUA-ETH LUA-V1 LP',
@@ -199,9 +211,12 @@ export const supportedPools = [
     isNew: true,
     protocal: 'LuaSwap',
     iconProtocal: 'https://luaswap.org/favicon.png',
-    pairLink: 'https://info.luaswap.org/pair/0x65FaBAF7e6c5380243E063D8559d84e589Db6438',
-    addLiquidityLink: 'https://app.luaswap.org/#/add/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc/ETH',
-    removeLiquidityLink: 'https://app.luaswap.org/#/remove/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc/ETH'
+    pairLink:
+      'https://info.luaswap.org/pair/0x65FaBAF7e6c5380243E063D8559d84e589Db6438',
+    addLiquidityLink:
+      'https://app.luaswap.org/#/add/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc/ETH',
+    removeLiquidityLink:
+      'https://app.luaswap.org/#/remove/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc/ETH',
   },
 
   {
@@ -214,7 +229,7 @@ export const supportedPools = [
     },
 
     token2Addresses: {
-      1: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48'
+      1: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
     },
     name: 'WBTC - USDC',
     symbol: 'WBTC-USDC LUA-V1 LP',
@@ -228,9 +243,12 @@ export const supportedPools = [
     isNew: false,
     protocal: 'LuaSwap',
     iconProtocal: 'https://luaswap.org/favicon.png',
-    pairLink: 'https://info.luaswap.org/pair/0x66E10dEa0019dC7353D2e4106E9b84f1CFc17CBa',
-    addLiquidityLink: 'https://app.luaswap.org/#/add/0x2260fac5e5542a773aa44fbcfedf7c193bc2c599/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
-    removeLiquidityLink: 'https://app.luaswap.org/#/remove/0x2260fac5e5542a773aa44fbcfedf7c193bc2c599/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48'
+    pairLink:
+      'https://info.luaswap.org/pair/0x66E10dEa0019dC7353D2e4106E9b84f1CFc17CBa',
+    addLiquidityLink:
+      'https://app.luaswap.org/#/add/0x2260fac5e5542a773aa44fbcfedf7c193bc2c599/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
+    removeLiquidityLink:
+      'https://app.luaswap.org/#/remove/0x2260fac5e5542a773aa44fbcfedf7c193bc2c599/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
   },
 
   {
@@ -243,7 +261,7 @@ export const supportedPools = [
     },
 
     token2Addresses: {
-      1: '0xdac17f958d2ee523a2206206994597c13d831ec7'
+      1: '0xdac17f958d2ee523a2206206994597c13d831ec7',
     },
     name: 'KAT - USDT',
     symbol: 'KAT-USDT LUA-V1 LP',
@@ -257,9 +275,12 @@ export const supportedPools = [
     isNew: true,
     protocal: 'LuaSwap',
     iconProtocal: 'https://luaswap.org/favicon.png',
-    pairLink: 'https://info.luaswap.org/pair/0x187230ce611269b0b9fdbb62278b6c70f6ec428a',
-    addLiquidityLink: 'https://app.luaswap.org/#/add/0x14da230d6726c50f759bc1838717f8ce6373509c/0xdac17f958d2ee523a2206206994597c13d831ec7',
-    removeLiquidityLink: 'https://app.luaswap.org/#/remove/0x14da230d6726c50f759bc1838717f8ce6373509c/0xdac17f958d2ee523a2206206994597c13d831ec7'
+    pairLink:
+      'https://info.luaswap.org/pair/0x187230ce611269b0b9fdbb62278b6c70f6ec428a',
+    addLiquidityLink:
+      'https://app.luaswap.org/#/add/0x14da230d6726c50f759bc1838717f8ce6373509c/0xdac17f958d2ee523a2206206994597c13d831ec7',
+    removeLiquidityLink:
+      'https://app.luaswap.org/#/remove/0x14da230d6726c50f759bc1838717f8ce6373509c/0xdac17f958d2ee523a2206206994597c13d831ec7',
   },
 
   {
@@ -273,7 +294,7 @@ export const supportedPools = [
     },
 
     token2Addresses: {
-      1: '0xdac17f958d2ee523a2206206994597c13d831ec7'
+      1: '0xdac17f958d2ee523a2206206994597c13d831ec7',
     },
     name: 'ETH - USDT',
     symbol: 'ETH-USDT LUA-V1 LP',
@@ -287,11 +308,13 @@ export const supportedPools = [
     isNew: false,
     protocal: 'LuaSwap',
     iconProtocal: 'https://luaswap.org/favicon.png',
-    pairLink: 'https://info.luaswap.org/pair/0xd6be3b9780572f0215afb3e4d15751955503cebe',
-    addLiquidityLink: 'https://app.luaswap.org/#/add/ETH/0xdac17f958d2ee523a2206206994597c13d831ec7',
-    removeLiquidityLink: 'https://app.luaswap.org/#/remove/ETH/0xdac17f958d2ee523a2206206994597c13d831ec7'
+    pairLink:
+      'https://info.luaswap.org/pair/0xd6be3b9780572f0215afb3e4d15751955503cebe',
+    addLiquidityLink:
+      'https://app.luaswap.org/#/add/ETH/0xdac17f958d2ee523a2206206994597c13d831ec7',
+    removeLiquidityLink:
+      'https://app.luaswap.org/#/remove/ETH/0xdac17f958d2ee523a2206206994597c13d831ec7',
   },
-
 
   {
     pid: 14,
@@ -303,7 +326,7 @@ export const supportedPools = [
     },
 
     token2Addresses: {
-      1: '0xb1f66997a5760428d3a87d68b90bfe0ae64121cc'
+      1: '0xb1f66997a5760428d3a87d68b90bfe0ae64121cc',
     },
     name: 'UNI - LUA',
     symbol: 'UNI-LUA LUA-V1 LP',
@@ -317,11 +340,13 @@ export const supportedPools = [
     isNew: false,
     protocal: 'LuaSwap',
     iconProtocal: 'https://luaswap.org/favicon.png',
-    pairLink: 'https://info.luaswap.org/pair/0xb195325642431b6aA6CD3C646591e7825BB3F90c',
-    addLiquidityLink: 'https://app.luaswap.org/#/add/0x1f9840a85d5af5bf1d1762f925bdaddc4201f984/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc',
-    removeLiquidityLink: 'https://app.luaswap.org/#/remove/0x1f9840a85d5af5bf1d1762f925bdaddc4201f984/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc'
+    pairLink:
+      'https://info.luaswap.org/pair/0xb195325642431b6aA6CD3C646591e7825BB3F90c',
+    addLiquidityLink:
+      'https://app.luaswap.org/#/add/0x1f9840a85d5af5bf1d1762f925bdaddc4201f984/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc',
+    removeLiquidityLink:
+      'https://app.luaswap.org/#/remove/0x1f9840a85d5af5bf1d1762f925bdaddc4201f984/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc',
   },
-
 
   {
     pid: 16,
@@ -333,7 +358,7 @@ export const supportedPools = [
     },
 
     token2Addresses: {
-      1: '0xdac17f958d2ee523a2206206994597c13d831ec7'
+      1: '0xdac17f958d2ee523a2206206994597c13d831ec7',
     },
     name: 'RAMP - USDT',
     symbol: 'RAMP-USDT USDT-V1 LP',
@@ -341,17 +366,20 @@ export const supportedPools = [
     description: `Deposit RAMP-USDT LUA-V1 LP Earn LUA`,
     tokenSymbol: 'RAMP',
     token2Symbol: 'USDT',
-    icon: 'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x33D0568941C0C64ff7e0FB4fbA0B11BD37deEd9f/logo.png',
+    icon:
+      'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x33D0568941C0C64ff7e0FB4fbA0B11BD37deEd9f/logo.png',
     icon2: 'https://s2.coinmarketcap.com/static/img/coins/128x128/825.png',
     isHot: false,
     isNew: true,
     protocal: 'LuaSwap',
     iconProtocal: 'https://luaswap.org/favicon.png',
-    pairLink: 'https://info.luaswap.org/pair/0x627846f6131a4631ddf6bb53bd682ccf51f623b3',
-    addLiquidityLink: 'https://app.luaswap.org/#/add/0x33d0568941c0c64ff7e0fb4fba0b11bd37deed9f/0xdac17f958d2ee523a2206206994597c13d831ec7',
-    removeLiquidityLink: 'https://app.luaswap.org/#/remove/0x33d0568941c0c64ff7e0fb4fba0b11bd37deed9f/0xdac17f958d2ee523a2206206994597c13d831ec7'
+    pairLink:
+      'https://info.luaswap.org/pair/0x627846f6131a4631ddf6bb53bd682ccf51f623b3',
+    addLiquidityLink:
+      'https://app.luaswap.org/#/add/0x33d0568941c0c64ff7e0fb4fba0b11bd37deed9f/0xdac17f958d2ee523a2206206994597c13d831ec7',
+    removeLiquidityLink:
+      'https://app.luaswap.org/#/remove/0x33d0568941c0c64ff7e0fb4fba0b11bd37deed9f/0xdac17f958d2ee523a2206206994597c13d831ec7',
   },
-
 
   {
     pid: 2,
@@ -363,7 +391,7 @@ export const supportedPools = [
     },
 
     token2Addresses: {
-      1: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48'
+      1: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
     },
     name: 'TOMOE - USDC',
     symbol: 'TOMOE-USDC LUA-V1 LP',
@@ -377,12 +405,14 @@ export const supportedPools = [
     isNew: true,
     protocal: 'LuaSwap',
     iconProtocal: 'https://luaswap.org/favicon.png',
-    pairLink: 'https://info.luaswap.org/pair/0xB10C1840f562f0ac914DA2bad3290833C75fdddF',
-    addLiquidityLink: 'https://app.luaswap.org/#/add/0x05d3606d5c81eb9b7b18530995ec9b29da05faba/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
-    removeLiquidityLink: 'https://app.luaswap.org/#/remove/0x05d3606d5c81eb9b7b18530995ec9b29da05faba/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48'
+    pairLink:
+      'https://info.luaswap.org/pair/0xB10C1840f562f0ac914DA2bad3290833C75fdddF',
+    addLiquidityLink:
+      'https://app.luaswap.org/#/add/0x05d3606d5c81eb9b7b18530995ec9b29da05faba/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
+    removeLiquidityLink:
+      'https://app.luaswap.org/#/remove/0x05d3606d5c81eb9b7b18530995ec9b29da05faba/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
   },
 
-  
   {
     pid: 12,
     lpAddresses: {
@@ -393,7 +423,7 @@ export const supportedPools = [
     },
 
     token2Addresses: {
-      1: '0xdac17f958d2ee523a2206206994597c13d831ec7'
+      1: '0xdac17f958d2ee523a2206206994597c13d831ec7',
     },
     name: 'USDC - USDT',
     symbol: 'USDC-USDT LUA-V1 LP',
@@ -407,9 +437,12 @@ export const supportedPools = [
     isNew: false,
     protocal: 'LuaSwap',
     iconProtocal: 'https://luaswap.org/favicon.png',
-    pairLink: 'https://info.luaswap.org/pair/0xB3558F47Fa914F7ec1dA1a6F52aB41eE63E81301',
-    addLiquidityLink: 'https://app.luaswap.org/#/add/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48/0xdac17f958d2ee523a2206206994597c13d831ec7',
-    removeLiquidityLink: 'https://app.luaswap.org/#/remove/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48/0xdac17f958d2ee523a2206206994597c13d831ec7'
+    pairLink:
+      'https://info.luaswap.org/pair/0xB3558F47Fa914F7ec1dA1a6F52aB41eE63E81301',
+    addLiquidityLink:
+      'https://app.luaswap.org/#/add/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48/0xdac17f958d2ee523a2206206994597c13d831ec7',
+    removeLiquidityLink:
+      'https://app.luaswap.org/#/remove/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48/0xdac17f958d2ee523a2206206994597c13d831ec7',
   },
 
   {
@@ -422,7 +455,7 @@ export const supportedPools = [
     },
 
     token2Addresses: {
-      1: '0xf8c3527cc04340b208c854e985240c02f7b7793f'
+      1: '0xf8c3527cc04340b208c854e985240c02f7b7793f',
     },
     name: 'LUA - FRONT',
     symbol: 'LUA-FRONT LUA-V1 LP',
@@ -436,9 +469,12 @@ export const supportedPools = [
     isNew: true,
     protocal: 'LuaSwap',
     iconProtocal: 'https://luaswap.org/favicon.png',
-    pairLink: 'https://info.luaswap.org/pair/0x97e1081c5DECB27606dbcDEA9d8E615757aB11c4',
-    addLiquidityLink: 'https://app.luaswap.org/#/add/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc/0xf8c3527cc04340b208c854e985240c02f7b7793f',
-    removeLiquidityLink: 'https://app.luaswap.org/#/remove/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc/0xf8c3527cc04340b208c854e985240c02f7b7793f'
+    pairLink:
+      'https://info.luaswap.org/pair/0x97e1081c5DECB27606dbcDEA9d8E615757aB11c4',
+    addLiquidityLink:
+      'https://app.luaswap.org/#/add/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc/0xf8c3527cc04340b208c854e985240c02f7b7793f',
+    removeLiquidityLink:
+      'https://app.luaswap.org/#/remove/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc/0xf8c3527cc04340b208c854e985240c02f7b7793f',
   },
 
   {
@@ -451,7 +487,7 @@ export const supportedPools = [
     },
 
     token2Addresses: {
-      1: '0x6b3595068778dd592e39a122f4f5a5cf09c90fe2'
+      1: '0x6b3595068778dd592e39a122f4f5a5cf09c90fe2',
     },
     name: 'LUA - SUSHI',
     symbol: 'LUA-SUSHI LUA-V1 LP',
@@ -465,9 +501,12 @@ export const supportedPools = [
     isNew: false,
     protocal: 'LuaSwap',
     iconProtocal: 'https://luaswap.org/favicon.png',
-    pairLink: 'https://info.luaswap.org/pair/0xc9a72CC23f900b381FC6355afD8ee674B1F12DF6',
-    addLiquidityLink: 'https://app.luaswap.org/#/add/0x6b3595068778dd592e39a122f4f5a5cf09c90fe2/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc',
-    removeLiquidityLink: 'https://app.luaswap.org/#/remove/0x6b3595068778dd592e39a122f4f5a5cf09c90fe2/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc'
+    pairLink:
+      'https://info.luaswap.org/pair/0xc9a72CC23f900b381FC6355afD8ee674B1F12DF6',
+    addLiquidityLink:
+      'https://app.luaswap.org/#/add/0x6b3595068778dd592e39a122f4f5a5cf09c90fe2/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc',
+    removeLiquidityLink:
+      'https://app.luaswap.org/#/remove/0x6b3595068778dd592e39a122f4f5a5cf09c90fe2/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc',
   },
 
   {
@@ -480,7 +519,7 @@ export const supportedPools = [
     },
 
     token2Addresses: {
-      1: '0x476c5e26a75bd202a9683ffd34359c0cc15be0ff'
+      1: '0x476c5e26a75bd202a9683ffd34359c0cc15be0ff',
     },
     name: 'LUA - SRM',
     symbol: 'LUA-SRM LUA-V1 LP',
@@ -494,9 +533,12 @@ export const supportedPools = [
     isNew: false,
     protocal: 'LuaSwap',
     iconProtocal: 'https://luaswap.org/favicon.png',
-    pairLink: 'https://info.luaswap.org/pair/0x26Da27Cd29D75BcD925665223B4416025450d756',
-    addLiquidityLink: 'https://app.luaswap.org/#/add/0x476c5e26a75bd202a9683ffd34359c0cc15be0ff/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc',
-    removeLiquidityLink: 'https://app.luaswap.org/#/remove/0x476c5e26a75bd202a9683ffd34359c0cc15be0ff/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc'
+    pairLink:
+      'https://info.luaswap.org/pair/0x26Da27Cd29D75BcD925665223B4416025450d756',
+    addLiquidityLink:
+      'https://app.luaswap.org/#/add/0x476c5e26a75bd202a9683ffd34359c0cc15be0ff/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc',
+    removeLiquidityLink:
+      'https://app.luaswap.org/#/remove/0x476c5e26a75bd202a9683ffd34359c0cc15be0ff/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc',
   },
 
   {
@@ -509,7 +551,7 @@ export const supportedPools = [
     },
 
     token2Addresses: {
-      1: '0x50d1c9771902476076ecfc8b2a83ad6b9355a4c9'
+      1: '0x50d1c9771902476076ecfc8b2a83ad6b9355a4c9',
     },
     name: 'LUA - FTT',
     symbol: 'LUA-FTT LUA-V1 LP',
@@ -523,9 +565,12 @@ export const supportedPools = [
     isNew: false,
     protocal: 'LuaSwap',
     iconProtocal: 'https://luaswap.org/favicon.png',
-    pairLink: 'https://info.luaswap.org/pair/0x38F9307839A8E82b071EA6Fcbef029814Ed88fcb',
-    addLiquidityLink: 'https://app.luaswap.org/#/add/0x50d1c9771902476076ecfc8b2a83ad6b9355a4c9/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc',
-    removeLiquidityLink: 'https://app.luaswap.org/#/remove/0x50d1c9771902476076ecfc8b2a83ad6b9355a4c9/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc'
+    pairLink:
+      'https://info.luaswap.org/pair/0x38F9307839A8E82b071EA6Fcbef029814Ed88fcb',
+    addLiquidityLink:
+      'https://app.luaswap.org/#/add/0x50d1c9771902476076ecfc8b2a83ad6b9355a4c9/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc',
+    removeLiquidityLink:
+      'https://app.luaswap.org/#/remove/0x50d1c9771902476076ecfc8b2a83ad6b9355a4c9/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc',
   },
 
   {
@@ -538,7 +583,7 @@ export const supportedPools = [
     },
 
     token2Addresses: {
-      1: '0xd9ec3ff1f8be459bb9369b4e79e9ebcf7141c093'
+      1: '0xd9ec3ff1f8be459bb9369b4e79e9ebcf7141c093',
     },
     name: 'LUA - KAI',
     symbol: 'LUA-KAI LUA-V1 LP',
@@ -547,14 +592,18 @@ export const supportedPools = [
     tokenSymbol: 'LUA',
     token2Symbol: 'KAI',
     icon: 'https://luaswap.org/favicon.png',
-    icon2: 'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xD9Ec3ff1f8be459Bb9369b4E79e9Ebcf7141C093/logo.png',
+    icon2:
+      'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xD9Ec3ff1f8be459Bb9369b4E79e9Ebcf7141C093/logo.png',
     isHot: true,
     isNew: false,
     protocal: 'LuaSwap',
     iconProtocal: 'https://luaswap.org/favicon.png',
-    pairLink: 'https://info.luaswap.org/pair/0xeAAc91B4B28b97236605B1D40178D83C273dbe80',
-    addLiquidityLink: 'https://app.luaswap.org/#/add/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc/0xd9ec3ff1f8be459bb9369b4e79e9ebcf7141c093',
-    removeLiquidityLink: 'https://app.luaswap.org/#/remove/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc/0xd9ec3ff1f8be459bb9369b4e79e9ebcf7141c093'
+    pairLink:
+      'https://info.luaswap.org/pair/0xeAAc91B4B28b97236605B1D40178D83C273dbe80',
+    addLiquidityLink:
+      'https://app.luaswap.org/#/add/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc/0xd9ec3ff1f8be459bb9369b4e79e9ebcf7141c093',
+    removeLiquidityLink:
+      'https://app.luaswap.org/#/remove/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc/0xd9ec3ff1f8be459bb9369b4e79e9ebcf7141c093',
   },
 
   {
@@ -567,7 +616,7 @@ export const supportedPools = [
     },
 
     token2Addresses: {
-      1: '0x2baecdf43734f22fd5c152db08e3c27233f0c7d2'
+      1: '0x2baecdf43734f22fd5c152db08e3c27233f0c7d2',
     },
     name: 'LUA - OM',
     symbol: 'LUA-OM LUA-V1 LP',
@@ -581,9 +630,11 @@ export const supportedPools = [
     isNew: false,
     protocal: 'LuaSwap',
     iconProtocal: 'https://luaswap.org/favicon.png',
-    pairLink: 'https://info.luaswap.org/pair/0xfa1B8F29D9505d18b22F823B82E7Da886Dfc8bdf',
-    addLiquidityLink: 'https://app.luaswap.org/#/add/0x2baecdf43734f22fd5c152db08e3c27233f0c7d2/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc',
-    removeLiquidityLink: 'https://app.luaswap.org/#/remove/0x2baecdf43734f22fd5c152db08e3c27233f0c7d2/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc'
+    pairLink:
+      'https://info.luaswap.org/pair/0xfa1B8F29D9505d18b22F823B82E7Da886Dfc8bdf',
+    addLiquidityLink:
+      'https://app.luaswap.org/#/add/0x2baecdf43734f22fd5c152db08e3c27233f0c7d2/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc',
+    removeLiquidityLink:
+      'https://app.luaswap.org/#/remove/0x2baecdf43734f22fd5c152db08e3c27233f0c7d2/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc',
   },
-
-].sort((a, b) => (a.isNew ? -1 : 1) - (b.isNew ? -1 : 1) )
+].sort((a, b) => (a.isNew ? -1 : 1) - (b.isNew ? -1 : 1))
