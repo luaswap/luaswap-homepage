@@ -88,8 +88,8 @@ const Farm: React.FC = () => {
       <StyledFarm>
         {isHot &&
           <StyledInfo style={{color: '#F44336'}}>
-            👉 This pool has been eliminated from the staking field. <br/>
-            You will no longer receive rewards when staking with it
+            👉 This pool has been rotated out from farming set of the week.<br/>
+          You will no longer receive rewards when staking with it
           </StyledInfo>
         }
         <Spacer size="md"/>
