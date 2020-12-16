@@ -585,4 +585,28 @@ export const supportedPools = [
     removeLiquidityLink: 'https://app.luaswap.org/#/remove/0x2baecdf43734f22fd5c152db08e3c27233f0c7d2/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc'
   },
 
-].sort((a, b) => (a.isNew ? -1 : 1) - (b.isNew ? -1 : 1) )
+]
+.map(e => {
+  if (
+    ['0x96258bb42779bf300cf69c9b5bd2ba5245cb4bc4',
+  '0xe2f4cc0198150a7bea98e0a2a66fecafc30a5cd0',
+  '0xbffd9ff55685a3b6940c59dcdcc69b1737363be0',
+  '0x7885e359a085372ebcf1ed6829402f149d02c600',
+  '0x627846f6131a4631ddf6bb53bd682ccf51f623b3',
+  '0x65fabaf7e6c5380243e063d8559d84e589db6438',
+  '0xb195325642431b6aa6cd3c646591e7825bb3f90c',
+  '0x187230ce611269b0b9fdbb62278b6c70f6ec428a',
+  '0x97e1081c5decb27606dbcdea9d8e615757ab11c4']
+    .indexOf(e.lpAddresses[1].toLowerCase()) >= 0)
+    {
+      e.isHot = false
+      e.isNew = true
+    }
+    else {
+      e.isHot = true
+      e.isNew = false
+    }
+
+    return e;
+})
+.sort((a, b) => (a.isNew ? -1 : 1) - (b.isNew ? -1 : 1) )
