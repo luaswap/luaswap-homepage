@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
+import { ThemeProvider as MuiThemeProvider } from '@material-ui/core'
 import { UseWalletProvider } from 'use-wallet'
 import DisclaimerModal from './components/DisclaimerModal'
 import MobileMenu from './components/MobileMenu'
@@ -15,6 +16,8 @@ import Farms from './views/Farms'
 import Home from './views/Home'
 import Stake from './views/Staking'
 import config from './config'
+import Homepage from './pages/Homepage'
+import muiTheme from './styles/theme'
 
 const App: React.FC = () => {
   const [mobileMenu, setMobileMenu] = useState(false)
@@ -30,9 +33,9 @@ const App: React.FC = () => {
   return (
     <Providers>
       {/* <Router> */}
-        <TopBar onPresentMobileMenu={handlePresentMobileMenu} />
-        <MobileMenu onDismiss={handleDismissMobileMenu} visible={mobileMenu} />
-        {/* <div style={{
+      <TopBar onPresentMobileMenu={handlePresentMobileMenu} />
+      <MobileMenu onDismiss={handleDismissMobileMenu} visible={mobileMenu} />
+      {/* <div style={{
           display: "flex", 
           height: '90vh',
           alignItems: 'center',
@@ -51,17 +54,22 @@ const App: React.FC = () => {
             <div style={{opacity: 0.7}}>For more information: <a style={{color: '#ffffff'}} href="https://twitter.com/LuaSwap">Twitter</a></div>
           </div>
         </div> */}
-        <Switch>
-          <Route path="/" exact>
-            <Home />
-          </Route>
-          <Route path="/farms">
-            <Farms />
-          </Route>
-          { <Route path="/staking">
+      <Switch>
+        <Route path="/homepage" exact>
+          <Homepage />
+        </Route>
+        <Route path="/" exact>
+          <Home />
+        </Route>
+        <Route path="/farms">
+          <Farms />
+        </Route>
+        {
+          <Route path="/staking">
             <Stake />
-          </Route> }
-        </Switch>
+          </Route>
+        }
+      </Switch>
       {/* </Router> */}
       <Disclaimer />
     </Providers>
@@ -71,22 +79,24 @@ const App: React.FC = () => {
 const Providers: React.FC = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
-      <UseWalletProvider
-        chainId={config.chainId}
-        connectors={{
-          walletconnect: { rpcUrl: config.rpc },
-        }}
-      >
-        <SushiProvider>
-          <TransactionProvider>
-            <FarmsProvider>
-              <Router>
-              <ModalsProvider>{children}</ModalsProvider>
-              </Router>
-            </FarmsProvider>
-          </TransactionProvider>
-        </SushiProvider>
-      </UseWalletProvider>
+      <MuiThemeProvider theme={muiTheme}>
+        <UseWalletProvider
+          chainId={config.chainId}
+          connectors={{
+            walletconnect: { rpcUrl: config.rpc },
+          }}
+        >
+          <SushiProvider>
+            <TransactionProvider>
+              <FarmsProvider>
+                <Router>
+                  <ModalsProvider>{children}</ModalsProvider>
+                </Router>
+              </FarmsProvider>
+            </TransactionProvider>
+          </SushiProvider>
+        </UseWalletProvider>
+      </MuiThemeProvider>
     </ThemeProvider>
   )
 }
