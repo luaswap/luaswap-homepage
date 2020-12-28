@@ -1,27 +1,33 @@
-import React, { useState, useEffect } from "react";
-import { Box, Typography, makeStyles, Button } from "@material-ui/core";
-import { Helmet } from "react-helmet";
-import * as Service from "../../services";
-import homepageImg from "../../assets/images/homepage.png";
-import liquidityIcon from "../../assets/images/liquidity.png";
-import volumeIcon from "../../assets/images/volume.png";
-import transactionIcon from "../../assets/images/transaction.png";
-import { reduceFractionDigit, reduceLongNumber } from "../../utils";
+import React, { useState, useEffect } from 'react'
+import { Box, Typography, makeStyles, Button } from '@material-ui/core'
+import { Helmet } from 'react-helmet'
+import * as Service from '../../services'
+import homepageImg from '../../assets/images/homepage.png'
+import liquidityIcon from '../../assets/images/liquidity.png'
+import volumeIcon from '../../assets/images/volume.png'
+import transactionIcon from '../../assets/images/transaction.png'
+import {
+  reduceFractionDigit,
+  reduceLongNumber,
+  redirectToUrl,
+} from '../../utils'
+import '../../'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: "flex",
-    alignItems: "flex-start",
+    display: 'flex',
+    alignItems: 'flex-start',
     color: theme.color.text.main,
-    [theme.breakpoints.down("sm")]: {
-      flexDirection: "column",
-      margin: "20px 20px 100px 20px",
+    fontFamily: '"Nunito Sans", sans-serif !important',
+    [theme.breakpoints.down('sm')]: {
+      flexDirection: 'column',
+      margin: '20px 20px 100px 20px',
     },
-    [theme.breakpoints.up("md")]: {
-      margin: "100px 80px 0px 80px",
+    [theme.breakpoints.up('md')]: {
+      margin: '100px 80px 0px 80px',
     },
-    [theme.breakpoints.up("lg")]: {
-      margin: "155px 135px 0px 135px",
+    [theme.breakpoints.up('lg')]: {
+      margin: '155px 135px 0px 135px',
     },
   },
   titleContainer: {
@@ -30,25 +36,25 @@ const useStyles = makeStyles((theme) => ({
   introText: {
     fontSize: 40,
     fontWeight: 800,
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down('sm')]: {
       fontSize: 32,
     },
   },
   statContainer: {
-    flexWrap: "wrap",
+    flexWrap: 'wrap',
     marginBottom: 100,
     gap: 95,
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down('sm')]: {
       marginBottom: 65,
     },
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down('md')]: {
       gap: 75,
     },
   },
   statItem: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "flex-start",
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
   },
   statIcon: {
     width: 40,
@@ -67,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 700,
   },
   launchBtn: {
-    padding: "14px 20px",
+    padding: '14px 20px',
     width: 230,
     height: 48,
     borderRadius: 8,
@@ -75,65 +81,65 @@ const useStyles = makeStyles((theme) => ({
     color: theme.color.text.dark,
     fontSize: 16,
     fontWeight: 800,
-    textTransform: "none",
-    "&:hover": {
+    textTransform: 'none',
+    '&:hover': {
       backgroundColor: theme.color.primary.dark,
     },
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down('sm')]: {
       margin: 20,
-      width: "calc(100vw - 40px)",
+      width: 'calc(100vw - 40px)',
     },
   },
   homepageImg: {
-    width: "100%",
-    height: "auto",
-    [theme.breakpoints.up("md")]: {
+    width: '100%',
+    height: 'auto',
+    [theme.breakpoints.up('md')]: {
       width: 400,
-      maxWidth: "50%",
+      maxWidth: '50%',
     },
-    [theme.breakpoints.up("lg")]: {
+    [theme.breakpoints.up('lg')]: {
       width: 500,
     },
   },
   highlightedText: {
     color: theme.color.text.primary1,
-    fontSize: "inherit",
+    fontSize: 'inherit',
     fontWeight: 800,
   },
   mobileLaunchContainer: {
-    display: "inline",
-    [theme.breakpoints.down("sm")]: {
-      position: "fixed",
+    display: 'inline',
+    [theme.breakpoints.down('sm')]: {
+      position: 'fixed',
       bottom: 0,
       left: 0,
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
       backgroundColor: theme.color.background.light,
     },
   },
-}));
+}))
 
 const Homepage = () => {
-  const [totalLiquidity, setTotalLiquidity] = useState(0);
-  const [volume, setVolume] = useState(0);
-  const [totalSupply, setTotalSupply] = useState(0);
-  const classes = useStyles();
+  const [totalLiquidity, setTotalLiquidity] = useState(0)
+  const [volume, setVolume] = useState(0)
+  const [totalSupply, setTotalSupply] = useState(0)
+  const classes = useStyles()
 
   useEffect(() => {
     Service.getTotalLiquidityData().then((data) => {
-      setTotalLiquidity(data.totalLiquidity);
-      setVolume(data.volume);
-    });
+      setTotalLiquidity(data.totalLiquidity)
+      setVolume(data.volume)
+    })
     Service.getTotalSupply().then((value) => {
-      setTotalSupply(value);
-    });
-  }, []);
+      setTotalSupply(value)
+    })
+  }, [])
 
   return (
     <>
       <Helmet>
-        <title>{"Welcome to LuaSwap"}</title>
+        <title>{'Welcome to LuaSwap'}</title>
       </Helmet>
       <Box
         display="flex"
@@ -144,9 +150,9 @@ const Homepage = () => {
         <Box mr={[0, 4, 5]}>
           <Box className={classes.titleContainer}>
             <Typography component="div" className={classes.introText}>
-              {"Multi-chain liquidity protocol for "}
+              {'Multi-chain liquidity protocol for '}
               <Typography component="div" className={classes.highlightedText}>
-                {"emerging token projects"}
+                {'emerging token projects'}
               </Typography>
             </Typography>
           </Box>
@@ -162,7 +168,7 @@ const Homepage = () => {
                 className={classes.statIcon}
               />
               <Typography component="div" className={classes.statLabel}>
-                {"Total Liquidity"}
+                {'Total Liquidity'}
               </Typography>
               <Typography component="div" className={classes.statValue}>
                 {`${reduceLongNumber(totalLiquidity)} USD`}
@@ -175,7 +181,7 @@ const Homepage = () => {
                 className={classes.statIcon}
               />
               <Typography component="div" className={classes.statLabel}>
-                {"Volume 24h"}
+                {'Volume 24h'}
               </Typography>
               <Typography component="div" className={classes.statValue}>
                 {`${reduceLongNumber(volume)} USD`}
@@ -188,7 +194,7 @@ const Homepage = () => {
                 className={classes.statIcon}
               />
               <Typography component="div" className={classes.statLabel}>
-                {"Total Supply"}
+                {'Total Supply'}
               </Typography>
               <Typography component="div" className={classes.statValue}>
                 {reduceFractionDigit(totalSupply, 2)}
@@ -196,15 +202,19 @@ const Homepage = () => {
             </Box>
           </Box>
           <Box className={classes.mobileLaunchContainer}>
-            <Button variant="contained" className={classes.launchBtn}>
-              {"Launch App"}
+            <Button
+              variant="contained"
+              className={classes.launchBtn}
+              onClick={() => redirectToUrl('https://app.luaswap.org/')}
+            >
+              {'Launch App'}
             </Button>
           </Box>
         </Box>
         <img alt="Homepage" src={homepageImg} className={classes.homepageImg} />
       </Box>
     </>
-  );
-};
+  )
+}
 
-export default Homepage;
+export default Homepage

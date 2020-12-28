@@ -1,60 +1,52 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 import {
   Grid,
   makeStyles,
   Typography,
-  ListItem,
   ListItemText,
-  Popover,
-  List,
-} from "@material-ui/core";
+  Menu,
+  MenuItem,
+} from '@material-ui/core'
+import { redirectToUrl } from '../../utils'
+import { ArrowDropDown as ArrowDropDownIcon } from '@material-ui/icons'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    marginLeft: "auto",
-    width: "fit-content",
-    [theme.breakpoints.down("sm")]: {
-      display: "none",
+    marginLeft: 'auto',
+    width: 'fit-content',
+    [theme.breakpoints.down('sm')]: {
+      display: 'none',
     },
   },
   menuBtn: {
-    padding: "20px 60px 20px 0px",
+    display: 'flex',
+    alignItems: 'center',
+    padding: '20px 60px 20px 0px',
     color: theme.color.text.main,
-    cursor: "pointer",
-    "&:hover": {
+    cursor: 'pointer',
+    '&:hover': {
       color: theme.color.text.highlighted,
-      transform: "translate(3px, 3px)",
-      transition: "0.2s ease-out",
+      // transform: 'translate(3px, 3px)',
+      // transition: '0.2s ease-out',
     },
   },
-  popover: {
-    pointerEvents: "none",
-  },
-}));
+}))
 
 const ExtendedMenu = () => {
-  const [anchorEl, setAnchorEl] = useState(null);
-  const [subMenuId, setSubMenuId] = useState("");
-  const classes = useStyles();
-
-  const handleRedirectToUrl = (url) => {
-    const link = document.createElement("a");
-    link.href = url;
-    link.target = "_blank";
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
-  };
+  const [anchorEl, setAnchorEl] = useState(null)
+  const [subMenuId, setSubMenuId] = useState('')
+  const classes = useStyles()
 
   const handleOpenPopover = (event, menuId) => {
-    setAnchorEl(event.currentTarget);
-    setSubMenuId(menuId);
-  };
+    console.log('handleOpenPopover', menuId)
+    setAnchorEl(event.currentTarget)
+    setSubMenuId(menuId)
+  }
 
   const handleClosePopover = () => {
-    setAnchorEl(null);
-    setSubMenuId("");
-  };
+    setAnchorEl(null)
+    setSubMenuId('')
+  }
 
   return (
     <Grid container alignItems="center" className={classes.root}>
@@ -62,146 +54,121 @@ const ExtendedMenu = () => {
         item
         aria-owns="menu-products"
         aria-haspopup="true"
-        onMouseEnter={(evt) => handleOpenPopover(evt, "menu-products")}
-        onMouseLeave={handleClosePopover}
+        onClick={(evt) => handleOpenPopover(evt, 'menu-products')}
         className={classes.menuBtn}
       >
-        <Typography>Products</Typography>
+        <Typography style={{ marginRight: 10 }}>Products</Typography>
+        <ArrowDropDownIcon />
       </Grid>
-      <Popover
+      <Menu
         id="menu-products"
-        open={subMenuId === "menu-products"}
+        open={subMenuId === 'menu-products'}
         anchorEl={anchorEl}
+        getContentAnchorEl={null}
         anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "left",
+          vertical: 'bottom',
+          horizontal: 'left',
         }}
         transformOrigin={{
-          vertical: "top",
-          horizontal: "left",
+          vertical: 'top',
+          horizontal: 'left',
         }}
+        onClose={handleClosePopover}
         className={classes.popover}
       >
-        <List component="nav" aria-label="Products Sub-Menu">
-          <ListItem
-            button
-            aria-label="Products - App"
-            onClick={handleRedirectToUrl}
-          >
-            <ListItemText
-              primary="App"
-              secondary="Swap tokens and supply liquidity"
-            />
-          </ListItem>
-          <ListItem
-            button
-            aria-label="Products - Analytics"
-            onClick={handleRedirectToUrl}
-          >
-            <ListItemText
-              primary="Analytics"
-              secondary="Luaswap analytics and historical data"
-            />
-          </ListItem>
-          <ListItem
-            button
-            aria-label="Products - Token Lists"
-            onClick={handleRedirectToUrl}
-          >
-            <ListItemText
-              primary="Token Lists"
-              secondary="A new Ethereum token list standard"
-            />
-          </ListItem>
-          <ListItem
-            button
-            aria-label="Products - Lua Socks"
-            onClick={handleRedirectToUrl}
-          >
-            <ListItemText
-              primary="Lua Socks"
-              secondary="Dynamically priced socks"
-            />
-          </ListItem>
-          <ListItem
-            button
-            aria-label="Products - Luapig"
-            onClick={handleRedirectToUrl}
-          >
-            <ListItemText primary="Luapig" secondary="Optimistic rollup demo" />
-          </ListItem>
-        </List>
-      </Popover>
+        <MenuItem
+          aria-label="Products - App"
+          onClick={() => redirectToUrl('https://app.luaswap.org')}
+        >
+          <ListItemText
+            primary="App"
+            secondary="Swap tokens and supply liquidity"
+          />
+        </MenuItem>
+        <MenuItem aria-label="Products - Analytics" onClick={redirectToUrl}>
+          <ListItemText
+            primary="Analytics"
+            secondary="Luaswap analytics and historical data"
+          />
+        </MenuItem>
+        <MenuItem aria-label="Products - Token Lists" onClick={redirectToUrl}>
+          <ListItemText
+            primary="Token Lists"
+            secondary="A new Ethereum token list standard"
+          />
+        </MenuItem>
+        <MenuItem aria-label="Products - Lua Socks" onClick={redirectToUrl}>
+          <ListItemText
+            primary="Lua Socks"
+            secondary="Dynamically priced socks"
+          />
+        </MenuItem>
+        <MenuItem aria-label="Products - Luapig" onClick={redirectToUrl}>
+          <ListItemText primary="Luapig" secondary="Optimistic rollup demo" />
+        </MenuItem>
+      </Menu>
       <Grid
         item
         aria-owns="menu-governance"
         aria-haspopup="true"
-        onMouseEnter={(evt) => handleOpenPopover(evt, "menu-governance")}
-        onMouseLeave={handleClosePopover}
+        onClick={(evt) => handleOpenPopover(evt, 'menu-governance')}
         className={classes.menuBtn}
       >
-        <Typography>Governance</Typography>
+        <Typography style={{ marginRight: 10 }}>Governance</Typography>
+        <ArrowDropDownIcon />
       </Grid>
-      <Popover
+      <Menu
         id="menu-governance"
-        open={subMenuId === "menu-governance"}
+        open={subMenuId === 'menu-governance'}
         anchorEl={anchorEl}
+        getContentAnchorEl={null}
         anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "left",
+          vertical: 'bottom',
+          horizontal: 'left',
         }}
         transformOrigin={{
-          vertical: "top",
-          horizontal: "left",
+          vertical: 'top',
+          horizontal: 'left',
         }}
+        onClose={handleClosePopover}
         className={classes.popover}
       >
-        <List component="nav" aria-label="Governance Sub-Menu">
-          <ListItem
-            button
-            aria-label="Governance - LUA Token"
-            onClick={handleRedirectToUrl}
-          >
-            <ListItemText primary="LUA Token" />
-          </ListItem>
-        </List>
-      </Popover>
+        <MenuItem aria-label="Governance - LUA Token" onClick={redirectToUrl}>
+          <ListItemText primary="LUA Token" />
+        </MenuItem>
+      </Menu>
       <Grid
         item
         aria-owns="menu-faq"
         aria-haspopup="true"
-        onMouseEnter={(evt) => handleOpenPopover(evt, "menu-faq")}
-        onMouseLeave={handleClosePopover}
+        onClick={(evt) => handleOpenPopover(evt, 'menu-faq')}
         className={classes.menuBtn}
       >
-        <Typography>FAQ</Typography>
+        <Typography style={{ marginRight: 10 }}>FAQ</Typography>
+        <ArrowDropDownIcon />
       </Grid>
-      <Popover
+      <Menu
         id="menu-faq"
-        open={subMenuId === "menu-faq"}
+        open={subMenuId === 'menu-faq'}
         anchorEl={anchorEl}
+        getContentAnchorEl={null}
         anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "left",
+          vertical: 'bottom',
+          horizontal: 'left',
         }}
         transformOrigin={{
-          vertical: "top",
-          horizontal: "left",
+          vertical: 'top',
+          horizontal: 'left',
         }}
+        onClose={handleClosePopover}
         className={classes.popover}
       >
-        <List component="nav" aria-label="FAQ Sub-Menu">
-          <ListItem
-            button
-            aria-label="FAQ - Documentation"
-            onClick={handleRedirectToUrl}
-          >
-            <ListItemText primary="Documentation" />
-          </ListItem>
-        </List>
-      </Popover>
+        <MenuItem aria-label="FAQ - Documentation" onClick={redirectToUrl}>
+          <ListItemText primary="Documentation" />
+        </MenuItem>
+      </Menu>
     </Grid>
-  );
-};
+  )
+}
 
-export default ExtendedMenu;
+export default ExtendedMenu

@@ -33,3 +33,15 @@ export const reduceLongNumber = (number: number) => {
 
   return `${reduceFractionDigit(result, 2)}${unit}`
 }
+
+export const redirectToUrl = (url: string) => {
+  if (url && typeof url === 'string') {
+    const link = document.createElement('a')
+
+    link.href = url
+    link.target = '_blank'
+    document.body.appendChild(link)
+    link.click()
+    link.remove()
+  }
+}

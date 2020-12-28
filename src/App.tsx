@@ -1,11 +1,11 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useEffect } from 'react'
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core'
 import { UseWalletProvider } from 'use-wallet'
 import DisclaimerModal from './components/DisclaimerModal'
-import MobileMenu from './components/MobileMenu'
-import TopBar from './components/TopBar'
+// import MobileMenu from './components/MobileMenu'
+// import TopBar from './components/TopBar'
 import FarmsProvider from './contexts/Farms'
 import ModalsProvider from './contexts/Modals'
 import TransactionProvider from './contexts/Transactions'
@@ -18,23 +18,25 @@ import Stake from './views/Staking'
 import config from './config'
 import Homepage from './pages/Homepage'
 import muiTheme from './styles/theme'
+import NavBar from './components/NavBar'
 
 const App: React.FC = () => {
-  const [mobileMenu, setMobileMenu] = useState(false)
+  // const [mobileMenu, setMobileMenu] = useState(false)
 
-  const handleDismissMobileMenu = useCallback(() => {
-    setMobileMenu(false)
-  }, [setMobileMenu])
+  // const handleDismissMobileMenu = useCallback(() => {
+  //   setMobileMenu(false)
+  // }, [setMobileMenu])
 
-  const handlePresentMobileMenu = useCallback(() => {
-    setMobileMenu(true)
-  }, [setMobileMenu])
+  // const handlePresentMobileMenu = useCallback(() => {
+  //   setMobileMenu(true)
+  // }, [setMobileMenu])
 
   return (
     <Providers>
       {/* <Router> */}
-      <TopBar onPresentMobileMenu={handlePresentMobileMenu} />
-      <MobileMenu onDismiss={handleDismissMobileMenu} visible={mobileMenu} />
+      {/* <TopBar onPresentMobileMenu={handlePresentMobileMenu} />
+      <MobileMenu onDismiss={handleDismissMobileMenu} visible={mobileMenu} /> */}
+      <NavBar />
       {/* <div style={{
           display: "flex", 
           height: '90vh',
@@ -115,6 +117,7 @@ const Disclaimer: React.FC = () => {
     if (!seenDisclaimer) {
       onPresentDisclaimerModal()
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return <div />
