@@ -593,7 +593,7 @@ export const supportedPools = [
       '0xe2f4cc0198150a7bea98e0a2a66fecafc30a5cd0',
       '0xbffd9ff55685a3b6940c59dcdcc69b1737363be0',
       '0x7885e359a085372ebcf1ed6829402f149d02c600',
-      '0x38f9307839a8e82b071ea6fcbef029814ed88fcb',
+      '0x627846f6131a4631ddf6bb53bd682ccf51f623b3',
       '0x65fabaf7e6c5380243e063d8559d84e589db6438',
       '0xc9a72cc23f900b381fc6355afd8ee674b1f12df6',
       '0x187230ce611269b0b9fdbb62278b6c70f6ec428a',
