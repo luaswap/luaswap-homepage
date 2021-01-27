@@ -1,41 +1,19 @@
 {
   "files": {
-    "static/js/0.936a55b2.chunk.js": "/static/js/0.936a55b2.chunk.js",
     "main.css": "/static/css/main.a069fb17.chunk.css",
-    "main.js": "/static/js/main.ff8b85bc.chunk.js",
-    "runtime-main.js": "/static/js/runtime-main.e337e593.js",
-    "static/js/3.0b334cbf.chunk.js": "/static/js/3.0b334cbf.chunk.js",
-    "static/js/4.b02c545d.chunk.js": "/static/js/4.b02c545d.chunk.js",
-    "static/js/5.d22a4262.chunk.js": "/static/js/5.d22a4262.chunk.js",
-    "static/js/6.406af7ae.chunk.js": "/static/js/6.406af7ae.chunk.js",
-    "static/js/7.0659cce0.chunk.js": "/static/js/7.0659cce0.chunk.js",
-    "static/js/8.c2a21046.chunk.js": "/static/js/8.c2a21046.chunk.js",
-    "static/js/9.e8402ba3.chunk.js": "/static/js/9.e8402ba3.chunk.js",
-    "static/js/10.03f59d29.chunk.js": "/static/js/10.03f59d29.chunk.js",
-    "static/js/11.7e1caf10.chunk.js": "/static/js/11.7e1caf10.chunk.js",
+    "main.js": "/static/js/main.92029610.chunk.js",
+    "runtime-main.js": "/static/js/runtime-main.4e888963.js",
+    "static/js/2.eb2a9b6d.chunk.js": "/static/js/2.eb2a9b6d.chunk.js",
     "index.html": "/index.html",
-    "precache-manifest.5b3c7204329c2fcfe463625e528047b2.js": "/precache-manifest.5b3c7204329c2fcfe463625e528047b2.js",
+    "precache-manifest.59592ecc2972399f3d68554341e3d773.js": "/precache-manifest.59592ecc2972399f3d68554341e3d773.js",
     "service-worker.js": "/service-worker.js",
-    "static/js/3.0b334cbf.chunk.js.LICENSE.txt": "/static/js/3.0b334cbf.chunk.js.LICENSE.txt",
-    "static/js/5.d22a4262.chunk.js.LICENSE.txt": "/static/js/5.d22a4262.chunk.js.LICENSE.txt",
-    "static/js/6.406af7ae.chunk.js.LICENSE.txt": "/static/js/6.406af7ae.chunk.js.LICENSE.txt",
-    "static/js/7.0659cce0.chunk.js.LICENSE.txt": "/static/js/7.0659cce0.chunk.js.LICENSE.txt",
-    "static/js/8.c2a21046.chunk.js.LICENSE.txt": "/static/js/8.c2a21046.chunk.js.LICENSE.txt",
-    "static/media/Cup.svg": "/static/media/Cup.bf09f230.svg",
-    "static/media/homepage.png": "/static/media/homepage.1a9b09bf.png",
-    "static/media/icon-view.svg": "/static/media/icon-view.6062483f.svg",
-    "static/media/logo.png": "/static/media/logo.a13cf09b.png",
-    "static/media/lua-icon.svg": "/static/media/lua-icon.182bdf75.svg",
-    "static/media/luas-icon.svg": "/static/media/luas-icon.0fde3b98.svg",
-    "static/media/luaswap.png": "/static/media/luaswap.2c8a175f.png",
-    "static/media/metamask-fox.svg": "/static/media/metamask-fox.c06f3a3e.svg",
-    "static/media/pro-tip-icon.svg": "/static/media/pro-tip-icon.7dff606f.svg",
-    "static/media/wallet-connect.svg": "/static/media/wallet-connect.37f2bc6e.svg"
+    "static/js/2.eb2a9b6d.chunk.js.LICENSE.txt": "/static/js/2.eb2a9b6d.chunk.js.LICENSE.txt",
+    "static/media/homepage.png": "/static/media/homepage.1a9b09bf.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.e337e593.js",
-    "static/js/3.0b334cbf.chunk.js",
+    "static/js/runtime-main.4e888963.js",
+    "static/js/2.eb2a9b6d.chunk.js",
     "static/css/main.a069fb17.chunk.css",
-    "static/js/main.ff8b85bc.chunk.js"
+    "static/js/main.92029610.chunk.js"
   ]
 }
