@@ -211,7 +211,7 @@ const Homepage = () => {
             </Button>
           </Box>
         </Box>
-        <img alt="Homepage" src={homepageImg} className={classes.homepageImg} />
+        <img alt="Homepage" src="https://raw.githubusercontent.com/tomochain/luaswap-homepage/gh-pages/static/media/homepage.1a9b09bf.png" className={classes.homepageImg} />
       </Box>
     </>
   )
