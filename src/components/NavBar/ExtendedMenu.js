@@ -78,33 +78,36 @@ const ExtendedMenu = () => {
       >
         <MenuItem
           aria-label="Products - App"
-          onClick={() => redirectToUrl('https://app.luaswap.org')}
+          onClick={() => redirectToUrl('https://app.luaswap.org/#/swap')}
+        >
+          <ListItemText primary="App" secondary="Swap LUA to other tokens" />
+        </MenuItem>
+        <MenuItem
+          aria-label="Products - Pool"
+          onClick={() => redirectToUrl('https://app.luaswap.org/#/pool')}
         >
           <ListItemText
-            primary="App"
-            secondary="Swap tokens and supply liquidity"
+            primary="Pool"
+            secondary="Deposit into liquidity pool to get rewards"
           />
         </MenuItem>
-        <MenuItem aria-label="Products - Analytics" onClick={redirectToUrl}>
+        <MenuItem
+          aria-label="Products - Farming"
+          onClick={() => redirectToUrl('https://app.luaswap.org/#/farming')}
+        >
           <ListItemText
-            primary="Analytics"
-            secondary="Luaswap analytics and historical data"
+            primary="Farming"
+            secondary="Stake to variety of pool & earn LUA"
           />
         </MenuItem>
-        <MenuItem aria-label="Products - Token Lists" onClick={redirectToUrl}>
+        <MenuItem
+          aria-label="Products - Lua Safe"
+          onClick={() => redirectToUrl('https://app.luaswap.org/#/lua-safe')}
+        >
           <ListItemText
-            primary="Token Lists"
-            secondary="A new Ethereum token list standard"
+            primary="LuaSafe"
+            secondary="Stake LUA to get xLUA & swap to other tokens"
           />
-        </MenuItem>
-        <MenuItem aria-label="Products - Lua Socks" onClick={redirectToUrl}>
-          <ListItemText
-            primary="Lua Socks"
-            secondary="Dynamically priced socks"
-          />
-        </MenuItem>
-        <MenuItem aria-label="Products - Luapig" onClick={redirectToUrl}>
-          <ListItemText primary="Luapig" secondary="Optimistic rollup demo" />
         </MenuItem>
       </Menu>
       <Grid
@@ -133,8 +136,19 @@ const ExtendedMenu = () => {
         onClose={handleClosePopover}
         className={classes.popover}
       >
-        <MenuItem aria-label="Governance - LUA Token" onClick={redirectToUrl}>
-          <ListItemText primary="LUA Token" />
+        <MenuItem
+          aria-label="Governance - LUA"
+          onClick={() =>
+            redirectToUrl('https://snapshot.luaswap.org/#/luaswap')
+          }
+        >
+          <ListItemText primary="LUA" />
+        </MenuItem>
+        <MenuItem
+          aria-label="Governance - xLUA"
+          onClick={() => redirectToUrl('https://snapshot.luaswap.org/#/xlua')}
+        >
+          <ListItemText primary="xLUA" />
         </MenuItem>
       </Menu>
       <Grid

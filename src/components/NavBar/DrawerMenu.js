@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 import {
   SwipeableDrawer,
   IconButton,
@@ -8,34 +8,35 @@ import {
   ListItemText,
   Collapse,
   Box,
-} from "@material-ui/core";
+} from '@material-ui/core'
 import {
   ViewHeadline as ViewHeadlineIcon,
   Close as CloseIcon,
-} from "@material-ui/icons";
+} from '@material-ui/icons'
+import { redirectToUrl } from '../../utils'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    marginLeft: "auto",
-    [theme.breakpoints.up("md")]: {
-      display: "none",
+    marginLeft: 'auto',
+    [theme.breakpoints.up('md')]: {
+      display: 'none',
     },
   },
   triggerBtn: {
     color: theme.color.text.main,
   },
   menuItem: {
-    fontSize: "18px !important",
+    fontSize: '18px !important',
   },
   subMenuItem: {
     paddingLeft: 30,
   },
-}));
+}))
 
 const DrawerMenu = () => {
-  const [open, setOpen] = useState(false);
-  const [expandedId, setExpandedId] = useState("");
-  const classes = useStyles();
+  const [open, setOpen] = useState(false)
+  const [expandedId, setExpandedId] = useState('')
+  const classes = useStyles()
 
   return (
     <div className={classes.root}>
@@ -58,48 +59,106 @@ const DrawerMenu = () => {
           </ListItem>
           <ListItem
             button
-            onClick={() => setExpandedId("menu-products")}
+            onClick={() => setExpandedId('menu-products')}
             className={classes.menuItem}
           >
             <ListItemText primary="Products" />
           </ListItem>
-          <Collapse in={expandedId === "menu-products"} timeout="auto">
+          <Collapse in={expandedId === 'menu-products'} timeout="auto">
             <List component="div" disablePadding>
-              <ListItem button className={classes.subMenuItem}>
+              <ListItem
+                button
+                className={classes.subMenuItem}
+                onClick={() => redirectToUrl('https://app.luaswap.org/#/swap')}
+              >
                 <ListItemText
                   primary="App"
-                  secondary="Swap tokens and supply liquidity"
+                  secondary="Swap LUA to other tokens"
                 />
               </ListItem>
-              <ListItem button className={classes.subMenuItem}>
+              <ListItem
+                button
+                className={classes.subMenuItem}
+                onClick={() => redirectToUrl('https://app.luaswap.org/#/pool')}
+              >
                 <ListItemText
-                  primary="Analytics"
-                  secondary="Luaswap analytics and historical data"
+                  primary="Pool"
+                  secondary="Deposit into liquidity pool to get rewards"
+                />
+              </ListItem>
+              <ListItem
+                button
+                className={classes.subMenuItem}
+                onClick={() =>
+                  redirectToUrl('https://app.luaswap.org/#/farming')
+                }
+              >
+                <ListItemText
+                  primary="Farming"
+                  secondary="Stake to variety of pool & earn LUA"
+                />
+              </ListItem>
+              <ListItem
+                button
+                className={classes.subMenuItem}
+                onClick={() =>
+                  redirectToUrl('https://app.luaswap.org/#/lua-safe')
+                }
+              >
+                <ListItemText
+                  primary="LuaSafe"
+                  secondary="Stake LUA to get xLUA & swap to other tokens"
                 />
               </ListItem>
             </List>
           </Collapse>
           <ListItem
             button
-            onClick={() => setExpandedId("menu-developers")}
+            onClick={() => setExpandedId('menu-governance')}
             className={classes.menuItem}
           >
-            <ListItemText primary="Developers" />
+            <ListItemText primary="Governance" />
           </ListItem>
-          <Collapse in={expandedId === "menu-developers"} timeout="auto">
+          <Collapse in={expandedId === 'menu-governance'} timeout="auto">
+            <List component="div" disablePadding>
+              <ListItem
+                button
+                className={classes.subMenuItem}
+                onClick={() =>
+                  redirectToUrl('https://snapshot.luaswap.org/#/luaswap')
+                }
+              >
+                <ListItemText primary="LUA" />
+              </ListItem>
+              <ListItem
+                button
+                className={classes.subMenuItem}
+                onClick={() =>
+                  redirectToUrl('https://snapshot.luaswap.org/#/xlua')
+                }
+              >
+                <ListItemText primary="xLUA" />
+              </ListItem>
+            </List>
+          </Collapse>
+          <ListItem
+            button
+            onClick={() => setExpandedId('menu-faq')}
+            className={classes.menuItem}
+          >
+            <ListItemText primary="FAQ" />
+          </ListItem>
+          <Collapse in={expandedId === 'menu-faq'} timeout="auto">
             <List component="div" disablePadding>
               <ListItem button className={classes.subMenuItem}>
                 <ListItemText primary="Documentation" />
-              </ListItem>
-              <ListItem button className={classes.subMenuItem}>
-                <ListItemText primary="GitHub" />
               </ListItem>
             </List>
           </Collapse>
         </List>
       </SwipeableDrawer>
     </div>
-  );
-};
+  )
+}
 
-export default DrawerMenu;
+export default DrawerMenu
