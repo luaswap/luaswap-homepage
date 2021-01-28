@@ -77,10 +77,10 @@ const ExtendedMenu = () => {
         className={classes.popover}
       >
         <MenuItem
-          aria-label="Products - App"
+          aria-label="Products - Swap"
           onClick={() => redirectToUrl('https://app.luaswap.org/#/swap')}
         >
-          <ListItemText primary="App" secondary="Swap LUA to other tokens" />
+          <ListItemText primary="Swap" secondary="Swap tokens" />
         </MenuItem>
         <MenuItem
           aria-label="Products - Pool"
@@ -88,25 +88,25 @@ const ExtendedMenu = () => {
         >
           <ListItemText
             primary="Pool"
-            secondary="Deposit into liquidity pool to get rewards"
+            secondary="Deposit tokens into liquidity pools and get rewards"
           />
         </MenuItem>
         <MenuItem
-          aria-label="Products - Farming"
+          aria-label="Products - Farm"
           onClick={() => redirectToUrl('https://app.luaswap.org/#/farming')}
         >
           <ListItemText
-            primary="Farming"
-            secondary="Stake to variety of pool & earn LUA"
+            primary="Farm"
+            secondary="Stake LP tokens across a variety of pools & earn LUA"
           />
         </MenuItem>
         <MenuItem
-          aria-label="Products - Lua Safe"
+          aria-label="Products - LuaSafe"
           onClick={() => redirectToUrl('https://app.luaswap.org/#/lua-safe')}
         >
           <ListItemText
             primary="LuaSafe"
-            secondary="Stake LUA to get xLUA & swap to other tokens"
+            secondary="Stake LUA and earn rewards"
           />
         </MenuItem>
       </Menu>
@@ -177,7 +177,10 @@ const ExtendedMenu = () => {
         onClose={handleClosePopover}
         className={classes.popover}
       >
-        <MenuItem aria-label="FAQ - Documentation" onClick={redirectToUrl}>
+        <MenuItem
+          aria-label="FAQ - Documentation"
+          onClick={() => redirectToUrl('https://docs.tomochain.com/luaswap')}
+        >
           <ListItemText primary="Documentation" />
         </MenuItem>
       </Menu>

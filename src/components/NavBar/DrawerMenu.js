@@ -71,10 +71,7 @@ const DrawerMenu = () => {
                 className={classes.subMenuItem}
                 onClick={() => redirectToUrl('https://app.luaswap.org/#/swap')}
               >
-                <ListItemText
-                  primary="App"
-                  secondary="Swap LUA to other tokens"
-                />
+                <ListItemText primary="Swap" secondary="Swap tokens" />
               </ListItem>
               <ListItem
                 button
@@ -83,7 +80,7 @@ const DrawerMenu = () => {
               >
                 <ListItemText
                   primary="Pool"
-                  secondary="Deposit into liquidity pool to get rewards"
+                  secondary="Deposit tokens into liquidity pools and get rewards"
                 />
               </ListItem>
               <ListItem
@@ -94,8 +91,8 @@ const DrawerMenu = () => {
                 }
               >
                 <ListItemText
-                  primary="Farming"
-                  secondary="Stake to variety of pool & earn LUA"
+                  primary="Farm"
+                  secondary="Stake LP tokens across a variety of pools & earn LUA"
                 />
               </ListItem>
               <ListItem
@@ -107,7 +104,7 @@ const DrawerMenu = () => {
               >
                 <ListItemText
                   primary="LuaSafe"
-                  secondary="Stake LUA to get xLUA & swap to other tokens"
+                  secondary="Stake LUA and earn rewards"
                 />
               </ListItem>
             </List>
@@ -150,7 +147,13 @@ const DrawerMenu = () => {
           </ListItem>
           <Collapse in={expandedId === 'menu-faq'} timeout="auto">
             <List component="div" disablePadding>
-              <ListItem button className={classes.subMenuItem}>
+              <ListItem
+                button
+                className={classes.subMenuItem}
+                onClick={() =>
+                  redirectToUrl('https://docs.tomochain.com/luaswap')
+                }
+              >
                 <ListItemText primary="Documentation" />
               </ListItem>
             </List>
