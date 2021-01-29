@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Box, Typography, makeStyles, Button } from '@material-ui/core'
+import { Box, Typography, makeStyles, Button, Link } from '@material-ui/core'
 import { Helmet } from 'react-helmet'
 import * as Service from '../../services'
 import homepageImg from '../../assets/images/homepage.png'
@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     alignItems: 'flex-start',
+    // minHeight: '100vh',
     color: theme.color.text.main,
     fontFamily: '"Nunito Sans", sans-serif !important',
     [theme.breakpoints.down('sm')]: {
@@ -64,12 +65,12 @@ const useStyles = makeStyles((theme) => ({
   statLabel: {
     marginBottom: 5,
     color: theme.color.text.main,
-    fontSize: 16,
+    fontSize: 20,
     fontWeight: 600,
   },
   statValue: {
     color: theme.color.text.highlighted,
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: 700,
   },
   launchBtn: {
@@ -79,7 +80,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 8,
     backgroundColor: theme.color.primary.main,
     color: theme.color.text.dark,
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: 800,
     textTransform: 'none',
     '&:hover': {
@@ -118,26 +119,33 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: theme.color.background.light,
     },
   },
+  socialLink: {
+    color: theme.color.text.main,
+    fontSize: 14,
+    fontWeight: 600,
+    cursor: 'pointer',
+    '&:not(:first-child)': {
+      marginLeft: 50,
+    },
+  },
 }))
 
 const Homepage = () => {
   const [totalLiquidity, setTotalLiquidity] = useState(0)
   const [volume, setVolume] = useState(0)
-  const [totalSupply, setTotalSupply] = useState(0)
   const classes = useStyles()
 
   useEffect(() => {
     Service.getTotalLiquidityData().then((data) => {
       setTotalLiquidity(data.totalLiquidity)
-      setVolume(data.volume)
     })
-    Service.getTotalSupply().then((value) => {
-      setTotalSupply(value)
+    Service.get24hVolumeChange().then((data) => {
+      setVolume(data.value)
     })
   }, [])
 
   return (
-    <>
+    <Box display="flex" flexDirection="column" minHeight="calc(100vh - 70px)">
       <Helmet>
         <title>{'Welcome to LuaSwap'}</title>
       </Helmet>
@@ -176,28 +184,15 @@ const Homepage = () => {
             </Box>
             <Box className={classes.statItem}>
               <img
-                alt="Volume 24h"
+                alt="24h Volume"
                 src={volumeIcon}
                 className={classes.statIcon}
               />
               <Typography component="div" className={classes.statLabel}>
-                {'Volume 24h'}
+                {'24h Volume'}
               </Typography>
               <Typography component="div" className={classes.statValue}>
                 {`${reduceLongNumber(volume)} USD`}
-              </Typography>
-            </Box>
-            <Box className={classes.statItem}>
-              <img
-                alt="Total Transactions"
-                src={transactionIcon}
-                className={classes.statIcon}
-              />
-              <Typography component="div" className={classes.statLabel}>
-                {'Total Supply'}
-              </Typography>
-              <Typography component="div" className={classes.statValue}>
-                {reduceFractionDigit(totalSupply, 2)}
               </Typography>
             </Box>
           </Box>
@@ -211,9 +206,27 @@ const Homepage = () => {
             </Button>
           </Box>
         </Box>
-        <img alt="Homepage" src="https://raw.githubusercontent.com/tomochain/luaswap-homepage/gh-pages/static/media/homepage.1a9b09bf.png" className={classes.homepageImg} />
+        <img
+          alt="Homepage"
+          src="https://raw.githubusercontent.com/tomochain/luaswap-homepage/gh-pages/static/media/homepage.1a9b09bf.png"
+          className={classes.homepageImg}
+        />
       </Box>
-    </>
+      <Box display="flex" justifyContent="center" mt="auto" mb={[13, 3]}>
+        <Link
+          onClick={() => redirectToUrl('https://twitter.com/luaswap')}
+          className={classes.socialLink}
+        >
+          {'Twitter'}
+        </Link>
+        <Link
+          onClick={() => redirectToUrl('https://t.me/luaswap')}
+          className={classes.socialLink}
+        >
+          {'Telegram'}
+        </Link>
+      </Box>
+    </Box>
   )
 }
 

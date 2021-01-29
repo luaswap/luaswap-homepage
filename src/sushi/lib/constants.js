@@ -26,6 +26,8 @@ export const INTEGERS = {
   INTEREST_RATE_BASE: new BigNumber('1e18'),
 }
 
+export const FACTORY_ADDRESS = '0x0388C1E0f210AbAe597B7DE712B9510C6C36C857'
+
 export const addressMap = {
   uniswapFactory: '0xc0a47dFe034B400B47bDaD5FecDa2621de6c4d95',
   uniswapFactoryV2: '0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f',
@@ -638,21 +640,20 @@ export const supportedPools = [
       'https://app.luaswap.org/#/remove/0x2baecdf43734f22fd5c152db08e3c27233f0c7d2/0xb1f66997a5760428d3a87d68b90bfe0ae64121cc',
   },
 ]
-.map(e => {
-  if (
-    [
-      '0x96258bb42779bf300cf69c9b5bd2ba5245cb4bc4',
-      '0xe2f4cc0198150a7bea98e0a2a66fecafc30a5cd0',
-      '0xbffd9ff55685a3b6940c59dcdcc69b1737363be0',
-      '0x7885e359a085372ebcf1ed6829402f149d02c600',
-      '0x627846f6131a4631ddf6bb53bd682ccf51f623b3',
-      '0x65fabaf7e6c5380243e063d8559d84e589db6438',
-      '0xc9a72cc23f900b381fc6355afd8ee674b1f12df6',
-      '0x187230ce611269b0b9fdbb62278b6c70f6ec428a',
-      '0xd6be3b9780572f0215afb3e4d15751955503cebe'
-    ]
-    .indexOf(e.lpAddresses[1].toLowerCase()) >= 0)
-    {
+  .map((e) => {
+    if (
+      [
+        '0x96258bb42779bf300cf69c9b5bd2ba5245cb4bc4',
+        '0xe2f4cc0198150a7bea98e0a2a66fecafc30a5cd0',
+        '0xbffd9ff55685a3b6940c59dcdcc69b1737363be0',
+        '0x7885e359a085372ebcf1ed6829402f149d02c600',
+        '0x627846f6131a4631ddf6bb53bd682ccf51f623b3',
+        '0x65fabaf7e6c5380243e063d8559d84e589db6438',
+        '0xc9a72cc23f900b381fc6355afd8ee674b1f12df6',
+        '0x187230ce611269b0b9fdbb62278b6c70f6ec428a',
+        '0xd6be3b9780572f0215afb3e4d15751955503cebe',
+      ].indexOf(e.lpAddresses[1].toLowerCase()) >= 0
+    ) {
       e.isHot = false
       e.isNew = true
     } else {
