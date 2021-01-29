@@ -2,15 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { Box, Typography, makeStyles, Button, Link } from '@material-ui/core'
 import { Helmet } from 'react-helmet'
 import * as Service from '../../services'
-import homepageImg from '../../assets/images/homepage.png'
 import liquidityIcon from '../../assets/images/liquidity.png'
 import volumeIcon from '../../assets/images/volume.png'
-import transactionIcon from '../../assets/images/transaction.png'
-import {
-  reduceFractionDigit,
-  reduceLongNumber,
-  redirectToUrl,
-} from '../../utils'
+import { reduceLongNumber, redirectToUrl } from '../../utils'
 import '../../'
 
 const useStyles = makeStyles((theme) => ({
@@ -127,6 +121,11 @@ const useStyles = makeStyles((theme) => ({
     '&:not(:first-child)': {
       marginLeft: 50,
     },
+    [theme.breakpoints.down('sm')]: {
+      '&:not(:first-child)': {
+        marginLeft: 0,
+      },
+    },
   },
 }))
 
@@ -212,7 +211,20 @@ const Homepage = () => {
           className={classes.homepageImg}
         />
       </Box>
-      <Box display="flex" justifyContent="center" mt="auto" mb={[13, 3]}>
+      <Box
+        display="flex"
+        justifyContent={['space-around', 'center']}
+        mt="auto"
+        mb={[13, 3]}
+      >
+        <Link
+          onClick={() =>
+            redirectToUrl('https://github.com/tomochain/luaswap-interface')
+          }
+          className={classes.socialLink}
+        >
+          {'GitHub'}
+        </Link>
         <Link
           onClick={() => redirectToUrl('https://twitter.com/luaswap')}
           className={classes.socialLink}
@@ -224,6 +236,12 @@ const Homepage = () => {
           className={classes.socialLink}
         >
           {'Telegram'}
+        </Link>
+        <Link
+          onClick={() => redirectToUrl('https://medium.com/luaswap')}
+          className={classes.socialLink}
+        >
+          {'Medium'}
         </Link>
       </Box>
     </Box>
