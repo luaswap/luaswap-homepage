@@ -219,7 +219,7 @@ const Homepage = () => {
       >
         <Link
           onClick={() =>
-            redirectToUrl('https://github.com/tomochain/luaswap-interface')
+            redirectToUrl('https://github.com/tomochain/luaswap-core')
           }
           className={classes.socialLink}
         >
