@@ -9,6 +9,7 @@ import {
 } from '@material-ui/core'
 import { redirectToUrl } from '../../utils'
 import { ArrowDropDown as ArrowDropDownIcon } from '@material-ui/icons'
+import { MENU } from '../../constant/menu'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,8 +27,6 @@ const useStyles = makeStyles((theme) => ({
     cursor: 'pointer',
     '&:hover': {
       color: theme.color.text.highlighted,
-      // transform: 'translate(3px, 3px)',
-      // transition: '0.2s ease-out',
     },
   },
 }))
@@ -50,140 +49,53 @@ const ExtendedMenu = () => {
 
   return (
     <Grid container alignItems="center" className={classes.root}>
-      <Grid
-        item
-        aria-owns="menu-products"
-        aria-haspopup="true"
-        onClick={(evt) => handleOpenPopover(evt, 'menu-products')}
-        className={classes.menuBtn}
-      >
-        <Typography style={{ marginRight: 10 }}>Products</Typography>
-        <ArrowDropDownIcon />
-      </Grid>
-      <Menu
-        id="menu-products"
-        open={subMenuId === 'menu-products'}
-        anchorEl={anchorEl}
-        getContentAnchorEl={null}
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'left',
-        }}
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'left',
-        }}
-        onClose={handleClosePopover}
-        className={classes.popover}
-      >
-        <MenuItem
-          aria-label="Products - Swap"
-          onClick={() => redirectToUrl('https://app.luaswap.org/#/swap')}
-        >
-          <ListItemText primary="Swap" secondary="Swap tokens" />
-        </MenuItem>
-        <MenuItem
-          aria-label="Products - Pool"
-          onClick={() => redirectToUrl('https://app.luaswap.org/#/pool')}
-        >
-          <ListItemText
-            primary="Pool"
-            secondary="Deposit tokens into liquidity pools and get rewards"
-          />
-        </MenuItem>
-        <MenuItem
-          aria-label="Products - Farm"
-          onClick={() => redirectToUrl('https://app.luaswap.org/#/farming')}
-        >
-          <ListItemText
-            primary="Farm"
-            secondary="Stake LP tokens across a variety of pools & earn LUA"
-          />
-        </MenuItem>
-        <MenuItem
-          aria-label="Products - LuaSafe"
-          onClick={() => redirectToUrl('https://app.luaswap.org/#/lua-safe')}
-        >
-          <ListItemText
-            primary="LuaSafe"
-            secondary="Stake LUA and earn rewards"
-          />
-        </MenuItem>
-      </Menu>
-      <Grid
-        item
-        aria-owns="menu-governance"
-        aria-haspopup="true"
-        onClick={(evt) => handleOpenPopover(evt, 'menu-governance')}
-        className={classes.menuBtn}
-      >
-        <Typography style={{ marginRight: 10 }}>Governance</Typography>
-        <ArrowDropDownIcon />
-      </Grid>
-      <Menu
-        id="menu-governance"
-        open={subMenuId === 'menu-governance'}
-        anchorEl={anchorEl}
-        getContentAnchorEl={null}
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'left',
-        }}
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'left',
-        }}
-        onClose={handleClosePopover}
-        className={classes.popover}
-      >
-        <MenuItem
-          aria-label="Governance - LUA"
-          onClick={() =>
-            redirectToUrl('https://snapshot.luaswap.org/#/luaswap')
-          }
-        >
-          <ListItemText primary="LUA" />
-        </MenuItem>
-        <MenuItem
-          aria-label="Governance - xLUA"
-          onClick={() => redirectToUrl('https://snapshot.luaswap.org/#/xlua')}
-        >
-          <ListItemText primary="xLUA" />
-        </MenuItem>
-      </Menu>
-      <Grid
-        item
-        aria-owns="menu-faq"
-        aria-haspopup="true"
-        onClick={(evt) => handleOpenPopover(evt, 'menu-faq')}
-        className={classes.menuBtn}
-      >
-        <Typography style={{ marginRight: 10 }}>FAQ</Typography>
-        <ArrowDropDownIcon />
-      </Grid>
-      <Menu
-        id="menu-faq"
-        open={subMenuId === 'menu-faq'}
-        anchorEl={anchorEl}
-        getContentAnchorEl={null}
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'left',
-        }}
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'left',
-        }}
-        onClose={handleClosePopover}
-        className={classes.popover}
-      >
-        <MenuItem
-          aria-label="FAQ - Documentation"
-          onClick={() => redirectToUrl('https://docs.tomochain.com/luaswap')}
-        >
-          <ListItemText primary="Documentation" />
-        </MenuItem>
-      </Menu>
+      {MENU.map((menu) => {
+        return (
+          <>
+            <Grid
+              item
+              aria-owns={menu.id}
+              aria-haspopup="true"
+              onClick={(evt) => handleOpenPopover(evt, menu.id)}
+              className={classes.menuBtn}
+            >
+              <Typography style={{ marginRight: 10 }}>{menu.label}</Typography>
+              {menu.items && menu.items.length > 0 && <ArrowDropDownIcon />}
+            </Grid>
+            <Menu
+              id={menu.id}
+              open={subMenuId === menu.id}
+              anchorEl={anchorEl}
+              getContentAnchorEl={null}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'left',
+              }}
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'left',
+              }}
+              onClose={handleClosePopover}
+              className={classes.popover}
+            >
+              {menu.items &&
+                menu.items.map((item) => {
+                  return (
+                    <MenuItem
+                      aria-label={item.ariaLabel}
+                      onClick={() => redirectToUrl(item.url)}
+                    >
+                      <ListItemText
+                        primary={item.label}
+                        secondary={item.subLabel}
+                      />
+                    </MenuItem>
+                  )
+                })}
+            </Menu>
+          </>
+        )
+      })}
     </Grid>
   )
 }

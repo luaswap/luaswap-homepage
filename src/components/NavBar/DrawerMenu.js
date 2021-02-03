@@ -14,6 +14,7 @@ import {
   Close as CloseIcon,
 } from '@material-ui/icons'
 import { redirectToUrl } from '../../utils'
+import { MENU } from '../../constant/menu'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -57,107 +58,38 @@ const DrawerMenu = () => {
               </IconButton>
             </Box>
           </ListItem>
-          <ListItem
-            button
-            onClick={() => setExpandedId('menu-products')}
-            className={classes.menuItem}
-          >
-            <ListItemText primary="Products" />
-          </ListItem>
-          <Collapse in={expandedId === 'menu-products'} timeout="auto">
-            <List component="div" disablePadding>
-              <ListItem
-                button
-                className={classes.subMenuItem}
-                onClick={() => redirectToUrl('https://app.luaswap.org/#/swap')}
-              >
-                <ListItemText primary="Swap" secondary="Swap tokens" />
-              </ListItem>
-              <ListItem
-                button
-                className={classes.subMenuItem}
-                onClick={() => redirectToUrl('https://app.luaswap.org/#/pool')}
-              >
-                <ListItemText
-                  primary="Pool"
-                  secondary="Deposit tokens into liquidity pools and get rewards"
-                />
-              </ListItem>
-              <ListItem
-                button
-                className={classes.subMenuItem}
-                onClick={() =>
-                  redirectToUrl('https://app.luaswap.org/#/farming')
-                }
-              >
-                <ListItemText
-                  primary="Farm"
-                  secondary="Stake LP tokens across a variety of pools & earn LUA"
-                />
-              </ListItem>
-              <ListItem
-                button
-                className={classes.subMenuItem}
-                onClick={() =>
-                  redirectToUrl('https://app.luaswap.org/#/lua-safe')
-                }
-              >
-                <ListItemText
-                  primary="LuaSafe"
-                  secondary="Stake LUA and earn rewards"
-                />
-              </ListItem>
-            </List>
-          </Collapse>
-          <ListItem
-            button
-            onClick={() => setExpandedId('menu-governance')}
-            className={classes.menuItem}
-          >
-            <ListItemText primary="Governance" />
-          </ListItem>
-          <Collapse in={expandedId === 'menu-governance'} timeout="auto">
-            <List component="div" disablePadding>
-              <ListItem
-                button
-                className={classes.subMenuItem}
-                onClick={() =>
-                  redirectToUrl('https://snapshot.luaswap.org/#/luaswap')
-                }
-              >
-                <ListItemText primary="LUA" />
-              </ListItem>
-              <ListItem
-                button
-                className={classes.subMenuItem}
-                onClick={() =>
-                  redirectToUrl('https://snapshot.luaswap.org/#/xlua')
-                }
-              >
-                <ListItemText primary="xLUA" />
-              </ListItem>
-            </List>
-          </Collapse>
-          <ListItem
-            button
-            onClick={() => setExpandedId('menu-faq')}
-            className={classes.menuItem}
-          >
-            <ListItemText primary="FAQ" />
-          </ListItem>
-          <Collapse in={expandedId === 'menu-faq'} timeout="auto">
-            <List component="div" disablePadding>
-              <ListItem
-                button
-                className={classes.subMenuItem}
-                onClick={() =>
-                  redirectToUrl('https://docs.tomochain.com/luaswap')
-                }
-              >
-                <ListItemText primary="Documentation" />
-              </ListItem>
-            </List>
-          </Collapse>
+          {MENU.map((menu) => {
+            return (
+              <>
+                <ListItem
+                  button
+                  onClick={() => setExpandedId(menu.id)}
+                  className={classes.menuItem}
+                >
+                  <ListItemText primary={menu.label} />
+                </ListItem>
+                <Collapse in={expandedId === menu.id} timeout="auto">
+                  <List component="div" disablePadding>
+                    {menu.items &&
+                      menu.items.map((item) => {
+                        return (
+                          <ListItem
+                            button
+                            className={classes.subMenuItem}
+                            onClick={() => redirectToUrl(item.url)}
+                          >
+                            <ListItemText
+                              primary={item.label}
+                              secondary={item.subLabel}
+                            />
+                          </ListItem>
+                        )
+                      })}
+                  </List>
+                </Collapse>
+              </>
+            )
+          })}
         </List>
       </SwipeableDrawer>
     </div>
