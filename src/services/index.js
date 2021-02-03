@@ -165,8 +165,6 @@ export const get24hVolumeChange = async () => {
     throw new Error('Failed to fetch volume changes from subgraph')
   }
 
-  console.log('getVolume', volumeData)
-
   const currentVolume = Number(
     _get(
       volumeData,
