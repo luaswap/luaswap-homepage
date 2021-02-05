@@ -27,6 +27,18 @@ export const MENU = [
         subLabel: 'Stake LUA and earn rewards',
         url: 'https://app.luaswap.org/#/lua-safe',
       },
+      {
+        ariaLabel: 'Products - Chart | Ethereum',
+        label: 'Chart | Ethereum',
+        subLabel: 'LuaSwap Protocol Analytics on Ethereum',
+        url: 'https://info.luaswap.org/home',
+      },
+      {
+        ariaLabel: 'Products - Chart | TomoChain',
+        label: 'Chart | TomoChain',
+        subLabel: 'LuaSwap Protocol Analytics on TomoChain',
+        url: 'https://info.luaswap.org/tomochain/home',
+      },
     ],
   },
   {
