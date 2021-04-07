@@ -157,10 +157,7 @@ const Homepage = () => {
         <Box mr={[0, 4, 5]}>
           <Box className={classes.titleContainer}>
             <Typography component="div" className={classes.introText}>
-              {'Multi-chain liquidity protocol for '}
-              <Typography component="div" className={classes.highlightedText}>
-                {'emerging token projects'}
-              </Typography>
+              {'Multi-chain liquidity and exchange protocol'}
             </Typography>
           </Box>
           <Box
