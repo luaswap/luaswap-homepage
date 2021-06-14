@@ -10,6 +10,12 @@ export const MENU = [
         url: 'https://app.luaswap.org/#/swap',
       },
       {
+        ariaLabel: 'Products - OrderBook',
+        label: 'OrderBook',
+        subLabel: 'OrderBook for LuaSwap',
+        url: 'https://app.luaswap.org/orderbook/#/',
+      },
+      {
         ariaLabel: 'Products - Pool',
         label: 'Pool',
         subLabel: 'Deposit tokens into liquidity pools and get rewards',
