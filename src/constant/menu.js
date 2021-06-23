@@ -6,13 +6,13 @@ export const MENU = [
       {
         ariaLabel: 'Products - Swap',
         label: 'Swap',
-        subLabel: 'Swap tokens',
+        subLabel: 'Swap tokens instantly',
         url: 'https://app.luaswap.org/#/swap',
       },
       {
         ariaLabel: 'Products - OrderBook',
         label: 'OrderBook',
-        subLabel: 'OrderBook for LuaSwap',
+        subLabel: 'Place limit orders at specified prices (TomoChain version)',
         url: 'https://app.luaswap.org/orderbook/#/',
       },
       {
