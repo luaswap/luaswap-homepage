@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet'
 import * as Service from '../../services'
 import liquidityIcon from '../../assets/images/liquidity.png'
 import volumeIcon from '../../assets/images/volume.png'
+import starterIcon from '../../assets/images/starter.png'
 import { reduceLongNumber, redirectToUrl } from '../../utils'
 import '../../'
 
@@ -22,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
       margin: '100px 80px 0px 80px',
     },
     [theme.breakpoints.up('lg')]: {
-      margin: '155px 135px 0px 135px',
+      margin: '85px 135px 0px 135px',
     },
   },
   titleContainer: {
@@ -148,6 +149,17 @@ const Homepage = () => {
       <Helmet>
         <title>{'Welcome to LuaSwap'}</title>
       </Helmet>
+      <div style={{textAlign: 'center'}}>
+        <a target="__blank" href="https://medium.com/tomochain/introducing-luastarter-the-multi-chain-ido-platform-on-luaswap-b3a97e877871">
+        <img src={starterIcon} style={{
+          marginTop: 20,
+          width: 400,
+          maxWidth: '90%',
+          borderRadius: 10
+        }}/>
+        </a>
+
+      </div>
       <Box
         display="flex"
         justifyContent="space-between"
