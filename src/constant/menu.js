@@ -10,6 +10,12 @@ export const MENU = [
         url: 'https://app.luaswap.org/#/swap',
       },
       {
+        ariaLabel: 'LuaStarter',
+        label: 'LuaStarter',
+        subLabel: 'The multi-chain IDO platform',
+        url: 'https://starter.luaswap.org',
+      },
+      {
         ariaLabel: 'Products - OrderBook',
         label: 'OrderBook',
         subLabel: 'Place limit orders at specified prices (TomoChain version)',
