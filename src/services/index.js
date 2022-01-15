@@ -16,7 +16,7 @@ const blockRouteEthereum = axios.create({
 })
 
 const graphRouteTomoChain = axios.create({
-  baseURL: 'https://api.luaswap.org/subgraphs/name/phucngh/Luaswap',
+  baseURL: 'https://api.luaswap.org/subgraphs/name/phucngh/Luaswap3',
 })
 const blockRouteTomoChain = axios.create({
   baseURL:
