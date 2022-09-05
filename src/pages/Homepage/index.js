@@ -4,7 +4,8 @@ import { Helmet } from 'react-helmet'
 import * as Service from '../../services'
 import liquidityIcon from '../../assets/images/liquidity.png'
 import volumeIcon from '../../assets/images/volume.png'
-import starterIcon from '../../assets/images/starter.png'
+import starterIcon from '../../assets/images/starter.jpg'
+import eventIcon from '../../assets/images/event-btn.png'
 import { reduceLongNumber, redirectToUrl } from '../../utils'
 import '../../'
 
@@ -128,6 +129,18 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
+
+  eventBtn: {
+    textAlign: 'center', 
+    position: 'absolute', 
+    bottom: '20px', 
+    right: '20px', 
+    transition: 'all 0.5s ease-in-out',
+    '&:hover': {
+      transform: 'scale(1.1)',
+      transition: 'all 0.5s ease-in-out'
+    }
+  }
 }))
 
 const Homepage = () => {
@@ -146,17 +159,25 @@ const Homepage = () => {
 
   return (
     <Box display="flex" flexDirection="column" minHeight="calc(100vh - 70px)">
+      <div className={classes.eventBtn}>
+        <a target="__blank" href="http://luaturns2.luaswap.org/">
+          <img src={eventIcon} style={{
+            width: 200,
+            borderRadius: 5,
+          }} />
+        </a>
+      </div>
       <Helmet>
         <title>{'Welcome to LuaSwap'}</title>
       </Helmet>
-      <div style={{textAlign: 'center'}}>
+      <div style={{ textAlign: 'center' }}>
         <a target="__blank" href="https://medium.com/tomochain/introducing-luastarter-the-multi-chain-ido-platform-on-luaswap-b3a97e877871">
-        <img src={starterIcon} style={{
-          marginTop: 20,
-          width: 400,
-          maxWidth: '90%',
-          borderRadius: 10
-        }}/>
+          <img src={starterIcon} style={{
+            marginTop: 20,
+            width: 800,
+            maxWidth: '90%',
+            borderRadius: 10
+          }} />
         </a>
 
       </div>
