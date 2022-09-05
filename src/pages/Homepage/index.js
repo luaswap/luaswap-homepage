@@ -139,6 +139,10 @@ const useStyles = makeStyles((theme) => ({
     '&:hover': {
       transform: 'scale(1.1)',
       transition: 'all 0.5s ease-in-out'
+    },
+
+    [theme.breakpoints.down('sm')]: {
+      bottom: '120px', 
     }
   }
 }))
@@ -158,7 +162,7 @@ const Homepage = () => {
   }, [])
 
   return (
-    <Box display="flex" flexDirection="column" minHeight="calc(100vh - 70px)">
+    <Box display="flex" flexDirection="column" minHeight="calc(100vh - 70px)" style={{position: 'relative', }}>
       <div className={classes.eventBtn}>
         <a target="__blank" href="http://luaturns2.luaswap.org/">
           <img src={eventIcon} style={{
