@@ -171,7 +171,7 @@ const Homepage = () => {
         <title>{'Welcome to LuaSwap'}</title>
       </Helmet>
       <div style={{ textAlign: 'center' }}>
-        <a target="__blank" href="https://medium.com/tomochain/introducing-luastarter-the-multi-chain-ido-platform-on-luaswap-b3a97e877871">
+        <a target="__blank" href="https://luaturns2.luaswap.org/">
           <img src={starterIcon} style={{
             marginTop: 20,
             width: 800,
