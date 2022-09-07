@@ -19,7 +19,7 @@ export const MENU = [
         ariaLabel: 'Products - OrderBook',
         label: 'OrderBook',
         subLabel: 'Place limit orders at specified prices (TomoChain version)',
-        url: 'https://app.luaswap.org/orderbook/#/',
+        url: 'http://orderbook.luaswap.org/',
       },
       {
         ariaLabel: 'Products - Pool',
