@@ -163,18 +163,18 @@ const Homepage = () => {
 
   return (
     <Box display="flex" flexDirection="column" minHeight="calc(100vh - 70px)" style={{position: 'relative', }}>
-      <div className={classes.eventBtn}>
+      {/* <div className={classes.eventBtn}>
         <a target="__blank" href="http://luaturns2.luaswap.org/">
           <img src={eventIcon} style={{
             width: 200,
             borderRadius: 5,
           }} />
         </a>
-      </div>
+      </div> */}
       <Helmet>
         <title>{'Welcome to LuaSwap'}</title>
       </Helmet>
-      <div style={{ textAlign: 'center' }}>
+      {/* <div style={{ textAlign: 'center' }}>
         <a target="__blank" href="https://luaturns2.luaswap.org/">
           <img src={starterIcon} style={{
             marginTop: 20,
@@ -184,7 +184,7 @@ const Homepage = () => {
           }} />
         </a>
 
-      </div>
+      </div> */}
       <Box
         display="flex"
         justifyContent="space-between"
