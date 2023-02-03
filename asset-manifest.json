@@ -1,21 +1,22 @@
 {
   "files": {
     "main.css": "/static/css/main.a069fb17.chunk.css",
-    "main.js": "/static/js/main.e0f8c1d5.chunk.js",
+    "main.js": "/static/js/main.16a67738.chunk.js",
     "runtime-main.js": "/static/js/runtime-main.e484800a.js",
-    "static/js/2.8ed8a8a0.chunk.js": "/static/js/2.8ed8a8a0.chunk.js",
+    "static/js/2.8b3f620d.chunk.js": "/static/js/2.8b3f620d.chunk.js",
     "index.html": "/index.html",
-    "precache-manifest.35051f2fd510ef78234bae92d3e14218.js": "/precache-manifest.35051f2fd510ef78234bae92d3e14218.js",
+    "precache-manifest.e0c7b6f4e737a764121adbbe440ee89e.js": "/precache-manifest.e0c7b6f4e737a764121adbbe440ee89e.js",
     "service-worker.js": "/service-worker.js",
-    "static/js/2.8ed8a8a0.chunk.js.LICENSE.txt": "/static/js/2.8ed8a8a0.chunk.js.LICENSE.txt",
+    "static/js/2.8b3f620d.chunk.js.LICENSE.txt": "/static/js/2.8b3f620d.chunk.js.LICENSE.txt",
+    "static/media/avt-noti.png": "/static/media/avt-noti.3bfa07a7.png",
     "static/media/event-btn.png": "/static/media/event-btn.b1cdbcef.png",
     "static/media/logo.png": "/static/media/logo.d77b343b.png",
     "static/media/starter.jpg": "/static/media/starter.7ca83f67.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.e484800a.js",
-    "static/js/2.8ed8a8a0.chunk.js",
+    "static/js/2.8b3f620d.chunk.js",
     "static/css/main.a069fb17.chunk.css",
-    "static/js/main.e0f8c1d5.chunk.js"
+    "static/js/main.16a67738.chunk.js"
   ]
 }
