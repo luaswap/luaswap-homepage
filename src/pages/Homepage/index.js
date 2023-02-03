@@ -6,6 +6,7 @@ import liquidityIcon from '../../assets/images/liquidity.png'
 import volumeIcon from '../../assets/images/volume.png'
 import starterIcon from '../../assets/images/starter.jpg'
 import eventIcon from '../../assets/images/event-btn.png'
+import avtNotiIcon from '../../assets/images/avt-noti.png'
 import { reduceLongNumber, redirectToUrl } from '../../utils'
 import '../../'
 
@@ -131,10 +132,10 @@ const useStyles = makeStyles((theme) => ({
   },
 
   eventBtn: {
-    textAlign: 'center', 
-    position: 'absolute', 
-    bottom: '20px', 
-    right: '20px', 
+    textAlign: 'center',
+    position: 'absolute',
+    bottom: '20px',
+    right: '20px',
     transition: 'all 0.5s ease-in-out',
     '&:hover': {
       transform: 'scale(1.1)',
@@ -142,7 +143,7 @@ const useStyles = makeStyles((theme) => ({
     },
 
     [theme.breakpoints.down('sm')]: {
-      bottom: '120px', 
+      bottom: '120px',
     }
   }
 }))
@@ -150,6 +151,7 @@ const useStyles = makeStyles((theme) => ({
 const Homepage = () => {
   const [totalLiquidity, setTotalLiquidity] = useState(0)
   const [volume, setVolume] = useState(0)
+  const [showNoti, setShowNoti] = useState(true)
   const classes = useStyles()
 
   useEffect(() => {
@@ -162,7 +164,7 @@ const Homepage = () => {
   }, [])
 
   return (
-    <Box display="flex" flexDirection="column" minHeight="calc(100vh - 70px)" style={{position: 'relative', }}>
+    <Box display="flex" flexDirection="column" minHeight="calc(100vh - 70px)" style={{ position: 'relative', }}>
       {/* <div className={classes.eventBtn}>
         <a target="__blank" href="http://luaturns2.luaswap.org/">
           <img src={eventIcon} style={{
@@ -278,6 +280,63 @@ const Homepage = () => {
           {'Medium'}
         </Link>
       </Box>
+      {
+        showNoti && <Box style={{
+          width: '300px',
+          height: '80px',
+          background: 'white',
+          position: 'fixed',
+          bottom: '20px',
+          right: '20px',
+          borderRadius: '10px',
+          padding: '15px',
+          display: 'flex',
+        }}>
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            paddingRight: '15px',
+          }}>
+            <img
+              alt="Noti"
+              src={avtNotiIcon}
+              style={{
+                width: '50px',
+                height: '50px',
+                borderRadius: '4px'
+              }}
+            />
+          </div>
+          <div>
+            <div style={{
+              fontWeight: 'bold',
+              fontSize: '16px'
+            }}>
+              Debonair Cat NFTs
+            </div>
+
+            <div style={{
+              fontSize: '13px'
+            }}>
+              Debonair Cat NFTs will be claimable on <a style={{textDecoration: 'none', color: '#1ca9d9', fontWeight: 'bold'}} href='https://tezuka.io/' target='__blank'>Tezuka</a> for all <a style={{textDecoration: 'none', color: '#1ca9d9', fontWeight: 'bold'}} href='https://docs.google.com/spreadsheets/u/3/d/1FHW8VUrLln6Xbk27CQ5kNeEslVMEpPcEaMCNKxJu_N0/edit?usp=sharing' target='__blank'>whitelisted winners</a> and <a style={{textDecoration: 'none', color: '#1ca9d9', fontWeight: 'bold'}} href='https://docs.google.com/spreadsheets/d/183x1nfiWeCdxF_D75yuuLxDd8qLMMZQeeY76h9SISx4/edit#gid=0' target='__blank'>eligible LUA stakers</a>. Hurry up!
+            </div>
+          </div>
+          <div style={{
+            position: 'absolute',
+            top: '10px',
+            right: '10px',
+            width: '20px',
+            height: '20px',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            fontSize: '18px',
+            cursor: 'pointer'
+          }} onClick={() => setShowNoti(false)}>x</div>
+        </Box>
+      }
+
     </Box>
   )
 }
