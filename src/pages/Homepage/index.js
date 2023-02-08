@@ -291,7 +291,7 @@ const Homepage = () => {
           borderRadius: '10px',
           padding: '15px',
           display: 'flex',
-          zIndex: '10'
+          zIndex: 10
         }}>
           <div style={{
             display: 'flex',
