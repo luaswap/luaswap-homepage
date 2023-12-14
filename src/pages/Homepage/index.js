@@ -139,13 +139,13 @@ const useStyles = makeStyles((theme) => ({
     transition: 'all 0.5s ease-in-out',
     '&:hover': {
       transform: 'scale(1.1)',
-      transition: 'all 0.5s ease-in-out'
+      transition: 'all 0.5s ease-in-out',
     },
 
     [theme.breakpoints.down('sm')]: {
       bottom: '120px',
-    }
-  }
+    },
+  },
 }))
 
 const Homepage = () => {
@@ -164,7 +164,12 @@ const Homepage = () => {
   }, [])
 
   return (
-    <Box display="flex" flexDirection="column" minHeight="calc(100vh - 70px)" style={{ position: 'relative', }}>
+    <Box
+      display="flex"
+      flexDirection="column"
+      minHeight="calc(100vh - 70px)"
+      style={{ position: 'relative' }}
+    >
       {/* <div className={classes.eventBtn}>
         <a target="__blank" href="http://luaturns2.luaswap.org/">
           <img src={eventIcon} style={{
@@ -231,6 +236,20 @@ const Homepage = () => {
               </Typography>
             </Box>
           </Box>
+          <p style={{marginBottom: "20px"}}>
+            LuaSwap started as a community project to support TomoChain in its
+            early days. The project never raised money and its mission has
+            ended. Therefore, LuaSwap will stop all the services and close down
+            the operation on March 31, 2024. We hope all the best for Viction
+            and its ecosystem. Lua token can be converted 1 to 1 to Cha token of{' '}
+            <a href="https://cha.finance" target="_blank" style={{
+              color: "#6C7BFF"
+            }}>
+              Cha.finance
+            </a>{' '}
+            project Notes: You should withdraw all your fund from LuaSwap:
+            LuaSwap Pool, Lua Farming, Lua Starter
+          </p>
           <Box className={classes.mobileLaunchContainer}>
             <Button
               variant="contained"
@@ -280,64 +299,112 @@ const Homepage = () => {
           {'Medium'}
         </Link>
       </Box>
-      {
-        showNoti && <Box style={{
-          width: '300px',
-          height: '80px',
-          background: 'white',
-          position: 'fixed',
-          bottom: '20px',
-          right: '20px',
-          borderRadius: '10px',
-          padding: '15px',
-          display: 'flex',
-          zIndex: 10
-        }}>
-          <div style={{
+      {showNoti && (
+        <Box
+          style={{
+            width: '300px',
+            height: '80px',
+            background: 'white',
+            position: 'fixed',
+            bottom: '20px',
+            right: '20px',
+            borderRadius: '10px',
+            padding: '15px',
             display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            paddingRight: '15px',
-          }}>
+            zIndex: 10,
+          }}
+        >
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              paddingRight: '15px',
+            }}
+          >
             <img
               alt="Noti"
               src={avtNotiIcon}
               style={{
                 width: '50px',
                 height: '50px',
-                borderRadius: '4px'
+                borderRadius: '4px',
               }}
             />
           </div>
           <div>
-            <div style={{
-              fontWeight: 'bold',
-              fontSize: '16px'
-            }}>
+            <div
+              style={{
+                fontWeight: 'bold',
+                fontSize: '16px',
+              }}
+            >
               Debonair Cat NFTs
             </div>
 
-            <div style={{
-              fontSize: '13px'
-            }}>
-              Debonair Cat NFTs will be claimable on <a style={{textDecoration: 'none', color: '#1ca9d9', fontWeight: 'bold'}} href='https://tezuka.io/' target='__blank'>Tezuka</a> for all <a style={{textDecoration: 'none', color: '#1ca9d9', fontWeight: 'bold'}} href='https://docs.google.com/spreadsheets/u/3/d/1FHW8VUrLln6Xbk27CQ5kNeEslVMEpPcEaMCNKxJu_N0/edit?usp=sharing' target='__blank'>whitelisted winners</a> and <a style={{textDecoration: 'none', color: '#1ca9d9', fontWeight: 'bold'}} href='https://docs.google.com/spreadsheets/d/183x1nfiWeCdxF_D75yuuLxDd8qLMMZQeeY76h9SISx4/edit#gid=0' target='__blank'>eligible LUA stakers</a>. Hurry up!
+            <div
+              style={{
+                fontSize: '13px',
+              }}
+            >
+              Debonair Cat NFTs will be claimable on{' '}
+              <a
+                style={{
+                  textDecoration: 'none',
+                  color: '#1ca9d9',
+                  fontWeight: 'bold',
+                }}
+                href="https://tezuka.io/"
+                target="__blank"
+              >
+                Tezuka
+              </a>{' '}
+              for all{' '}
+              <a
+                style={{
+                  textDecoration: 'none',
+                  color: '#1ca9d9',
+                  fontWeight: 'bold',
+                }}
+                href="https://docs.google.com/spreadsheets/u/3/d/1FHW8VUrLln6Xbk27CQ5kNeEslVMEpPcEaMCNKxJu_N0/edit?usp=sharing"
+                target="__blank"
+              >
+                whitelisted winners
+              </a>{' '}
+              and{' '}
+              <a
+                style={{
+                  textDecoration: 'none',
+                  color: '#1ca9d9',
+                  fontWeight: 'bold',
+                }}
+                href="https://docs.google.com/spreadsheets/d/183x1nfiWeCdxF_D75yuuLxDd8qLMMZQeeY76h9SISx4/edit#gid=0"
+                target="__blank"
+              >
+                eligible LUA stakers
+              </a>
+              . Hurry up!
             </div>
           </div>
-          <div style={{
-            position: 'absolute',
-            top: '10px',
-            right: '10px',
-            width: '20px',
-            height: '20px',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            fontSize: '18px',
-            cursor: 'pointer'
-          }} onClick={() => setShowNoti(false)}>x</div>
+          <div
+            style={{
+              position: 'absolute',
+              top: '10px',
+              right: '10px',
+              width: '20px',
+              height: '20px',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              fontSize: '18px',
+              cursor: 'pointer',
+            }}
+            onClick={() => setShowNoti(false)}
+          >
+            x
+          </div>
         </Box>
-      }
-
+      )}
     </Box>
   )
 }
